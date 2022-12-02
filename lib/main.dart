@@ -89,10 +89,22 @@ class TermsScreen extends StatelessWidget {
               ListView(
                 shrinkWrap: true,
                 padding: const EdgeInsets.all(25.0),
-                children: const <Widget>[
-                  Text("Allegro: A brisk and lively tempo"),
-                  Text('Chord: A set of notes played simultaneously'),
-                  Text('Scale: A sequence of notes ordered by pitch'),
+                children: <Widget>[
+                  const Text("Allegro: A brisk and lively tempo"),
+                  const Text('Chord: A set of notes played simultaneously'),
+                  const Text('Scale: A sequence of notes ordered by pitch'),
+                  const SizedBox(height: 30),
+                  ElevatedButton(
+                    style: style,
+                    onPressed: () {Navigator.pushNamed(context, '/listen');},
+                    child: const Text('Listen'),
+                  ),
+                  const SizedBox(height: 30),
+                  ElevatedButton(
+                    style: style,
+                    onPressed: () {Navigator.pushNamed(context, '/composers');},
+                    child: const Text('Composers'),
+                  ),
                 ],
               )
             ],
@@ -115,8 +127,20 @@ class ComposersScreen extends StatelessWidget {
         body: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
-            children: const <Widget>[
-              Text('ComposerInformationHere')
+            children: <Widget>[
+              const Text('ComposerInformationHere'),
+              const SizedBox(height: 30),
+              ElevatedButton(
+                style: style,
+                onPressed: () {Navigator.pushNamed(context, '/terms');},
+                child: const Text('Terms'),
+              ),
+              const SizedBox(height: 30),
+              ElevatedButton(
+                style: style,
+                onPressed: () {Navigator.pushNamed(context, '/works');},
+                child: const Text('Works'),
+              ),
             ],
           ),
         )
@@ -137,8 +161,24 @@ class WorksScreen extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          children: const <Widget>[
-            Text('ExampleWorksInformationHere')
+          children: <Widget>[
+            ElevatedButton(
+              style: style,
+              onPressed: () {},
+              child: const Text('Classical Works (Not Implemented)'),
+            ),
+            const SizedBox(height: 30),
+            ElevatedButton(
+              style: style,
+              onPressed: () {Navigator.pushNamed(context, '/composers');},
+              child: const Text('Composers'),
+            ),
+            const SizedBox(height: 30),
+            ElevatedButton(
+              style: style,
+              onPressed: () {Navigator.pushNamed(context, '/quizzes');},
+              child: const Text('Quizzes'),
+            ),
           ],
         ),
       )
@@ -165,6 +205,18 @@ class QuizzesScreen extends StatelessWidget {
                 onPressed: () {},
                 child: const Text('Sample Quiz (Not Implemented)'),
               ),
+              const SizedBox(height: 30),
+              ElevatedButton(
+                style: style,
+                onPressed: () {Navigator.pushNamed(context, '/works');},
+                child: const Text('Works'),
+              ),
+              const SizedBox(height: 30),
+              ElevatedButton(
+                style: style,
+                onPressed: () {Navigator.pushNamed(context, '/listen');},
+                child: const Text('Listen'),
+              ),
             ],
           ),
         )
@@ -190,10 +242,21 @@ class ListenScreen extends StatelessWidget {
                 onPressed: () {},
                 child: const Text('Sample Song (Not Implemented)'),
               ),
+              const SizedBox(height: 30),
+              ElevatedButton(
+                style: style,
+                onPressed: () {Navigator.pushNamed(context, '/quizzes');},
+                child: const Text('Quizzes'),
+              ),
+              const SizedBox(height: 30),
+              ElevatedButton(
+                style: style,
+                onPressed: () {Navigator.pushNamed(context, '/terms');},
+                child: const Text('Terms'),
+              ),
             ],
           ),
         )
     );
   }
 }
-
