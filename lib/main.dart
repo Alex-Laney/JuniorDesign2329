@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(
     MaterialApp(
-      title: 'Named Routes Demo',
+      title: 'Artifact',
       // Start the app with the "/" named route. In this case, the app starts
       // on the FirstScreen widget.
       initialRoute: '/',
@@ -11,10 +11,12 @@ void main() {
         // "/" route means main screen
         '/': (context) => const MainScreen(),
         // When navigating to the "/first" route, build the FirstScreen widget.
-        '/first': (context) => const FirstScreen(),
+        '/terms': (context) => const TermsScreen(),
         // When navigating to the "/second" route, build the SecondScreen widget.
-        '/second': (context) => const SecondScreen(),
-        '/third': (context) => const ThirdScreen(),
+        '/composers': (context) => const ComposersScreen(),
+        '/works': (context) => const WorksScreen(),
+        '/quizzes': (context) => const QuizzesScreen(),
+        '/listen': (context) => const ListenScreen(),
       },
     ),
   );
@@ -25,98 +27,10 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Main Screen'),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          // Within the SecondScreen widget
-          onPressed: () {
-            // Navigate back to the first screen by popping the current route
-            // off the stack.
-            Navigator.pushNamed(context, '/first');
-          },
-          child: const Text('Go to First'),
-        ),
-      ),
-    );
-  }
-}
-
-class FirstScreen extends StatelessWidget {
-  const FirstScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final ButtonStyle style = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('First Screen'),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              ElevatedButton(
-                style: style,
-                onPressed: () {Navigator.pushNamed(context, '/second');},
-                child: const Text('Go to Second'),
-              ),
-              const SizedBox(height: 30),
-              ElevatedButton(
-                style: style,
-                onPressed: () {Navigator.pushNamed(context, '/third');},
-                child: const Text('Go to Third'),
-              ),
-            ],
-          ),
-        )
-    );
-  }
-}
-
-class SecondScreen extends StatelessWidget {
-  const SecondScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final ButtonStyle style = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('Second Screen'),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              ElevatedButton(
-                style: style,
-                onPressed: () {Navigator.pushNamed(context, '/third');},
-                child: const Text('Go to Third'),
-              ),
-              const SizedBox(height: 30),
-              ElevatedButton(
-                style: style,
-                onPressed: () {Navigator.pushNamed(context, '/first');},
-                child: const Text('Go to First'),
-              ),
-            ],
-          ),
-        )
-    );
-  }
-}
-
-class ThirdScreen extends StatelessWidget {
-  const ThirdScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
     final ButtonStyle style = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Third Screen'),
+        title: const Text('Home Page'),
       ),
       body: Center(
         child: Column(
@@ -124,18 +38,161 @@ class ThirdScreen extends StatelessWidget {
           children: <Widget>[
             ElevatedButton(
               style: style,
-              onPressed: () {Navigator.pushNamed(context, '/first');},
-              child: const Text('Go to First'),
+              onPressed: () {Navigator.pushNamed(context, '/terms');},
+              child: const Text('Terms'),
             ),
             const SizedBox(height: 30),
             ElevatedButton(
               style: style,
-              onPressed: () {Navigator.pushNamed(context, '/second');},
-              child: const Text('Go to Second'),
+              onPressed: () {Navigator.pushNamed(context, '/composers');},
+              child: const Text('Composers'),
+            ),
+            const SizedBox(height: 30),
+            ElevatedButton(
+              style: style,
+              onPressed: () {Navigator.pushNamed(context, '/works');},
+              child: const Text('Works'),
+            ),
+            const SizedBox(height: 30),
+            ElevatedButton(
+              style: style,
+              onPressed: () {Navigator.pushNamed(context, '/quizzes');},
+              child: const Text('Quizzes'),
+            ),
+            const SizedBox(height: 30),
+            ElevatedButton(
+              style: style,
+              onPressed: () {Navigator.pushNamed(context, '/listen');},
+              child: const Text('Listen'),
             ),
           ],
         ),
       )
+    );
+  }
+}
+
+class TermsScreen extends StatelessWidget {
+  const TermsScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final ButtonStyle style = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Musical Terms'),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              ListView(
+                shrinkWrap: true,
+                padding: const EdgeInsets.all(25.0),
+                children: const <Widget>[
+                  Text("Allegro: A brisk and lively tempo"),
+                  Text('Chord: A set of notes played simultaneously'),
+                  Text('Scale: A sequence of notes ordered by pitch'),
+                ],
+              )
+            ],
+          ),
+        )
+    );
+  }
+}
+
+class ComposersScreen extends StatelessWidget {
+  const ComposersScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final ButtonStyle style = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Composers'),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: const <Widget>[
+              Text('ComposerInformationHere')
+            ],
+          ),
+        )
+    );
+  }
+}
+
+class WorksScreen extends StatelessWidget {
+  const WorksScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final ButtonStyle style = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Classical Works'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: const <Widget>[
+            Text('ExampleWorksInformationHere')
+          ],
+        ),
+      )
+    );
+  }
+}
+
+class QuizzesScreen extends StatelessWidget {
+  const QuizzesScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final ButtonStyle style = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Quizzes'),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              ElevatedButton(
+                style: style,
+                onPressed: () {},
+                child: const Text('Sample Quiz (Not Implemented)'),
+              ),
+            ],
+          ),
+        )
+    );
+  }
+}
+class ListenScreen extends StatelessWidget {
+  const ListenScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final ButtonStyle style = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Listen'),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              ElevatedButton(
+                style: style,
+                onPressed: () {},
+                child: const Text('Sample Song (Not Implemented)'),
+              ),
+            ],
+          ),
+        )
     );
   }
 }
