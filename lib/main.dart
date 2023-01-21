@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '/Musical-Terms/Musical-Terms.dart';
+import '/Composers/Composers.dart';
 
 void main() {
   runApp(
@@ -72,81 +74,7 @@ class MainScreen extends StatelessWidget {
   }
 }
 
-class TermsScreen extends StatelessWidget {
-  const TermsScreen({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    final ButtonStyle style = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('Musical Terms'),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              ListView(
-                shrinkWrap: true,
-                padding: const EdgeInsets.all(25.0),
-                children: <Widget>[
-                  const Text("Allegro: A brisk and lively tempo"),
-                  const Text('Chord: A set of notes played simultaneously'),
-                  const Text('Scale: A sequence of notes ordered by pitch'),
-                  const SizedBox(height: 30),
-                  ElevatedButton(
-                    style: style,
-                    onPressed: () {Navigator.pushNamed(context, '/listen');},
-                    child: const Text('Listen'),
-                  ),
-                  const SizedBox(height: 30),
-                  ElevatedButton(
-                    style: style,
-                    onPressed: () {Navigator.pushNamed(context, '/composers');},
-                    child: const Text('Composers'),
-                  ),
-                ],
-              )
-            ],
-          ),
-        )
-    );
-  }
-}
-
-class ComposersScreen extends StatelessWidget {
-  const ComposersScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final ButtonStyle style = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('Composers'),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              const Text('ComposerInformationHere'),
-              const SizedBox(height: 30),
-              ElevatedButton(
-                style: style,
-                onPressed: () {Navigator.pushNamed(context, '/terms');},
-                child: const Text('Terms'),
-              ),
-              const SizedBox(height: 30),
-              ElevatedButton(
-                style: style,
-                onPressed: () {Navigator.pushNamed(context, '/works');},
-                child: const Text('Works'),
-              ),
-            ],
-          ),
-        )
-    );
-  }
-}
 
 class WorksScreen extends StatelessWidget {
   const WorksScreen({super.key});
@@ -161,24 +89,8 @@ class WorksScreen extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            ElevatedButton(
-              style: style,
-              onPressed: () {},
-              child: const Text('Classical Works (Not Implemented)'),
-            ),
-            const SizedBox(height: 30),
-            ElevatedButton(
-              style: style,
-              onPressed: () {Navigator.pushNamed(context, '/composers');},
-              child: const Text('Composers'),
-            ),
-            const SizedBox(height: 30),
-            ElevatedButton(
-              style: style,
-              onPressed: () {Navigator.pushNamed(context, '/quizzes');},
-              child: const Text('Quizzes'),
-            ),
+          children: const <Widget>[
+            Text('ExampleWorksInformationHere')
           ],
         ),
       )
@@ -205,18 +117,6 @@ class QuizzesScreen extends StatelessWidget {
                 onPressed: () {},
                 child: const Text('Sample Quiz (Not Implemented)'),
               ),
-              const SizedBox(height: 30),
-              ElevatedButton(
-                style: style,
-                onPressed: () {Navigator.pushNamed(context, '/works');},
-                child: const Text('Works'),
-              ),
-              const SizedBox(height: 30),
-              ElevatedButton(
-                style: style,
-                onPressed: () {Navigator.pushNamed(context, '/listen');},
-                child: const Text('Listen'),
-              ),
             ],
           ),
         )
@@ -242,21 +142,10 @@ class ListenScreen extends StatelessWidget {
                 onPressed: () {},
                 child: const Text('Sample Song (Not Implemented)'),
               ),
-              const SizedBox(height: 30),
-              ElevatedButton(
-                style: style,
-                onPressed: () {Navigator.pushNamed(context, '/quizzes');},
-                child: const Text('Quizzes'),
-              ),
-              const SizedBox(height: 30),
-              ElevatedButton(
-                style: style,
-                onPressed: () {Navigator.pushNamed(context, '/terms');},
-                child: const Text('Terms'),
-              ),
             ],
           ),
         )
     );
   }
 }
+
