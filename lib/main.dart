@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '/Musical-Terms/Musical-Terms.dart';
+import '/Composers/Composers.dart';
 
 void main() {
   runApp(
@@ -72,57 +74,7 @@ class MainScreen extends StatelessWidget {
   }
 }
 
-class TermsScreen extends StatelessWidget {
-  const TermsScreen({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    final ButtonStyle style = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('Musical Terms'),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              ListView(
-                shrinkWrap: true,
-                padding: const EdgeInsets.all(25.0),
-                children: const <Widget>[
-                  Text("Allegro: A brisk and lively tempo"),
-                  Text('Chord: A set of notes played simultaneously'),
-                  Text('Scale: A sequence of notes ordered by pitch'),
-                ],
-              )
-            ],
-          ),
-        )
-    );
-  }
-}
-
-class ComposersScreen extends StatelessWidget {
-  const ComposersScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final ButtonStyle style = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('Composers'),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: const <Widget>[
-              Text('ComposerInformationHere')
-            ],
-          ),
-        )
-    );
-  }
-}
 
 class WorksScreen extends StatelessWidget {
   const WorksScreen({super.key});
