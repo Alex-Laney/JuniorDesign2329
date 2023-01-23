@@ -3,6 +3,7 @@ import '/Musical-Terms/Musical-Terms.dart';
 import '/Composers/Composers.dart';
 import '/Musical-Works/Musical-Works.dart';
 import '/Quizzes/Quizzes.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 void main() {
   runApp(
@@ -82,7 +83,20 @@ class MainScreen extends StatelessWidget {
               ),
             ],
           ),
-        ));
+        ),
+        floatingActionButtonLocation:
+          FloatingActionButtonLocation.endFloat,
+      floatingActionButton: Container(
+        height: 50,
+        margin: const EdgeInsets.all(10),
+        child: ElevatedButton(
+          onPressed: () {},
+          child: const Center(
+            child: Text('Hello'),
+        ),
+        )
+      ),
+    );
   }
 }
 
