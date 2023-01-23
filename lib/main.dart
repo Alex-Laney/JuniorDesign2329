@@ -29,72 +29,116 @@ void main() {
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
+  // Globally changes the strength/contrast of a color for an icon
+  final int iconColor = 100;
 
   @override
   Widget build(BuildContext context) {
     final ButtonStyle style =
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Home Page'),
+      appBar: AppBar(
+        title: const Text('Home Page'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            ElevatedButton(
+              style: style,
+              onPressed: () {
+                Navigator.pushNamed(context, '/terms');
+              },
+              child: const Text('Terms'),
+            ),
+            const SizedBox(height: 30),
+            ElevatedButton(
+              style: style,
+              onPressed: () {
+                Navigator.pushNamed(context, '/composers');
+              },
+              child: const Text('Composers'),
+            ),
+            const SizedBox(height: 30),
+            ElevatedButton(
+              style: style,
+              onPressed: () {
+                Navigator.pushNamed(context, '/works');
+              },
+              child: const Text('Works'),
+            ),
+            const SizedBox(height: 30),
+            ElevatedButton(
+              style: style,
+              onPressed: () {
+                Navigator.pushNamed(context, '/quizzes');
+              },
+              child: const Text('Quizzes'),
+            ),
+            const SizedBox(height: 30),
+            ElevatedButton(
+              style: style,
+              onPressed: () {
+                Navigator.pushNamed(context, '/listen');
+              },
+              child: const Text('Listen'),
+            ),
+            Expanded(
+                child: Align(
+                    alignment: Alignment.bottomRight,
+                    child: SpeedDial(
+                      animatedIcon: AnimatedIcons.menu_close,
+                      animatedIconTheme: const IconThemeData(size: 28.0),
+                      backgroundColor: Colors.grey,
+                      visible: true,
+                      curve: Curves.bounceInOut,
+
+                      children: [
+                        SpeedDialChild(
+                          child: const Icon(Icons.chrome_reader_mode,
+                              color: Colors.black),
+                          backgroundColor: Colors.red[iconColor],
+                          onTap: () => Navigator.pushNamed(context, '/terms'),
+                          label: 'Musical Terms',
+                          labelStyle: const TextStyle(
+                              fontWeight: FontWeight.w500, color: Colors.white),
+                          labelBackgroundColor: Colors.black,
+                        ),
+                        SpeedDialChild(
+                          child: const Icon(Icons.chrome_reader_mode,
+                              color: Colors.black),
+                          backgroundColor: Colors.green[iconColor],
+                          onTap: () => Navigator.pushNamed(context, '/quizzes'),
+                          label: 'Quizzes',
+                          labelStyle: const TextStyle(
+                              fontWeight: FontWeight.w500, color: Colors.white),
+                          labelBackgroundColor: Colors.black,
+                        ),
+                        SpeedDialChild(
+                          child: const Icon(Icons.chrome_reader_mode,
+                              color: Colors.black),
+                          backgroundColor: Colors.blue[iconColor],
+                          onTap: () => Navigator.pushNamed(context, '/works'),
+                          label: 'Music',
+                          labelStyle: const TextStyle(
+                              fontWeight: FontWeight.w500, color: Colors.white),
+                          labelBackgroundColor: Colors.black,
+                        ),
+                        SpeedDialChild(
+                          child: const Icon(Icons.chrome_reader_mode,
+                              color: Colors.black),
+                          backgroundColor: Colors.yellow[iconColor],
+                          onTap: () =>
+                              Navigator.pushNamed(context, '/composers'),
+                          label: 'Composers',
+                          labelStyle: const TextStyle(
+                              fontWeight: FontWeight.w500, color: Colors.white),
+                          labelBackgroundColor: Colors.black,
+                        ),
+                      ],
+                    ))),
+          ],
         ),
-        body: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              ElevatedButton(
-                style: style,
-                onPressed: () {
-                  Navigator.pushNamed(context, '/terms');
-                },
-                child: const Text('Terms'),
-              ),
-              const SizedBox(height: 30),
-              ElevatedButton(
-                style: style,
-                onPressed: () {
-                  Navigator.pushNamed(context, '/composers');
-                },
-                child: const Text('Composers'),
-              ),
-              const SizedBox(height: 30),
-              ElevatedButton(
-                style: style,
-                onPressed: () {
-                  Navigator.pushNamed(context, '/works');
-                },
-                child: const Text('Works'),
-              ),
-              const SizedBox(height: 30),
-              ElevatedButton(
-                style: style,
-                onPressed: () {
-                  Navigator.pushNamed(context, '/quizzes');
-                },
-                child: const Text('Quizzes'),
-              ),
-              const SizedBox(height: 30),
-              ElevatedButton(
-                style: style,
-                onPressed: () {
-                  Navigator.pushNamed(context, '/listen');
-                },
-                child: const Text('Listen'),
-              ),
-            ],
-          ),
-        ),
-        floatingActionButtonLocation:
-          FloatingActionButtonLocation.endFloat,
-      floatingActionButton: Container(
-        height: 50,
-        margin: const EdgeInsets.all(10),
-        child: ElevatedButton(
-          onPressed: () {},
-          child: const Center(
-            child: Text('Hello'),
-        ),
-        )
       ),
     );
   }
