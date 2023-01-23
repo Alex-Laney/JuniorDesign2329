@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '/Musical-Terms/Musical-Terms.dart';
 import '/Composers/Composers.dart';
+import '/Musical-Works/Musical-Works.dart';
+import '/Quizzes/Quizzes.dart';
 
 void main() {
   runApp(
@@ -29,84 +31,11 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle style = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home Page'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            ElevatedButton(
-              style: style,
-              onPressed: () {Navigator.pushNamed(context, '/terms');},
-              child: const Text('Terms'),
-            ),
-            const SizedBox(height: 30),
-            ElevatedButton(
-              style: style,
-              onPressed: () {Navigator.pushNamed(context, '/composers');},
-              child: const Text('Composers'),
-            ),
-            const SizedBox(height: 30),
-            ElevatedButton(
-              style: style,
-              onPressed: () {Navigator.pushNamed(context, '/works');},
-              child: const Text('Works'),
-            ),
-            const SizedBox(height: 30),
-            ElevatedButton(
-              style: style,
-              onPressed: () {Navigator.pushNamed(context, '/quizzes');},
-              child: const Text('Quizzes'),
-            ),
-            const SizedBox(height: 30),
-            ElevatedButton(
-              style: style,
-              onPressed: () {Navigator.pushNamed(context, '/listen');},
-              child: const Text('Listen'),
-            ),
-          ],
-        ),
-      )
-    );
-  }
-}
-
-
-
-class WorksScreen extends StatelessWidget {
-  const WorksScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final ButtonStyle style = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Classical Works'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: const <Widget>[
-            Text('ExampleWorksInformationHere')
-          ],
-        ),
-      )
-    );
-  }
-}
-
-class QuizzesScreen extends StatelessWidget {
-  const QuizzesScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final ButtonStyle style = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+    final ButtonStyle style =
+        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Quizzes'),
+          title: const Text('Home Page'),
         ),
         body: Center(
           child: Column(
@@ -114,21 +43,56 @@ class QuizzesScreen extends StatelessWidget {
             children: <Widget>[
               ElevatedButton(
                 style: style,
-                onPressed: () {},
-                child: const Text('Sample Quiz (Not Implemented)'),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/terms');
+                },
+                child: const Text('Terms'),
+              ),
+              const SizedBox(height: 30),
+              ElevatedButton(
+                style: style,
+                onPressed: () {
+                  Navigator.pushNamed(context, '/composers');
+                },
+                child: const Text('Composers'),
+              ),
+              const SizedBox(height: 30),
+              ElevatedButton(
+                style: style,
+                onPressed: () {
+                  Navigator.pushNamed(context, '/works');
+                },
+                child: const Text('Works'),
+              ),
+              const SizedBox(height: 30),
+              ElevatedButton(
+                style: style,
+                onPressed: () {
+                  Navigator.pushNamed(context, '/quizzes');
+                },
+                child: const Text('Quizzes'),
+              ),
+              const SizedBox(height: 30),
+              ElevatedButton(
+                style: style,
+                onPressed: () {
+                  Navigator.pushNamed(context, '/listen');
+                },
+                child: const Text('Listen'),
               ),
             ],
           ),
-        )
-    );
+        ));
   }
 }
+
 class ListenScreen extends StatelessWidget {
   const ListenScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle style = ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+    final ButtonStyle style =
+        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
     return Scaffold(
         appBar: AppBar(
           title: const Text('Listen'),
@@ -144,8 +108,6 @@ class ListenScreen extends StatelessWidget {
               ),
             ],
           ),
-        )
-    );
+        ));
   }
 }
-
