@@ -37,7 +37,8 @@ class MainScreen extends StatelessWidget {
     final ButtonStyle style =
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
 
-    SpeedDial buildSpeedDialMainMenu() {
+    // Builds the speed dial menu when called for selecting the modules
+    SpeedDial buildModuleMainMenuDial() {
       return SpeedDial(
         animatedIcon: AnimatedIcons.menu_close,
         animatedIconTheme: const IconThemeData(size: 20.0),
@@ -83,13 +84,15 @@ class MainScreen extends StatelessWidget {
       );
     }
 
+    // TODO: Create a bottom row for the Settings button and Module button
     Widget buildBottomButtonMainMenuSection = Row(
+      mainAxisSize: MainAxisSize.max,
       children: [
         Expanded(
           child: Container(
-            alignment: Alignment.bottomRight,
+              alignment: Alignment.bottomRight,
               padding: const EdgeInsets.all(10.0),
-              child: buildSpeedDialMainMenu()),
+              child: buildModuleMainMenuDial()),
         ),
       ],
     );
@@ -141,6 +144,8 @@ class MainScreen extends StatelessWidget {
               },
               child: const Text('Listen'),
             ),
+
+            //TODO: Add a separate row for settings and module selector dial
             buildBottomButtonMainMenuSection
           ],
         ),
