@@ -41,7 +41,7 @@ class MainScreen extends StatelessWidget {
       return SpeedDial(
         animatedIcon: AnimatedIcons.menu_close,
         animatedIconTheme: const IconThemeData(size: 20.0),
-        label: const Text('Jump To'),
+        label: const Text('Jump Ahead'),
         children: [
           SpeedDialChild(
             child: const Icon(Icons.book, color: Colors.black),
