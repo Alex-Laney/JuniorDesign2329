@@ -95,7 +95,7 @@ class MainScreen extends StatelessWidget {
 
                       children: [
                         SpeedDialChild(
-                          child: const Icon(Icons.chrome_reader_mode,
+                          child: const Icon(Icons.book,
                               color: Colors.black),
                           backgroundColor: Colors.red[iconColor],
                           onTap: () => Navigator.pushNamed(context, '/terms'),
@@ -105,7 +105,7 @@ class MainScreen extends StatelessWidget {
                           labelBackgroundColor: Colors.black,
                         ),
                         SpeedDialChild(
-                          child: const Icon(Icons.chrome_reader_mode,
+                          child: const Icon(Icons.quiz,
                               color: Colors.black),
                           backgroundColor: Colors.green[iconColor],
                           onTap: () => Navigator.pushNamed(context, '/quizzes'),
@@ -115,7 +115,7 @@ class MainScreen extends StatelessWidget {
                           labelBackgroundColor: Colors.black,
                         ),
                         SpeedDialChild(
-                          child: const Icon(Icons.chrome_reader_mode,
+                          child: const Icon(Icons.music_note,
                               color: Colors.black),
                           backgroundColor: Colors.blue[iconColor],
                           onTap: () => Navigator.pushNamed(context, '/works'),
@@ -125,7 +125,7 @@ class MainScreen extends StatelessWidget {
                           labelBackgroundColor: Colors.black,
                         ),
                         SpeedDialChild(
-                          child: const Icon(Icons.chrome_reader_mode,
+                          child: const Icon(Icons.person,
                               color: Colors.black),
                           backgroundColor: Colors.yellow[iconColor],
                           onTap: () =>
