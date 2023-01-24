@@ -36,6 +36,64 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final ButtonStyle style =
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+
+    SpeedDial buildSpeedDialMainMenu() {
+      return SpeedDial(
+        animatedIcon: AnimatedIcons.menu_close,
+        animatedIconTheme: const IconThemeData(size: 20.0),
+        label: const Text('Jump To'),
+        children: [
+          SpeedDialChild(
+            child: const Icon(Icons.book, color: Colors.black),
+            backgroundColor: Colors.red[iconColor],
+            onTap: () => Navigator.pushNamed(context, '/terms'),
+            label: 'Musical Terms',
+            labelStyle: const TextStyle(
+                fontWeight: FontWeight.w500, color: Colors.white),
+            labelBackgroundColor: Colors.black,
+          ),
+          SpeedDialChild(
+            child: const Icon(Icons.quiz, color: Colors.black),
+            backgroundColor: Colors.green[iconColor],
+            onTap: () => Navigator.pushNamed(context, '/quizzes'),
+            label: 'Quizzes',
+            labelStyle: const TextStyle(
+                fontWeight: FontWeight.w500, color: Colors.white),
+            labelBackgroundColor: Colors.black,
+          ),
+          SpeedDialChild(
+            child: const Icon(Icons.music_note, color: Colors.black),
+            backgroundColor: Colors.blue[iconColor],
+            onTap: () => Navigator.pushNamed(context, '/works'),
+            label: 'Music',
+            labelStyle: const TextStyle(
+                fontWeight: FontWeight.w500, color: Colors.white),
+            labelBackgroundColor: Colors.black,
+          ),
+          SpeedDialChild(
+            child: const Icon(Icons.person, color: Colors.black),
+            backgroundColor: Colors.yellow[iconColor],
+            onTap: () => Navigator.pushNamed(context, '/composers'),
+            label: 'Composers',
+            labelStyle: const TextStyle(
+                fontWeight: FontWeight.w500, color: Colors.white),
+            labelBackgroundColor: Colors.black,
+          ),
+        ],
+      );
+    }
+
+    Widget buildBottomButtonMainMenuSection = Row(
+      children: [
+        Expanded(
+          child: Container(
+            alignment: Alignment.bottomRight,
+              padding: const EdgeInsets.all(10.0),
+              child: buildSpeedDialMainMenu()),
+        ),
+      ],
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home Page'),
@@ -83,60 +141,7 @@ class MainScreen extends StatelessWidget {
               },
               child: const Text('Listen'),
             ),
-            Expanded(
-                child: Align(
-                    alignment: Alignment.bottomRight,
-                    child: SpeedDial(
-                      animatedIcon: AnimatedIcons.menu_close,
-                      animatedIconTheme: const IconThemeData(size: 28.0),
-                      backgroundColor: Colors.grey,
-                      visible: true,
-                      curve: Curves.bounceInOut,
-
-                      children: [
-                        SpeedDialChild(
-                          child: const Icon(Icons.book,
-                              color: Colors.black),
-                          backgroundColor: Colors.red[iconColor],
-                          onTap: () => Navigator.pushNamed(context, '/terms'),
-                          label: 'Musical Terms',
-                          labelStyle: const TextStyle(
-                              fontWeight: FontWeight.w500, color: Colors.white),
-                          labelBackgroundColor: Colors.black,
-                        ),
-                        SpeedDialChild(
-                          child: const Icon(Icons.quiz,
-                              color: Colors.black),
-                          backgroundColor: Colors.green[iconColor],
-                          onTap: () => Navigator.pushNamed(context, '/quizzes'),
-                          label: 'Quizzes',
-                          labelStyle: const TextStyle(
-                              fontWeight: FontWeight.w500, color: Colors.white),
-                          labelBackgroundColor: Colors.black,
-                        ),
-                        SpeedDialChild(
-                          child: const Icon(Icons.music_note,
-                              color: Colors.black),
-                          backgroundColor: Colors.blue[iconColor],
-                          onTap: () => Navigator.pushNamed(context, '/works'),
-                          label: 'Music',
-                          labelStyle: const TextStyle(
-                              fontWeight: FontWeight.w500, color: Colors.white),
-                          labelBackgroundColor: Colors.black,
-                        ),
-                        SpeedDialChild(
-                          child: const Icon(Icons.person,
-                              color: Colors.black),
-                          backgroundColor: Colors.yellow[iconColor],
-                          onTap: () =>
-                              Navigator.pushNamed(context, '/composers'),
-                          label: 'Composers',
-                          labelStyle: const TextStyle(
-                              fontWeight: FontWeight.w500, color: Colors.white),
-                          labelBackgroundColor: Colors.black,
-                        ),
-                      ],
-                    ))),
+            buildBottomButtonMainMenuSection
           ],
         ),
       ),
