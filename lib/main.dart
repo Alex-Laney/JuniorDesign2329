@@ -4,6 +4,7 @@ import '/Composers/Composers.dart';
 import '/Musical-Works/Musical-Works.dart';
 import '/Quizzes/Quizzes.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:circular_menu/circular_menu.dart';
 
 void main() {
   runApp(
@@ -41,7 +42,7 @@ class MainScreen extends StatelessWidget {
       return SpeedDial(
         animatedIcon: AnimatedIcons.menu_close,
         animatedIconTheme: const IconThemeData(size: 20.0),
-        label: const Text('Jump Ahead'),
+        // label: const Text('Jump Ahead'),
         children: [
           SpeedDialChild(
             child: const Icon(Icons.book, color: Colors.black),
@@ -83,11 +84,34 @@ class MainScreen extends StatelessWidget {
       );
     }
 
+    CircularMenu buildCircularDialMainMenu() {
+      return CircularMenu(
+        items: [
+          CircularMenuItem(
+            icon: Icons.person,
+            onTap: () => Navigator.pushNamed(context, '/composers'),
+          ),
+          CircularMenuItem(
+            icon: Icons.music_note,
+            onTap: () => Navigator.pushNamed(context, '/works'),
+          ),
+          CircularMenuItem(
+            icon: Icons.quiz,
+            onTap: () => Navigator.pushNamed(context, '/quizzes'),
+          ),
+          CircularMenuItem(
+            icon: Icons.book,
+            onTap: () => Navigator.pushNamed(context, '/terms'),
+          ),
+        ],
+      );
+    }
+
     Widget buildBottomButtonMainMenuSection = Row(
       children: [
         Expanded(
           child: Container(
-            alignment: Alignment.bottomRight,
+              alignment: Alignment.bottomRight,
               padding: const EdgeInsets.all(10.0),
               child: buildSpeedDialMainMenu()),
         ),
@@ -141,7 +165,23 @@ class MainScreen extends StatelessWidget {
               },
               child: const Text('Listen'),
             ),
-            buildBottomButtonMainMenuSection
+          ],
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: buildCircularDialMainMenu(),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.home, color: Colors.black45),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.settings, color: Colors.black45),
+            ),
           ],
         ),
       ),
