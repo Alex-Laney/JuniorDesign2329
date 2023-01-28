@@ -32,58 +32,13 @@ void main() {
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
   // Globally changes the strength/contrast of a color for an icon
-  final int iconColor = 100;
+  final int iconColor = 300;
 
   @override
   Widget build(BuildContext context) {
     final ButtonStyle style =
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
 
-    SpeedDial buildSpeedDialMainMenu() {
-      return SpeedDial(
-        animatedIcon: AnimatedIcons.menu_close,
-        animatedIconTheme: const IconThemeData(size: 20.0),
-        // label: const Text('Jump Ahead'),
-        children: [
-          SpeedDialChild(
-            child: const Icon(Icons.book, color: Colors.black),
-            backgroundColor: Colors.red[iconColor],
-            onTap: () => Navigator.pushNamed(context, '/terms'),
-            label: 'Musical Terms',
-            labelStyle: const TextStyle(
-                fontWeight: FontWeight.w500, color: Colors.white),
-            labelBackgroundColor: Colors.black,
-          ),
-          SpeedDialChild(
-            child: const Icon(Icons.quiz, color: Colors.black),
-            backgroundColor: Colors.green[iconColor],
-            onTap: () => Navigator.pushNamed(context, '/quizzes'),
-            label: 'Quizzes',
-            labelStyle: const TextStyle(
-                fontWeight: FontWeight.w500, color: Colors.white),
-            labelBackgroundColor: Colors.black,
-          ),
-          SpeedDialChild(
-            child: const Icon(Icons.music_note, color: Colors.black),
-            backgroundColor: Colors.blue[iconColor],
-            onTap: () => Navigator.pushNamed(context, '/works'),
-            label: 'Music',
-            labelStyle: const TextStyle(
-                fontWeight: FontWeight.w500, color: Colors.white),
-            labelBackgroundColor: Colors.black,
-          ),
-          SpeedDialChild(
-            child: const Icon(Icons.person, color: Colors.black),
-            backgroundColor: Colors.yellow[iconColor],
-            onTap: () => Navigator.pushNamed(context, '/composers'),
-            label: 'Composers',
-            labelStyle: const TextStyle(
-                fontWeight: FontWeight.w500, color: Colors.white),
-            labelBackgroundColor: Colors.black,
-          ),
-        ],
-      );
-    }
 
     CircularMenu buildCircularDialMainMenu() {
       return CircularMenu(
@@ -93,28 +48,28 @@ class MainScreen extends StatelessWidget {
         items: [
           CircularMenuItem(
             boxShadow: const [],
-            color: Colors.yellow[300],
+            color: Colors.yellow[iconColor],
             icon: Icons.person,
             iconColor: Colors.black,
             onTap: () => Navigator.pushNamed(context, '/composers'),
           ),
           CircularMenuItem(
             boxShadow: const [],
-            color: Colors.blue[300],
+            color: Colors.blue[iconColor],
             icon: Icons.music_note,
             iconColor: Colors.black,
             onTap: () => Navigator.pushNamed(context, '/works'),
           ),
           CircularMenuItem(
             boxShadow: const [],
-            color: Colors.green[300],
+            color: Colors.green[iconColor],
             icon: Icons.quiz,
             iconColor: Colors.black,
             onTap: () => Navigator.pushNamed(context, '/quizzes'),
           ),
           CircularMenuItem(
             boxShadow: const [],
-            color: Colors.red[300],
+            color: Colors.red[iconColor],
             icon: Icons.book,
             iconColor: Colors.black,
             onTap: () => Navigator.pushNamed(context, '/terms'),
@@ -122,17 +77,6 @@ class MainScreen extends StatelessWidget {
         ],
       );
     }
-
-    Widget buildBottomButtonMainMenuSection = Row(
-      children: [
-        Expanded(
-          child: Container(
-              alignment: Alignment.bottomRight,
-              padding: const EdgeInsets.all(10.0),
-              child: buildSpeedDialMainMenu()),
-        ),
-      ],
-    );
 
     return Scaffold(
       appBar: AppBar(
