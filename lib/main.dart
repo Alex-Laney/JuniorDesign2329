@@ -38,6 +38,7 @@ class MainScreen extends StatelessWidget {
     final ButtonStyle style =
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
 
+    // returns the circular spanning button for module selection
     CircularMenu buildCircularDialMainMenu() {
       return CircularMenu(
         toggleButtonBoxShadow: const [],
