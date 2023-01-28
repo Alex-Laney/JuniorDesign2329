@@ -5,6 +5,7 @@ import '/Musical-Works/Musical-Works.dart';
 import '/Quizzes/Quizzes.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:circular_menu/circular_menu.dart';
+import 'dart:math' as math;
 
 void main() {
   runApp(
@@ -86,21 +87,36 @@ class MainScreen extends StatelessWidget {
 
     CircularMenu buildCircularDialMainMenu() {
       return CircularMenu(
+        toggleButtonBoxShadow: const [],
+        startingAngleInRadian: 7 * math.pi / 6,
+        endingAngleInRadian: 11 * math.pi / 6,
         items: [
           CircularMenuItem(
+            boxShadow: const [],
+            color: Colors.yellow[300],
             icon: Icons.person,
+            iconColor: Colors.black,
             onTap: () => Navigator.pushNamed(context, '/composers'),
           ),
           CircularMenuItem(
+            boxShadow: const [],
+            color: Colors.blue[300],
             icon: Icons.music_note,
+            iconColor: Colors.black,
             onTap: () => Navigator.pushNamed(context, '/works'),
           ),
           CircularMenuItem(
+            boxShadow: const [],
+            color: Colors.green[300],
             icon: Icons.quiz,
+            iconColor: Colors.black,
             onTap: () => Navigator.pushNamed(context, '/quizzes'),
           ),
           CircularMenuItem(
+            boxShadow: const [],
+            color: Colors.red[300],
             icon: Icons.book,
+            iconColor: Colors.black,
             onTap: () => Navigator.pushNamed(context, '/terms'),
           ),
         ],
