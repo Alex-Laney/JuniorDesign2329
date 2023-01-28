@@ -3,7 +3,6 @@ import '/Musical-Terms/Musical-Terms.dart';
 import '/Composers/Composers.dart';
 import '/Musical-Works/Musical-Works.dart';
 import '/Quizzes/Quizzes.dart';
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:circular_menu/circular_menu.dart';
 import 'dart:math' as math;
 
