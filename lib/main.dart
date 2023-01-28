@@ -39,9 +39,9 @@ class MainScreen extends StatelessWidget {
 
     SpeedDial buildSpeedDialMainMenu() {
       return SpeedDial(
+        tooltip: "Jump to a Module",
         animatedIcon: AnimatedIcons.menu_close,
         animatedIconTheme: const IconThemeData(size: 20.0),
-        label: const Text('Jump Ahead'),
         children: [
           SpeedDialChild(
             child: const Icon(Icons.book, color: Colors.black),
@@ -50,7 +50,7 @@ class MainScreen extends StatelessWidget {
             label: 'Musical Terms',
             labelStyle: const TextStyle(
                 fontWeight: FontWeight.w500, color: Colors.white),
-            labelBackgroundColor: Colors.black,
+            labelBackgroundColor: Colors.black54,
           ),
           SpeedDialChild(
             child: const Icon(Icons.quiz, color: Colors.black),
@@ -59,7 +59,7 @@ class MainScreen extends StatelessWidget {
             label: 'Quizzes',
             labelStyle: const TextStyle(
                 fontWeight: FontWeight.w500, color: Colors.white),
-            labelBackgroundColor: Colors.black,
+            labelBackgroundColor: Colors.black54,
           ),
           SpeedDialChild(
             child: const Icon(Icons.music_note, color: Colors.black),
@@ -68,7 +68,7 @@ class MainScreen extends StatelessWidget {
             label: 'Music',
             labelStyle: const TextStyle(
                 fontWeight: FontWeight.w500, color: Colors.white),
-            labelBackgroundColor: Colors.black,
+            labelBackgroundColor: Colors.black54,
           ),
           SpeedDialChild(
             child: const Icon(Icons.person, color: Colors.black),
@@ -77,22 +77,11 @@ class MainScreen extends StatelessWidget {
             label: 'Composers',
             labelStyle: const TextStyle(
                 fontWeight: FontWeight.w500, color: Colors.white),
-            labelBackgroundColor: Colors.black,
+            labelBackgroundColor: Colors.black54,
           ),
         ],
       );
     }
-
-    Widget buildBottomButtonMainMenuSection = Row(
-      children: [
-        Expanded(
-          child: Container(
-            alignment: Alignment.bottomRight,
-              padding: const EdgeInsets.all(10.0),
-              child: buildSpeedDialMainMenu()),
-        ),
-      ],
-    );
 
     return Scaffold(
       appBar: AppBar(
@@ -141,7 +130,27 @@ class MainScreen extends StatelessWidget {
               },
               child: const Text('Listen'),
             ),
-            buildBottomButtonMainMenuSection
+          ],
+        ),
+      ),
+      //
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: buildSpeedDialMainMenu(),
+      bottomNavigationBar: BottomAppBar(
+        shape: const CircularNotchedRectangle(),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(
+              onPressed: () {},
+              tooltip: 'Home',
+              icon: const Icon(Icons.home, color: Colors.black45),
+            ),
+            IconButton(
+              onPressed: () {},
+              tooltip: 'Settings',
+              icon: const Icon(Icons.settings, color: Colors.black45),
+            ),
           ],
         ),
       ),
