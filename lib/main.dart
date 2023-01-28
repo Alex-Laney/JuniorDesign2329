@@ -37,6 +37,7 @@ class MainScreen extends StatelessWidget {
     final ButtonStyle style =
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
 
+    // Returns the button for jumping to a module
     SpeedDial buildSpeedDialMainMenu() {
       return SpeedDial(
         tooltip: "Jump to a Module",
@@ -133,7 +134,7 @@ class MainScreen extends StatelessWidget {
           ],
         ),
       ),
-      //
+      // Builds the bottom navigation bar with notch for module button
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: buildSpeedDialMainMenu(),
       bottomNavigationBar: BottomAppBar(
