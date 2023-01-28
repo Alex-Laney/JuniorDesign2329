@@ -39,7 +39,6 @@ class MainScreen extends StatelessWidget {
     final ButtonStyle style =
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
 
-
     CircularMenu buildCircularDialMainMenu() {
       return CircularMenu(
         toggleButtonBoxShadow: const [],
@@ -136,10 +135,12 @@ class MainScreen extends StatelessWidget {
           children: [
             IconButton(
               onPressed: () {},
+              tooltip: 'Home',
               icon: const Icon(Icons.home, color: Colors.black45),
             ),
             IconButton(
               onPressed: () {},
+              tooltip: 'Settings',
               icon: const Icon(Icons.settings, color: Colors.black45),
             ),
           ],
