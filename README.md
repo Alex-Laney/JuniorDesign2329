@@ -3,8 +3,13 @@ The purpose of this mobile application, Notes on the Note Makers, will be to rai
 # Release Notes Section
 ## Version 0.1.0
 ### Features
-
+-Added main screen for the Composers module 
+-Added main screen for the Musical Terms module 
+-Added main screen for the Musical Works module 
+-Added main screen for the Quizzes module
+-Added module dial for the Home screen
+-Added temporary module dial for all other module screens
 ### Bug Fixes
-
+N/A
 ### Known Issues
-
+N/A
