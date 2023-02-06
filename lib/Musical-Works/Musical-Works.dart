@@ -9,6 +9,8 @@ class WorksScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final ButtonStyle style =
     ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+    final ButtonStyle style2 =
+    TextButton.styleFrom(textStyle: const TextStyle(fontSize: 20), foregroundColor: Colors.black);
     final int iconColor = 300;
 
     // returns the circular spanning button for module selection
@@ -49,17 +51,77 @@ class WorksScreen extends StatelessWidget {
         ],
       );
     }
+    final List<String> entries = <String>['Mozart', 'Beethoven', 'Bach',
+      'Mozart', 'Beethoven', 'Mozart', 'Beethoven', 'Mozart'];
+    final List<int> colorCodes = <int>[500, 500, 500];
 
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Classical Works'),
+        // appBar: AppBar(
+        //   title: const Text('Classical Works'),
+        // ),
+        body: CustomScrollView(
+          slivers: <Widget>[
+            const SliverAppBar(
+              pinned: true,
+              snap: false,
+              floating: false,
+              expandedHeight: 160.0,
+              flexibleSpace: FlexibleSpaceBar(
+                title: Text('Classical Works')
+              ),
+            ),
+            // const SliverToBoxAdapter(
+            //   child: SizedBox(
+            //     height: 20,
+            //     child: Center(
+            //       child: Text('Scroll to see the SliverAppBar in effect.'),
+            //     ),
+            //   ),
+            // ),
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                    (BuildContext context, int index) {
+                  return Container(
+                    color: index.isOdd ? Colors.white : Colors.black12,
+                    height: 100.0,
+                    child: Center(
+                      child: TextButton(
+                        style: style2,
+                        onPressed: () {
+                          /*
+                           NOTE: The logic following this comment can be reworked such that you can use the conditional
+                           to attribute the correct index to the correct music listening page for navigation
+                           IE Mozart Song #2 is index 3 so 'if (index == 3) { Navigator etc '/mozart2listen'}
+                           or something to that effect
+                           */
+                          index.isOdd ? Navigator.pushNamed(context, '/composers') : Navigator.pushNamed(context, '/terms');
+                        },
+                        child: Text('Composition by: ${entries[index]}'),
+                      )
+                    ),
+                  );
+                },
+                childCount: 8,
+              ),
+            ),
+          ],
         ),
-        body: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: const <Widget>[Text('ExampleWorksInformationHere')],
-          ),
-        ),
+      //
+      //
+      //
+      //
+      // ListView.separated(
+        //   padding: const EdgeInsets.all(8),
+        //   itemCount: entries.length,
+        //   itemBuilder: (BuildContext context, int index) {
+        //     return Container(
+        //       height: 50,
+        //       color: Colors.amber[colorCodes[index]],
+        //       child: Center(child: Text('Entry ${entries[index]}')),
+        //     );
+        //   },
+        //   separatorBuilder: (BuildContext context, int index) => const Divider(),
+        // ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: buildCircularDialMainMenu(),
       bottomNavigationBar: BottomAppBar(
