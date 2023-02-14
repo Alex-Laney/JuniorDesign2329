@@ -50,9 +50,6 @@ class ComposersScreen extends StatelessWidget {
     }
 
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Composers'),
-        ),
         body: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,

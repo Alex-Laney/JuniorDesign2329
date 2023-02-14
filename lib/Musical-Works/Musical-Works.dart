@@ -7,8 +7,6 @@ class WorksScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle style =
-    ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
     final ButtonStyle style2 =
     TextButton.styleFrom(textStyle: const TextStyle(fontSize: 20), foregroundColor: Colors.black);
     final int iconColor = 300;
@@ -61,13 +59,22 @@ class WorksScreen extends StatelessWidget {
         // ),
         body: CustomScrollView(
           slivers: <Widget>[
-            const SliverAppBar(
+            SliverAppBar(
               pinned: true,
               snap: false,
               floating: false,
-              expandedHeight: 160.0,
+              expandedHeight: 130.0,
               flexibleSpace: FlexibleSpaceBar(
-                title: Text('Classical Works')
+                centerTitle: true,
+                title: Text('Classical Works',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 30.0,
+                )),
+                  background: Image.network(
+                    'https://media.istockphoto.com/id/183260412/photo/sheet-music.jpg?s=612x612&w=0&k=20&c=NxOYb32bU9WELnZgo1X502Aw7gpQKsvHzUbgb7Lp0ck=',
+                    fit: BoxFit.cover,
+                  )
               ),
             ),
             // const SliverToBoxAdapter(
@@ -83,10 +90,10 @@ class WorksScreen extends StatelessWidget {
                     (BuildContext context, int index) {
                   return Container(
                     color: index.isOdd ? Colors.white : Colors.black12,
-                    height: 100.0,
+                    height: 80.0,
                     child: Center(
                       child: TextButton(
-                        style: style2,
+                        style: ButtonStyle(shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0), side: const BorderSide(color: Colors.black87)))),
                         onPressed: () {
                           /*
                            NOTE: The logic following this comment can be reworked such that you can use the conditional

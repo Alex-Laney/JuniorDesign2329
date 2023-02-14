@@ -50,9 +50,6 @@ class TermsScreen extends StatelessWidget {
     }
 
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Musical Terms'),
-        ),
         body: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,

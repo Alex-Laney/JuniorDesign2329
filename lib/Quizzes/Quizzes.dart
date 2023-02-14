@@ -51,9 +51,6 @@ class QuizzesScreen extends StatelessWidget {
     }
 
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Quizzes'),
-        ),
         body: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
