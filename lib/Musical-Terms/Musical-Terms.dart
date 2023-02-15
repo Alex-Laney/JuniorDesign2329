@@ -123,11 +123,10 @@ class TermsScreenState extends State<TermsScreen> {
                 ),
                 ListView.builder(
                   shrinkWrap: true,
-                  padding: const EdgeInsets.all(25.0),
+                  padding: const EdgeInsets.all(20.0),
                   itemCount: TermsDB.initialize().length,
                   itemBuilder: (context, position) {
-                    return TermsDB.backingList[position].menuView();
-                    //return TermsDB.backingList[0].menuView();
+                    return TermsDB.backingList[position].menuView(context);
                   }
                   ),
                 ],

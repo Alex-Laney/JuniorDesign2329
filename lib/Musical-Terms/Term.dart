@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Definition-Page.dart';
 
 enum Tags {
   period,
@@ -18,11 +19,14 @@ class Term {
     tags = t;
   }
 
-  OutlinedButton menuView() {
+  OutlinedButton menuView(context) {
     return OutlinedButton(
       style: OutlinedButton.styleFrom(textStyle: const TextStyle(fontSize: 20), ),
       onPressed: () {
-        //Navigator.pushNamed(context, '/terms');
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => DefScreen(term: this)),
+        );
       },
       child: Row(
           children: <Widget>[Expanded(
