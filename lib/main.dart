@@ -12,6 +12,7 @@ void main() {
       title: 'Artifact',
       // Start the app with the "/" named route. In this case, the app starts
       // on the FirstScreen widget.
+      theme: ThemeData(fontFamily: 'Kanit'),
       initialRoute: '/',
       routes: {
         // "/" route means main screen
@@ -35,8 +36,8 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle style =
-        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+    final ButtonStyle style = ElevatedButton.styleFrom(
+        textStyle: const TextStyle(fontSize: 20, fontFamily: 'Kanit'));
 
     // returns the circular spanning button for module selection
     CircularMenu buildCircularDialMainMenu() {
@@ -78,6 +79,7 @@ class MainScreen extends StatelessWidget {
     }
 
     return Scaffold(
+      backgroundColor: Color(0xFFFFD49C),
       appBar: AppBar(
         title: const Text('Home Page'),
       ),
@@ -158,6 +160,7 @@ class ListenScreen extends StatelessWidget {
     final ButtonStyle style =
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
     return Scaffold(
+        backgroundColor: Color(0xFFC4ECF9),
         appBar: AppBar(
           title: const Text('Listen'),
         ),
@@ -166,9 +169,13 @@ class ListenScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               ElevatedButton(
-                style: style,
+                style: ButtonStyle(
+                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(18.0),
+                ))),
                 onPressed: () {},
-                child: const Text('Sample Song (Not Implemented)'),
+                child: Text('Sample Song (Not Implemented)'),
               ),
             ],
           ),

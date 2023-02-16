@@ -8,7 +8,7 @@ class WorksScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ButtonStyle style =
-    ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
     final int iconColor = 300;
 
     // returns the circular spanning button for module selection
@@ -51,15 +51,15 @@ class WorksScreen extends StatelessWidget {
     }
 
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Classical Works'),
+      appBar: AppBar(
+        title: const Text('Classical Works'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: const <Widget>[Text('ExampleWorksInformationHere')],
         ),
-        body: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: const <Widget>[Text('ExampleWorksInformationHere')],
-          ),
-        ),
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: buildCircularDialMainMenu(),
       bottomNavigationBar: BottomAppBar(

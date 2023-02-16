@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'Definition-Page.dart';
 
-enum Tags {
-  period,
-  musicType,
-  musicTheory
-}
+enum Tags { period, musicType, musicTheory }
+
 class Term {
   String name = "";
   String definition = "";
@@ -21,27 +18,23 @@ class Term {
 
   OutlinedButton menuView(context) {
     return OutlinedButton(
-      style: OutlinedButton.styleFrom(textStyle: const TextStyle(fontSize: 20), ),
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => DefScreen(term: this)),
-        );
-      },
-      child: Row(
-          children: <Widget>[Expanded(
+        style: OutlinedButton.styleFrom(
+          textStyle: const TextStyle(fontSize: 20),
+        ),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => DefScreen(term: this)),
+          );
+        },
+        child: Row(children: <Widget>[
+          Expanded(
               child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(this.name),
-              )
-          ),
+            alignment: Alignment.centerLeft,
+            child: Text(this.name),
+          )),
           Align(
-            alignment: Alignment.centerRight,
-            child: Text(this.tags[0].name)
-          )
-        ]
-      )
-    );
+              alignment: Alignment.centerRight, child: Text(this.tags[0].name))
+        ]));
   }
-
 }

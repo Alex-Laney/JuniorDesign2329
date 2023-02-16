@@ -8,7 +8,8 @@ class QuizzesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ButtonStyle style =
-    ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));;
+        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+    ;
     final int iconColor = 300;
 
     // returns the circular spanning button for module selection
@@ -51,21 +52,21 @@ class QuizzesScreen extends StatelessWidget {
     }
 
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Quizzes'),
+      appBar: AppBar(
+        title: const Text('Quizzes'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            ElevatedButton(
+              style: style,
+              onPressed: () {},
+              child: const Text('Sample Quiz (Not Implemented)'),
+            ),
+          ],
         ),
-        body: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              ElevatedButton(
-                style: style,
-                onPressed: () {},
-                child: const Text('Sample Quiz (Not Implemented)'),
-              ),
-            ],
-          ),
-        ),
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: buildCircularDialMainMenu(),
       bottomNavigationBar: BottomAppBar(
