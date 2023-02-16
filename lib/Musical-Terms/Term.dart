@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'Definition-Page.dart';
+
 enum Tags {
   period,
   musicType,
@@ -14,6 +17,31 @@ class Term {
     definition = d;
     examples = e;
     tags = t;
+  }
+
+  OutlinedButton menuView(context) {
+    return OutlinedButton(
+      style: OutlinedButton.styleFrom(textStyle: const TextStyle(fontSize: 20), ),
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => DefScreen(term: this)),
+        );
+      },
+      child: Row(
+          children: <Widget>[Expanded(
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(this.name),
+              )
+          ),
+          Align(
+            alignment: Alignment.centerRight,
+            child: Text(this.tags[0].name)
+          )
+        ]
+      )
+    );
   }
 
 }
