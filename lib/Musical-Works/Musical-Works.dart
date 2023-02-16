@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:circular_menu/circular_menu.dart';
-import 'dart:math' as math;
+import 'package:artifact/circular_dial_menu.dart';
 
 class WorksScreen extends StatelessWidget {
   const WorksScreen({super.key});
@@ -8,60 +7,20 @@ class WorksScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ButtonStyle style =
-    ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
-    final int iconColor = 300;
-
-    // returns the circular spanning button for module selection
-    CircularMenu buildCircularDialMainMenu() {
-      return CircularMenu(
-        toggleButtonBoxShadow: const [],
-        startingAngleInRadian: 7 * math.pi / 6,
-        endingAngleInRadian: 11 * math.pi / 6,
-        items: [
-          CircularMenuItem(
-            boxShadow: const [],
-            color: Colors.yellow[iconColor],
-            icon: Icons.person,
-            iconColor: Colors.black,
-            onTap: () => Navigator.pushNamed(context, '/composers'),
-          ),
-          CircularMenuItem(
-            boxShadow: const [],
-            color: Colors.blue[iconColor],
-            icon: Icons.music_note,
-            iconColor: Colors.black,
-            onTap: () => Navigator.pushNamed(context, '/works'),
-          ),
-          CircularMenuItem(
-            boxShadow: const [],
-            color: Colors.green[iconColor],
-            icon: Icons.quiz,
-            iconColor: Colors.black,
-            onTap: () => Navigator.pushNamed(context, '/quizzes'),
-          ),
-          CircularMenuItem(
-            boxShadow: const [],
-            color: Colors.red[iconColor],
-            icon: Icons.book,
-            iconColor: Colors.black,
-            onTap: () => Navigator.pushNamed(context, '/terms'),
-          ),
-        ],
-      );
-    }
+        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
 
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Classical Works'),
+      appBar: AppBar(
+        title: const Text('Classical Works'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: const <Widget>[Text('ExampleWorksInformationHere')],
         ),
-        body: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: const <Widget>[Text('ExampleWorksInformationHere')],
-          ),
-        ),
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: buildCircularDialMainMenu(),
+      floatingActionButton: CircularDialMenu.build(context),
       bottomNavigationBar: BottomAppBar(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
