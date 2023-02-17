@@ -3,6 +3,7 @@ import '/Musical-Terms/Musical-Terms.dart';
 import '/Composers/Composers.dart';
 import '/Musical-Works/Musical-Works.dart';
 import '/Quizzes/Quizzes.dart';
+import 'package:artifact/settings/settings_menu.dart';
 import 'circular_dial_menu.dart';
 
 void main() {
@@ -22,6 +23,7 @@ void main() {
         '/works': (context) => const WorksScreen(),
         '/quizzes': (context) => const QuizzesScreen(),
         '/listen': (context) => const ListenScreen(),
+        '/settings': (context) => const SettingsScreen(),
       },
     ),
   );
@@ -99,7 +101,7 @@ class MainScreen extends StatelessWidget {
               icon: const Icon(Icons.home, color: Colors.black45),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () => Navigator.pushNamed(context, '/settings'),
               tooltip: 'Settings',
               icon: const Icon(Icons.settings, color: Colors.black45),
             ),
