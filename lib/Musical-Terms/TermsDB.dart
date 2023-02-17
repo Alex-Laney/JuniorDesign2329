@@ -46,8 +46,6 @@ class TermsDB {
       ["Major keys sound happy while minor keys sound sad."],
       [Tags.musicTheory]);
 
-
-
   static List<Term> initialize() {
     backingList.clear();
 
@@ -64,6 +62,27 @@ class TermsDB {
     backingList.add(key);
     
     return backingList;
+  }
+
+  static List<Term> getBackingList() {
+    return backingList;
+  }
+
+  static List<Term> sortAlphabetically() {
+    for (int i = 0; i < backingList.length; i++) {
+      for (int j = 0; j < backingList.length - 1; j++) {
+        if (backingList[j].compareAlphabetically(backingList[j + 1]) > 0) {
+          swapTerms(j, j + 1);
+        }
+      }
+    }
+    return backingList;
+  }
+
+  static void swapTerms(int a, int b) {
+    Term temp = backingList[a];
+    backingList[a] = backingList[b];
+    backingList[b] = temp;
   }
 
 }
