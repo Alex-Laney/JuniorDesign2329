@@ -37,7 +37,7 @@ class QuizzesScreen extends StatelessWidget {
               icon: const Icon(Icons.home, color: Colors.black45),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () => Navigator.pushNamed(context, '/settings'),
               tooltip: 'Settings',
               icon: const Icon(Icons.settings, color: Colors.black45),
             ),
