@@ -3,8 +3,7 @@ import '/Musical-Terms/Musical-Terms.dart';
 import '/Composers/Composers.dart';
 import '/Musical-Works/Musical-Works.dart';
 import '/Quizzes/Quizzes.dart';
-import 'package:circular_menu/circular_menu.dart';
-import 'dart:math' as math;
+import 'circular_dial_menu.dart';
 
 void main() {
   runApp(
@@ -37,45 +36,6 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final ButtonStyle style =
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
-
-    // returns the circular spanning button for module selection
-    CircularMenu buildCircularDialMainMenu() {
-      return CircularMenu(
-        toggleButtonBoxShadow: const [],
-        startingAngleInRadian: 7 * math.pi / 6,
-        endingAngleInRadian: 11 * math.pi / 6,
-        items: [
-          CircularMenuItem(
-            boxShadow: const [],
-            color: Colors.yellow[iconColor],
-            icon: Icons.person,
-            iconColor: Colors.black,
-            onTap: () => Navigator.pushNamed(context, '/composers'),
-          ),
-          CircularMenuItem(
-            boxShadow: const [],
-            color: Colors.blue[iconColor],
-            icon: Icons.music_note,
-            iconColor: Colors.black,
-            onTap: () => Navigator.pushNamed(context, '/works'),
-          ),
-          CircularMenuItem(
-            boxShadow: const [],
-            color: Colors.green[iconColor],
-            icon: Icons.quiz,
-            iconColor: Colors.black,
-            onTap: () => Navigator.pushNamed(context, '/quizzes'),
-          ),
-          CircularMenuItem(
-            boxShadow: const [],
-            color: Colors.red[iconColor],
-            icon: Icons.book,
-            iconColor: Colors.black,
-            onTap: () => Navigator.pushNamed(context, '/terms'),
-          ),
-        ],
-      );
-    }
 
     return Scaffold(
       appBar: AppBar(
@@ -128,7 +88,7 @@ class MainScreen extends StatelessWidget {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: buildCircularDialMainMenu(),
+      floatingActionButton: CircularDialMenu.build(context),
       bottomNavigationBar: BottomAppBar(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
