@@ -28,7 +28,12 @@ class TermsScreenState extends State<TermsScreen> {
 
     return Scaffold(
         body: SafeArea(
-          child: Center(
+            child: Column(children: <Widget>[
+          const Align(
+            alignment: Alignment.topLeft,
+            child: BackButton(),
+          ),
+          Center(
               child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
@@ -75,7 +80,7 @@ class TermsScreenState extends State<TermsScreen> {
                   }),
             ],
           )),
-        ),
+        ])),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: CircularDialMenu.build(context),
         bottomNavigationBar: BottomAppBar(

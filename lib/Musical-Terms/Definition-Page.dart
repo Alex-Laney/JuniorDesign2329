@@ -19,7 +19,7 @@ class DefScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(children: <Widget>[
           const Align(
-            alignment: Alignment.bottomLeft,
+            alignment: Alignment.topLeft,
             child: BackButton(),
           ),
           Center(
