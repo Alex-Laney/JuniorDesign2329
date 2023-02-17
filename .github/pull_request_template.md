@@ -19,5 +19,5 @@
 
 #### Checklist
 <!-- Some reminders -->
-- [ ] Moved the task in Jira to 'In Review'
+- [ ] Moved the task in [Jira](https://jib-2329.atlassian.net/jira/software/projects/OM2329/boards/1) to 'In Review'
 - [ ] Updated the Incremental Release Notes
