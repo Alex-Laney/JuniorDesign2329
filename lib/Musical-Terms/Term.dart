@@ -19,6 +19,11 @@ class Term {
     tags = t;
   }
 
+  int compareTag(Term target) {
+    List<Term> temp = [];
+    return tags[0].index.compareTo(target.tags[0].index);
+  }
+
   OutlinedButton menuView(context) {
     return OutlinedButton(
       style: OutlinedButton.styleFrom(textStyle: const TextStyle(fontSize: 20), ),
