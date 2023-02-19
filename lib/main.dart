@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '/Musical-Terms/Musical-Terms.dart';
 import '/Composers/Composers.dart';
+import '/Listen/Listen.dart';
 import '/Musical-Works/Musical-Works.dart';
 import '/Quizzes/Quizzes.dart';
 import 'package:artifact/settings/settings_menu.dart';
@@ -109,31 +110,5 @@ class MainScreen extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class ListenScreen extends StatelessWidget {
-  const ListenScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final ButtonStyle style =
-        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text('Listen'),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              ElevatedButton(
-                style: style,
-                onPressed: () {},
-                child: const Text('Sample Song (Not Implemented)'),
-              ),
-            ],
-          ),
-        ));
   }
 }
