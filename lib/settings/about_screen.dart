@@ -6,17 +6,27 @@ class AboutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ButtonStyle style =
+        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
     return Scaffold(
       appBar: AppBar(
         title: const Text('About'),
       ),
       body: Center(
-        child: RichText(
-          text: const TextSpan(
-            text: 'Development History:\nStarted Fall 2022\n'
-                'Finished Spring 2023\nThis is a student project'
-                'Developers: ',
-          ),
+        child: Column(
+          children: [
+            RichText(
+              text: const TextSpan(
+                text: 'Development History:\nStarted Fall 2022\n'
+                    'Finished Spring 2023\nThis is a student project'
+                    'Developers: ',
+              ),
+            ),
+            ElevatedButton(
+                style: style,
+                onPressed: () => Navigator.pushNamed(context, '/license'),
+                child: const Text('License'))
+          ],
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
