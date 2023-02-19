@@ -19,6 +19,10 @@ class Term {
     tags = t;
   }
 
+  int compareAlphabetically(Term target) {
+    return name.compareTo(target.name);
+  }
+
   OutlinedButton menuView(context) {
     return OutlinedButton(
       style: OutlinedButton.styleFrom(textStyle: const TextStyle(fontSize: 20), ),
