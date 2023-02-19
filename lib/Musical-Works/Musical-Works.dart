@@ -71,8 +71,8 @@ class WorksScreen extends StatelessWidget {
                   color: Colors.black,
                   fontSize: 30.0,
                 )),
-                  background: Image.network(
-                    'https://www.htmlcsscolor.com/preview/gallery/DCDCDC.png',
+                  background:
+                      Image.asset('assets/images/Gray.png',
                     fit: BoxFit.cover,
                   )
               ),
