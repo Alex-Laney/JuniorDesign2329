@@ -72,7 +72,7 @@ class WorksScreen extends StatelessWidget {
                   fontSize: 30.0,
                 )),
                   background: Image.network(
-                    'https://media.istockphoto.com/id/183260412/photo/sheet-music.jpg?s=612x612&w=0&k=20&c=NxOYb32bU9WELnZgo1X502Aw7gpQKsvHzUbgb7Lp0ck=',
+                    'https://www.htmlcsscolor.com/preview/gallery/DCDCDC.png',
                     fit: BoxFit.cover,
                   )
               ),
@@ -89,7 +89,7 @@ class WorksScreen extends StatelessWidget {
               delegate: SliverChildBuilderDelegate(
                     (BuildContext context, int index) {
                   return Container(
-                    color: index.isOdd ? Colors.white : Colors.black12,
+                    color: index.isOdd ? Colors.black12 : Colors.white,
                     height: 80.0,
                     child: Center(
                       child: TextButton(
@@ -101,7 +101,7 @@ class WorksScreen extends StatelessWidget {
                            IE Mozart Song #2 is index 3 so 'if (index == 3) { Navigator etc '/mozart2listen'}
                            or something to that effect
                            */
-                          index.isOdd ? Navigator.pushNamed(context, '/composers') : Navigator.pushNamed(context, '/terms');
+                          index.isOdd ? Navigator.pushNamed(context, '/listen') : Navigator.pushNamed(context, '/listen');
                         },
                         child: Text('Composition by: ${entries[index]}'),
                       )
