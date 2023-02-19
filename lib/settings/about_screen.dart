@@ -14,11 +14,13 @@ class AboutScreen extends StatelessWidget {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             RichText(
               text: const TextSpan(
-                text: 'Development History:\nStarted Fall 2022\n'
-                    'Finished Spring 2023\nThis is a student project'
+                text: 'Development History:\nStarted Fall 2022'
+                    '\nFinished Spring 2023'
+                    '\nThis is a student project.\n'
                     'Developers: ',
               ),
             ),
