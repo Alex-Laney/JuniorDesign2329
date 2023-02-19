@@ -13,39 +13,43 @@ class HelpScreen extends StatelessWidget {
         title: const Text('Help'),
       ),
       body: Center(
+        child: Container(
+          margin: const EdgeInsets.only(bottom: 100.0),
           child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          ElevatedButton(
-            style: style,
-            onPressed: () {
-              Navigator.pushNamed(context, '');
-            },
-            child: const Text('Composers'),
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              ElevatedButton(
+                style: style,
+                onPressed: () {
+                  Navigator.pushNamed(context, '');
+                },
+                child: const Text('Composers'),
+              ),
+              ElevatedButton(
+                style: style,
+                onPressed: () {
+                  Navigator.pushNamed(context, '');
+                },
+                child: const Text('Musical Terms'),
+              ),
+              ElevatedButton(
+                style: style,
+                onPressed: () {
+                  Navigator.pushNamed(context, '');
+                },
+                child: const Text('Music'),
+              ),
+              ElevatedButton(
+                style: style,
+                onPressed: () {
+                  Navigator.pushNamed(context, '');
+                },
+                child: const Text('Quizzes'),
+              ),
+            ],
           ),
-          ElevatedButton(
-            style: style,
-            onPressed: () {
-              Navigator.pushNamed(context, '');
-            },
-            child: const Text('Musical Terms'),
-          ),
-          ElevatedButton(
-            style: style,
-            onPressed: () {
-              Navigator.pushNamed(context, '');
-            },
-            child: const Text('Music'),
-          ),
-          ElevatedButton(
-            style: style,
-            onPressed: () {
-              Navigator.pushNamed(context, '');
-            },
-            child: const Text('Quizzes'),
-          ),
-        ],
-      )),
+        ),
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: CircularDialMenu.build(context),
       bottomNavigationBar: BottomAppBar(
