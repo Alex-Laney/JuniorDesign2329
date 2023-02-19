@@ -21,6 +21,27 @@ class HelpScreen extends StatelessWidget {
             onPressed: () {
               Navigator.pushNamed(context, '');
             },
+            child: const Text('Composers'),
+          ),
+          ElevatedButton(
+            style: style,
+            onPressed: () {
+              Navigator.pushNamed(context, '');
+            },
+            child: const Text('Musical Terms'),
+          ),
+          ElevatedButton(
+            style: style,
+            onPressed: () {
+              Navigator.pushNamed(context, '');
+            },
+            child: const Text('Music'),
+          ),
+          ElevatedButton(
+            style: style,
+            onPressed: () {
+              Navigator.pushNamed(context, '');
+            },
             child: const Text('Quizzes'),
           ),
         ],
