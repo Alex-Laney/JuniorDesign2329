@@ -10,7 +10,11 @@ The purpose of this mobile application, Notes on the Note Makers, will be to rai
 
 -Implemented Definition pages for each musical term 
 
--Added ability to sort terms alphabetically, reverse alphabetically, and by tag 
+-Added ability to sort terms alphabetically, reverse alphabetically, and by tag
+
+-Added licensing terms and agreements
+
+-Implemented Help menu templates for each module 
 
 ### Bug Fixes
 N/A
