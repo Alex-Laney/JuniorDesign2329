@@ -40,7 +40,7 @@ class MainScreen extends StatelessWidget {
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
 
     return Scaffold(
-      appBar: AppBar(
+     appBar: AppBar(
         title: const Text('Home Page'),
       ),
       body: Center(
@@ -120,7 +120,7 @@ class ListenScreen extends StatelessWidget {
     final ButtonStyle style =
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
     return Scaffold(
-        appBar: AppBar(
+    appBar: AppBar(
           title: const Text('Listen'),
         ),
         body: Center(
