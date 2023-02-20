@@ -18,7 +18,7 @@ class WorksScreen extends StatelessWidget {
         // ),
         body: CustomScrollView(
           slivers: <Widget>[
-            SliverAppBar(
+            const SliverAppBar(
               pinned: true,
               snap: false,
               floating: false,
