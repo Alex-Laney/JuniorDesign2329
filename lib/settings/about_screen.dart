@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:artifact/circular_dial_menu.dart';
 
-class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({super.key});
+class AboutScreen extends StatelessWidget {
+  const AboutScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,22 +10,24 @@ class SettingsScreen extends StatelessWidget {
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Settings'),
+        title: const Text('About'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            ElevatedButton(
-              style: style,
-              onPressed: () => Navigator.pushNamed(context, '/about'),
-              child: const Text('About'),
+          children: [
+            RichText(
+              text: const TextSpan(
+                text: 'Development History:\nStarted Fall 2022'
+                    '\nFinished Spring 2023'
+                    '\nThis is a student project.\n'
+                    'Developers: ',
+              ),
             ),
             ElevatedButton(
-              style: style,
-              onPressed: () => Navigator.pushNamed(context, '/help'),
-              child: const Text('Help'),
-            ),
+                style: style,
+                onPressed: () => Navigator.pushNamed(context, '/license'),
+                child: const Text('License'))
           ],
         ),
       ),
