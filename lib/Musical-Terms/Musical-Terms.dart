@@ -11,11 +11,12 @@ class TermsScreen extends StatefulWidget {
 }
 
 class TermsScreenState extends State<TermsScreen> {
-  String dropdownVal = 'A-Z';
+  late String dropdownVal = 'A-Z';
+  late List<Term>  backingList = TermsDB.initialize();
 
   List<DropdownMenuItem<String>> getDropdownItems() {
     List<DropdownMenuItem<String>> items = [];
-    for (String sort in ['A-Z', 'Z-A', 'Tags']) {
+    for (String sort in ['A-Z', 'Tags']) {
       items.add(DropdownMenuItem(value: sort, child: Text(sort)));
     }
     return items;
@@ -51,7 +52,18 @@ class TermsScreenState extends State<TermsScreen> {
                       child: DropdownButton<String>(
                         onChanged: (String? newValue) {
                           setState(() {
+                            print(backingList[0].name);
                             dropdownVal = newValue!;
+                            if (newValue == 'A-Z') {
+                              backingList = TermsDB.initialize();
+                              print('A-Z\n$newValue');
+                            }
+                            else {
+                              backingList = TermsDB.sortByTag();
+                              print('Tags\n$newValue');
+
+                            }
+                            print(backingList[0].name);
                           });
                         },
                         value: dropdownVal,
@@ -74,9 +86,9 @@ class TermsScreenState extends State<TermsScreen> {
               ListView.builder(
                   shrinkWrap: true,
                   padding: const EdgeInsets.all(20.0),
-                  itemCount: TermsDB.initialize().length,
+                  itemCount: backingList.length,
                   itemBuilder: (context, position) {
-                    return TermsDB.backingList[position].menuView(context);
+                    return backingList[position].menuView(context);
                   }),
             ],
           )),
