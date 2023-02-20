@@ -5,8 +5,6 @@ class ComposersHelpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle style =
-        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
     return Scaffold(
       appBar: AppBar(
         title: const Text('Composers Help'),

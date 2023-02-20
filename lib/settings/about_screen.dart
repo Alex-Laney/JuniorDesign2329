@@ -13,14 +13,17 @@ class AboutScreen extends StatelessWidget {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            // Text for developing team
             RichText(
               text: const TextSpan(
                 text: 'Development History:\nStarted Fall 2022\n'
-                    'Finished Spring 2023\nThis is a student project'
+                    'Finished Spring 2023\nThis is a student project\n'
                     'Developers: JIB-2329',
               ),
             ),
+            // Creates the button for licensing agreements
             ElevatedButton(
                 style: style,
                 onPressed: () => Navigator.pushNamed(context, '/license'),
