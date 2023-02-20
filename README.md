@@ -14,7 +14,7 @@ The purpose of this mobile application, Notes on the Note Makers, will be to rai
 ### Bug Fixes
 N/A
 ### Known Issues
-N/A
+- Music plays in background after beginning, and leaving Listen module and returning back allows for songs to overlap
 
 ## Version 0.1.0
 ### Features

@@ -19,6 +19,7 @@ void main() {
       title: 'Artifact',
       // Start the app with the "/" named route. In this case, the app starts
       // on the FirstScreen widget.
+      theme: ThemeData(fontFamily: 'Kanit'),
       initialRoute: '/',
       routes: {
         // "/" route means main screen
@@ -69,11 +70,12 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle style =
-        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+    final ButtonStyle style = ElevatedButton.styleFrom(
+        textStyle: const TextStyle(fontSize: 20, fontFamily: 'Kanit'));
 
     return Scaffold(
-     appBar: AppBar(
+      backgroundColor: Color(0xFFFFD49C),
+      appBar: AppBar(
         title: const Text('Home Page'),
       ),
       body: Center(

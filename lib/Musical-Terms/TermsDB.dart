@@ -1,6 +1,5 @@
 import 'package:artifact/Musical-Terms/Term.dart';
 
-
 class TermsDB {
   static List<Term> backingList = [];
 
