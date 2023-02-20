@@ -20,7 +20,8 @@ class AboutScreen extends StatelessWidget {
               text: const TextSpan(
                 text: 'Development History:\nStarted Fall 2022\n'
                     'Finished Spring 2023\nThis is a student project\n'
-                    'Developers: JIB-2329',
+                    'Developers: JIB-2329\n- Andrew Chen\n- Richard Doan'
+                    '\n- Alex Laney\n- Jacob Singer\n- Sanjeev Viswan',
               ),
             ),
             // Creates the button for licensing agreements
