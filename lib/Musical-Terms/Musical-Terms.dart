@@ -16,7 +16,7 @@ class TermsScreenState extends State<TermsScreen> {
 
   List<DropdownMenuItem<String>> getDropdownItems() {
     List<DropdownMenuItem<String>> items = [];
-    for (String sort in ['A-Z', 'Tags']) {
+    for (String sort in ['A-Z', 'Z-A', 'Tags']) {
       items.add(DropdownMenuItem(value: sort, child: Text(sort)));
     }
     return items;
@@ -52,18 +52,14 @@ class TermsScreenState extends State<TermsScreen> {
                       child: DropdownButton<String>(
                         onChanged: (String? newValue) {
                           setState(() {
-                            print(backingList[0].name);
                             dropdownVal = newValue!;
                             if (newValue == 'A-Z') {
-                              backingList = TermsDB.initialize();
-                              print('A-Z\n$newValue');
-                            }
-                            else {
+                              backingList = TermsDB.sortAlphabetically();
+                            } else if(newValue == 'Z-A') {
+                              backingList = TermsDB.sortReverseAlphabetically();
+                            } else {
                               backingList = TermsDB.sortByTag();
-                              print('Tags\n$newValue');
-
                             }
-                            print(backingList[0].name);
                           });
                         },
                         value: dropdownVal,
