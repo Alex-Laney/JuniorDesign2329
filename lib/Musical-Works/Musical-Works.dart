@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:circular_menu/circular_menu.dart';
-import 'dart:math' as math;
+import 'package:artifact/circular_dial_menu.dart';
 
 class WorksScreen extends StatelessWidget {
   const WorksScreen({super.key});
@@ -127,7 +126,7 @@ class WorksScreen extends StatelessWidget {
         //   separatorBuilder: (BuildContext context, int index) => const Divider(),
         // ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: buildCircularDialMainMenu(),
+      floatingActionButton: CircularDialMenu.build(context),
       bottomNavigationBar: BottomAppBar(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -138,7 +137,7 @@ class WorksScreen extends StatelessWidget {
               icon: const Icon(Icons.home, color: Colors.black45),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () => Navigator.pushNamed(context, '/settings'),
               tooltip: 'Settings',
               icon: const Icon(Icons.settings, color: Colors.black45),
             ),
