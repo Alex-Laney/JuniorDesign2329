@@ -19,7 +19,7 @@ class AboutScreen extends StatelessWidget {
               text: const TextSpan(
                 text: 'Development History:\nStarted Fall 2022\n'
                     'Finished Spring 2023\nThis is a student project'
-                    'Developers: ',
+                    'Developers: JIB-2329',
               ),
             ),
             ElevatedButton(
