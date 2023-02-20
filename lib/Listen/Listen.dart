@@ -63,7 +63,7 @@ class ListenScreenState extends State<ListenScreen> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Image.asset('assets/images/Beethoven.png'),
+            Image.asset('assets/images/Beethoven.PNG'),
             Padding(
               padding: const EdgeInsets.fromLTRB(60, 20, 60, 0),
               child: const Text('Ludwig Van Beethoven',
