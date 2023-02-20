@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:artifact/circular_dial_menu.dart';
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
@@ -16,38 +15,20 @@ class AboutScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
+            // Text for developing team
             RichText(
               text: const TextSpan(
-                text: 'Development History:\nStarted Fall 2022'
-                    '\nFinished Spring 2023'
-                    '\nThis is a student project.\n'
-                    'Developers: ',
+                text: 'Development History:\nStarted Fall 2022\n'
+                    'Finished Spring 2023\nThis is a student project\n'
+                    'Developers: JIB-2329\n- Andrew Chen\n- Richard Doan'
+                    '\n- Alex Laney\n- Jacob Singer\n- Sanjeev Viswan',
               ),
             ),
+            // Creates the button for licensing agreements
             ElevatedButton(
                 style: style,
                 onPressed: () => Navigator.pushNamed(context, '/license'),
                 child: const Text('License'))
-          ],
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: CircularDialMenu.build(context),
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(
-              onPressed: () => Navigator.pushNamedAndRemoveUntil(
-                  context, '/', (route) => false),
-              tooltip: 'Home',
-              icon: const Icon(Icons.home, color: Colors.black45),
-            ),
-            IconButton(
-              onPressed: () {},
-              tooltip: 'Settings',
-              icon: const Icon(Icons.settings, color: Colors.black45),
-            ),
           ],
         ),
       ),

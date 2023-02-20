@@ -21,28 +21,28 @@ class HelpScreen extends StatelessWidget {
               ElevatedButton(
                 style: style,
                 onPressed: () {
-                  Navigator.pushNamed(context, '');
+                  Navigator.pushNamed(context, '/composersHelp');
                 },
                 child: const Text('Composers'),
               ),
               ElevatedButton(
                 style: style,
                 onPressed: () {
-                  Navigator.pushNamed(context, '');
+                  Navigator.pushNamed(context, '/termsHelp');
                 },
                 child: const Text('Musical Terms'),
               ),
               ElevatedButton(
                 style: style,
                 onPressed: () {
-                  Navigator.pushNamed(context, '');
+                  Navigator.pushNamed(context, '/musicHelp');
                 },
                 child: const Text('Music'),
               ),
               ElevatedButton(
                 style: style,
                 onPressed: () {
-                  Navigator.pushNamed(context, '');
+                  Navigator.pushNamed(context, '/quizzesHelp');
                 },
                 child: const Text('Quizzes'),
               ),

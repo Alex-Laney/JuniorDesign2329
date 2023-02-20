@@ -1,5 +1,9 @@
 import 'package:artifact/settings/about_screen.dart';
 import 'package:artifact/settings/help_menu.dart';
+import 'package:artifact/settings/help_menus/composers_help.dart';
+import 'package:artifact/settings/help_menus/music_help.dart';
+import 'package:artifact/settings/help_menus/musical_terms_help.dart';
+import 'package:artifact/settings/help_menus/quizzes_help.dart';
 import 'package:flutter/material.dart';
 import '/Musical-Terms/Musical-Terms.dart';
 import '/Composers/Composers.dart';
@@ -50,6 +54,10 @@ void main() {
                   "TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE "
                   "SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.",
             ),
+        '/composersHelp': (context) => const ComposersHelpScreen(),
+        '/termsHelp': (context) => const MusicalTermsHelpScreen(),
+        '/musicHelp': (context) => const MusicHelpScreen(),
+        '/quizzesHelp': (context) => const QuizzesHelpScreen(),
       },
     ),
   );
