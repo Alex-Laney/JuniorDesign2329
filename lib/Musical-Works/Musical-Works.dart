@@ -8,46 +8,6 @@ class WorksScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final ButtonStyle style2 =
     TextButton.styleFrom(textStyle: const TextStyle(fontSize: 20), foregroundColor: Colors.black);
-    final int iconColor = 300;
-
-    // returns the circular spanning button for module selection
-    CircularMenu buildCircularDialMainMenu() {
-      return CircularMenu(
-        toggleButtonBoxShadow: const [],
-        startingAngleInRadian: 7 * math.pi / 6,
-        endingAngleInRadian: 11 * math.pi / 6,
-        items: [
-          CircularMenuItem(
-            boxShadow: const [],
-            color: Colors.yellow[iconColor],
-            icon: Icons.person,
-            iconColor: Colors.black,
-            onTap: () => Navigator.pushNamed(context, '/composers'),
-          ),
-          CircularMenuItem(
-            boxShadow: const [],
-            color: Colors.blue[iconColor],
-            icon: Icons.music_note,
-            iconColor: Colors.black,
-            onTap: () => Navigator.pushNamed(context, '/works'),
-          ),
-          CircularMenuItem(
-            boxShadow: const [],
-            color: Colors.green[iconColor],
-            icon: Icons.quiz,
-            iconColor: Colors.black,
-            onTap: () => Navigator.pushNamed(context, '/quizzes'),
-          ),
-          CircularMenuItem(
-            boxShadow: const [],
-            color: Colors.red[iconColor],
-            icon: Icons.book,
-            iconColor: Colors.black,
-            onTap: () => Navigator.pushNamed(context, '/terms'),
-          ),
-        ],
-      );
-    }
     final List<String> entries = <String>['Mozart', 'Mozart', 'Mozart',
       'Mozart', 'Mozart', 'Mozart', 'Mozart', 'Mozart'];
     final List<int> colorCodes = <int>[500, 500, 500];
