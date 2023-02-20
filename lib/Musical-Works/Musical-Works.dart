@@ -49,8 +49,8 @@ class WorksScreen extends StatelessWidget {
         ],
       );
     }
-    final List<String> entries = <String>['Mozart', 'Beethoven', 'Bach',
-      'Mozart', 'Beethoven', 'Mozart', 'Beethoven', 'Mozart'];
+    final List<String> entries = <String>['Mozart', 'Mozart', 'Mozart',
+      'Mozart', 'Mozart', 'Mozart', 'Mozart', 'Mozart'];
     final List<int> colorCodes = <int>[500, 500, 500];
 
     return Scaffold(
@@ -67,14 +67,11 @@ class WorksScreen extends StatelessWidget {
               flexibleSpace: FlexibleSpaceBar(
                 centerTitle: true,
                 title: Text('Classical Works',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 30.0,
-                )),
-                  background:
-                      Image.asset('assets/images/Gray.png',
-                    fit: BoxFit.cover,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 30.0,
                   )
+                ),
               ),
             ),
             // const SliverToBoxAdapter(
