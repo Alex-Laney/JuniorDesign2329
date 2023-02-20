@@ -64,6 +64,17 @@ class TermsDB {
     return backingList;
   }
 
+  static List<Term> sortByTag() {
+    for (int i = 0; i < backingList.length; i++) {
+      for (int j = 0; j < backingList.length - 1; j++) {
+        if (backingList[j].compareTag(backingList[j + 1]) > 0) {
+          swapTerms(j, j + 1);
+        }
+      }
+    }
+    return backingList;
+  }
+    
   static List<Term> getBackingList() {
     return backingList;
   }
