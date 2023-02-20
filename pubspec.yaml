@@ -61,6 +61,11 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 
 flutter:
+  assets:
+    - assets/music/Beethoven/
+    - assets/music/Bach/
+    - assets/music/Mozart/
+    - assets/images/
   fonts:
     - family: Kanit
       fonts:
