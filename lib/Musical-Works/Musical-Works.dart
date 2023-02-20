@@ -8,8 +8,8 @@ class WorksScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final ButtonStyle style2 =
     TextButton.styleFrom(textStyle: const TextStyle(fontSize: 20), foregroundColor: Colors.black);
-    final List<String> entries = <String>['Mozart', 'Mozart', 'Mozart',
-      'Mozart', 'Mozart', 'Mozart', 'Mozart', 'Mozart'];
+    final List<String> entries = <String>['Beethoven', 'Beethoven', 'Beethoven',
+      'Beethoven', 'Beethoven', 'Beethoven', 'Beethoven', 'Beethoven'];
     final List<int> colorCodes = <int>[500, 500, 500];
 
     return Scaffold(
