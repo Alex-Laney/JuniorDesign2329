@@ -10,6 +10,7 @@ The purpose of this mobile application, Notes on the Note Makers, will be to rai
 - Added ability to sort terms alphabetically, reverse alphabetically, and by tag
 - Added licensing terms and agreements
 - Implemented Help menu templates for each module 
+- Implemented Listening screen and in-app audio player
 
 ### Bug Fixes
 N/A
