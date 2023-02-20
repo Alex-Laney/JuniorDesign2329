@@ -58,6 +58,7 @@ class TermsScreenState extends State<TermsScreen> {
                             } else if(newValue == 'Z-A') {
                               backingList = TermsDB.sortReverseAlphabetically();
                             } else {
+                              TermsDB.sortAlphabetically();
                               backingList = TermsDB.sortByTag();
                             }
                           });
