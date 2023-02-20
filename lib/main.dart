@@ -1,10 +1,13 @@
+import 'package:artifact/settings/about_screen.dart';
+import 'package:artifact/settings/help_menu.dart';
 import 'package:flutter/material.dart';
 import '/Musical-Terms/Musical-Terms.dart';
 import '/Composers/Composers.dart';
+import '/Listen/Listen.dart';
 import '/Musical-Works/Musical-Works.dart';
 import '/Quizzes/Quizzes.dart';
-import 'package:circular_menu/circular_menu.dart';
-import 'dart:math' as math;
+import 'package:artifact/settings/settings_menu.dart';
+import 'circular_dial_menu.dart';
 
 void main() {
   runApp(
@@ -24,6 +27,29 @@ void main() {
         '/works': (context) => const WorksScreen(),
         '/quizzes': (context) => const QuizzesScreen(),
         '/listen': (context) => const ListenScreen(),
+        '/settings': (context) => const SettingsScreen(),
+        '/help': (context) => const HelpScreen(),
+        '/about': (context) => const AboutScreen(),
+        '/license': (context) => const LicensePage(
+              applicationName: 'Notes on the Note Makers',
+              applicationLegalese: "Copyright 2023 JIB-2329\n"
+                  "Permission is hereby granted, free of charge, to any person "
+                  "obtaining a copy of this software and associated "
+                  "documentation files (the “Software”), to deal in the Software "
+                  "without restriction, including without limitation the rights "
+                  "to use, copy, modify, merge, publish, distribute, sublicense, "
+                  "and/or sell copies of the Software, and to permit persons to whom the Software is "
+                  "furnished to do so, subject to the following conditions: The above "
+                  "copyright notice and this permission notice shall be included in all "
+                  "copies or substantial portions of the Software.\n"
+                  "THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS "
+                  "OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF "
+                  "MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. "
+                  "IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY "
+                  "CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, "
+                  "TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE "
+                  "SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.",
+            ),
       },
     ),
   );
@@ -38,45 +64,6 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final ButtonStyle style = ElevatedButton.styleFrom(
         textStyle: const TextStyle(fontSize: 20, fontFamily: 'Kanit'));
-
-    // returns the circular spanning button for module selection
-    CircularMenu buildCircularDialMainMenu() {
-      return CircularMenu(
-        toggleButtonBoxShadow: const [],
-        startingAngleInRadian: 7 * math.pi / 6,
-        endingAngleInRadian: 11 * math.pi / 6,
-        items: [
-          CircularMenuItem(
-            boxShadow: const [],
-            color: Colors.yellow[iconColor],
-            icon: Icons.person,
-            iconColor: Colors.black,
-            onTap: () => Navigator.pushNamed(context, '/composers'),
-          ),
-          CircularMenuItem(
-            boxShadow: const [],
-            color: Colors.blue[iconColor],
-            icon: Icons.music_note,
-            iconColor: Colors.black,
-            onTap: () => Navigator.pushNamed(context, '/works'),
-          ),
-          CircularMenuItem(
-            boxShadow: const [],
-            color: Colors.green[iconColor],
-            icon: Icons.quiz,
-            iconColor: Colors.black,
-            onTap: () => Navigator.pushNamed(context, '/quizzes'),
-          ),
-          CircularMenuItem(
-            boxShadow: const [],
-            color: Colors.red[iconColor],
-            icon: Icons.book,
-            iconColor: Colors.black,
-            onTap: () => Navigator.pushNamed(context, '/terms'),
-          ),
-        ],
-      );
-    }
 
     return Scaffold(
       backgroundColor: Color(0xFFFFD49C),
@@ -130,7 +117,7 @@ class MainScreen extends StatelessWidget {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: buildCircularDialMainMenu(),
+      floatingActionButton: CircularDialMenu.build(context),
       bottomNavigationBar: BottomAppBar(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -141,7 +128,7 @@ class MainScreen extends StatelessWidget {
               icon: const Icon(Icons.home, color: Colors.black45),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () => Navigator.pushNamed(context, '/settings'),
               tooltip: 'Settings',
               icon: const Icon(Icons.settings, color: Colors.black45),
             ),
@@ -149,36 +136,5 @@ class MainScreen extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class ListenScreen extends StatelessWidget {
-  const ListenScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final ButtonStyle style =
-        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
-    return Scaffold(
-        backgroundColor: Color(0xFFC4ECF9),
-        appBar: AppBar(
-          title: const Text('Listen'),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              ElevatedButton(
-                style: ButtonStyle(
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18.0),
-                ))),
-                onPressed: () {},
-                child: Text('Sample Song (Not Implemented)'),
-              ),
-            ],
-          ),
-        ));
   }
 }

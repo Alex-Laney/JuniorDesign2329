@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:circular_menu/circular_menu.dart';
-import 'dart:math' as math;
 import 'package:artifact/Musical-Terms/Term.dart';
 import 'package:artifact/Musical-Terms/TermsDB.dart';
+import 'package:artifact/circular_dial_menu.dart';
 
 class TermsScreen extends StatefulWidget {
   const TermsScreen({super.key});
@@ -12,11 +11,12 @@ class TermsScreen extends StatefulWidget {
 }
 
 class TermsScreenState extends State<TermsScreen> {
-  String dropdownVal = 'A-Z';
+  late String dropdownVal = 'A-Z';
+  late List<Term>  backingList = TermsDB.initialize();
 
   List<DropdownMenuItem<String>> getDropdownItems() {
     List<DropdownMenuItem<String>> items = [];
-    for (String sort in ['A-Z', 'Z-A', 'Tags']) {
+    for (String sort in ['A-Z', 'Tags']) {
       items.add(DropdownMenuItem(value: sort, child: Text(sort)));
     }
     return items;
@@ -26,50 +26,15 @@ class TermsScreenState extends State<TermsScreen> {
   Widget build(BuildContext context) {
     final ButtonStyle style =
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
-    final int iconColor = 300;
-
-    // returns the circular spanning button for module selection
-    CircularMenu buildCircularDialMainMenu() {
-      return CircularMenu(
-        toggleButtonBoxShadow: const [],
-        startingAngleInRadian: 7 * math.pi / 6,
-        endingAngleInRadian: 11 * math.pi / 6,
-        items: [
-          CircularMenuItem(
-            boxShadow: const [],
-            color: Colors.yellow[iconColor],
-            icon: Icons.person,
-            iconColor: Colors.black,
-            onTap: () => Navigator.pushNamed(context, '/composers'),
-          ),
-          CircularMenuItem(
-            boxShadow: const [],
-            color: Colors.blue[iconColor],
-            icon: Icons.music_note,
-            iconColor: Colors.black,
-            onTap: () => Navigator.pushNamed(context, '/works'),
-          ),
-          CircularMenuItem(
-            boxShadow: const [],
-            color: Colors.green[iconColor],
-            icon: Icons.quiz,
-            iconColor: Colors.black,
-            onTap: () => Navigator.pushNamed(context, '/quizzes'),
-          ),
-          CircularMenuItem(
-            boxShadow: const [],
-            color: Colors.red[iconColor],
-            icon: Icons.book,
-            iconColor: Colors.black,
-            onTap: () => Navigator.pushNamed(context, '/terms'),
-          ),
-        ],
-      );
-    }
 
     return Scaffold(
         body: SafeArea(
-          child: Center(
+            child: Column(children: <Widget>[
+          const Align(
+            alignment: Alignment.topLeft,
+            child: BackButton(),
+          ),
+          Center(
               child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
@@ -87,7 +52,18 @@ class TermsScreenState extends State<TermsScreen> {
                       child: DropdownButton<String>(
                         onChanged: (String? newValue) {
                           setState(() {
+                            print(backingList[0].name);
                             dropdownVal = newValue!;
+                            if (newValue == 'A-Z') {
+                              backingList = TermsDB.initialize();
+                              print('A-Z\n$newValue');
+                            }
+                            else {
+                              backingList = TermsDB.sortByTag();
+                              print('Tags\n$newValue');
+
+                            }
+                            print(backingList[0].name);
                           });
                         },
                         value: dropdownVal,
@@ -110,15 +86,15 @@ class TermsScreenState extends State<TermsScreen> {
               ListView.builder(
                   shrinkWrap: true,
                   padding: const EdgeInsets.all(20.0),
-                  itemCount: TermsDB.initialize().length,
+                  itemCount: backingList.length,
                   itemBuilder: (context, position) {
-                    return TermsDB.backingList[position].menuView(context);
+                    return backingList[position].menuView(context);
                   }),
             ],
           )),
-        ),
+        ])),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: buildCircularDialMainMenu(),
+        floatingActionButton: CircularDialMenu.build(context),
         bottomNavigationBar: BottomAppBar(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -129,7 +105,7 @@ class TermsScreenState extends State<TermsScreen> {
                 icon: const Icon(Icons.home, color: Colors.black45),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () => Navigator.pushNamed(context, '/settings'),
                 tooltip: 'Settings',
                 icon: const Icon(Icons.settings, color: Colors.black45),
               ),

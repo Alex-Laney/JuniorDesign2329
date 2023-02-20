@@ -15,6 +15,15 @@ class Term {
     examples = e;
     tags = t;
   }
+  
+  int compareTag(Term target) {
+    List<Term> temp = [];
+    return tags[0].index.compareTo(target.tags[0].index);
+  }
+  
+  int compareAlphabetically(Term target) {
+    return name.compareTo(target.name);
+  }
 
   OutlinedButton menuView(context) {
     return OutlinedButton(
