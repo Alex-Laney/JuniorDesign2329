@@ -28,88 +28,105 @@ class TermsScreenState extends State<TermsScreen> {
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
 
     return Scaffold(
-        backgroundColor: const Color.fromRGBO(239, 199, 199, 1),
-        body: SafeArea(
-            child: Column(children: <Widget>[
-          const Align(
-            alignment: Alignment.topLeft,
-            child: BackButton(),
-          ),
-          Center(
+      backgroundColor: const Color.fromRGBO(239, 199, 199, 1),
+      body: SafeArea(
+        child: Column(
+          children: <Widget>[
+            const Align(
+              alignment: Alignment.topLeft,
+              child: BackButton(),
+            ),
+            Center(
               child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Row(children: <Widget>[
-                const SizedBox(width: 125),
-                const Expanded(
-                    child: Align(
-                  alignment: Alignment.center,
-                  child: Text('Terms', style: TextStyle(fontSize: 40)),
-                )),
-                Container(
-                  width: 100,
-                  child: Align(
-                      alignment: Alignment.centerRight,
-                      child: DropdownButton<String>(
-                        onChanged: (String? newValue) {
-                          setState(() {
-                            print(backingList[0].name);
-                            dropdownVal = newValue!;
-                            if (newValue == 'A-Z') {
-                              backingList = TermsDB.initialize();
-                              print('A-Z\n$newValue');
-                            } else {
-                              backingList = TermsDB.sortByTag();
-                              print('Tags\n$newValue');
-                            }
-                            print(backingList[0].name);
-                          });
-                        },
-                        value: dropdownVal,
-                        icon: const Icon(Icons.arrow_downward),
-                        items: getDropdownItems(),
-                      )),
-                ),
-                const SizedBox(width: 25),
-              ]),
-              Row(children: const <Widget>[
-                SizedBox(width: 25),
-                Expanded(
-                    child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text("Term"),
-                )),
-                Align(alignment: Alignment.centerRight, child: Text("Tags")),
-                SizedBox(width: 25),
-              ]),
-              ListView.builder(
-                  shrinkWrap: true,
-                  padding: const EdgeInsets.all(20.0),
-                  itemCount: backingList.length,
-                  itemBuilder: (context, position) {
-                    return backingList[position].menuView(context);
-                  }),
-            ],
-          )),
-        ])),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: CircularDialMenu.build(context),
-        bottomNavigationBar: BottomAppBar(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              IconButton(
-                onPressed: () => Navigator.pushNamed(context, '/'),
-                tooltip: 'Home',
-                icon: const Icon(Icons.home, color: Colors.black45),
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      const SizedBox(width: 125),
+                      const Expanded(
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: Text('Terms', style: TextStyle(fontSize: 40)),
+                        ),
+                      ),
+                      Container(
+                        width: 100,
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: DropdownButton<String>(
+                            onChanged: (String? newValue) {
+                              setState(
+                                () {
+                                  print(backingList[0].name);
+                                  dropdownVal = newValue!;
+                                  if (newValue == 'A-Z') {
+                                    backingList = TermsDB.initialize();
+                                    print('A-Z\n$newValue');
+                                  } else {
+                                    backingList = TermsDB.sortByTag();
+                                    print('Tags\n$newValue');
+                                  }
+                                  print(backingList[0].name);
+                                },
+                              );
+                            },
+                            value: dropdownVal,
+                            icon: const Icon(Icons.arrow_downward),
+                            items: getDropdownItems(),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 25),
+                    ],
+                  ),
+                  Row(
+                    children: const <Widget>[
+                      SizedBox(width: 25),
+                      Expanded(
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text("Term"),
+                        ),
+                      ),
+                      Align(
+                          alignment: Alignment.centerRight,
+                          child: Text("Tags")),
+                      SizedBox(width: 25),
+                    ],
+                  ),
+                  ListView.builder(
+                    shrinkWrap: true,
+                    padding: const EdgeInsets.all(20.0),
+                    itemCount: backingList.length,
+                    itemBuilder: (context, position) {
+                      return backingList[position].menuView(context);
+                    },
+                  ),
+                ],
               ),
-              IconButton(
-                onPressed: () => Navigator.pushNamed(context, '/settings'),
-                tooltip: 'Settings',
-                icon: const Icon(Icons.settings, color: Colors.black45),
-              ),
-            ],
-          ),
-        ));
+            ),
+          ],
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: CircularDialMenu.build(context),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(
+              onPressed: () => Navigator.pushNamed(context, '/'),
+              tooltip: 'Home',
+              icon: const Icon(Icons.home, color: Colors.black45),
+            ),
+            IconButton(
+              onPressed: () => Navigator.pushNamed(context, '/settings'),
+              tooltip: 'Settings',
+              icon: const Icon(Icons.settings, color: Colors.black45),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
