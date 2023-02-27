@@ -6,6 +6,7 @@ class QuizzesHelpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
       appBar: AppBar(
         title: const Text('Quizzes Help'),
       ),

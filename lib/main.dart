@@ -74,7 +74,7 @@ class MainScreen extends StatelessWidget {
         textStyle: const TextStyle(fontSize: 20, fontFamily: 'Kanit'));
 
     return Scaffold(
-      backgroundColor: Color(0xFFFFD49C),
+      backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
       appBar: AppBar(
         title: const Text('Home Page'),
       ),
