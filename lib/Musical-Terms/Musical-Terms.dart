@@ -12,7 +12,7 @@ class TermsScreen extends StatefulWidget {
 
 class TermsScreenState extends State<TermsScreen> {
   late String dropdownVal = 'A-Z';
-  late List<Term>  backingList = TermsDB.initialize();
+  late List<Term> backingList = TermsDB.initialize();
 
   List<DropdownMenuItem<String>> getDropdownItems() {
     List<DropdownMenuItem<String>> items = [];
@@ -28,6 +28,7 @@ class TermsScreenState extends State<TermsScreen> {
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
 
     return Scaffold(
+        backgroundColor: const Color.fromRGBO(239, 199, 199, 1),
         body: SafeArea(
             child: Column(children: <Widget>[
           const Align(
@@ -57,11 +58,9 @@ class TermsScreenState extends State<TermsScreen> {
                             if (newValue == 'A-Z') {
                               backingList = TermsDB.initialize();
                               print('A-Z\n$newValue');
-                            }
-                            else {
+                            } else {
                               backingList = TermsDB.sortByTag();
                               print('Tags\n$newValue');
-
                             }
                             print(backingList[0].name);
                           });
