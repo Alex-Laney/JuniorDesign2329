@@ -8,8 +8,7 @@ class WorksScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final ButtonStyle style2 =
     TextButton.styleFrom(textStyle: const TextStyle(fontSize: 20), foregroundColor: Colors.black);
-    final List<String> entries = <String>['Beethoven', 'Beethoven', 'Beethoven',
-      'Beethoven', 'Beethoven', 'Beethoven', 'Beethoven', 'Beethoven'];
+    final List<String> entries = <String>['Fur Elise', 'Moonlight Sonata 1st Movement', 'Sonata 1 in F Minor Allegro', 'Sonata 8 Pathetique 1st Movement'];
     final List<int> colorCodes = <int>[500, 500, 500];
 
     return Scaffold(
@@ -51,20 +50,24 @@ class WorksScreen extends StatelessWidget {
                       child: TextButton(
                         style: ButtonStyle(shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0), side: const BorderSide(color: Colors.black87)))),
                         onPressed: () {
+                          if(index < 1) {
+                            Navigator.pushNamed(context, '/furElise');
+                          } else {
+                            Navigator.pushNamed(context, '/listen');
+                          }
                           /*
-                           NOTE: The logic following this comment can be reworked such that you can use the conditional
+                           NOTE: The logic above this comment can be reworked such that you can use the conditional
                            to attribute the correct index to the correct music listening page for navigation
                            IE Mozart Song #2 is index 3 so 'if (index == 3) { Navigator etc '/mozart2listen'}
                            or something to that effect
                            */
-                          index.isOdd ? Navigator.pushNamed(context, '/listen') : Navigator.pushNamed(context, '/listen');
                         },
-                        child: Text('Composition by: ${entries[index]}'),
+                        child: Text(entries[index]),
                       )
                     ),
                   );
                 },
-                childCount: 8,
+                childCount: 4,
               ),
             ),
           ],

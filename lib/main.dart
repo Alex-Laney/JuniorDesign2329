@@ -11,6 +11,7 @@ import '/Listen/Listen.dart';
 import '/Musical-Works/Musical-Works.dart';
 import '/Quizzes/Quizzes.dart';
 import 'package:artifact/settings/settings_menu.dart';
+import 'Musical-Works/Fur_Elise.dart';
 import 'circular_dial_menu.dart';
 
 void main() {
@@ -58,6 +59,7 @@ void main() {
         '/termsHelp': (context) => const MusicalTermsHelpScreen(),
         '/musicHelp': (context) => const MusicHelpScreen(),
         '/quizzesHelp': (context) => const QuizzesHelpScreen(),
+        '/furElise': (context) => const furEliseScreen()
       },
     ),
   );
