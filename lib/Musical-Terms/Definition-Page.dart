@@ -16,37 +16,44 @@ class DefScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(239, 199, 199, 1),
       body: SafeArea(
-        child: Column(children: <Widget>[
-          const Align(
-            alignment: Alignment.topLeft,
-            child: BackButton(),
-          ),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.all(40),
-              child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-                Text(term.name, style: const TextStyle(fontSize: 40)),
-                const SizedBox(height: 20),
-                Text("Definition: ${term.definition}",
-                    style: const TextStyle(fontSize: 20)),
-                const SizedBox(height: 20),
-                const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text("Examples:", style: TextStyle(fontSize: 20)),
-                ),
-                ListView.builder(
-                    shrinkWrap: true,
-                    padding: const EdgeInsets.all(25.0),
-                    itemCount: term.examples.length,
-                    itemBuilder: (context, position) {
-                      return Text(term.examples[position],
-                          style: const TextStyle(fontSize: 20));
-                    }),
-              ]),
+        child: Column(
+          children: <Widget>[
+            const Align(
+              alignment: Alignment.topLeft,
+              child: BackButton(),
             ),
-          ),
-        ]),
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.all(40),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Text(term.name, style: const TextStyle(fontSize: 40)),
+                    const SizedBox(height: 20),
+                    Text("Definition: ${term.definition}",
+                        style: const TextStyle(fontSize: 20)),
+                    const SizedBox(height: 20),
+                    const Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text("Examples:", style: TextStyle(fontSize: 20)),
+                    ),
+                    ListView.builder(
+                      shrinkWrap: true,
+                      padding: const EdgeInsets.all(25.0),
+                      itemCount: term.examples.length,
+                      itemBuilder: (context, position) {
+                        return Text(term.examples[position],
+                            style: const TextStyle(fontSize: 20));
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: CircularDialMenu.build(context),
