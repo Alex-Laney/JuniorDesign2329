@@ -28,21 +28,9 @@ class DefScreen extends StatelessWidget {
               child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
                 Text(term.name, style: const TextStyle(fontSize: 40)),
                 const SizedBox(height: 20),
-                Text("Definition: ${term.definition}",
-                    style: const TextStyle(fontSize: 20)),
+                term.getDefinition(context),
                 const SizedBox(height: 20),
-                const Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text("Examples:", style: TextStyle(fontSize: 20)),
-                ),
-                ListView.builder(
-                    shrinkWrap: true,
-                    padding: const EdgeInsets.all(25.0),
-                    itemCount: term.examples.length,
-                    itemBuilder: (context, position) {
-                      return Text(term.examples[position],
-                          style: const TextStyle(fontSize: 20));
-                    }),
+                term.getExamples(context)
               ]),
             ),
           ),
