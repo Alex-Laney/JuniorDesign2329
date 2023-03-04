@@ -24,13 +24,23 @@ class CompScreen extends StatelessWidget {
           ),
           Center(
             child: Padding(
-              padding: const EdgeInsets.all(40),
+              padding: const EdgeInsets.all(30),
               child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-                Text(comp.name, style: const TextStyle(fontSize: 40)),
+                Text(comp.name, style: const TextStyle(fontSize: 40), textAlign: TextAlign.center,),
+                const SizedBox(height: 20),
+                comp.getComposer(context),
                 const SizedBox(height: 20),
                 comp.getDefinition(context),
                 const SizedBox(height: 20),
-                comp.getExamples(context)
+                comp.getExamples(context),
+                const SizedBox(height: 20),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20, fontFamily: 'Kanit')),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/listen');
+                  },
+                  child: Text('Listen to ${comp.name}'),
+                ),
               ]),
             ),
           )

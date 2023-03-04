@@ -4,17 +4,21 @@ import 'Composition-Page.dart';
 
 class Comp {
   String name = "";
+  List<String> composer;
+  List<Comp> composerLinks;
   List<String> defText;
   List<Comp> defLinks;
-  List<String> exText;
-  List<Comp> exLinks;
+  List<String> genreText;
+  List<Comp> genreLinks;
 
   Comp(
       {required this.name,
-      required this.defText,
-      required this.defLinks,
-      required this.exText,
-      required this.exLinks});
+      required this.composer,
+      required this.composerLinks,
+        required this.defText,
+        required this.defLinks,
+        required this.genreText,
+      required this.genreLinks});
 
   int compareAlphabetically(Comp target) {
     return name.compareTo(target.name);
@@ -50,7 +54,7 @@ class Comp {
         Align(
             alignment: Alignment.topLeft,
             child: Text(name, style: const TextStyle(fontSize: 30))),
-        Align(alignment: Alignment.center, child: getDefinition(context)),
+        Align(alignment: Alignment.center, child: getComposer(context)),
         Align(
             alignment: Alignment.bottomRight,
             child: ElevatedButton(
@@ -70,6 +74,38 @@ class Comp {
     );
   }
 
+  RichText getComposer(BuildContext context) {
+    if (composer.length == 1) {
+      return RichText(
+          text: TextSpan(
+              text: "Composer: ${composer[0]}",
+              style: const TextStyle(fontSize: 20, color: Colors.black)));
+    }
+    List<InlineSpan> children = <InlineSpan>[];
+    for (int i = 1; i < composer.length; i++) {
+      if (composerLinks[i].name == "None") {
+        children.add(TextSpan(text: " ${composer[i]}"));
+      } else {
+        children.add(TextSpan(
+            text: " ${composer[i]}",
+            style: const TextStyle(fontSize: 20, color: Colors.lightBlue),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return composerLinks[i].dialogView(context);
+                    });
+              }));
+      }
+    }
+    return RichText(
+        text: TextSpan(
+            text: "Composer: ${composer[0]}",
+            style: const TextStyle(fontSize: 20, color: Colors.black),
+            children: children));
+  }
+
   RichText getDefinition(BuildContext context) {
     if (defText.length == 1) {
       return RichText(
@@ -79,7 +115,7 @@ class Comp {
     }
     List<InlineSpan> children = <InlineSpan>[];
     for (int i = 1; i < defText.length; i++) {
-      if (defLinks[i].name == "None") {
+      if (composerLinks[i].name == "None") {
         children.add(TextSpan(text: " ${defText[i]}"));
       } else {
         children.add(TextSpan(
@@ -103,33 +139,33 @@ class Comp {
   }
 
   RichText getExamples(BuildContext context) {
-    if (exText.length == 1) {
+    if (genreText.length == 1) {
       return RichText(
           text: TextSpan(
-              text: "Examples:\n${exText[0]}",
+              text: "Genre Comparisons:\n${genreText[0]}",
               style: const TextStyle(fontSize: 20, color: Colors.black)));
     }
     List<InlineSpan> children = <InlineSpan>[];
-    for (int i = 1; i < exText.length; i++) {
-      if (exLinks[i].name == "None") {
-        children.add(TextSpan(text: " ${exText[i]}"));
+    for (int i = 1; i < genreText.length; i++) {
+      if (genreLinks[i].name == "None") {
+        children.add(TextSpan(text: " ${genreText[i]}"));
       } else {
         children.add(TextSpan(
-            text: " ${exText[i]}",
+            text: " ${genreText[i]}",
             style: const TextStyle(fontSize: 20, color: Colors.lightBlue),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
                 showDialog(
                     context: context,
                     builder: (BuildContext context) {
-                      return exLinks[i].dialogView(context);
+                      return genreLinks[i].dialogView(context);
                     });
               }));
       }
     }
     return RichText(
         text: TextSpan(
-            text: "Examples:\n ${exText[0]}",
+            text: "Genre Comparisons:\n ${genreText[0]}",
             style: const TextStyle(fontSize: 20, color: Colors.black),
             children: children));
   }
