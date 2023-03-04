@@ -10,6 +10,7 @@ class ComposersScreen extends StatelessWidget {
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
 
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(255, 246, 167, 1),
       appBar: AppBar(
         title: const Text('Composers'),
       ),

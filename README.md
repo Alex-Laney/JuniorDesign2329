@@ -10,11 +10,15 @@ The purpose of this mobile application, Notes on the Note Makers, will be to rai
 - Added ability to sort terms alphabetically, reverse alphabetically, and by tag
 - Added licensing terms and agreements
 - Implemented Help menu templates for each module 
+- Implemented Listening screen and in-app audio player
 
 ### Bug Fixes
 N/A
 ### Known Issues
 - Music plays in background after beginning, and leaving Listen module and returning back allows for songs to overlap
+- Sorting by tag does not work for terms with multiple tags (no such terms as of yet) 
+- Listen screen does not display the name of the current song 
+- Reverse alphabetical sorting not displayed as drop-down menu option 
 
 ## Version 0.1.0
 ### Features

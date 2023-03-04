@@ -12,7 +12,7 @@ class TermsScreen extends StatefulWidget {
 
 class TermsScreenState extends State<TermsScreen> {
   late String dropdownVal = 'A-Z';
-  late List<Term>  backingList = TermsDB.initialize();
+  late List<Term> backingList = TermsDB.initialize();
 
   List<DropdownMenuItem<String>> getDropdownItems() {
     List<DropdownMenuItem<String>> items = [];
@@ -28,13 +28,15 @@ class TermsScreenState extends State<TermsScreen> {
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
 
     return Scaffold(
-        body: SafeArea(
-            child: Column(children: <Widget>[
-          const Align(
-            alignment: Alignment.topLeft,
-            child: BackButton(),
-          ),
-          Center(
+      backgroundColor: const Color.fromRGBO(239, 199, 199, 1),
+      body: SafeArea(
+        child: Column(
+          children: <Widget>[
+            const Align(
+              alignment: Alignment.topLeft,
+              child: BackButton(),
+            ),
+            Center(
               child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
@@ -106,8 +108,29 @@ class TermsScreenState extends State<TermsScreen> {
                 tooltip: 'Settings',
                 icon: const Icon(Icons.settings, color: Colors.black45),
               ),
-            ],
-          ),
-        ));
+            ),
+          ],
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: CircularDialMenu.build(context),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(
+              onPressed: () => Navigator.pushNamed(context, '/'),
+              tooltip: 'Home',
+              icon: const Icon(Icons.home, color: Colors.black45),
+            ),
+            IconButton(
+              onPressed: () => Navigator.pushNamed(context, '/settings'),
+              tooltip: 'Settings',
+              icon: const Icon(Icons.settings, color: Colors.black45),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

@@ -9,6 +9,7 @@ class QuizzesScreen extends StatelessWidget {
     final ButtonStyle style =
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(225, 255, 195, 1),
       appBar: AppBar(
         title: const Text('Quizzes'),
       ),

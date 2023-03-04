@@ -59,15 +59,16 @@ class ListenScreenState extends State<ListenScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(196, 236, 249, 1),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Image.asset('assets/images/Beethoven.PNG'),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(60, 20, 60, 0),
-              child: const Text('Ludwig Van Beethoven',
-                  style: const TextStyle(
+            const Padding(
+              padding: EdgeInsets.fromLTRB(60, 20, 60, 0),
+              child: Text('Ludwig Van Beethoven',
+                  style: TextStyle(
                       fontFamily: 'Fixed',
                       fontWeight: FontWeight.bold,
                       fontSize: 24.0)),

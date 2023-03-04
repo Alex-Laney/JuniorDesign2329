@@ -15,35 +15,39 @@ class Term {
     examples = e;
     tags = t;
   }
-  
+
   int compareTag(Term target) {
     List<Term> temp = [];
     return tags[0].index.compareTo(target.tags[0].index);
   }
-  
+
   int compareAlphabetically(Term target) {
     return name.compareTo(target.name);
   }
 
   OutlinedButton menuView(context) {
     return OutlinedButton(
-        style: OutlinedButton.styleFrom(
-          textStyle: const TextStyle(fontSize: 20),
-        ),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => DefScreen(term: this)),
-          );
-        },
-        child: Row(children: <Widget>[
+      style: OutlinedButton.styleFrom(
+        textStyle: const TextStyle(fontSize: 20),
+      ),
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => DefScreen(term: this)),
+        );
+      },
+      child: Row(
+        children: <Widget>[
           Expanded(
-              child: Align(
-            alignment: Alignment.centerLeft,
-            child: Text(this.name),
-          )),
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(this.name),
+            ),
+          ),
           Align(
               alignment: Alignment.centerRight, child: Text(this.tags[0].name))
-        ]));
+        ],
+      ),
+    );
   }
 }
