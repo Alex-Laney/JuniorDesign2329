@@ -8,6 +8,7 @@ class AboutScreen extends StatelessWidget {
     final ButtonStyle style =
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
       appBar: AppBar(
         title: const Text('About'),
       ),

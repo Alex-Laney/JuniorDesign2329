@@ -31,16 +31,17 @@ class Term {
 
   OutlinedButton menuView(context) {
     return OutlinedButton(
-        style: OutlinedButton.styleFrom(
-          textStyle: const TextStyle(fontSize: 20),
-        ),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => DefScreen(term: this)),
-          );
-        },
-        child: Row(children: <Widget>[
+      style: OutlinedButton.styleFrom(
+        textStyle: const TextStyle(fontSize: 20),
+      ),
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => DefScreen(term: this)),
+        );
+      },
+      child: Row(
+        children: <Widget>[
           Expanded(
               child: Align(
             alignment: Alignment.centerLeft,

@@ -12,11 +12,11 @@ class TermsScreen extends StatefulWidget {
 
 class TermsScreenState extends State<TermsScreen> {
   late String dropdownVal = 'A-Z';
-  late List<Term>  backingList = TermsDB.initialize();
+  late List<Term> backingList = TermsDB.initialize();
 
   List<DropdownMenuItem<String>> getDropdownItems() {
     List<DropdownMenuItem<String>> items = [];
-    for (String sort in ['A-Z', 'Tags']) {
+    for (String sort in ['A-Z', 'Z-A', 'Tags']) {
       items.add(DropdownMenuItem(value: sort, child: Text(sort)));
     }
     return items;
@@ -28,13 +28,15 @@ class TermsScreenState extends State<TermsScreen> {
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
 
     return Scaffold(
-        body: SafeArea(
-            child: Column(children: <Widget>[
-          const Align(
-            alignment: Alignment.topLeft,
-            child: BackButton(),
-          ),
-          Center(
+      backgroundColor: const Color.fromRGBO(239, 199, 199, 1),
+      body: SafeArea(
+        child: Column(
+          children: <Widget>[
+            const Align(
+              alignment: Alignment.topLeft,
+              child: BackButton(),
+            ),
+            Center(
               child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
@@ -52,18 +54,15 @@ class TermsScreenState extends State<TermsScreen> {
                       child: DropdownButton<String>(
                         onChanged: (String? newValue) {
                           setState(() {
-                            print(backingList[0].name);
                             dropdownVal = newValue!;
                             if (newValue == 'A-Z') {
-                              backingList = TermsDB.initialize();
-                              print('A-Z\n$newValue');
-                            }
-                            else {
+                              backingList = TermsDB.sortAlphabetically();
+                            } else if(newValue == 'Z-A') {
+                              backingList = TermsDB.sortReverseAlphabetically();
+                            } else {
+                              TermsDB.sortAlphabetically();
                               backingList = TermsDB.sortByTag();
-                              print('Tags\n$newValue');
-
                             }
-                            print(backingList[0].name);
                           });
                         },
                         value: dropdownVal,
@@ -109,8 +108,29 @@ class TermsScreenState extends State<TermsScreen> {
                 tooltip: 'Settings',
                 icon: const Icon(Icons.settings, color: Colors.black45),
               ),
-            ],
-          ),
-        ));
+            ),
+          ],
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: CircularDialMenu.build(context),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(
+              onPressed: () => Navigator.pushNamed(context, '/'),
+              tooltip: 'Home',
+              icon: const Icon(Icons.home, color: Colors.black45),
+            ),
+            IconButton(
+              onPressed: () => Navigator.pushNamed(context, '/settings'),
+              tooltip: 'Settings',
+              icon: const Icon(Icons.settings, color: Colors.black45),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

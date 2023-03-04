@@ -16,6 +16,7 @@ class DefScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(239, 199, 199, 1),
       body: SafeArea(
         child: Column(children: <Widget>[
           const Align(
@@ -33,8 +34,8 @@ class DefScreen extends StatelessWidget {
                 term.getExamples(context)
               ]),
             ),
-          ),
-        ]),
+          ],
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: CircularDialMenu.build(context),
