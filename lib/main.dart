@@ -8,7 +8,8 @@ import 'package:flutter/material.dart';
 import '/Musical-Terms/Musical-Terms.dart';
 import '/Composers/Composers.dart';
 import '/Listen/Listen.dart';
-import '/Musical-Works/Musical-Works.dart';
+import '/Musical-Works/Musical-Works-Old.dart';
+import '/Musical-Works/Musical-Compositions.dart';
 import '/Quizzes/Quizzes.dart';
 import 'package:artifact/settings/settings_menu.dart';
 import 'circular_dial_menu.dart';
@@ -28,7 +29,7 @@ void main() {
         '/terms': (context) => const TermsScreen(),
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/composers': (context) => const ComposersScreen(),
-        '/works': (context) => const WorksScreen(),
+        '/works': (context) => const CompScreen(),
         '/quizzes': (context) => const QuizzesScreen(),
         '/listen': (context) => const ListenScreen(),
         '/settings': (context) => const SettingsScreen(),

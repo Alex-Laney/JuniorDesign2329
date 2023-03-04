@@ -1,22 +1,21 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:artifact/circular_dial_menu.dart';
-import 'package:artifact/Musical-Terms/Term.dart';
+import 'package:artifact/Musical-Works/Composition.dart';
 import '../Composers/Composers.dart';
 import '../Musical-Works/Musical-Works-Old.dart';
 import '../Quizzes/Quizzes.dart';
 import '../main.dart';
-import 'Musical-Terms.dart';
 
-class DefScreen extends StatelessWidget {
-  const DefScreen({super.key, required this.term});
+class CompScreen extends StatelessWidget {
+  const CompScreen({super.key, required this.comp});
 
-  final Term term;
+  final Comp comp;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(239, 199, 199, 1),
+      backgroundColor: const Color.fromRGBO(196, 236, 249, 1),
       body: SafeArea(
         child: Column(children: <Widget>[
           const Align(
@@ -27,11 +26,11 @@ class DefScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(40),
               child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-                Text(term.name, style: const TextStyle(fontSize: 40)),
+                Text(comp.name, style: const TextStyle(fontSize: 40)),
                 const SizedBox(height: 20),
-                term.getDefinition(context),
+                comp.getDefinition(context),
                 const SizedBox(height: 20),
-                term.getExamples(context)
+                comp.getExamples(context)
               ]),
             ),
           )
