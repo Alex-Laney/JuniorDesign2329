@@ -18,22 +18,25 @@ class DefScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(239, 199, 199, 1),
       body: SafeArea(
-        child: Column(children: <Widget>[
-          const Align(
-            alignment: Alignment.topLeft,
-            child: BackButton(),
-          ),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.all(40),
-              child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-                Text(term.name, style: const TextStyle(fontSize: 40)),
-                const SizedBox(height: 20),
-                term.getDefinition(context),
-                const SizedBox(height: 20),
-                term.getExamples(context)
-              ]),
+        child: Column(
+          children: <Widget>[
+            const Align(
+              alignment: Alignment.topLeft,
+              child: BackButton(),
             ),
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.all(40),
+                child:
+                    Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+                  Text(term.name, style: const TextStyle(fontSize: 40)),
+                  const SizedBox(height: 20),
+                  term.getDefinition(context),
+                  const SizedBox(height: 20),
+                  term.getExamples(context)
+                ]),
+              ),
+            )
           ],
         ),
       ),
