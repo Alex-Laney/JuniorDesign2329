@@ -34,6 +34,7 @@ class DefScreen extends StatelessWidget {
                 term.getExamples(context)
               ]),
             ),
+          )
           ],
         ),
       ),
