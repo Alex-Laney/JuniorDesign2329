@@ -2,18 +2,14 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:artifact/Musical-Terms/Term.dart';
 
+import '../Linkable Interface/linkable.dart';
+import '../Linkable Interface/none_linkable.dart';
+
 class TermsDB {
   static List<Term> backingList = [];
 
   //Declare terms here
-  static Term none = Term(
-    name: "None",
-    defText: [""],
-    defLinks: [],
-    exText: [""],
-    exLinks: [],
-    tags: [],
-  );
+  static NoneLinkable none = NoneLinkable();
   static Term allegro = Term(
       name: "Allegro",
       defText: ["A brisk and lively tempo."],

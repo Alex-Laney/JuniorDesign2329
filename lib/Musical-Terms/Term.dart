@@ -1,15 +1,17 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import '../Linkable Interface/linkable.dart';
+import '../Linkable Interface/none_linkable.dart';
 import 'Definition-Page.dart';
 
 enum Tags { period, musicType, musicTheory }
 
-class Term {
+class Term implements Linkable {
   String name = "";
   List<String> defText;
-  List<Term> defLinks;
+  List<Linkable> defLinks;
   List<String> exText;
-  List<Term> exLinks;
+  List<Linkable> exLinks;
   List<Tags> tags = [];
 
   Term(
@@ -31,17 +33,16 @@ class Term {
 
   OutlinedButton menuView(context) {
     return OutlinedButton(
-      style: OutlinedButton.styleFrom(
-        textStyle: const TextStyle(fontSize: 20),
-      ),
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => DefScreen(term: this)),
-        );
-      },
-      child: Row(
-        children: <Widget>[
+        style: OutlinedButton.styleFrom(
+          textStyle: const TextStyle(fontSize: 20),
+        ),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => DefScreen(term: this)),
+          );
+        },
+        child: Row(children: <Widget>[
           Expanded(
               child: Align(
             alignment: Alignment.centerLeft,
@@ -81,15 +82,9 @@ class Term {
   }
 
   RichText getDefinition(BuildContext context) {
-    if (defText.length == 1) {
-      return RichText(
-          text: TextSpan(
-              text: "Definition: ${defText[0]}",
-              style: const TextStyle(fontSize: 20, color: Colors.black)));
-    }
     List<InlineSpan> children = <InlineSpan>[];
-    for (int i = 1; i < defText.length; i++) {
-      if (defLinks[i].name == "None") {
+    for (int i = 0; i < defText.length; i++) {
+      if (defLinks[i].runtimeType == NoneLinkable) {
         children.add(TextSpan(text: " ${defText[i]}"));
       } else {
         children.add(TextSpan(
@@ -97,31 +92,21 @@ class Term {
             style: const TextStyle(fontSize: 20, color: Colors.lightBlue),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return defLinks[i].dialogView(context);
-                    });
+                defLinks[i].link(context);
               }));
       }
     }
     return RichText(
         text: TextSpan(
-            text: "Definition: ${defText[0]}",
+            text: "Definition: ",
             style: const TextStyle(fontSize: 20, color: Colors.black),
             children: children));
   }
 
   RichText getExamples(BuildContext context) {
-    if (exText.length == 1) {
-      return RichText(
-          text: TextSpan(
-              text: "Examples:\n${exText[0]}",
-              style: const TextStyle(fontSize: 20, color: Colors.black)));
-    }
     List<InlineSpan> children = <InlineSpan>[];
-    for (int i = 1; i < exText.length; i++) {
-      if (exLinks[i].name == "None") {
+    for (int i = 0; i < exText.length; i++) {
+      if (exLinks[i].runtimeType == NoneLinkable) {
         children.add(TextSpan(text: " ${exText[i]}"));
       } else {
         children.add(TextSpan(
@@ -129,18 +114,23 @@ class Term {
             style: const TextStyle(fontSize: 20, color: Colors.lightBlue),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return exLinks[i].dialogView(context);
-                    });
+                exLinks[i].link(context);
               }));
       }
     }
     return RichText(
         text: TextSpan(
-            text: "Examples:\n ${exText[0]}",
+            text: "Examples:\n ",
             style: const TextStyle(fontSize: 20, color: Colors.black),
             children: children));
+  }
+
+  @override
+  void link(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return dialogView(context);
+        });
   }
 }
