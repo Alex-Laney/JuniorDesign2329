@@ -110,7 +110,7 @@ class Comp {
     if (defText.length == 1) {
       return RichText(
           text: TextSpan(
-              text: "Definition: ${defText[0]}",
+              text: "Description: ${defText[0]}",
               style: const TextStyle(fontSize: 20, color: Colors.black)));
     }
     List<InlineSpan> children = <InlineSpan>[];
@@ -133,7 +133,7 @@ class Comp {
     }
     return RichText(
         text: TextSpan(
-            text: "Definition: ${defText[0]}",
+            text: "Description: ${defText[0]}",
             style: const TextStyle(fontSize: 20, color: Colors.black),
             children: children));
   }

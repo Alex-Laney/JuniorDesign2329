@@ -20,7 +20,7 @@ class CompsDB {
       name: "Fur Elise",
       composer: ["Ludwig van Beethoven"],
       composerLinks: [none],
-      defText: ["This is the first composition in the app"],
+      defText: ["Placeholder text"],
       defLinks: [none],
       genreText: ["Fur Elise can be compared to other musical genres such as [x] and [y]."],
       genreLinks: [none]);
@@ -28,7 +28,7 @@ class CompsDB {
       name: "Moonlight Sonata 1st Movement",
       composer: ["Ludwig van Beethoven"],
       composerLinks: [none],
-      defText: ["This is the second composition in the app"],
+      defText: ["Placeholder text"],
       defLinks: [none],
       genreText: ["Moonlight Sonata 1st Movement can be compared to other musical genres such as [x] and [y]."],
       genreLinks: [none]);
@@ -36,7 +36,7 @@ class CompsDB {
       name: "Sonata 1 in F Minor Allegro",
       composer: ["Ludwig van Beethoven"],
       composerLinks: [none],
-      defText: ["This is the third composition in the app"],
+      defText: ["Placeholder text"],
       defLinks: [none],
       genreText: ["Sonata 1 in F Minor Allegro can be compared to other musical genres such as [x] and [y]."],
       genreLinks: [none]);
@@ -44,7 +44,7 @@ class CompsDB {
       name: "Sonata 8 Pathetique 1st Movement",
       composer: ["Ludwig van Beethoven"],
       composerLinks: [none],
-      defText: ["This is the fourth composition in the app"],
+      defText: ["Placeholder text"],
       defLinks: [none],
       genreText: ["Sonata 8 Pathetique 1st Movement can be compared to other musical genres such as [x] and [y]."],
       genreLinks: [none]);
