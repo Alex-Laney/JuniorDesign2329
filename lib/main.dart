@@ -12,6 +12,7 @@ import '/Musical-Works/Musical-Works.dart';
 import '/Quizzes/Quizzes.dart';
 import 'package:artifact/settings/settings_menu.dart';
 import 'circular_dial_menu.dart';
+import '/Composers/Beethoven.dart';
 
 void main() {
   runApp(
@@ -58,6 +59,7 @@ void main() {
         '/termsHelp': (context) => const MusicalTermsHelpScreen(),
         '/musicHelp': (context) => const MusicHelpScreen(),
         '/quizzesHelp': (context) => const QuizzesHelpScreen(),
+        '/beethoven': (context) => const BeethovenScreen(),
       },
     ),
   );

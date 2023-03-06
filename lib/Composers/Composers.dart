@@ -1,5 +1,8 @@
+import 'package:artifact/Composers/Beethoven.dart';
 import 'package:flutter/material.dart';
 import 'package:artifact/circular_dial_menu.dart';
+
+
 
 class ComposersScreen extends StatelessWidget {
   const ComposersScreen({super.key});
@@ -17,7 +20,13 @@ class ComposersScreen extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          children: const <Widget>[Text('ComposerInformationHere')],
+          children: <Widget>[ElevatedButton(
+            style: style,
+            onPressed: () {
+              Navigator.pushNamed(context, '/beethoven');
+            },
+            child: const Text('Beethoven'),
+          )],
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
