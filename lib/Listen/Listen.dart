@@ -60,10 +60,14 @@ class ListenScreenState extends State<ListenScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(196, 236, 249, 1),
-      body: Center(
+      body: SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            const Align(
+              alignment: Alignment.topLeft,
+              child: BackButton(),
+            ),
             Image.asset('assets/images/Beethoven.PNG'),
             const Padding(
               padding: EdgeInsets.fromLTRB(60, 20, 60, 0),
