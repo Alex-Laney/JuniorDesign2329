@@ -2,26 +2,22 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:artifact/Musical-Works/Composition.dart';
 import 'package:artifact/Musical-Terms/TermsDB.dart';
+import '../Linkable Interface/linkable.dart';
+import '../Linkable Interface/none_linkable.dart';
+import 'package:artifact/Musical-Terms/Term.dart';
+import 'package:artifact/Musical-Terms/TermsDB.dart';
 
 class CompsDB {
   static List<Comp> backingList = [];
 
   //Declare terms here
-  static Comp none = Comp(
-    name: "None",
-    composer: [""],
-    composerLinks: [],
-    desText: [""],
-    desLinks: [],
-    genreText: [""],
-    genreLinks: [],
-  );
+  static NoneLinkable none = NoneLinkable();
   static Comp fur = Comp(
       name: "Fur Elise",
       composer: ["Ludwig van Beethoven"],
       composerLinks: [none],
-      desText: ["Placeholder text"],
-      desLinks: [none],
+      desText: ["Placeholder text", "Placeholder link to the term 'Classical Period'", "More Placeholder Text"],
+      desLinks: [none, TermsDB.classicalPeriod, none],
       genreText: ["Fur Elise can be compared to other musical genres such as [x] and [y]."],
       genreLinks: [none]);
   static Comp moonlight = Comp(
