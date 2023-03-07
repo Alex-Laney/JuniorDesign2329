@@ -30,7 +30,7 @@ class CompScreen extends StatelessWidget {
                 const SizedBox(height: 20),
                 comp.getComposer(context),
                 const SizedBox(height: 20),
-                comp.getDefinition(context),
+                comp.getDescription(context),
                 const SizedBox(height: 20),
                 comp.getExamples(context),
                 const SizedBox(height: 20),

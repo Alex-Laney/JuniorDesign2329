@@ -1,22 +1,26 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'Composition-Page.dart';
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+import '../Linkable Interface/linkable.dart';
+import '../Linkable Interface/none_linkable.dart';
 
-class Comp {
+class Comp implements Linkable{
   String name = "";
   List<String> composer;
-  List<Comp> composerLinks;
-  List<String> defText;
-  List<Comp> defLinks;
+  List<Linkable> composerLinks;
+  List<String> desText;
+  List<Linkable> desLinks;
   List<String> genreText;
-  List<Comp> genreLinks;
+  List<Linkable> genreLinks;
 
   Comp(
       {required this.name,
       required this.composer,
       required this.composerLinks,
-        required this.defText,
-        required this.defLinks,
+        required this.desText,
+        required this.desLinks,
         required this.genreText,
       required this.genreLinks});
 
@@ -75,15 +79,9 @@ class Comp {
   }
 
   RichText getComposer(BuildContext context) {
-    if (composer.length == 1) {
-      return RichText(
-          text: TextSpan(
-              text: "Composer: ${composer[0]}",
-              style: const TextStyle(fontSize: 20, color: Colors.black)));
-    }
     List<InlineSpan> children = <InlineSpan>[];
-    for (int i = 1; i < composer.length; i++) {
-      if (composerLinks[i].name == "None") {
+    for (int i = 0; i < composer.length; i++) {
+      if (composerLinks[i].runtimeType == NoneLinkable) {
         children.add(TextSpan(text: " ${composer[i]}"));
       } else {
         children.add(TextSpan(
@@ -91,63 +89,43 @@ class Comp {
             style: const TextStyle(fontSize: 20, color: Colors.lightBlue),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return composerLinks[i].dialogView(context);
-                    });
+                composerLinks[i].link(context);
               }));
       }
     }
     return RichText(
         text: TextSpan(
-            text: "Composer: ${composer[0]}",
+            text: "Composer: ",
             style: const TextStyle(fontSize: 20, color: Colors.black),
             children: children));
   }
 
-  RichText getDefinition(BuildContext context) {
-    if (defText.length == 1) {
-      return RichText(
-          text: TextSpan(
-              text: "Description: ${defText[0]}",
-              style: const TextStyle(fontSize: 20, color: Colors.black)));
-    }
+  RichText getDescription(BuildContext context) {
     List<InlineSpan> children = <InlineSpan>[];
-    for (int i = 1; i < defText.length; i++) {
-      if (composerLinks[i].name == "None") {
-        children.add(TextSpan(text: " ${defText[i]}"));
+    for (int i = 0; i < desText.length; i++) {
+      if (desLinks[i].runtimeType == NoneLinkable) {
+        children.add(TextSpan(text: " ${desText[i]}"));
       } else {
         children.add(TextSpan(
-            text: " ${defText[i]}",
+            text: " ${desText[i]}",
             style: const TextStyle(fontSize: 20, color: Colors.lightBlue),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return defLinks[i].dialogView(context);
-                    });
+                desLinks[i].link(context);
               }));
       }
     }
     return RichText(
         text: TextSpan(
-            text: "Description: ${defText[0]}",
+            text: "Description: ",
             style: const TextStyle(fontSize: 20, color: Colors.black),
             children: children));
   }
 
   RichText getExamples(BuildContext context) {
-    if (genreText.length == 1) {
-      return RichText(
-          text: TextSpan(
-              text: "Genre Comparisons:\n${genreText[0]}",
-              style: const TextStyle(fontSize: 20, color: Colors.black)));
-    }
     List<InlineSpan> children = <InlineSpan>[];
-    for (int i = 1; i < genreText.length; i++) {
-      if (genreLinks[i].name == "None") {
+    for (int i = 0; i < genreText.length; i++) {
+      if (genreLinks[i].runtimeType == NoneLinkable) {
         children.add(TextSpan(text: " ${genreText[i]}"));
       } else {
         children.add(TextSpan(
@@ -155,18 +133,23 @@ class Comp {
             style: const TextStyle(fontSize: 20, color: Colors.lightBlue),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return genreLinks[i].dialogView(context);
-                    });
+                genreLinks[i].link(context);
               }));
       }
     }
     return RichText(
         text: TextSpan(
-            text: "Genre Comparisons:\n ${genreText[0]}",
+            text: "Genre Comparisons: ",
             style: const TextStyle(fontSize: 20, color: Colors.black),
             children: children));
+  }
+
+  @override
+  void link(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return dialogView(context);
+        });
   }
 }

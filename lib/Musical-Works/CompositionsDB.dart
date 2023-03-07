@@ -11,8 +11,8 @@ class CompsDB {
     name: "None",
     composer: [""],
     composerLinks: [],
-    defText: [""],
-    defLinks: [],
+    desText: [""],
+    desLinks: [],
     genreText: [""],
     genreLinks: [],
   );
@@ -20,32 +20,32 @@ class CompsDB {
       name: "Fur Elise",
       composer: ["Ludwig van Beethoven"],
       composerLinks: [none],
-      defText: ["Placeholder text"],
-      defLinks: [none],
+      desText: ["Placeholder text"],
+      desLinks: [none],
       genreText: ["Fur Elise can be compared to other musical genres such as [x] and [y]."],
       genreLinks: [none]);
   static Comp moonlight = Comp(
       name: "Moonlight Sonata 1st Movement",
       composer: ["Ludwig van Beethoven"],
       composerLinks: [none],
-      defText: ["Placeholder text"],
-      defLinks: [none],
+      desText: ["Placeholder text"],
+      desLinks: [none],
       genreText: ["Moonlight Sonata 1st Movement can be compared to other musical genres such as [x] and [y]."],
       genreLinks: [none]);
   static Comp sonataOne = Comp(
       name: "Sonata 1 in F Minor Allegro",
       composer: ["Ludwig van Beethoven"],
       composerLinks: [none],
-      defText: ["Placeholder text"],
-      defLinks: [none],
+      desText: ["Placeholder text"],
+      desLinks: [none],
       genreText: ["Sonata 1 in F Minor Allegro can be compared to other musical genres such as [x] and [y]."],
       genreLinks: [none]);
   static Comp sonataEight = Comp(
       name: "Sonata 8 Pathetique 1st Movement",
       composer: ["Ludwig van Beethoven"],
       composerLinks: [none],
-      defText: ["Placeholder text"],
-      defLinks: [none],
+      desText: ["Placeholder text"],
+      desLinks: [none],
       genreText: ["Sonata 8 Pathetique 1st Movement can be compared to other musical genres such as [x] and [y]."],
       genreLinks: [none]);
 
