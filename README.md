@@ -1,7 +1,24 @@
 # Notes on the Note Makers
 The purpose of this mobile application, Notes on the Note Makers, will be to raise awareness and to educate teens and young adults about the classical composers and their important works, as well as introducing them to basic musical terms found in classical pieces and broaden the user’s general knowledge of music. 
 # Release Notes Section
-
+## Version 0.3.0
+### Features
+ - Added in-text link support, so users can quickly retrieve information referenced on other pages. 
+ - Added a universal color palette 
+ - Added individual pages for compositions 
+ - Added individual pages for composers 
+ - An initial mockup of an App Store page has been created 
+ - Information related to the composers has been collected and added to their pages 
+ - Information related to the compositions has been collected and added to their pages 
+### Bug Fixes
+ - 'Linkable interface' has been implemented as a fix to the problem where terms could not be accessed outside of the 'Terms' module
+ - Sliver List functionality has been removed from the 'Works' module viewing list, and has been replaced with a standard 'safe zone' as used in the 'Terms' module
+ - The code for the Floating Action Button had been accidentally copied twice into the Musical-Terms.dart file and has been remediated
+ - An additional parenthesis was needed in the Definition-Page.dart file and has been remediated 
+### Known Issues
+- Songs will play in the background when leaving the ‘Listen’ module 
+- Returning to the ‘Listen’ module with a song playing in the background will allow you to play multiple songs concurrently, which is not intended 
+- Sonata 8 Pathetique 1st Movement ends prematurely 
 ## Version 0.2.0
 ### Features
 - Added musical term database 
