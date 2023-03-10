@@ -53,7 +53,7 @@ class ListenScreenState extends State<ListenScreen> {
 
   @override
   void dispose() {
-    _audioPlayer.dispose();
+    super.dispose();
   }
 
   @override

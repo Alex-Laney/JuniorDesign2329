@@ -6,8 +6,6 @@ class BeethovenScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle style =
-        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
 
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 246, 167, 1),

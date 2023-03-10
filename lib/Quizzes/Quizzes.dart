@@ -6,8 +6,6 @@ class QuizzesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle style =
-        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
     return Scaffold(
       backgroundColor: const Color.fromRGBO(225, 255, 195, 1),
       appBar: AppBar(
@@ -18,7 +16,6 @@ class QuizzesScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             ElevatedButton(
-              style: style,
               onPressed: () {},
               child: const Text('Sample Quiz (Not Implemented)'),
             ),
