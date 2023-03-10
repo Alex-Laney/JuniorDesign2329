@@ -26,6 +26,14 @@ class ComposersScreen extends StatelessWidget {
               Navigator.pushNamed(context, '/beethoven');
             },
             child: const Text('Beethoven'),
+
+          ),
+          ElevatedButton(
+            style: style,
+            onPressed: () {
+              Navigator.pushNamed(context, '/mozart');
+            },
+            child: const Text('Mozart'),
           )],
         ),
       ),
