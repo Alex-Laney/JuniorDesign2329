@@ -7,6 +7,7 @@ The purpose of this mobile application, Notes on the Note Makers, will be to rai
  - Added a universal color palette 
  - Added individual pages for compositions 
  - Added individual pages for composers 
+ - Added ability to transition from listen module to the song composer's information page
  - An initial mockup of an App Store page has been created 
  - Information related to the composers has been collected and added to their pages 
  - Information related to the compositions has been collected and added to their pages 
