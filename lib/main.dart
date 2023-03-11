@@ -8,13 +8,13 @@ import 'package:flutter/material.dart';
 import '/Musical-Terms/Musical-Terms.dart';
 import '/Composers/Composers.dart';
 import '/Listen/Listen.dart';
-import '/Musical-Works/Musical-Works-Old.dart';
 import '/Musical-Works/Musical-Compositions.dart';
 import '/Quizzes/Quizzes.dart';
 import 'package:artifact/settings/settings_menu.dart';
 import 'circular_dial_menu.dart';
 import '/Composers/Beethoven.dart';
 import '/Composers/Mozart.dart';
+import '/Composers/Bach.dart';
 
 void main() {
   runApp(
@@ -69,6 +69,7 @@ void main() {
         '/quizzesHelp': (context) => const QuizzesHelpScreen(),
         '/beethoven': (context) => const BeethovenScreen(),
         '/mozart': (context) => const MozartScreen(),
+        '/bach': (context) => const BachScreen(),
       },
     ),
   );
