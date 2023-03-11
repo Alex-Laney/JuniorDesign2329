@@ -69,13 +69,14 @@ class ListenScreenState extends State<ListenScreen> {
               child: BackButton(),
             ),
             Image.asset('assets/images/Beethoven.PNG'),
-            const Padding(
-              padding: EdgeInsets.fromLTRB(60, 20, 60, 0),
-              child: Text('Ludwig Van Beethoven',
-                  style: TextStyle(
-                      fontFamily: 'Fixed',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24.0)),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(60, 20, 60, 0),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/beethoven');
+                },
+                child: const Text('Ludwig van Beethoven'),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(60, 50, 60, 0),
