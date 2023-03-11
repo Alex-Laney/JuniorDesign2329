@@ -2,8 +2,6 @@ import 'package:artifact/Composers/Beethoven.dart';
 import 'package:flutter/material.dart';
 import 'package:artifact/circular_dial_menu.dart';
 
-
-
 class ComposersScreen extends StatelessWidget {
   const ComposersScreen({super.key});
 
@@ -14,36 +12,112 @@ class ComposersScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 246, 167, 1),
-      appBar: AppBar(
-        title: const Text('Composers'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[ElevatedButton(
-            style: style,
-            onPressed: () {
-              Navigator.pushNamed(context, '/beethoven');
-            },
-            child: const Text('Beethoven'),
-
+      body: SingleChildScrollView(
+          child: SafeArea(
+        child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+          const Align(
+            alignment: Alignment.topLeft,
+            child: BackButton(),
           ),
-          ElevatedButton(
-            style: style,
-            onPressed: () {
-              Navigator.pushNamed(context, '/mozart');
-            },
-            child: const Text('Mozart'),
-          ),
-          ElevatedButton(
-            style: style,
-            onPressed: () {
-              Navigator.pushNamed(context, '/bach');
-            },
-            child: const Text('Bach'),
-            )],
-        ),
-      ),
+          Center(
+              child: Padding(
+                  padding: const EdgeInsets.all(40),
+                  child: Column(
+                    children: <Widget>[
+                      const Text('Composers', style: TextStyle(fontSize: 40)),
+                      const SizedBox(height: 30),
+                      MaterialButton(
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: Stack(
+                                alignment: Alignment.bottomLeft,
+                                children: <Widget>[
+                                  Image.asset(
+                                    'assets/images/BeethovenButton.png',
+                                  ),
+                                  const Padding(
+                                      padding: EdgeInsets.all(10),
+                                      child: Text('Beethoven',
+                                          style: TextStyle(
+                                              shadows: <Shadow>[
+                                                Shadow(
+                                                  offset: Offset(0, 0),
+                                                  blurRadius: 10.0,
+                                                  color: Colors.black,
+                                                ),
+                                              ],
+                                              fontSize: 30,
+                                              color: Colors.white)))
+                                ])),
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/beethoven');
+                        },
+                        //child: const Text('Beethoven'),
+                      ),
+                      const SizedBox(height: 30),
+                      MaterialButton(
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            // Image border
+                            child: Stack(
+                                alignment: Alignment.bottomLeft,
+                                children: <Widget>[
+                                  Image.asset(
+                                    'assets/images/MozartButton.png',
+                                  ),
+                                  const Padding(
+                                      padding: EdgeInsets.all(10),
+                                      child: Text('Mozart',
+                                          style: TextStyle(
+                                              shadows: <Shadow>[
+                                                Shadow(
+                                                  offset: Offset(0, 0),
+                                                  blurRadius: 10.0,
+                                                  color: Colors.black,
+                                                ),
+                                              ],
+                                              fontSize: 30,
+                                              color: Colors.white)))
+                                ])),
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/mozart');
+                        },
+                        //child: const Text('Beethoven'),
+                      ),
+                      const SizedBox(height: 30),
+                      MaterialButton(
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            // Image border
+                            child: Stack(
+                                alignment: Alignment.bottomLeft,
+                                children: <Widget>[
+                                  Image.asset(
+                                    'assets/images/BachButton.png',
+                                  ),
+                                  const Padding(
+                                      padding: EdgeInsets.all(10),
+                                      child: Text('Bach',
+                                          style: TextStyle(
+                                              shadows: <Shadow>[
+                                                Shadow(
+                                                  offset: Offset(0, 0),
+                                                  blurRadius: 10.0,
+                                                  color: Colors.black,
+                                                ),
+                                              ],
+                                              fontSize: 30,
+                                              color: Colors.white)))
+                                ])),
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/bach');
+                        },
+                        //child: const Text('Beethoven'),
+                      ),
+                    ],
+                  )))
+        ]),
+      )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: CircularDialMenu.build(context),
       bottomNavigationBar: BottomAppBar(
