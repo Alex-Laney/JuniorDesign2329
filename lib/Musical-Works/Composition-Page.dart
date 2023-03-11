@@ -16,12 +16,15 @@ class CompScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(196, 236, 249, 1),
-      body: SafeArea(
+      appBar: AppBar(
+        backgroundColor: Colors.blue.withOpacity(0)
+      ),
+      body: SingleChildScrollView(
         child: Column(children: <Widget>[
-          const Align(
-            alignment: Alignment.topLeft,
-            child: BackButton(),
-          ),
+          // const Align(
+          //   alignment: Alignment.topLeft,
+          //   child: BackButton(),
+          // ),
           Center(
             child: Padding(
               padding: const EdgeInsets.all(30),
