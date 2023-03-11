@@ -16,8 +16,6 @@ class CompScreenState extends State<CompScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle style =
-        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
 
     return Scaffold(
       backgroundColor: const Color.fromRGBO(196, 236, 249, 1),

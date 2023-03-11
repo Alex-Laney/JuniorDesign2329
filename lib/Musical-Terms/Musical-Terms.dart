@@ -24,8 +24,6 @@ class TermsScreenState extends State<TermsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle style =
-        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
 
     return Scaffold(
       backgroundColor: const Color.fromRGBO(239, 199, 199, 1),

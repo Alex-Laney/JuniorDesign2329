@@ -22,7 +22,13 @@ void main() {
       title: 'Artifact',
       // Start the app with the "/" named route. In this case, the app starts
       // on the FirstScreen widget.
-      theme: ThemeData(fontFamily: 'Kanit'),
+      theme: ThemeData(
+        fontFamily: 'Kanit',
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+              textStyle: const TextStyle(fontSize: 20, fontFamily: 'Kanit')),
+        ),
+      ),
       initialRoute: '/',
       routes: {
         // "/" route means main screen
@@ -76,9 +82,6 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle style = ElevatedButton.styleFrom(
-        textStyle: const TextStyle(fontSize: 20, fontFamily: 'Kanit'));
-
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
       appBar: AppBar(
@@ -89,7 +92,6 @@ class MainScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             ElevatedButton(
-              style: style,
               onPressed: () {
                 Navigator.pushNamed(context, '/terms');
               },
@@ -97,7 +99,6 @@ class MainScreen extends StatelessWidget {
             ),
             const SizedBox(height: 30),
             ElevatedButton(
-              style: style,
               onPressed: () {
                 Navigator.pushNamed(context, '/composers');
               },
@@ -105,7 +106,6 @@ class MainScreen extends StatelessWidget {
             ),
             const SizedBox(height: 30),
             ElevatedButton(
-              style: style,
               onPressed: () {
                 Navigator.pushNamed(context, '/works');
               },
@@ -113,7 +113,6 @@ class MainScreen extends StatelessWidget {
             ),
             const SizedBox(height: 30),
             ElevatedButton(
-              style: style,
               onPressed: () {
                 Navigator.pushNamed(context, '/quizzes');
               },
@@ -121,7 +120,6 @@ class MainScreen extends StatelessWidget {
             ),
             const SizedBox(height: 30),
             ElevatedButton(
-              style: style,
               onPressed: () {
                 Navigator.pushNamed(context, '/listen');
               },

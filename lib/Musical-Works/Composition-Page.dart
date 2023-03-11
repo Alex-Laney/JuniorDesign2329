@@ -35,7 +35,6 @@ class CompScreen extends StatelessWidget {
                 comp.getExamples(context),
                 const SizedBox(height: 20),
                 ElevatedButton(
-                  style: ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20, fontFamily: 'Kanit')),
                   onPressed: () {
                     Navigator.pushNamed(context, '/listen');
                   },

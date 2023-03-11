@@ -33,9 +33,6 @@ class Term implements Linkable {
 
   OutlinedButton menuView(context) {
     return OutlinedButton(
-        style: OutlinedButton.styleFrom(
-          textStyle: const TextStyle(fontSize: 20),
-        ),
         onPressed: () {
           Navigator.push(
             context,
@@ -65,9 +62,6 @@ class Term implements Linkable {
         Align(
             alignment: Alignment.bottomRight,
             child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                textStyle: const TextStyle(fontSize: 20),
-              ),
               onPressed: () {
                 Navigator.push(
                   context,
