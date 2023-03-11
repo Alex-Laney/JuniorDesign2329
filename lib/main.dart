@@ -83,13 +83,14 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
-      appBar: AppBar(
-        title: const Text('Home Page'),
-      ),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
+            Padding(
+              padding: EdgeInsets.fromLTRB(60, 0, 60, 0),
+              child: Image.asset('assets/images/Logo.png', scale: 2.0),
+            ),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/terms');
