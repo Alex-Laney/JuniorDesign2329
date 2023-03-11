@@ -90,7 +90,7 @@ class MainScreen extends StatelessWidget {
           children: <Widget>[
             Padding(
               padding: EdgeInsets.fromLTRB(60, 0, 60, 0),
-              child: Image.asset('assets/images/Logo.png', scale: 2.0),
+              child: Image.asset('assets/images/Logo.PNG', scale: 2.0),
             ),
             ElevatedButton(
               onPressed: () {
