@@ -19,6 +19,7 @@ The purpose of this mobile application, Notes on the Note Makers, will be to rai
 - Songs will play in the background when leaving the ‘Listen’ module 
 - Returning to the ‘Listen’ module with a song playing in the background will allow you to play multiple songs concurrently, which is not intended 
 - Sonata 8 Pathetique 1st Movement ends prematurely 
+- "Listen to ___" buttons all link to the same song
 ## Version 0.2.0
 ### Features
 - Added musical term database 
