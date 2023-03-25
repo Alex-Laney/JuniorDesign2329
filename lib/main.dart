@@ -4,6 +4,7 @@ import 'package:artifact/settings/help_menus/composers_help.dart';
 import 'package:artifact/settings/help_menus/music_help.dart';
 import 'package:artifact/settings/help_menus/musical_terms_help.dart';
 import 'package:artifact/settings/help_menus/quizzes_help.dart';
+import 'package:artifact/splash_screen.dart';
 import 'package:flutter/material.dart';
 import '/Musical-Terms/Musical-Terms.dart';
 import '/Composers/Composers.dart';
@@ -29,10 +30,11 @@ void main() {
               textStyle: const TextStyle(fontSize: 20, fontFamily: 'Kanit')),
         ),
       ),
-      initialRoute: '/',
+      home: SplashScreen(),
+      //initialRoute: '/',
       routes: {
         // "/" route means main screen
-        '/': (context) => const MainScreen(),
+        '/main': (context) => const MainScreen(),
         // When navigating to the "/first" route, build the FirstScreen widget.
         '/terms': (context) => const TermsScreen(),
         // When navigating to the "/second" route, build the SecondScreen widget.
