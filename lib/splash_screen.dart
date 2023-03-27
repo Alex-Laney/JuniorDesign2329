@@ -35,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(const Duration(seconds: 5));
 
     // navigating to home screen
-    Navigator.pushNamed(context, '/main');
+    Navigator.pushNamed(context, '/opening');
   }
 
   @override

@@ -16,6 +16,7 @@ import 'circular_dial_menu.dart';
 import '/Composers/Beethoven.dart';
 import '/Composers/Mozart.dart';
 import '/Composers/Bach.dart';
+import 'music_box.dart';
 
 void main() {
   runApp(
@@ -33,8 +34,10 @@ void main() {
       home: SplashScreen(),
       //initialRoute: '/',
       routes: {
-        // "/" route means main screen
+        // this is the trad home page
         '/main': (context) => const MainScreen(),
+        // this is actually the start
+        '/opening': (context) => const opening(),
         // When navigating to the "/first" route, build the FirstScreen widget.
         '/terms': (context) => const TermsScreen(),
         // When navigating to the "/second" route, build the SecondScreen widget.
