@@ -89,50 +89,118 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
+      body: Container(
+        padding: EdgeInsets.fromLTRB(0, 120, 0, 0),
+        child: GridView.count(
+          primary: false,
+          padding: const EdgeInsets.all(20),
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          crossAxisCount: 2,
           children: <Widget>[
-            Padding(
-              padding: EdgeInsets.fromLTRB(60, 0, 60, 0),
-              child: Image.asset('assets/images/Logo.PNG', scale: 2.0),
+            Image.asset('assets/images/Logo.PNG', scale: 0.1),
+            Container(
+              padding: const EdgeInsets.all(8),
+              color: const Color.fromRGBO(239, 199, 199, 1),
+              child: TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/terms');
+                },
+                child: const Text('Terms', style: TextStyle(fontSize:
+                25, color: Colors.black)),
+              ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/terms');
-              },
-              child: const Text('Terms'),
+            Container(
+              padding: const EdgeInsets.all(8),
+              color: const Color.fromRGBO(225, 255, 195, 1),
+              child: TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/quizzes');
+                },
+                child: const Text('Quizzes', style: TextStyle(fontSize:
+                25, color: Colors.black)),
+              ),
             ),
-            const SizedBox(height: 30),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/composers');
-              },
-              child: const Text('Composers'),
+            Container(
+              padding: const EdgeInsets.all(8),
+              color: const Color.fromRGBO(255, 246, 167, 1),
+              child: TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/composers');
+                },
+                child: const Text('Composers', style: TextStyle(fontSize:
+                25, color: Colors.black)),
+              ),
             ),
-            const SizedBox(height: 30),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/works');
-              },
-              child: const Text('Works'),
+            Container(
+              padding: const EdgeInsets.all(8),
+              color: const Color.fromRGBO(201, 200, 244, 1.0),
+              child: TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/listen');
+                },
+                child: const Text('Listen', style: TextStyle(fontSize:
+                25, color: Colors.black)),
+              ),
             ),
-            const SizedBox(height: 30),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/quizzes');
-              },
-              child: const Text('Quizzes'),
-            ),
-            const SizedBox(height: 30),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/listen');
-              },
-              child: const Text('Listen'),
+            Container(
+              padding: const EdgeInsets.all(8),
+              color: const Color.fromRGBO(196, 236, 249, 1),
+              child: TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/works');
+                },
+                child: const Text('Works', style: TextStyle(fontSize:
+                25, color: Colors.black)),
+              ),
             ),
           ],
-        ),
+        )
+
+
+        // Column(
+        //   mainAxisSize: MainAxisSize.min,
+        //   children: <Widget>[
+        //     Padding(
+        //       padding: EdgeInsets.fromLTRB(60, 0, 60, 0),
+        //       child: Image.asset('assets/images/Logo.PNG', scale: 2.0),
+        //     ),
+        //     ElevatedButton(
+        //       onPressed: () {
+        //         Navigator.pushNamed(context, '/terms');
+        //       },
+        //       child: const Text('Terms'),
+        //     ),
+        //     const SizedBox(height: 30),
+        //     ElevatedButton(
+        //       onPressed: () {
+        //         Navigator.pushNamed(context, '/composers');
+        //       },
+        //       child: const Text('Composers'),
+        //     ),
+        //     const SizedBox(height: 30),
+        //     ElevatedButton(
+        //       onPressed: () {
+        //         Navigator.pushNamed(context, '/works');
+        //       },
+        //       child: const Text('Works'),
+        //     ),
+        //     const SizedBox(height: 30),
+        //     ElevatedButton(
+        //       onPressed: () {
+        //         Navigator.pushNamed(context, '/quizzes');
+        //       },
+        //       child: const Text('Quizzes'),
+        //     ),
+        //     const SizedBox(height: 30),
+        //     ElevatedButton(
+        //       onPressed: () {
+        //         Navigator.pushNamed(context, '/listen');
+        //       },
+        //       child: const Text('Listen'),
+        //     ),
+        //   ],
+        // ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: CircularDialMenu.build(context),

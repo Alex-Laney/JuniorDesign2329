@@ -59,7 +59,7 @@ class ListenScreenState extends State<ListenScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(196, 236, 249, 1),
+      backgroundColor: const Color.fromRGBO(201, 200, 244, 1.0),
       body: SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.min,
