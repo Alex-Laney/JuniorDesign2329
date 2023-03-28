@@ -99,108 +99,78 @@ class MainScreen extends StatelessWidget {
           crossAxisCount: 2,
           children: <Widget>[
             Image.asset('assets/images/Logo.PNG', scale: 0.1),
-            Container(
-              padding: const EdgeInsets.all(8),
-              color: const Color.fromRGBO(239, 199, 199, 1),
-              child: TextButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/terms');
-                },
-                child: const Text('Terms', style: TextStyle(fontSize:
-                25, color: Colors.black)),
-              ),
+            ClipRRect(
+                borderRadius: BorderRadius.circular(30.0),
+              child: Container(
+                color: const Color.fromRGBO(239, 199, 199, 1),
+                padding: const EdgeInsets.all(8),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/terms');
+                  },
+                  child: const Text('Terms', style: TextStyle(fontSize:
+                  25, color: Colors.black)),
+                ),
+              )
             ),
-            Container(
-              padding: const EdgeInsets.all(8),
-              color: const Color.fromRGBO(225, 255, 195, 1),
-              child: TextButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/quizzes');
-                },
-                child: const Text('Quizzes', style: TextStyle(fontSize:
-                25, color: Colors.black)),
-              ),
+            ClipRRect(
+                borderRadius: BorderRadius.circular(30.0),
+                child: Container(
+                  color: const Color.fromRGBO(225, 255, 195, 1),
+                  padding: const EdgeInsets.all(8),
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/quizzes');
+                    },
+                    child: const Text('Quizzes', style: TextStyle(fontSize:
+                    25, color: Colors.black)),
+                  ),
+                )
             ),
-            Container(
-              padding: const EdgeInsets.all(8),
-              color: const Color.fromRGBO(255, 246, 167, 1),
-              child: TextButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/composers');
-                },
-                child: const Text('Composers', style: TextStyle(fontSize:
-                25, color: Colors.black)),
-              ),
+            ClipRRect(
+                borderRadius: BorderRadius.circular(30.0),
+                child: Container(
+                  color: const Color.fromRGBO(255, 246, 167, 1),
+                  padding: const EdgeInsets.all(8),
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/composers');
+                    },
+                    child: const Text('Composers', style: TextStyle(fontSize:
+                    25, color: Colors.black)),
+                  ),
+                )
             ),
-            Container(
-              padding: const EdgeInsets.all(8),
-              color: const Color.fromRGBO(201, 200, 244, 1.0),
-              child: TextButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/listen');
-                },
-                child: const Text('Listen', style: TextStyle(fontSize:
-                25, color: Colors.black)),
-              ),
+            ClipRRect(
+                borderRadius: BorderRadius.circular(30.0),
+                child: Container(
+                  color: const Color.fromRGBO(201, 200, 244, 1.0),
+                  padding: const EdgeInsets.all(8),
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/listen');
+                    },
+                    child: const Text('Listen', style: TextStyle(fontSize:
+                    25, color: Colors.black)),
+                  ),
+                )
             ),
-            Container(
-              padding: const EdgeInsets.all(8),
-              color: const Color.fromRGBO(196, 236, 249, 1),
-              child: TextButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/works');
-                },
-                child: const Text('Works', style: TextStyle(fontSize:
-                25, color: Colors.black)),
-              ),
+            ClipRRect(
+                borderRadius: BorderRadius.circular(30.0),
+                child: Container(
+                  color: const Color.fromRGBO(196, 236, 249, 1),
+                  padding: const EdgeInsets.all(8),
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/works');
+                    },
+                    child: const Text('Works', style: TextStyle(fontSize:
+                    25, color: Colors.black)),
+                  ),
+                )
             ),
-          ],
+          ]
         )
-
-
-        // Column(
-        //   mainAxisSize: MainAxisSize.min,
-        //   children: <Widget>[
-        //     Padding(
-        //       padding: EdgeInsets.fromLTRB(60, 0, 60, 0),
-        //       child: Image.asset('assets/images/Logo.PNG', scale: 2.0),
-        //     ),
-        //     ElevatedButton(
-        //       onPressed: () {
-        //         Navigator.pushNamed(context, '/terms');
-        //       },
-        //       child: const Text('Terms'),
-        //     ),
-        //     const SizedBox(height: 30),
-        //     ElevatedButton(
-        //       onPressed: () {
-        //         Navigator.pushNamed(context, '/composers');
-        //       },
-        //       child: const Text('Composers'),
-        //     ),
-        //     const SizedBox(height: 30),
-        //     ElevatedButton(
-        //       onPressed: () {
-        //         Navigator.pushNamed(context, '/works');
-        //       },
-        //       child: const Text('Works'),
-        //     ),
-        //     const SizedBox(height: 30),
-        //     ElevatedButton(
-        //       onPressed: () {
-        //         Navigator.pushNamed(context, '/quizzes');
-        //       },
-        //       child: const Text('Quizzes'),
-        //     ),
-        //     const SizedBox(height: 30),
-        //     ElevatedButton(
-        //       onPressed: () {
-        //         Navigator.pushNamed(context, '/listen');
-        //       },
-        //       child: const Text('Listen'),
-        //     ),
-        //   ],
-        // ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: CircularDialMenu.build(context),
