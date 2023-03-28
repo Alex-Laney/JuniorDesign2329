@@ -113,7 +113,7 @@ class ListenScreenState extends State<ListenScreen> {
           children: [
             IconButton(
               onPressed: () => {
-                Navigator.pushNamed(context, '/'),
+                Navigator.pushNamed(context, '/main'),
               },
               tooltip: 'Home',
               icon: const Icon(Icons.home, color: Colors.black45),

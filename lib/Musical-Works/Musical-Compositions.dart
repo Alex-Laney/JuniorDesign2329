@@ -64,7 +64,7 @@ class CompScreenState extends State<CompScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(
-              onPressed: () => Navigator.pushNamed(context, '/'),
+              onPressed: () => Navigator.pushNamed(context, '/main'),
               tooltip: 'Home',
               icon: const Icon(Icons.home, color: Colors.black45),
             ),
