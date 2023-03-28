@@ -59,7 +59,7 @@ class HelpScreen extends StatelessWidget {
           children: [
             IconButton(
               onPressed: () => Navigator.pushNamedAndRemoveUntil(
-                  context, '/', (route) => false),
+                  context, '/main', (route) => false),
               tooltip: 'Home',
               icon: const Icon(Icons.home, color: Colors.black45),
             ),

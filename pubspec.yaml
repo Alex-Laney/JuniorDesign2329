@@ -29,6 +29,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  video_player: ^2.2.19
   flutter:
     sdk: flutter
 
@@ -42,11 +43,16 @@ dependencies:
   just_audio_windows: ^0.2.0
   rxdart: ^0.27.7
   seekbar: ^0.0.2
+  animate_do: ^2.1.0
 
 
 dev_dependencies:
+  flutter_native_splash: ^2.0.5
   flutter_test:
     sdk: flutter
+
+flutter_native_splash:
+  color: "#111111"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
