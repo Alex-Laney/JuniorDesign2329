@@ -1,6 +1,13 @@
 # Notes on the Note Makers
 The purpose of this mobile application, Notes on the Note Makers, will be to raise awareness and to educate teens and young adults about the classical composers and their important works, as well as introducing them to basic musical terms found in classical pieces and broaden the user’s general knowledge of music. 
 # Release Notes Section
+## Version 0.4.0
+### Features
+ - Remediated the user interface of the main menu
+ - Added a splash screen
+ - Added a new initial screen that works with the splash screen to provide a 'music box introduction'
+### Bug Fixes
+### Known Issues
 ## Version 0.3.0
 ### Features
  - Added in-text link support, so users can quickly retrieve information referenced on other pages. 
