@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:artifact/circular_dial_menu.dart';
@@ -20,41 +20,34 @@ class _opening extends State<opening> {
 
   @override
   Widget build(BuildContext context) {
-    void handleTimeout() {
-      setState(() {
-        selected = !selected;
-      });
-    }
-    Timer scheduleTimeout([int milliseconds = 10000]) =>
-        Timer(Duration(milliseconds: milliseconds), handleTimeout);
-    scheduleTimeout(1000);
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 255, 255, 1.0),
       body: SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-          const SizedBox(height: 50),
+          const SizedBox(height: 150),
             Align(
               alignment: Alignment.bottomCenter,
-                child: TextButton(
-                  onPressed: () => Navigator.pushNamed(context, '/main'),
-                  child: const Text('Go To Home', style: TextStyle(fontSize: 30, color: Colors.orangeAccent)),
-                )
+                child: FadeInDown(duration: Duration(seconds: 4), child: topButton()),
+                // TextButton(
+                //   onPressed: () => Navigator.pushNamed(context, '/main'),
+                //   child: const Text('Go To Home', style: TextStyle(fontSize: 30, color: Colors.orangeAccent)),
+                // )
               ),
-            AnimatedAlign(
-              alignment: selected ? Alignment.topLeft : Alignment.bottomRight,
-              duration: const Duration(seconds: 2),
-              curve: Curves.fastOutSlowIn,
-              child: Image.asset('assets/images/music_note.png', scale: 2),
+            const SizedBox(height: 100),
+            Padding(
+              padding: EdgeInsets.fromLTRB(60, 0, 60, 0),
+              child: Image.asset('assets/images/music_box.png', scale: 2.0),
             ),
-            const SizedBox(height: 250),
+            const SizedBox(height: 100),
             Align(
                 alignment: Alignment.center,
-                child: TextButton(
-                  onPressed: () => Navigator.pushNamed(context, '/works'),
-                  child: const Text('What Am I Listening To?', style: TextStyle(fontSize: 30, color: Colors.orangeAccent)),
-                )
+                child: FadeInUp(duration: Duration(seconds: 4), child: bottomButton()),
+                // TextButton(
+                //   onPressed: () => Navigator.pushNamed(context, '/works'),
+                //   child: const Text('What Am I Listening To?', style: TextStyle(fontSize: 30, color: Colors.orangeAccent)),
+                // )
             ),
           ],
         ),
@@ -63,6 +56,21 @@ class _opening extends State<opening> {
   }
 }
 
+class topButton extends StatelessWidget {
+  Widget build(BuildContext context) {
+    return TextButton(onPressed: () => Navigator.pushNamed(context,
+        '/main'), child: const Text('Go To Home', style: TextStyle(fontSize:
+    30, color: Colors.orangeAccent)));
+  }
+}
+
+class bottomButton extends StatelessWidget {
+  Widget build(BuildContext context) {
+    return TextButton(onPressed: () => Navigator.pushNamed(context, '/works'),
+        child: const Text('What Am I Listening To?', style: TextStyle(fontSize:
+        30, color: Colors.orangeAccent)));
+  }
+}
 
 
 
