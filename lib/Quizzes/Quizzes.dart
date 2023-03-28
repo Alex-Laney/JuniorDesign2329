@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:artifact/circular_dial_menu.dart';
 
+import 'Quizzes/quizDB.dart';
+
 class QuizzesScreen extends StatelessWidget {
   const QuizzesScreen({super.key});
 
@@ -8,20 +10,25 @@ class QuizzesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(225, 255, 195, 1),
-      appBar: AppBar(
-        title: const Text('Quizzes'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('Sample Quiz (Not Implemented)'),
-            ),
-          ],
-        ),
-      ),
+      body: SingleChildScrollView(
+          child: SafeArea(
+            child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+              const Align(
+                alignment: Alignment.topLeft,
+                child: BackButton(),
+              ),
+              Center(
+                  child: Padding(
+                      padding: const EdgeInsets.all(40),
+                      child: Column(
+                        children: <Widget>[
+                          const Text('Quizzes', style: TextStyle(fontSize: 40)),
+                          const SizedBox(height: 30),
+                          QuizDB.quiz1.menuView(context),                                 //ADD OTHER QUIZZES HERE LIKE SO
+                        ],
+                      )))
+            ]),
+          )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: CircularDialMenu.build(context),
       bottomNavigationBar: BottomAppBar(
