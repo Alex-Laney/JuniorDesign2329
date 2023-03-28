@@ -37,10 +37,10 @@ class _opening extends State<opening> {
               ),
             const SizedBox(height: 100),
             Padding(
-              padding: EdgeInsets.fromLTRB(60, 0, 60, 0),
-              child: Image.asset('assets/images/music_box.png', scale: 2.0),
+              padding: EdgeInsets.fromLTRB(65, 0, 70, 70),
+              child: Image.asset('assets/images/music_box.png', scale: 2.6),
             ),
-            const SizedBox(height: 100),
+            const SizedBox(height: 50),
             Align(
                 alignment: Alignment.center,
                 child: FadeInUp(duration: Duration(seconds: 4), child: bottomButton()),
