@@ -36,9 +36,9 @@ class HelpScreen extends StatelessWidget {
               ElevatedButton(
                 style: style,
                 onPressed: () {
-                  Navigator.pushNamed(context, '/musicHelp');
+                  Navigator.pushNamed(context, '/worksHelp');
                 },
-                child: const Text('Music'),
+                child: const Text('Works'),
               ),
               ElevatedButton(
                 style: style,
