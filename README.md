@@ -6,6 +6,8 @@ The purpose of this mobile application, Notes on the Note Makers, will be to rai
  - Remediated the user interface of the main menu
  - Added a splash screen
  - Added a new initial screen that works with the splash screen to provide a 'music box introduction'
+ - Added information in the Help module pertaining to the Terms module
+ - Added information in the Help module pertaining to the Works module
 ### Bug Fixes
 ### Known Issues
 ## Version 0.3.0
