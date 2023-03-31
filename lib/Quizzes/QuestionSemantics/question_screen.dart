@@ -1,3 +1,4 @@
+import 'package:artifact/Quizzes/Results.dart';
 import 'package:flutter/material.dart';
 import '../quiz.dart';
 
@@ -50,6 +51,8 @@ class QuestionState extends State<QuestionWidget> {
   void results(String answer) {
     answers.add(answer);
     print(answers);
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => ResultsScreen(answers: answers, quiz: widget.quiz)));
     //ADD MOVING TO RESULTS SCREEN HERE, BE SURE TO BRING ANSWERS WITH YOU
   }
 
