@@ -38,9 +38,10 @@ class SettingsScreen extends StatefulWidget {
               IconButton(
                 onPressed: () => {
                 if (mute) {
-                c.unmute()
-                } else {
-                c.mute()
+                  c.unmute()
+                }
+                else {
+                  c.mute()
                 },
                 setState(() {
                 mute = !mute;

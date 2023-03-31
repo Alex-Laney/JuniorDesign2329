@@ -13,8 +13,9 @@ class ListenScreen extends StatefulWidget {
 
 class ListenScreenState extends State<ListenScreen> {
   static late AudioPlayer _audioPlayer;
+
   static AudioPlayer getPlayer() {
-    return _audioPlayer;
+    try {return _audioPlayer;} catch (e) {return AudioPlayer();}
   }
 
   final beethovenPlaylist = ConcatenatingAudioSource(
