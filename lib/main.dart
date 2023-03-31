@@ -6,6 +6,7 @@ import 'package:artifact/settings/help_menus/musical_terms_help.dart';
 import 'package:artifact/settings/help_menus/quizzes_help.dart';
 import 'package:artifact/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import '/Musical-Terms/Musical-Terms.dart';
 import '/Composers/Composers.dart';
 import '/Listen/Listen.dart';
@@ -18,9 +19,18 @@ import '/Composers/Mozart.dart';
 import '/Composers/Bach.dart';
 import 'music_box.dart';
 
-void main() {
-  runApp(
-    MaterialApp(
+void main() async {
+  await Hive.initFlutter();
+  var userBox = await Hive.openBox('userBox');
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       title: 'Artifact',
       // Start the app with the "/" named route. In this case, the app starts
       // on the FirstScreen widget.
@@ -76,8 +86,8 @@ void main() {
         '/mozart': (context) => const MozartScreen(),
         '/bach': (context) => const BachScreen(),
       },
-    ),
-  );
+    );
+  }
 }
 
 class MainScreen extends StatelessWidget {
@@ -100,7 +110,7 @@ class MainScreen extends StatelessWidget {
           children: <Widget>[
             Image.asset('assets/images/Logo.PNG', scale: 0.1),
             ClipRRect(
-                borderRadius: BorderRadius.circular(30.0),
+              borderRadius: BorderRadius.circular(30.0),
               child: Container(
                 color: const Color.fromRGBO(239, 199, 199, 1),
                 padding: const EdgeInsets.all(8),
@@ -108,69 +118,79 @@ class MainScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushNamed(context, '/terms');
                   },
-                  child: const Text('Terms', style: TextStyle(fontSize:
-                  25, color: Colors.black)),
+                  child: const Text(
+                    'Terms',
+                    style: TextStyle(fontSize: 25, color: Colors.black),
+                  ),
                 ),
-              )
+              ),
             ),
             ClipRRect(
-                borderRadius: BorderRadius.circular(30.0),
-                child: Container(
-                  color: const Color.fromRGBO(225, 255, 195, 1),
-                  padding: const EdgeInsets.all(8),
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/quizzes');
-                    },
-                    child: const Text('Quizzes', style: TextStyle(fontSize:
-                    25, color: Colors.black)),
+              borderRadius: BorderRadius.circular(30.0),
+              child: Container(
+                color: const Color.fromRGBO(225, 255, 195, 1),
+                padding: const EdgeInsets.all(8),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/quizzes');
+                  },
+                  child: const Text(
+                    'Quizzes',
+                    style: TextStyle(fontSize: 25, color: Colors.black),
                   ),
-                )
+                ),
+              ),
             ),
             ClipRRect(
-                borderRadius: BorderRadius.circular(30.0),
-                child: Container(
-                  color: const Color.fromRGBO(255, 246, 167, 1),
-                  padding: const EdgeInsets.all(8),
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/composers');
-                    },
-                    child: const Text('Composers', style: TextStyle(fontSize:
-                    25, color: Colors.black)),
+              borderRadius: BorderRadius.circular(30.0),
+              child: Container(
+                color: const Color.fromRGBO(255, 246, 167, 1),
+                padding: const EdgeInsets.all(8),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/composers');
+                  },
+                  child: const Text(
+                    'Composers',
+                    style: TextStyle(fontSize: 25, color: Colors.black),
                   ),
-                )
+                ),
+              ),
             ),
             ClipRRect(
-                borderRadius: BorderRadius.circular(30.0),
-                child: Container(
-                  color: const Color.fromRGBO(201, 200, 244, 1.0),
-                  padding: const EdgeInsets.all(8),
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/listen');
-                    },
-                    child: const Text('Listen', style: TextStyle(fontSize:
-                    25, color: Colors.black)),
+              borderRadius: BorderRadius.circular(30.0),
+              child: Container(
+                color: const Color.fromRGBO(201, 200, 244, 1.0),
+                padding: const EdgeInsets.all(8),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/listen');
+                  },
+                  child: const Text(
+                    'Listen',
+                    style: TextStyle(fontSize: 25, color: Colors.black),
                   ),
-                )
+                ),
+              ),
             ),
             ClipRRect(
-                borderRadius: BorderRadius.circular(30.0),
-                child: Container(
-                  color: const Color.fromRGBO(196, 236, 249, 1),
-                  padding: const EdgeInsets.all(8),
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/works');
-                    },
-                    child: const Text('Works', style: TextStyle(fontSize:
-                    25, color: Colors.black)),
+              borderRadius: BorderRadius.circular(30.0),
+              child: Container(
+                color: const Color.fromRGBO(196, 236, 249, 1),
+                padding: const EdgeInsets.all(8),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/works');
+                  },
+                  child: const Text(
+                    'Works',
+                    style: TextStyle(fontSize: 25, color: Colors.black),
                   ),
-                )
+                ),
+              ),
             ),
-          ]
-        )
+          ],
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: CircularDialMenu.build(context),
