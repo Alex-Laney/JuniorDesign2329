@@ -1,7 +1,7 @@
 import 'package:artifact/settings/about_screen.dart';
 import 'package:artifact/settings/help_menu.dart';
 import 'package:artifact/settings/help_menus/composers_help.dart';
-import 'package:artifact/settings/help_menus/music_help.dart';
+import 'package:artifact/settings/help_menus/works_help.dart';
 import 'package:artifact/settings/help_menus/musical_terms_help.dart';
 import 'package:artifact/settings/help_menus/quizzes_help.dart';
 import 'package:artifact/splash_screen.dart';
@@ -70,7 +70,7 @@ void main() {
             ),
         '/composersHelp': (context) => const ComposersHelpScreen(),
         '/termsHelp': (context) => const MusicalTermsHelpScreen(),
-        '/musicHelp': (context) => const MusicHelpScreen(),
+        '/worksHelp': (context) => const WorksHelpScreen(),
         '/quizzesHelp': (context) => const QuizzesHelpScreen(),
         '/beethoven': (context) => const BeethovenScreen(),
         '/mozart': (context) => const MozartScreen(),
