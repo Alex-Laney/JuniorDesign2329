@@ -42,7 +42,7 @@ class WorksHelpScreen extends StatelessWidget {
                                   icon: Icons.music_note,
                                   iconColor: Colors.black,
                                   onTap: () =>
-                                      Navigator.pushNamed(context, '/terms'),
+                                      Navigator.pushNamed(context, '/works'),
                                 ),
                               ),
                               const TextSpan(
