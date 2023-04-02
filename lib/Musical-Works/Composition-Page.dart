@@ -6,6 +6,7 @@ import '../Composers/Composers.dart';
 import '../Musical-Works/Musical-Works-Old.dart';
 import '../Quizzes/Quizzes.dart';
 import '../main.dart';
+import '../music_box.dart';
 
 class CompScreen extends StatelessWidget {
   const CompScreen({super.key, required this.comp});
@@ -39,6 +40,20 @@ class CompScreen extends StatelessWidget {
                 const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
+                    switch(comp.name) {
+                      case 'Für Elise':
+                        openingState.getPlayer.seek(Duration.zero, index: 0);
+                        break;
+                      case 'Moonlight Sonata 1st Movement':
+                        openingState.getPlayer.seek(Duration.zero, index: 2);
+                        break;
+                      case 'Sonata 1 in F Minor Allegro':
+                        openingState.getPlayer.seek(Duration.zero, index: 3);
+                        break;
+                      case 'Sonata 8 Pathetique 1st Movement':
+                        openingState.getPlayer.seek(Duration.zero, index: 1);
+                        break;
+                    }
                     Navigator.pushNamed(context, '/listen');
                   },
                   child: Text('Listen to ${comp.name}'),
