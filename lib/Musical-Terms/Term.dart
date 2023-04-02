@@ -33,6 +33,10 @@ class Term implements Linkable {
 
   OutlinedButton menuView(context) {
     return OutlinedButton(
+        style: OutlinedButton.styleFrom(
+          shadowColor: Color.fromRGBO(255, 0, 0, 0.45),
+          elevation: 5,
+        ),
         onPressed: () {
           Navigator.push(
             context,
