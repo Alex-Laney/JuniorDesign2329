@@ -12,8 +12,13 @@ The purpose of this mobile application, Notes on the Note Makers, will be to rai
  - Added a mute button to the settings screen
  - Added quizzes about composers and compositions
  - Revamped Settings screen user interface
+ - Added song name to Listen module
+ - Added music to initial screen
 ### Bug Fixes
+- just_audio is now global
+- Long-standing known issue of "Music plays in background after beginning, and leaving Listen module and returning back allows for songs to overlap" has been fixed
 ### Known Issues
+- The song name in the Listen module is not updated automatically while you are looking at it, you have to leave the module and come back for it to update
 ## Version 0.3.0
 ### Features
  - Added in-text link support, so users can quickly retrieve information referenced on other pages. 
