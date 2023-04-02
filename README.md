@@ -11,6 +11,7 @@ The purpose of this mobile application, Notes on the Note Makers, will be to rai
  - Added information in the Help module pertaining to the Composers module
  - Added a mute button to the settings screen
  - Added quizzes about composers and compositions
+ - Revamped Settings screen user interface
 ### Bug Fixes
 ### Known Issues
 ## Version 0.3.0
