@@ -59,14 +59,14 @@ class ListenScreenState extends State<ListenScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(196, 236, 249, 1),
+      backgroundColor: const Color.fromRGBO(201, 200, 244, 1.0),
       body: SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             const Align(
               alignment: Alignment.topLeft,
-              child: BackButton(),
+              child: BackButton(),//onPressed: ),
             ),
             Image.asset('assets/images/Beethoven.PNG'),
             Padding(
@@ -113,7 +113,7 @@ class ListenScreenState extends State<ListenScreen> {
           children: [
             IconButton(
               onPressed: () => {
-                Navigator.pushNamed(context, '/'),
+                Navigator.pushNamed(context, '/main'),
               },
               tooltip: 'Home',
               icon: const Icon(Icons.home, color: Colors.black45),

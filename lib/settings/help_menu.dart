@@ -36,9 +36,9 @@ class HelpScreen extends StatelessWidget {
               ElevatedButton(
                 style: style,
                 onPressed: () {
-                  Navigator.pushNamed(context, '/musicHelp');
+                  Navigator.pushNamed(context, '/worksHelp');
                 },
-                child: const Text('Music'),
+                child: const Text('Works'),
               ),
               ElevatedButton(
                 style: style,
@@ -59,7 +59,7 @@ class HelpScreen extends StatelessWidget {
           children: [
             IconButton(
               onPressed: () => Navigator.pushNamedAndRemoveUntil(
-                  context, '/', (route) => false),
+                  context, '/main', (route) => false),
               tooltip: 'Home',
               icon: const Icon(Icons.home, color: Colors.black45),
             ),

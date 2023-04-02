@@ -2,9 +2,9 @@ import 'package:circular_menu/circular_menu.dart';
 import 'package:flutter/material.dart';
 
 import '../../circular_dial_menu.dart';
-
-class QuizzesHelpScreen extends StatelessWidget {
-  const QuizzesHelpScreen({super.key});
+const int iconColor = 300;
+class WorksHelpScreen extends StatelessWidget {
+  const WorksHelpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +18,16 @@ class QuizzesHelpScreen extends StatelessWidget {
             ),
             Center(
               child: Column(children: <Widget>[
-                const Text('Quizzes Help', style: TextStyle(fontSize: 40)),
+                const Text('Musical Works Help', style: TextStyle(fontSize:
+                40)),
                 Padding(
                     padding: const EdgeInsets.all(40),
                     child: RichText(
                         textAlign: TextAlign.justify,
                         text: TextSpan(
                             text:
-                            'The Quizzes page, which you can access with the ',
+                            'The Musical Works page, which you can access '
+                                'with the ',
                             style:
                             const TextStyle(fontSize: 20, color: Colors.black),
                             children: <InlineSpan>[
@@ -36,16 +38,33 @@ class QuizzesHelpScreen extends StatelessWidget {
                                   badgeRadius: 10,
                                   iconSize: 10,
                                   boxShadow: const [],
-                                  color: Colors.green[300],
-                                  icon: Icons.quiz,
+                                  color: Colors.blue[iconColor],
+                                  icon: Icons.music_note,
                                   iconColor: Colors.black,
                                   onTap: () =>
-                                      Navigator.pushNamed(context, '/quizzes'),
+                                      Navigator.pushNamed(context, '/works'),
                                 ),
                               ),
                               const TextSpan(
                                   text:
-                                  ' icon from the menu at the bottom of the screen, or from the main menu, is where you can test what you\'ve learned. Some quizzes might require you to do your own research outside of the app. Have fun, and try to get the highest score!'),
+                                  ' icon from the menu at the bottom of the '
+                                      'screen, or from the main menu, is where '
+                                      'you can find the different songs in the '
+                                      'app! Tap on any of their names to be '
+                                      'taken to their page, where you can read '
+                                      'up about the stories of their creations,'
+                                      'and learn about how those older musical '
+                                      'works compare to modern ones! Also, if '
+                                      'you see any'),
+                              const TextSpan(
+                                  text: ' blue ',
+                                  style: TextStyle(
+                                      fontSize: 20, color: Colors.lightBlue)),
+                              const TextSpan(
+                                  text:
+                                  'words that you don\'t recognize, click on '
+                                      'them and you will be brought to a page '
+                                      'explaining what they mean!'),
                             ])))
               ]),
             )

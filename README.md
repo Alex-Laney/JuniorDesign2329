@@ -1,12 +1,25 @@
 # Notes on the Note Makers
 The purpose of this mobile application, Notes on the Note Makers, will be to raise awareness and to educate teens and young adults about the classical composers and their important works, as well as introducing them to basic musical terms found in classical pieces and broaden the user’s general knowledge of music. 
 # Release Notes Section
+## Version 0.4.0
+### Features
+ - Remediated the user interface of the main menu
+ - Added a splash screen
+ - Added a new initial screen that works with the splash screen to provide a 'music box introduction'
+ - Added information in the Help module pertaining to the Terms module
+ - Added information in the Help module pertaining to the Works module
+ - Added information in the Help module pertaining to the Composers module
+ - Added a mute button to the settings screen
+ - Added quizzes about composers and compositions
+### Bug Fixes
+### Known Issues
 ## Version 0.3.0
 ### Features
  - Added in-text link support, so users can quickly retrieve information referenced on other pages. 
  - Added a universal color palette 
  - Added individual pages for compositions 
  - Added individual pages for composers 
+ - Added ability to transition from listen module to the song composer's information page
  - An initial mockup of an App Store page has been created 
  - Information related to the composers has been collected and added to their pages 
  - Information related to the compositions has been collected and added to their pages 
@@ -19,6 +32,7 @@ The purpose of this mobile application, Notes on the Note Makers, will be to rai
 - Songs will play in the background when leaving the ‘Listen’ module 
 - Returning to the ‘Listen’ module with a song playing in the background will allow you to play multiple songs concurrently, which is not intended 
 - Sonata 8 Pathetique 1st Movement ends prematurely 
+- "Listen to ___" buttons all link to the same song
 ## Version 0.2.0
 ### Features
 - Added musical term database 
