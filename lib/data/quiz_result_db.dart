@@ -1,16 +1,15 @@
 import 'package:hive_flutter/hive_flutter.dart';
 
+/// Datebase that holds the top 5 results for its respective quiz
 class QuizResultDatabase {
-  // TODO: make the database for the leaderboard
-  //  General idea: each entry is top score with name;
-  //  Store the top 5 results
-  List leaderboardList = [];
+  /// Each entry is a name with its score
+  List resultList = [];
 
   final _userBox = Hive.box('userBox');
 
   /// Run this method if 1st time running the app
   void createInitialData() {
-    leaderboardList = [
+    resultList = [
       ["Name 1", 0],
       ["Name 2", 0],
       ["Name 3", 0],
@@ -21,15 +20,15 @@ class QuizResultDatabase {
 
   /// Load data from result database.
   ///
-  /// Uses a [key] to look up database
+  /// Uses a [key], which is the quiz name, to look up database
   void loadData(String key) {
-    leaderboardList = _userBox.get(key);
+    resultList = _userBox.get(key);
   }
 
   /// Update result database.
   ///
-  /// Uses a [key] to look up database
+  /// Uses a [key], which is the quiz name, to look up database
   void updateData(String key) {
-    _userBox.put(key, leaderboardList);
+    _userBox.put(key, resultList);
   }
 }
