@@ -17,6 +17,7 @@ The purpose of this mobile application, Notes on the Note Makers, will be to rai
 ### Bug Fixes
 - just_audio is now global
 - Long-standing known issue of "Music plays in background after beginning, and leaving Listen module and returning back allows for songs to overlap" has been fixed
+- Issue in previous sprint of ""Listen to ___" buttons all link to the same song" has been fixed
 ### Known Issues
 - The song name in the Listen module is not updated automatically while you are looking at it, you have to leave the module and come back for it to update
 ## Version 0.3.0
