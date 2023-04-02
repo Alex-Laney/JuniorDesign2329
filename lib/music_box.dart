@@ -1,22 +1,78 @@
 import 'dart:async';
 import 'package:animate_do/animate_do.dart';
-import 'package:flutter/gestures.dart';
+import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:artifact/circular_dial_menu.dart';
-import 'package:video_player/video_player.dart';
-import 'main.dart';
+import 'package:rxdart/rxdart.dart';
+import 'Listen/Listen.dart';
+import 'package:just_audio/just_audio.dart';
+
 
 class opening extends StatefulWidget {
   const opening({super.key});
 
   @override
-
-  @override
-  State<opening> createState() => _opening();
+  State<opening> createState() => openingState();
 }
 
-class _opening extends State<opening> {
-  bool selected = false;
+class openingState extends State<opening> {
+
+  static AudioPlayer audioPlayer = AudioPlayer();
+
+  final beethovenPlaylist = ConcatenatingAudioSource(
+    children: [
+      AudioSource.uri(
+          Uri.parse('asset:///assets/music/Beethoven/Fur_Elise.mp3')),
+      AudioSource.uri(Uri.parse(
+          'asset:///assets/music/Beethoven/Sonata_8_Pathetique_1st_Movement.mp3')),
+      AudioSource.uri(Uri.parse(
+          'asset:///assets/music/Beethoven/Moonlight_Sonata_1st_Movement.mp3')),
+      AudioSource.uri(Uri.parse(
+          'asset:///assets/music/Beethoven/Sonata_1_in_F_Minor_Allegro.mp3')),
+    ],
+  );
+
+  // Stream<PositionData> get _positionDataStream =>
+  //     Rx.combineLatest3<Duration, Duration, Duration?, PositionData>(
+  //       audioPlayer.positionStream,
+  //       audioPlayer.bufferedPositionStream,
+  //       audioPlayer.durationStream,
+  //           (position, bufferedPosition, duration) => PositionData(
+  //         position,
+  //         bufferedPosition,
+  //         duration ?? Duration.zero,
+  //       ),
+  //     );
+
+  static AudioPlayer get getPlayer {
+    return audioPlayer;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    //audioPlayer..setAsset('asset:///assets/music/Beethoven/Sonata_1_in_F_Minor_Allegro.mp3');
+    audioPlayer.setLoopMode(LoopMode.all);
+    audioPlayer.setAudioSource(beethovenPlaylist);
+    // _init();
+  }
+
+  // Future<void> _init() async {
+  //   audioPlayer.setLoopMode(LoopMode.all);
+  //   audioPlayer.setAudioSource(beethovenPlaylist);
+  //   audioPlayer.play;
+  // }
+
+  Stream<PositionData> get _positionDataStream =>
+      Rx.combineLatest3<Duration, Duration, Duration?, PositionData>(
+        openingState.getPlayer.positionStream,
+        openingState.getPlayer.bufferedPositionStream,
+        openingState.getPlayer.durationStream,
+            (position, bufferedPosition, duration) => PositionData(
+          position,
+          bufferedPosition,
+          duration ?? Duration.zero,
+        ),
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +92,8 @@ class _opening extends State<opening> {
                 // )
               ),
             const SizedBox(height: 100),
+            Controls(player: audioPlayer)
+            ,
             Padding(
               padding: EdgeInsets.fromLTRB(65, 0, 70, 70),
               child: Image.asset('assets/images/music_box.png', scale: 2.6),
@@ -66,12 +124,102 @@ class topButton extends StatelessWidget {
 
 class bottomButton extends StatelessWidget {
   Widget build(BuildContext context) {
-    return TextButton(onPressed: () => Navigator.pushNamed(context, '/works'),
+    return TextButton(onPressed: () => Navigator.pushNamed(context, '/listen'),
         child: const Text('What Am I Listening To?', style: TextStyle(fontSize:
         30, color: Colors.orangeAccent)));
   }
 }
 
+class PositionData {
+  const PositionData(
+      this.position,
+      this.bufferedPosition,
+      this.duration,
+      );
+
+  final Duration position;
+  final Duration bufferedPosition;
+  final Duration duration;
+}
+
+class MediaMetadata extends StatelessWidget {
+  const MediaMetadata({
+    super.key,
+    required this.title,
+    required this.artist,
+  });
+
+  final
+}
+
+class Controls extends StatelessWidget {
+  const Controls({
+    super.key,
+    required this.player,
+  });
+
+  final AudioPlayer player;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        IconButton(
+            icon: const Icon(Icons.skip_previous),
+            iconSize: 60,
+            onPressed: () async {
+              await player.seekToPrevious();
+            }),
+        StreamBuilder<PlayerState>(
+            stream: player.playerStateStream,
+            builder: (context, snapshot) {
+              final playerState = snapshot.data;
+              final processingState = playerState?.processingState;
+              final playing = playerState?.playing;
+              if (!(playing ?? false)) {
+                return IconButton(
+                  icon: const Icon(Icons.play_arrow_rounded),
+                  iconSize: 80,
+                  onPressed: player.play,
+                );
+              } else if (processingState != ProcessingState.completed) {
+                return IconButton(
+                  icon: const Icon(Icons.pause),
+                  iconSize: 80,
+                  onPressed: player.pause,
+                );
+              }
+              return IconButton(
+                icon: const Icon(Icons.pause),
+                iconSize: 80,
+                onPressed: player.pause,
+              );
+            }),
+        IconButton(
+          icon: const Icon(Icons.skip_next),
+          iconSize: 60,
+          onPressed: () => player.seekToNext(),
+        ),
+        IconButton(
+          icon: const Icon(Icons.volume_up),
+          onPressed: () {
+            showSliderDialog(
+              context: context,
+              title: "Adjust volume",
+              divisions: 10,
+              min: 0.0,
+              max: 1.0,
+              value: player.volume,
+              stream: player.volumeStream,
+              onChanged: player.setVolume,
+            );
+          },
+        )
+      ],
+    );
+  }
+}
 
 
 

@@ -3,6 +3,7 @@ import 'package:just_audio/just_audio.dart';
 import 'package:artifact/circular_dial_menu.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
+import '../music_box.dart';
 
 class ListenScreen extends StatefulWidget {
   const ListenScreen({super.key});
@@ -12,7 +13,7 @@ class ListenScreen extends StatefulWidget {
 }
 
 class ListenScreenState extends State<ListenScreen> {
-  late AudioPlayer _audioPlayer;
+  //late AudioPlayer _audioPlayer;
 
   final beethovenPlaylist = ConcatenatingAudioSource(
     children: [
@@ -29,9 +30,9 @@ class ListenScreenState extends State<ListenScreen> {
 
   Stream<PositionData> get _positionDataStream =>
       Rx.combineLatest3<Duration, Duration, Duration?, PositionData>(
-        _audioPlayer.positionStream,
-        _audioPlayer.bufferedPositionStream,
-        _audioPlayer.durationStream,
+        openingState.getPlayer.positionStream,
+        openingState.getPlayer.bufferedPositionStream,
+        openingState.getPlayer.durationStream,
         (position, bufferedPosition, duration) => PositionData(
           position,
           bufferedPosition,
@@ -39,22 +40,10 @@ class ListenScreenState extends State<ListenScreen> {
         ),
       );
 
-  @override
-  void initState() {
-    super.initState();
-    _audioPlayer = AudioPlayer();
-    _init();
-  }
-
-  Future<void> _init() async {
-    await _audioPlayer.setLoopMode(LoopMode.all);
-    await _audioPlayer.setAudioSource(beethovenPlaylist);
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -96,12 +85,12 @@ class ListenScreenState extends State<ListenScreen> {
                     progress: positionData?.position ?? Duration.zero,
                     buffered: positionData?.bufferedPosition ?? Duration.zero,
                     total: positionData?.duration ?? Duration.zero,
-                    onSeek: _audioPlayer.seek,
+                    onSeek: openingState.getPlayer.seek,
                   );
                 },
               ),
             ),
-            Controls(player: _audioPlayer),
+            Controls(player: openingState.getPlayer),
           ],
         ),
       ),
@@ -130,87 +119,6 @@ class ListenScreenState extends State<ListenScreen> {
       ),
     );
   }
-}
-
-class Controls extends StatelessWidget {
-  const Controls({
-    super.key,
-    required this.player,
-  });
-
-  final AudioPlayer player;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        IconButton(
-            icon: const Icon(Icons.skip_previous),
-            iconSize: 60,
-            onPressed: () async {
-              await player.seekToPrevious();
-            }),
-        StreamBuilder<PlayerState>(
-            stream: player.playerStateStream,
-            builder: (context, snapshot) {
-              final playerState = snapshot.data;
-              final processingState = playerState?.processingState;
-              final playing = playerState?.playing;
-              if (!(playing ?? false)) {
-                return IconButton(
-                  icon: const Icon(Icons.play_arrow_rounded),
-                  iconSize: 80,
-                  onPressed: player.play,
-                );
-              } else if (processingState != ProcessingState.completed) {
-                return IconButton(
-                  icon: const Icon(Icons.pause),
-                  iconSize: 80,
-                  onPressed: player.pause,
-                );
-              }
-              return IconButton(
-                icon: const Icon(Icons.pause),
-                iconSize: 80,
-                onPressed: player.pause,
-              );
-            }),
-        IconButton(
-          icon: const Icon(Icons.skip_next),
-          iconSize: 60,
-          onPressed: () => player.seekToNext(),
-        ),
-        IconButton(
-          icon: const Icon(Icons.volume_up),
-          onPressed: () {
-            showSliderDialog(
-              context: context,
-              title: "Adjust volume",
-              divisions: 10,
-              min: 0.0,
-              max: 1.0,
-              value: player.volume,
-              stream: player.volumeStream,
-              onChanged: player.setVolume,
-            );
-          },
-        )
-      ],
-    );
-  }
-}
-
-class PositionData {
-  const PositionData(
-    this.position,
-    this.bufferedPosition,
-    this.duration,
-  );
-
-  final Duration position;
-  final Duration bufferedPosition;
-  final Duration duration;
 }
 
 void showSliderDialog({
