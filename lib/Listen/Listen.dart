@@ -13,21 +13,6 @@ class ListenScreen extends StatefulWidget {
 }
 
 class ListenScreenState extends State<ListenScreen> {
-  //late AudioPlayer _audioPlayer;
-
-  final beethovenPlaylist = ConcatenatingAudioSource(
-    children: [
-      AudioSource.uri(
-          Uri.parse('asset:///assets/music/Beethoven/Fur_Elise.mp3')),
-      AudioSource.uri(Uri.parse(
-          'asset:///assets/music/Beethoven/Sonata_8_Pathetique_1st_Movement.mp3')),
-      AudioSource.uri(Uri.parse(
-          'asset:///assets/music/Beethoven/Moonlight_Sonata_1st_Movement.mp3')),
-      AudioSource.uri(Uri.parse(
-          'asset:///assets/music/Beethoven/Sonata_1_in_F_Minor_Allegro.mp3')),
-    ],
-  );
-
   Stream<PositionData> get _positionDataStream =>
       Rx.combineLatest3<Duration, Duration, Duration?, PositionData>(
         openingState.getPlayer.positionStream,
@@ -40,10 +25,7 @@ class ListenScreenState extends State<ListenScreen> {
         ),
       );
 
-  // @override
-  // void dispose() {
-  //   super.dispose();
-  // }
+  //String title = openingState.getPlayer.sequenceState?.currentSource?.tag;
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +41,7 @@ class ListenScreenState extends State<ListenScreen> {
             ),
             Image.asset('assets/images/Beethoven.PNG'),
             Padding(
-              padding: const EdgeInsets.fromLTRB(60, 20, 60, 0),
+              padding: const EdgeInsets.fromLTRB(60, 20, 60, 20),
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/beethoven');
@@ -67,8 +49,11 @@ class ListenScreenState extends State<ListenScreen> {
                 child: const Text('Ludwig van Beethoven'),
               ),
             ),
+            Text(openingState.getPlayer.sequenceState?.currentSource?.tag,
+              style: TextStyle(fontSize: 30, color: Colors.black), textAlign:
+              TextAlign.center,),
             Padding(
-              padding: const EdgeInsets.fromLTRB(60, 50, 60, 0),
+              padding: const EdgeInsets.fromLTRB(60, 30, 60, 0),
               child: StreamBuilder<PositionData>(
                 stream: _positionDataStream,
                 builder: (context, snapshot) {
@@ -161,4 +146,35 @@ void showSliderDialog({
       ),
     ),
   );
+}
+
+class TextChanger extends StatefulWidget {
+  const TextChanger({super.key});
+  @override
+  State<TextChanger> createState() => _TextChangerState();
+}
+class _TextChangerState extends State<TextChanger> {
+  // Declare the variable
+  String dynamicText = 'Initial Text';
+  updateText() {
+    setState(() {
+      dynamicText = 'This is new text value';
+      // Replace with your logic
+    });
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          '$dynamicText', // Dynamic text
+          style: const TextStyle(fontSize: 28),
+        ),
+        ElevatedButton(
+          child: const Text('Change Text'),
+          onPressed: () => updateText(), // Call the method
+        ),
+      ],
+    );
+  }
 }

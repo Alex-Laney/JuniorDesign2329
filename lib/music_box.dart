@@ -21,30 +21,30 @@ class openingState extends State<opening> {
   final beethovenPlaylist = ConcatenatingAudioSource(
     children: [
       AudioSource.uri(
-          Uri.parse('asset:///assets/music/Beethoven/Fur_Elise.mp3')),
+        Uri.parse('asset:///assets/music/Beethoven/Fur_Elise.mp3'),
+        tag: 'Für Elise',
+      ),
       AudioSource.uri(Uri.parse(
-          'asset:///assets/music/Beethoven/Sonata_8_Pathetique_1st_Movement.mp3')),
+          'asset:///assets/music/Beethoven/Sonata_8_Pathetique_1st_Movement.mp3'),
+        tag: 'Sonata 8 Pathetique 1st Movement',
+      ),
       AudioSource.uri(Uri.parse(
-          'asset:///assets/music/Beethoven/Moonlight_Sonata_1st_Movement.mp3')),
+          'asset:///assets/music/Beethoven/Moonlight_Sonata_1st_Movement.mp3'),
+        tag: 'Moonlight Sonata 1st Movement',
+      ),
       AudioSource.uri(Uri.parse(
-          'asset:///assets/music/Beethoven/Sonata_1_in_F_Minor_Allegro.mp3')),
+          'asset:///assets/music/Beethoven/Sonata_1_in_F_Minor_Allegro.mp3'),
+        tag: 'Sonata 1 in F Minor Allegro',
+      ),
     ],
   );
 
-  // Stream<PositionData> get _positionDataStream =>
-  //     Rx.combineLatest3<Duration, Duration, Duration?, PositionData>(
-  //       audioPlayer.positionStream,
-  //       audioPlayer.bufferedPositionStream,
-  //       audioPlayer.durationStream,
-  //           (position, bufferedPosition, duration) => PositionData(
-  //         position,
-  //         bufferedPosition,
-  //         duration ?? Duration.zero,
-  //       ),
-  //     );
-
   static AudioPlayer get getPlayer {
     return audioPlayer;
+  }
+
+  String get songName {
+    return audioPlayer.sequenceState?.currentSource?.tag;
   }
 
   @override
@@ -77,7 +77,7 @@ class openingState extends State<opening> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(255, 255, 255, 1.0),
+      backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
       body: SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -94,11 +94,11 @@ class openingState extends State<opening> {
             const SizedBox(height: 100),
             Controls(player: audioPlayer)
             ,
-            Padding(
-              padding: EdgeInsets.fromLTRB(65, 0, 70, 70),
-              child: Image.asset('assets/images/music_box.png', scale: 2.6),
-            ),
-            const SizedBox(height: 50),
+            // Padding(
+            //   padding: EdgeInsets.fromLTRB(65, 0, 70, 70),
+            //   child: Image.asset('assets/images/music_box.png', scale: 2.6),
+            // ),
+            const SizedBox(height: 100),
             Align(
                 alignment: Alignment.center,
                 child: FadeInUp(duration: Duration(seconds: 4), child: bottomButton()),
@@ -116,17 +116,39 @@ class openingState extends State<opening> {
 
 class topButton extends StatelessWidget {
   Widget build(BuildContext context) {
-    return TextButton(onPressed: () => Navigator.pushNamed(context,
-        '/main'), child: const Text('Go To Home', style: TextStyle(fontSize:
-    30, color: Colors.orangeAccent)));
+    return ClipRRect(
+        borderRadius: BorderRadius.circular(30.0),
+        child: Container(
+          color: const Color.fromRGBO(255, 255, 255, 1.0),
+          padding: const EdgeInsets.all(25),
+          child: TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/main');
+            },
+            child: const Text('Go To Home', style: TextStyle(fontSize:
+            25, color: Colors.black)),
+          ),
+        )
+    );
   }
 }
 
 class bottomButton extends StatelessWidget {
   Widget build(BuildContext context) {
-    return TextButton(onPressed: () => Navigator.pushNamed(context, '/listen'),
-        child: const Text('What Am I Listening To?', style: TextStyle(fontSize:
-        30, color: Colors.orangeAccent)));
+    return ClipRRect(
+        borderRadius: BorderRadius.circular(30.0),
+        child: Container(
+          color: const Color.fromRGBO(255, 255, 255, 1.0),
+          padding: const EdgeInsets.all(25),
+          child: TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/listen');
+            },
+            child: const Text('What Am I Listening To?', style: TextStyle(fontSize:
+            25, color: Colors.black)),
+          ),
+        )
+    );
   }
 }
 
@@ -149,7 +171,25 @@ class MediaMetadata extends StatelessWidget {
     required this.artist,
   });
 
-  final
+  final String title;
+  final String artist;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(children: [
+      Text(
+        title,
+        style: TextStyle(fontSize: 25, color: Colors.black),
+        textAlign: TextAlign.center,
+      ),
+      const SizedBox(height: 8,),
+      Text(
+        artist,
+        style: TextStyle(fontSize: 25, color: Colors.black),
+        textAlign: TextAlign.center,
+      )
+    ]);
+  }
 }
 
 class Controls extends StatelessWidget {
@@ -220,6 +260,3 @@ class Controls extends StatelessWidget {
     );
   }
 }
-
-
-
