@@ -4,7 +4,7 @@ import '../Linkable Interface/linkable.dart';
 import '../Linkable Interface/none_linkable.dart';
 import 'Definition-Page.dart';
 
-enum Tags { period, musicType, musicTheory }
+enum Tags { period, musicType, musicTheory, musicGenre }
 
 class Term implements Linkable {
   String name = "";
