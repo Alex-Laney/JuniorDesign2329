@@ -23,6 +23,7 @@ The purpose of this mobile application, Notes on the Note Makers, will be to rai
 - Issue in previous sprint of ""Listen to ___" buttons all link to the same song" has been fixed
 ### Known Issues
 - The song name in the Listen module is not updated automatically while you are looking at it, you have to leave the module and come back for it to update
+- The home button in the quiz results screen goes back to the splash screen rather than the main menu
 ## Version 0.3.0
 ### Features
  - Added in-text link support, so users can quickly retrieve information referenced on other pages. 
