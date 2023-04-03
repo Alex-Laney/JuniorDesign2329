@@ -10,12 +10,14 @@ class ComposersHelpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
-      appBar: AppBar(
-        title: const Text('Composers Help'),
-      ),
       body: Center(
         child: Column(
           children: [
+            const SizedBox(height: 30),
+            const Align(
+              alignment: Alignment.topLeft,
+              child: BackButton(),
+            ),
             const Text('Composers Help', style: TextStyle(fontSize: 40)),
         Padding(
           padding: const EdgeInsets.all(40),
