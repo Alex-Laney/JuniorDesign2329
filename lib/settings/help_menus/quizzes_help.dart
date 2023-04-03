@@ -46,10 +46,30 @@ class QuizzesHelpScreen extends StatelessWidget {
                           const TextSpan(
                               text:
                                   ' icon from the menu at the bottom of the screen, or from the main menu, is where you can test what you\'ve learned. Some quizzes might require you to do your own research outside of the app. Have fun, and try to get the highest score!'),
-                        ])))
-          ]),
-        )
-      ])),
+                            ])))
+              ]),
+            )
+          ])),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: CircularDialMenu.build(context),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(
+              onPressed: () => Navigator.pushNamedAndRemoveUntil(
+                  context, '/main', (route) => false),
+              tooltip: 'Home',
+              icon: const Icon(Icons.home, color: Colors.black45),
+            ),
+            IconButton(
+              onPressed: () {},
+              tooltip: 'Settings',
+              icon: const Icon(Icons.settings, color: Colors.black45),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

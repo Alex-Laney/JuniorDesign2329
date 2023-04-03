@@ -1,3 +1,4 @@
+import 'package:artifact/Quizzes/Results.dart';
 import 'package:flutter/material.dart';
 import '../quiz.dart';
 
@@ -11,11 +12,14 @@ class QuestionScreen extends StatelessWidget {
     return Scaffold(
         backgroundColor: const Color.fromRGBO(225, 255, 195, 1),
         body: SafeArea(
-            child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-          Text(quiz.name, style: const TextStyle(fontSize: 40)),
-          const SizedBox(height: 20),
-          QuestionWidget(quiz: quiz),
-        ])));
+            child: Padding(
+                padding: EdgeInsets.all(40),
+                child: Column(mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Text(quiz.name, style: const TextStyle(fontSize: 40)),
+                  const SizedBox(height: 20),
+                  QuestionWidget(quiz: quiz),
+        ]))));
   }
 }
 
@@ -50,6 +54,8 @@ class QuestionState extends State<QuestionWidget> {
   void results(String answer) {
     answers.add(answer);
     print(answers);
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => ResultsScreen(answers: answers, quiz: widget.quiz)));
     //ADD MOVING TO RESULTS SCREEN HERE, BE SURE TO BRING ANSWERS WITH YOU
   }
 

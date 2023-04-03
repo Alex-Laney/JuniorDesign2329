@@ -1,42 +1,56 @@
+import 'package:artifact/Listen/Listen.dart';
 import 'package:flutter/material.dart';
 import 'package:artifact/circular_dial_menu.dart';
+import 'package:artifact/music_box.dart';
 
-class SettingsScreen extends StatelessWidget {
+
+class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
 
   @override
+  State<SettingsScreen> createState() => _SettingsScreenState();
+}
+
+class _SettingsScreenState extends State<SettingsScreen> {
+  bool mute = false;
+  @override
   Widget build(BuildContext context) {
+    Controls c = Controls(player: openingState.getPlayer);
     final ButtonStyle style =
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
-      body: SafeArea(
+      appBar: AppBar(
+        title: const Text('Settings'),
+      ),
+      body: Center(
         child: Column(
-          children: <Widget>[
-            const Align(
-              alignment: Alignment.topLeft,
-              child: BackButton(),
-            ), Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-          Padding(padding: const EdgeInsets.all(30),
-            child: ElevatedButton(
+            ElevatedButton(
               style: style,
               onPressed: () => Navigator.pushNamed(context, '/about'),
               child: const Text('About'),
             ),
-          ),
-          Padding(padding: const EdgeInsets.all(30),
-            child:ElevatedButton(
+            ElevatedButton(
               style: style,
               onPressed: () => Navigator.pushNamed(context, '/help'),
               child: const Text('Help'),
             ),
-          ),
+            IconButton(
+              onPressed: () => {
+                if (mute) {c.unmute()} else {c.mute()},
+                setState(() {
+                  mute = !mute;
+                })
+              },
+              tooltip: '',
+              icon: mute
+                  ? Icon(Icons.volume_up, color: Colors.black45)
+                  : Icon(Icons.volume_off, color: Colors.black45),
+            ),
           ],
         ),
-          ],
-      ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: CircularDialMenu.build(context),
