@@ -1,3 +1,4 @@
+import 'package:artifact/Quizzes/Results.dart';
 import 'package:artifact/settings/about_screen.dart';
 import 'package:artifact/settings/help_menu.dart';
 import 'package:artifact/settings/help_menus/composers_help.dart';
