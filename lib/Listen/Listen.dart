@@ -12,7 +12,11 @@ class ListenScreen extends StatefulWidget {
 }
 
 class ListenScreenState extends State<ListenScreen> {
-  late AudioPlayer _audioPlayer;
+  static late AudioPlayer _audioPlayer;
+
+  static AudioPlayer getPlayer() {
+    try {return _audioPlayer;} catch (e) {return AudioPlayer();}
+  }
 
   final beethovenPlaylist = ConcatenatingAudioSource(
     children: [
@@ -139,6 +143,13 @@ class Controls extends StatelessWidget {
   });
 
   final AudioPlayer player;
+
+  void mute() {
+    player.setVolume(0);
+  }
+  void unmute() {
+    player.setVolume(1);
+  }
 
   @override
   Widget build(BuildContext context) {
