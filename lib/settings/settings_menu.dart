@@ -50,7 +50,7 @@ class SettingsScreen extends StatefulWidget {
               },
                 tooltip: '',
                 icon: mute
-                    ? Icon(Icons.volume_up, color: Colors.black45) : Icon(Icons.volume_off, color: Colors.black45),
+                    ? Icon(Icons.volume_off, color: Colors.black45) : Icon(Icons.volume_up, color: Colors.black45),
               ),
             ],
           ),
