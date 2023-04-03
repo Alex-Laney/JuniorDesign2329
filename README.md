@@ -3,6 +3,7 @@ The purpose of this mobile application, Notes on the Note Makers, will be to rai
 # Release Notes Section
 ## Version 0.4.0
 ### Features
+ - Added local storage for quiz results
  - Remediated the user interface of the main menu
  - Added a splash screen
  - Added a new initial screen that works with the splash screen to provide a 'music box introduction'
@@ -14,6 +15,8 @@ The purpose of this mobile application, Notes on the Note Makers, will be to rai
  - Revamped Settings screen user interface
  - Added song name to Listen module
  - Added music to initial screen
+ - Added Quizzes menu 
+ - Added help menu page for Quizzes
 ### Bug Fixes
 - just_audio is now global
 - Long-standing known issue of "Music plays in background after beginning, and leaving Listen module and returning back allows for songs to overlap" has been fixed
