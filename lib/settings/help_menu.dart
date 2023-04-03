@@ -6,8 +6,9 @@ class HelpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle style =
-        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+    final ButtonStyle style = ElevatedButton.styleFrom(
+        textStyle: const TextStyle(fontSize: 20),
+        foregroundColor: Colors.black);
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
       appBar: AppBar(
@@ -20,28 +21,40 @@ class HelpScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               ElevatedButton(
-                style: style,
+                style: style.copyWith(backgroundColor:
+                    MaterialStateProperty.resolveWith((states) {
+                  return Color.fromRGBO(255, 246, 167, 1);
+                })),
                 onPressed: () {
                   Navigator.pushNamed(context, '/composersHelp');
                 },
                 child: const Text('Composers'),
               ),
               ElevatedButton(
-                style: style,
+                style: style.copyWith(backgroundColor:
+                    MaterialStateProperty.resolveWith((states) {
+                  return Color.fromRGBO(239, 199, 199, 1);
+                })),
                 onPressed: () {
                   Navigator.pushNamed(context, '/termsHelp');
                 },
                 child: const Text('Musical Terms'),
               ),
               ElevatedButton(
-                style: style,
+                style: style.copyWith(backgroundColor:
+                    MaterialStateProperty.resolveWith((states) {
+                  return Color.fromRGBO(196, 236, 249, 1);
+                })),
                 onPressed: () {
                   Navigator.pushNamed(context, '/worksHelp');
                 },
                 child: const Text('Works'),
               ),
               ElevatedButton(
-                style: style,
+                style: style.copyWith(backgroundColor:
+                    MaterialStateProperty.resolveWith((states) {
+                  return Color.fromRGBO(225, 255, 195, 1);
+                })),
                 onPressed: () {
                   Navigator.pushNamed(context, '/quizzesHelp');
                 },
@@ -49,26 +62,6 @@ class HelpScreen extends StatelessWidget {
               ),
             ],
           ),
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: CircularDialMenu.build(context),
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(
-              onPressed: () => Navigator.pushNamedAndRemoveUntil(
-                  context, '/main', (route) => false),
-              tooltip: 'Home',
-              icon: const Icon(Icons.home, color: Colors.black45),
-            ),
-            IconButton(
-              onPressed: () {},
-              tooltip: 'Settings',
-              icon: const Icon(Icons.settings, color: Colors.black45),
-            ),
-          ],
         ),
       ),
     );

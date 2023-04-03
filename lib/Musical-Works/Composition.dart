@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import '../Linkable Interface/linkable.dart';
 import '../Linkable Interface/none_linkable.dart';
 
-class Comp implements Linkable{
+class Comp implements Linkable {
   String name = "";
   List<String> composer;
   List<Linkable> composerLinks;
@@ -19,9 +19,9 @@ class Comp implements Linkable{
       {required this.name,
       required this.composer,
       required this.composerLinks,
-        required this.desText,
-        required this.desLinks,
-        required this.genreText,
+      required this.desText,
+      required this.desLinks,
+      required this.genreText,
       required this.genreLinks});
 
   int compareAlphabetically(Comp target) {
@@ -30,14 +30,17 @@ class Comp implements Linkable{
 
   OutlinedButton menuView(context) {
     return OutlinedButton(
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => CompScreen(comp: this)),
-        );
-      },
-      child: Row(
-        children: <Widget>[
+        style: OutlinedButton.styleFrom(
+          shadowColor: Color.fromRGBO(0, 247, 255, 0.45),
+          elevation: 5,
+        ),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => CompScreen(comp: this)),
+          );
+        },
+        child: Row(children: <Widget>[
           Expanded(
               child: Align(
             alignment: Alignment.centerLeft,
