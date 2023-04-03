@@ -3,6 +3,7 @@ import 'package:just_audio/just_audio.dart';
 import 'package:artifact/circular_dial_menu.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
+import '../music_box.dart';
 
 class ListenScreen extends StatefulWidget {
   const ListenScreen({super.key});
@@ -12,30 +13,11 @@ class ListenScreen extends StatefulWidget {
 }
 
 class ListenScreenState extends State<ListenScreen> {
-  static late AudioPlayer _audioPlayer;
-
-  static AudioPlayer getPlayer() {
-    try {return _audioPlayer;} catch (e) {return AudioPlayer();}
-  }
-
-  final beethovenPlaylist = ConcatenatingAudioSource(
-    children: [
-      AudioSource.uri(
-          Uri.parse('asset:///assets/music/Beethoven/Fur_Elise.mp3')),
-      AudioSource.uri(Uri.parse(
-          'asset:///assets/music/Beethoven/Sonata_8_Pathetique_1st_Movement.mp3')),
-      AudioSource.uri(Uri.parse(
-          'asset:///assets/music/Beethoven/Moonlight_Sonata_1st_Movement.mp3')),
-      AudioSource.uri(Uri.parse(
-          'asset:///assets/music/Beethoven/Sonata_1_in_F_Minor_Allegro.mp3')),
-    ],
-  );
-
   Stream<PositionData> get _positionDataStream =>
       Rx.combineLatest3<Duration, Duration, Duration?, PositionData>(
-        _audioPlayer.positionStream,
-        _audioPlayer.bufferedPositionStream,
-        _audioPlayer.durationStream,
+        openingState.getPlayer.positionStream,
+        openingState.getPlayer.bufferedPositionStream,
+        openingState.getPlayer.durationStream,
         (position, bufferedPosition, duration) => PositionData(
           position,
           bufferedPosition,
@@ -43,22 +25,7 @@ class ListenScreenState extends State<ListenScreen> {
         ),
       );
 
-  @override
-  void initState() {
-    super.initState();
-    _audioPlayer = AudioPlayer();
-    _init();
-  }
-
-  Future<void> _init() async {
-    await _audioPlayer.setLoopMode(LoopMode.all);
-    await _audioPlayer.setAudioSource(beethovenPlaylist);
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
+  //String title = openingState.getPlayer.sequenceState?.currentSource?.tag;
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +41,7 @@ class ListenScreenState extends State<ListenScreen> {
             ),
             Image.asset('assets/images/Beethoven.PNG'),
             Padding(
-              padding: const EdgeInsets.fromLTRB(60, 20, 60, 0),
+              padding: const EdgeInsets.fromLTRB(60, 20, 60, 20),
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/beethoven');
@@ -82,8 +49,11 @@ class ListenScreenState extends State<ListenScreen> {
                 child: const Text('Ludwig van Beethoven'),
               ),
             ),
+            Text(openingState.getPlayer.sequenceState?.currentSource?.tag,
+              style: TextStyle(fontSize: 30, color: Colors.black), textAlign:
+              TextAlign.center,),
             Padding(
-              padding: const EdgeInsets.fromLTRB(60, 50, 60, 0),
+              padding: const EdgeInsets.fromLTRB(60, 30, 60, 0),
               child: StreamBuilder<PositionData>(
                 stream: _positionDataStream,
                 builder: (context, snapshot) {
@@ -100,12 +70,12 @@ class ListenScreenState extends State<ListenScreen> {
                     progress: positionData?.position ?? Duration.zero,
                     buffered: positionData?.bufferedPosition ?? Duration.zero,
                     total: positionData?.duration ?? Duration.zero,
-                    onSeek: _audioPlayer.seek,
+                    onSeek: openingState.getPlayer.seek,
                   );
                 },
               ),
             ),
-            Controls(player: _audioPlayer),
+            Controls(player: openingState.getPlayer),
           ],
         ),
       ),
@@ -134,94 +104,6 @@ class ListenScreenState extends State<ListenScreen> {
       ),
     );
   }
-}
-
-class Controls extends StatelessWidget {
-  const Controls({
-    super.key,
-    required this.player,
-  });
-
-  final AudioPlayer player;
-
-  void mute() {
-    player.setVolume(0);
-  }
-  void unmute() {
-    player.setVolume(1);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        IconButton(
-            icon: const Icon(Icons.skip_previous),
-            iconSize: 60,
-            onPressed: () async {
-              await player.seekToPrevious();
-            }),
-        StreamBuilder<PlayerState>(
-            stream: player.playerStateStream,
-            builder: (context, snapshot) {
-              final playerState = snapshot.data;
-              final processingState = playerState?.processingState;
-              final playing = playerState?.playing;
-              if (!(playing ?? false)) {
-                return IconButton(
-                  icon: const Icon(Icons.play_arrow_rounded),
-                  iconSize: 80,
-                  onPressed: player.play,
-                );
-              } else if (processingState != ProcessingState.completed) {
-                return IconButton(
-                  icon: const Icon(Icons.pause),
-                  iconSize: 80,
-                  onPressed: player.pause,
-                );
-              }
-              return IconButton(
-                icon: const Icon(Icons.pause),
-                iconSize: 80,
-                onPressed: player.pause,
-              );
-            }),
-        IconButton(
-          icon: const Icon(Icons.skip_next),
-          iconSize: 60,
-          onPressed: () => player.seekToNext(),
-        ),
-        IconButton(
-          icon: const Icon(Icons.volume_up),
-          onPressed: () {
-            showSliderDialog(
-              context: context,
-              title: "Adjust volume",
-              divisions: 10,
-              min: 0.0,
-              max: 1.0,
-              value: player.volume,
-              stream: player.volumeStream,
-              onChanged: player.setVolume,
-            );
-          },
-        )
-      ],
-    );
-  }
-}
-
-class PositionData {
-  const PositionData(
-    this.position,
-    this.bufferedPosition,
-    this.duration,
-  );
-
-  final Duration position;
-  final Duration bufferedPosition;
-  final Duration duration;
 }
 
 void showSliderDialog({
@@ -264,4 +146,35 @@ void showSliderDialog({
       ),
     ),
   );
+}
+
+class TextChanger extends StatefulWidget {
+  const TextChanger({super.key});
+  @override
+  State<TextChanger> createState() => _TextChangerState();
+}
+class _TextChangerState extends State<TextChanger> {
+  // Declare the variable
+  String dynamicText = 'Initial Text';
+  updateText() {
+    setState(() {
+      dynamicText = 'This is new text value';
+      // Replace with your logic
+    });
+  }
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          '$dynamicText', // Dynamic text
+          style: const TextStyle(fontSize: 28),
+        ),
+        ElevatedButton(
+          child: const Text('Change Text'),
+          onPressed: () => updateText(), // Call the method
+        ),
+      ],
+    );
+  }
 }
