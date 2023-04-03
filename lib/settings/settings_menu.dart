@@ -1,3 +1,4 @@
+import 'package:artifact/music_box.dart';
 import 'package:flutter/material.dart';
 import 'package:artifact/circular_dial_menu.dart';
 import '../Listen/Listen.dart';
@@ -13,7 +14,7 @@ class SettingsScreen extends StatefulWidget {
     bool mute = false;
     @override
     Widget build(BuildContext context) {
-      Controls c = Controls(player: ListenScreenState.getPlayer());
+      openingState c = openingState();
       final ButtonStyle style =
       ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
       return Scaffold(
@@ -49,7 +50,7 @@ class SettingsScreen extends StatefulWidget {
               },
                 tooltip: '',
                 icon: mute
-                    ? Icon(Icons.volume_up, color: Colors.black45) : Icon(Icons.volume_off, color: Colors.black45),
+                    ? Icon(Icons.volume_off, color: Colors.black45) : Icon(Icons.volume_up, color: Colors.black45),
               ),
             ],
           ),
