@@ -24,7 +24,9 @@ class QuizzesScreen extends StatelessWidget {
                         children: <Widget>[
                           const Text('Quizzes', style: TextStyle(fontSize: 40)),
                           const SizedBox(height: 30),
-                          QuizDB.quiz1.menuView(context),                                 //ADD OTHER QUIZZES HERE LIKE SO
+                          QuizDB.quiz1.menuView(context),
+                          QuizDB.quiz2.menuView(context),
+                          //ADD OTHER QUIZZES HERE LIKE SO
                         ],
                       )))
             ]),

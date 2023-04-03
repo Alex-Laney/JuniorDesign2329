@@ -9,10 +9,15 @@ class QuizDB {
   //Copy and Pasteable init Template for each quiz
   static Quiz quiz1 = Quiz(
         name: 'Quiz1', //Change this for each quiz
-        desc: 'PlaceholderDesc', //Change this for each quiz
+        desc: 'Composers', //Change this for each quiz
         questionList: QuestionsDB.quiz1Questions()  //Change this for each quiz
       );
 
+  static Quiz quiz2 = Quiz(
+      name: 'Quiz2', //Change this for each quiz
+      desc: 'Compositions', //Change this for each quiz
+      questionList: QuestionsDB.quiz2Questions()  //Change this for each quiz
+  );
 
 
   static Widget? getQuestion(Quiz quiz, int qNum, BuildContext context, Function onPressed) {
