@@ -41,12 +41,14 @@ class ResultsScreen extends StatelessWidget {
 
     return Scaffold(
         backgroundColor: const Color.fromRGBO(225, 255, 195, 1),
-        body: Container(
-          margin: const EdgeInsets.all(24),
-          alignment: Alignment.topCenter,
-            child: Column(mainAxisSize: MainAxisSize.min,
+        body: SingleChildScrollView(
+          child: Container(
+            margin: const EdgeInsets.all(24),
+            alignment: Alignment.topCenter,
+              child: Column(mainAxisSize: MainAxisSize.min,
                 children: disp
             )
+          ),
         ),
 
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
