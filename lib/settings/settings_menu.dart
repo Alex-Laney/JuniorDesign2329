@@ -10,22 +10,50 @@ class SettingsScreen extends StatelessWidget {
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
-      appBar: AppBar(
-        title: const Text('Settings'),
-      ),
-      body: Center(
+      body: SafeArea(
         child: Column(
+          children: <Widget>[
+            const Align(
+              alignment: Alignment.topLeft,
+              child: BackButton(),
+            ), Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            ElevatedButton(
+          Padding(padding: const EdgeInsets.all(30),
+            child: ElevatedButton(
               style: style,
               onPressed: () => Navigator.pushNamed(context, '/about'),
               child: const Text('About'),
             ),
-            ElevatedButton(
+          ),
+          Padding(padding: const EdgeInsets.all(30),
+            child:ElevatedButton(
               style: style,
               onPressed: () => Navigator.pushNamed(context, '/help'),
               child: const Text('Help'),
+            ),
+          ),
+          ],
+        ),
+          ],
+      ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: CircularDialMenu.build(context),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(
+              onPressed: () => Navigator.pushNamedAndRemoveUntil(
+                  context, '/main', (route) => false),
+              tooltip: 'Home',
+              icon: const Icon(Icons.home, color: Colors.black45),
+            ),
+            IconButton(
+              onPressed: () {},
+              tooltip: 'Settings',
+              icon: const Icon(Icons.settings, color: Colors.black45),
             ),
           ],
         ),
