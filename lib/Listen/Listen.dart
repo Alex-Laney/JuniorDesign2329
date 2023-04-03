@@ -12,7 +12,11 @@ class ListenScreen extends StatefulWidget {
 }
 
 class ListenScreenState extends State<ListenScreen> {
-  late AudioPlayer _audioPlayer;
+  static late AudioPlayer _audioPlayer;
+
+  static AudioPlayer getPlayer() {
+    try {return _audioPlayer;} catch (e) {return AudioPlayer();}
+  }
 
   final beethovenPlaylist = ConcatenatingAudioSource(
     children: [
@@ -59,14 +63,14 @@ class ListenScreenState extends State<ListenScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(196, 236, 249, 1),
+      backgroundColor: const Color.fromRGBO(201, 200, 244, 1.0),
       body: SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             const Align(
               alignment: Alignment.topLeft,
-              child: BackButton(),
+              child: BackButton(),//onPressed: ),
             ),
             Image.asset('assets/images/Beethoven.PNG'),
             Padding(
@@ -113,7 +117,7 @@ class ListenScreenState extends State<ListenScreen> {
           children: [
             IconButton(
               onPressed: () => {
-                Navigator.pushNamed(context, '/'),
+                Navigator.pushNamed(context, '/main'),
               },
               tooltip: 'Home',
               icon: const Icon(Icons.home, color: Colors.black45),
@@ -139,6 +143,13 @@ class Controls extends StatelessWidget {
   });
 
   final AudioPlayer player;
+
+  void mute() {
+    player.setVolume(0);
+  }
+  void unmute() {
+    player.setVolume(1);
+  }
 
   @override
   Widget build(BuildContext context) {
