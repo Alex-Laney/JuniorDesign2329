@@ -9,27 +9,37 @@ class AboutScreen extends StatelessWidget {
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
-      appBar: AppBar(
-        title: const Text('About'),
-      ),
-      body: Center(
+      body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            // Text for developing team
-            RichText(
-              text: const TextSpan(
-                text: 'Development History:\nStarted Fall 2022\n'
-                    'Finished Spring 2023\nThis is a student project\n'
-                    'Developers: JIB-2329\n- Andrew Chen\n- Richard Doan'
-                    '\n- Alex Laney\n- Jacob Singer\n- Sanjeev Viswan',
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            const Align(
+              alignment: Alignment.topLeft,
+              child: BackButton(),
+            ),
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Padding(padding: const EdgeInsets.all(40)),
+                  // Text for developing team
+                  RichText(
+                    text: const TextSpan(
+                      text: 'Development History:\nStarted Fall 2022\n'
+                          'Finished Spring 2023\nThis is a student project\n'
+                          'Developers: JIB-2329\n- Andrew Chen\n- Richard Doan'
+                          '\n- Alex Laney\n- Jacob Singer\n- Sanjeev Viswan',
+                    ),
+                  ),
+                  Padding(padding: const EdgeInsets.all(40)),
+                  // Creates the button for licensing agreements
+                  ElevatedButton(
+                      style: style,
+                      onPressed: () => Navigator.pushNamed(context, '/license'),
+                      child: const Text('License'))
+                ],
               ),
             ),
-            // Creates the button for licensing agreements
-            ElevatedButton(
-                style: style,
-                onPressed: () => Navigator.pushNamed(context, '/license'),
-                child: const Text('License'))
           ],
         ),
       ),

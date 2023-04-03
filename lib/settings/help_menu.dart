@@ -11,16 +11,21 @@ class HelpScreen extends StatelessWidget {
         foregroundColor: Colors.black);
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
-      appBar: AppBar(
-        title: const Text('Help'),
-      ),
-      body: Center(
-        child: Container(
+      body: SafeArea(
+        child: Column(
+          children: <Widget>[
+            const Align(
+              alignment: Alignment.topLeft,
+              child: BackButton(),
+            ),
+        Container(
           margin: const EdgeInsets.only(bottom: 100.0),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              ElevatedButton(
+              Padding(padding: const EdgeInsets.all(30),
+              child: ElevatedButton(
                 style: style.copyWith(backgroundColor:
                     MaterialStateProperty.resolveWith((states) {
                   return Color.fromRGBO(255, 246, 167, 1);
@@ -30,7 +35,9 @@ class HelpScreen extends StatelessWidget {
                 },
                 child: const Text('Composers'),
               ),
-              ElevatedButton(
+              ),
+              Padding(padding: const EdgeInsets.all(30),
+              child: ElevatedButton(
                 style: style.copyWith(backgroundColor:
                     MaterialStateProperty.resolveWith((states) {
                   return Color.fromRGBO(239, 199, 199, 1);
@@ -40,7 +47,9 @@ class HelpScreen extends StatelessWidget {
                 },
                 child: const Text('Musical Terms'),
               ),
-              ElevatedButton(
+              ),
+              Padding(padding: const EdgeInsets.all(30),
+              child: ElevatedButton(
                 style: style.copyWith(backgroundColor:
                     MaterialStateProperty.resolveWith((states) {
                   return Color.fromRGBO(196, 236, 249, 1);
@@ -50,7 +59,9 @@ class HelpScreen extends StatelessWidget {
                 },
                 child: const Text('Works'),
               ),
-              ElevatedButton(
+              ),
+              Padding(padding: const EdgeInsets.all(30),
+              child: ElevatedButton(
                 style: style.copyWith(backgroundColor:
                     MaterialStateProperty.resolveWith((states) {
                   return Color.fromRGBO(225, 255, 195, 1);
@@ -60,8 +71,30 @@ class HelpScreen extends StatelessWidget {
                 },
                 child: const Text('Quizzes'),
               ),
+              ),
             ],
           ),
+        ),
+          ],
+      ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: CircularDialMenu.build(context),
+        bottomNavigationBar: BottomAppBar(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              IconButton(
+                onPressed: () => Navigator.pushNamed(context, '/main'),
+                tooltip: 'Home',
+                icon: const Icon(Icons.home, color: Colors.black45),
+              ),
+              IconButton(
+                onPressed: () => Navigator.pushNamed(context, '/settings'),
+                tooltip: 'Settings',
+                icon: const Icon(Icons.settings, color: Colors.black45),
+              ),
+          ],
         ),
       ),
     );
