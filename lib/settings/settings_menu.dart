@@ -15,7 +15,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   bool mute = false;
   @override
   Widget build(BuildContext context) {
-    Controls c = Controls(player: openingState.getPlayer);
+    openingState c = openingState();
     final ButtonStyle style =
         ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
     return Scaffold(

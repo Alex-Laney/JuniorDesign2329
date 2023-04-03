@@ -7,7 +7,7 @@ class HelpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ButtonStyle style = ElevatedButton.styleFrom(
-        textStyle: const TextStyle(fontSize: 2),
+        textStyle: const TextStyle(fontSize: 20),
         foregroundColor: Colors.black);
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
