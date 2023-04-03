@@ -43,6 +43,13 @@ class openingState extends State<opening> {
     return audioPlayer;
   }
 
+  void mute() {
+    audioPlayer.setVolume(0);
+}
+  void unmute() {
+    audioPlayer.setVolume(1);
+  }
+
   String get songName {
     return audioPlayer.sequenceState?.currentSource?.tag;
   }
