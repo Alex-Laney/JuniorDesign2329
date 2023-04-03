@@ -10,7 +10,6 @@ class opening extends StatefulWidget {
   const opening({super.key});
 
   @override
-
   @override
   State<opening> createState() => _opening();
 }
@@ -26,15 +25,16 @@ class _opening extends State<opening> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-          const SizedBox(height: 150),
+            const SizedBox(height: 150),
             Align(
               alignment: Alignment.bottomCenter,
-                child: FadeInDown(duration: Duration(seconds: 4), child: topButton()),
-                // TextButton(
-                //   onPressed: () => Navigator.pushNamed(context, '/main'),
-                //   child: const Text('Go To Home', style: TextStyle(fontSize: 30, color: Colors.orangeAccent)),
-                // )
-              ),
+              child: FadeInDown(
+                  duration: Duration(seconds: 4), child: topButton()),
+              // TextButton(
+              //   onPressed: () => Navigator.pushNamed(context, '/main'),
+              //   child: const Text('Go To Home', style: TextStyle(fontSize: 30, color: Colors.orangeAccent)),
+              // )
+            ),
             const SizedBox(height: 100),
             Padding(
               padding: EdgeInsets.fromLTRB(65, 0, 70, 70),
@@ -42,12 +42,13 @@ class _opening extends State<opening> {
             ),
             const SizedBox(height: 50),
             Align(
-                alignment: Alignment.center,
-                child: FadeInUp(duration: Duration(seconds: 4), child: bottomButton()),
-                // TextButton(
-                //   onPressed: () => Navigator.pushNamed(context, '/works'),
-                //   child: const Text('What Am I Listening To?', style: TextStyle(fontSize: 30, color: Colors.orangeAccent)),
-                // )
+              alignment: Alignment.center,
+              child: FadeInUp(
+                  duration: Duration(seconds: 4), child: bottomButton()),
+              // TextButton(
+              //   onPressed: () => Navigator.pushNamed(context, '/works'),
+              //   child: const Text('What Am I Listening To?', style: TextStyle(fontSize: 30, color: Colors.orangeAccent)),
+              // )
             ),
           ],
         ),
@@ -58,20 +59,24 @@ class _opening extends State<opening> {
 
 class topButton extends StatelessWidget {
   Widget build(BuildContext context) {
-    return TextButton(onPressed: () => Navigator.pushNamed(context,
-        '/main'), child: const Text('Go To Home', style: TextStyle(fontSize:
-    30, color: Colors.orangeAccent)));
+    return TextButton(
+      onPressed: () => Navigator.pushNamed(context, '/main'),
+      child: const Text(
+        'Go To Home',
+        style: TextStyle(fontSize: 30, color: Colors.orangeAccent),
+      ),
+    );
   }
 }
 
 class bottomButton extends StatelessWidget {
   Widget build(BuildContext context) {
-    return TextButton(onPressed: () => Navigator.pushNamed(context, '/works'),
-        child: const Text('What Am I Listening To?', style: TextStyle(fontSize:
-        30, color: Colors.orangeAccent)));
+    return TextButton(
+      onPressed: () => Navigator.pushNamed(context, '/works'),
+      child: const Text(
+        'What Am I Listening To?',
+        style: TextStyle(fontSize: 30, color: Colors.orangeAccent),
+      ),
+    );
   }
 }
-
-
-
-
