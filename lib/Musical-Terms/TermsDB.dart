@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:artifact/Musical-Terms/Term.dart';
-
+import 'package:artifact/Musical-Works/CompositionsDB.dart';
 import '../Linkable Interface/linkable.dart';
 import '../Linkable Interface/none_linkable.dart';
 
@@ -28,7 +28,7 @@ class TermsDB {
       name: "Classical Period",
       defText: ["The period from 1750-1820 with music characterized by elegance and order."],
       defLinks: [none],
-      exText: ["Mozart, Hayden, and early Beethoven were the most influential composers of the Classical period."],
+      exText: ["Mozart, Hayden, and early Beethoven were the most influential composers of the Classical period." ],
       exLinks: [none],
       tags: [Tags.period]);
   static Term concerto = Term(
@@ -51,7 +51,7 @@ class TermsDB {
       defLinks: [none, classicalPeriod, none],
       exText: ["It is proper etiquette to not clap between movements."],
       exLinks: [none],
-      tags: [Tags.musicTheory]);
+      tags: [Tags.musicGenre]);
   static Term requiem = Term(
       name: "Requiem",
       defText: ["A piece composed for a Catholic Mass to honor the dead."],
@@ -80,6 +80,29 @@ class TermsDB {
       exText: ["Beethoven's 5th is the most famous symphony."],
       exLinks: [none],
       tags: [Tags.musicType]);
+  static Term rondo = Term(
+      name: "Rondo",
+      defText: ["A musical form with a recurring leading theme. This is typically found in the last", "movement."],
+      defLinks: [none, movement],
+      exText: ["Für Elise", "utilizes rondo within its composition, with the recurring theme occurring three times throughout the song."],
+      exLinks: [CompsDB.fur, none],
+      tags: [Tags.musicTheory]);
+  static Term sonata = Term(
+      name: "Sonata",
+      defText: ["A musical composition designed for an instrumental soloist, typically with several", "movements."],
+      defLinks: [none, movement],
+      exText: ["The", "Moonlight Sonata", "is one of the most famous classical examples of a sonata." 
+      "Sonata 1 in F Minor Allegro", "is an example of a more intense sonata."],
+      exLinks: [none, CompsDB.moonlight, none, CompsDB.sonataOne, none],
+      tags: [Tags.musicGenre]);
+  static Term solo = Term(
+      name: "Solo",
+      defText: ["A musical composition designed for one player only."],
+      defLinks: [none],
+      exText: ["Für Elise", "is designed to be played by a signle pianist."],
+      exLinks: [CompsDB.fur, none],
+      tags: [Tags.musicType]);
+  
 
   static List<Term> initialize() {
     backingList.clear();
@@ -95,6 +118,9 @@ class TermsDB {
     backingList.add(romanticPeriod);
     backingList.add(scale);
     backingList.add(symphony);
+    backingList.add(rondo);
+    backingList.add(sonata);
+    backingList.add(solo);
 
     return backingList;
   }

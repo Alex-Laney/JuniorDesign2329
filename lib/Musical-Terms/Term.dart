@@ -4,7 +4,7 @@ import '../Linkable Interface/linkable.dart';
 import '../Linkable Interface/none_linkable.dart';
 import 'Definition-Page.dart';
 
-enum Tags { period, musicType, musicTheory }
+enum Tags { period, musicType, musicTheory, musicGenre }
 
 class Term implements Linkable {
   String name = "";
@@ -33,6 +33,10 @@ class Term implements Linkable {
 
   OutlinedButton menuView(context) {
     return OutlinedButton(
+        style: OutlinedButton.styleFrom(
+          shadowColor: Color.fromRGBO(255, 0, 0, 0.45),
+          elevation: 5,
+        ),
         onPressed: () {
           Navigator.push(
             context,
