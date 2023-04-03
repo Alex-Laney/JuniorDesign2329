@@ -78,13 +78,16 @@ class TermsScreenState extends State<TermsScreen> {
               Align(alignment: Alignment.centerRight, child: Text("Tags")),
               SizedBox(width: 25),
             ]),
-            ListView.builder(
+            SizedBox(
+              height: 600,
+              child: ListView.builder(
                 shrinkWrap: true,
                 padding: const EdgeInsets.all(20.0),
                 itemCount: backingList.length,
                 itemBuilder: (context, position) {
                   return backingList[position].menuView(context);
                 }),
+              ),
           ],
         )),
       ])),
