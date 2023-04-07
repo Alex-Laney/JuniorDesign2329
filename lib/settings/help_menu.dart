@@ -1,3 +1,4 @@
+import 'package:artifact/bottom_button_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:artifact/circular_dial_menu.dart';
 
@@ -18,85 +19,85 @@ class HelpScreen extends StatelessWidget {
               alignment: Alignment.topLeft,
               child: BackButton(),
             ),
-        Container(
-          margin: const EdgeInsets.only(bottom: 100.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Padding(padding: const EdgeInsets.all(30),
-              child: ElevatedButton(
-                style: style.copyWith(backgroundColor:
-                    MaterialStateProperty.resolveWith((states) {
-                  return Color.fromRGBO(255, 246, 167, 1);
-                })),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/composersHelp');
-                },
-                child: const Text('Composers'),
+            Container(
+              margin: const EdgeInsets.only(bottom: 100.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(30),
+                    child: ElevatedButton(
+                      style: style.copyWith(
+                        backgroundColor: MaterialStateProperty.resolveWith(
+                          (states) {
+                            return Color.fromRGBO(255, 246, 167, 1);
+                          },
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/composersHelp');
+                      },
+                      child: const Text('Composers'),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(30),
+                    child: ElevatedButton(
+                      style: style.copyWith(
+                        backgroundColor: MaterialStateProperty.resolveWith(
+                          (states) {
+                            return Color.fromRGBO(239, 199, 199, 1);
+                          },
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/termsHelp');
+                      },
+                      child: const Text('Musical Terms'),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(30),
+                    child: ElevatedButton(
+                      style: style.copyWith(
+                        backgroundColor: MaterialStateProperty.resolveWith(
+                          (states) {
+                            return Color.fromRGBO(196, 236, 249, 1);
+                          },
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/worksHelp');
+                      },
+                      child: const Text('Works'),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(30),
+                    child: ElevatedButton(
+                      style: style.copyWith(
+                        backgroundColor: MaterialStateProperty.resolveWith(
+                          (states) {
+                            return Color.fromRGBO(225, 255, 195, 1);
+                          },
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/quizzesHelp');
+                      },
+                      child: const Text('Quizzes'),
+                    ),
+                  ),
+                ],
               ),
-              ),
-              Padding(padding: const EdgeInsets.all(30),
-              child: ElevatedButton(
-                style: style.copyWith(backgroundColor:
-                    MaterialStateProperty.resolveWith((states) {
-                  return Color.fromRGBO(239, 199, 199, 1);
-                })),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/termsHelp');
-                },
-                child: const Text('Musical Terms'),
-              ),
-              ),
-              Padding(padding: const EdgeInsets.all(30),
-              child: ElevatedButton(
-                style: style.copyWith(backgroundColor:
-                    MaterialStateProperty.resolveWith((states) {
-                  return Color.fromRGBO(196, 236, 249, 1);
-                })),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/worksHelp');
-                },
-                child: const Text('Works'),
-              ),
-              ),
-              Padding(padding: const EdgeInsets.all(30),
-              child: ElevatedButton(
-                style: style.copyWith(backgroundColor:
-                    MaterialStateProperty.resolveWith((states) {
-                  return Color.fromRGBO(225, 255, 195, 1);
-                })),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/quizzesHelp');
-                },
-                child: const Text('Quizzes'),
-              ),
-              ),
-            ],
-          ),
-        ),
+            ),
           ],
-      ),
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: CircularDialMenu.build(context),
-        bottomNavigationBar: BottomAppBar(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              IconButton(
-                onPressed: () => Navigator.pushNamed(context, '/main'),
-                tooltip: 'Home',
-                icon: const Icon(Icons.home, color: Colors.black45),
-              ),
-              IconButton(
-                onPressed: () => Navigator.pushNamed(context, '/settings'),
-                tooltip: 'Settings',
-                icon: const Icon(Icons.settings, color: Colors.black45),
-              ),
-          ],
-        ),
-      ),
+      floatingActionButton: CircularDialMenu.build(context),
+      bottomNavigationBar: BottomButtonBar.build(context),
     );
   }
 }
