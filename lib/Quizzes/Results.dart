@@ -1,12 +1,16 @@
 import 'package:artifact/Quizzes/quiz.dart';
+import 'package:artifact/hive_local_data/quiz_result/quiz_result_db.dart';
+import 'package:artifact/hive_local_data/rewards/rewards_points_db.dart';
 import 'package:flutter/material.dart';
 import 'package:artifact/circular_dial_menu.dart';
 
 class ResultsScreen extends StatelessWidget {
   final List<String> answers;
   final Quiz quiz;
+  final _resultsDatabase = QuizResultDatabase();
+  final _rewardsDatabase = RewardPointsDatabase();
 
-  const ResultsScreen({required this.answers, required this.quiz, super.key});
+  ResultsScreen({required this.answers, required this.quiz, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +25,8 @@ class ResultsScreen extends StatelessWidget {
     }
     List<Widget> wrongQuestionsDisplay = [];
     for (int i = 0; i < wrongQuestions.length; i++) {
-      wrongQuestionsDisplay.add(Text(quiz.questionList[wrongQuestions[i]].question));
+      wrongQuestionsDisplay
+          .add(Text(quiz.questionList[wrongQuestions[i]].question));
       wrongQuestionsDisplay.add(SizedBox(height: 20));
     }
 
@@ -29,8 +34,12 @@ class ResultsScreen extends StatelessWidget {
       const SizedBox(height: 28),
       Text(quiz.name, style: const TextStyle(fontSize: 40)),
       const SizedBox(height: 20),
-      Text("Score: " + score.toString() + "/" + quiz.questionList.length.toString(),
-      style: const TextStyle(fontSize: 30),
+      Text(
+        "Score: " +
+            score.toString() +
+            "/" +
+            quiz.questionList.length.toString(),
+        style: const TextStyle(fontSize: 30),
       ),
       const SizedBox(height: 20),
       Text("Questions to review:", style: const TextStyle(fontSize: 20)),
@@ -40,17 +49,13 @@ class ResultsScreen extends StatelessWidget {
     disp.addAll(wrongQuestionsDisplay);
 
     return Scaffold(
-        backgroundColor: const Color.fromRGBO(225, 255, 195, 1),
-        body: SingleChildScrollView(
-          child: Container(
+      backgroundColor: const Color.fromRGBO(225, 255, 195, 1),
+      body: SingleChildScrollView(
+        child: Container(
             margin: const EdgeInsets.all(24),
             alignment: Alignment.topCenter,
-              child: Column(mainAxisSize: MainAxisSize.min,
-                children: disp
-            )
-          ),
-        ),
-
+            child: Column(mainAxisSize: MainAxisSize.min, children: disp)),
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: CircularDialMenu.build(context),
       bottomNavigationBar: BottomAppBar(
@@ -70,7 +75,6 @@ class ResultsScreen extends StatelessWidget {
           ],
         ),
       ),
-
     );
   }
 }

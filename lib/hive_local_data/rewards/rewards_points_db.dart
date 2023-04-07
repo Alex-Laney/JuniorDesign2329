@@ -1,16 +1,16 @@
 import 'package:hive_flutter/hive_flutter.dart';
 
-/// Datebase that holds whether the user has unlocked a reward
+/// Datebase that holds the user's rewards points.
 class RewardPointsDatabase {
   /// Key for the RewardsDatabase
   String _rewardPointsDataKey = "REWARDPOINTS";
 
-  /// The amount of rewards points the user has
+  /// The amount of rewards points the user has.
   int rewardPoints = 0;
 
   final _userBox = Hive.box('userBox');
 
-  /// Run this method if 1st time running the app
+  /// Run this method if 1st time running the app.
   void createInitialData() {
     _userBox.put(_rewardPointsDataKey, rewardPoints);
   }
@@ -25,7 +25,7 @@ class RewardPointsDatabase {
     _userBox.put(_rewardPointsDataKey, rewardPoints);
   }
 
-  /// Gets the rewards list
+  /// Gets the rewards points.
   List getRewardPoints() {
     return _userBox.get(_rewardPointsDataKey);
   }
