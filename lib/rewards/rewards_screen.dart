@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:artifact/circular_dial_menu.dart';
 
-import 'Quizzes/quizDB.dart';
+// FIXME: Might need to change to StatefulWidget depending on implementation
+//  redeeming rewards
 
-class QuizzesScreen extends StatelessWidget {
-  const QuizzesScreen({super.key});
+/// Screen for the rewards page
+class RewardsScreen extends StatelessWidget {
+  const RewardsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +25,7 @@ class QuizzesScreen extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(40),
                   child: Column(
-                    children: <Widget>[
-                      const Text('Quizzes', style: TextStyle(fontSize: 40)),
-                      const SizedBox(height: 30),
-                      QuizDB.quiz1.menuView(context),
-                      QuizDB.quiz2.menuView(context),
-                      //ADD OTHER QUIZZES HERE LIKE SO
-                    ],
+                    children: <Widget>[],
                   ),
                 ),
               ),
