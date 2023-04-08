@@ -1,7 +1,7 @@
 import 'package:circular_menu/circular_menu.dart';
 import 'package:flutter/material.dart';
 
-import '../../circular_dial_menu.dart';
+import '../../bottom_navigation_bar/circular_dial_menu.dart';
 
 class MusicalTermsHelpScreen extends StatelessWidget {
   const MusicalTermsHelpScreen({super.key});

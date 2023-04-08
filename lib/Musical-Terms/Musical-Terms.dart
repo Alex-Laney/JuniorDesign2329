@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:artifact/Musical-Terms/Term.dart';
 import 'package:artifact/Musical-Terms/TermsDB.dart';
-import 'package:artifact/circular_dial_menu.dart';
+import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
 
 class TermsScreen extends StatefulWidget {
   const TermsScreen({super.key});
@@ -81,13 +81,13 @@ class TermsScreenState extends State<TermsScreen> {
             SizedBox(
               height: 600,
               child: ListView.builder(
-                shrinkWrap: true,
-                padding: const EdgeInsets.all(20.0),
-                itemCount: backingList.length,
-                itemBuilder: (context, position) {
-                  return backingList[position].menuView(context);
-                }),
-              ),
+                  shrinkWrap: true,
+                  padding: const EdgeInsets.all(20.0),
+                  itemCount: backingList.length,
+                  itemBuilder: (context, position) {
+                    return backingList[position].menuView(context);
+                  }),
+            ),
           ],
         )),
       ])),

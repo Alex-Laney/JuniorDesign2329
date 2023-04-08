@@ -1,8 +1,7 @@
 import 'package:artifact/Listen/Listen.dart';
 import 'package:flutter/material.dart';
-import 'package:artifact/circular_dial_menu.dart';
+import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
 import 'package:artifact/music_box.dart';
-
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:artifact/circular_dial_menu.dart';
+import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import '../music_box.dart';
@@ -37,7 +37,7 @@ class ListenScreenState extends State<ListenScreen> {
           children: [
             const Align(
               alignment: Alignment.topLeft,
-              child: BackButton(),//onPressed: ),
+              child: BackButton(), //onPressed: ),
             ),
             Image.asset('assets/images/Beethoven.PNG'),
             Padding(
@@ -49,9 +49,11 @@ class ListenScreenState extends State<ListenScreen> {
                 child: const Text('Ludwig van Beethoven'),
               ),
             ),
-            Text(openingState.getPlayer.sequenceState?.currentSource?.tag,
-              style: TextStyle(fontSize: 30, color: Colors.black), textAlign:
-              TextAlign.center,),
+            Text(
+              openingState.getPlayer.sequenceState?.currentSource?.tag,
+              style: TextStyle(fontSize: 30, color: Colors.black),
+              textAlign: TextAlign.center,
+            ),
             Padding(
               padding: const EdgeInsets.fromLTRB(60, 30, 60, 0),
               child: StreamBuilder<PositionData>(
@@ -153,6 +155,7 @@ class TextChanger extends StatefulWidget {
   @override
   State<TextChanger> createState() => _TextChangerState();
 }
+
 class _TextChangerState extends State<TextChanger> {
   // Declare the variable
   String dynamicText = 'Initial Text';
@@ -162,6 +165,7 @@ class _TextChangerState extends State<TextChanger> {
       // Replace with your logic
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Column(

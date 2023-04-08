@@ -1,7 +1,7 @@
 import 'package:circular_menu/circular_menu.dart';
 import 'package:flutter/material.dart';
 
-import '../../circular_dial_menu.dart';
+import '../../bottom_navigation_bar/circular_dial_menu.dart';
 
 class ComposersHelpScreen extends StatelessWidget {
   const ComposersHelpScreen({super.key});
@@ -19,16 +19,16 @@ class ComposersHelpScreen extends StatelessWidget {
               child: BackButton(),
             ),
             const Text('Composers Help', style: TextStyle(fontSize: 40)),
-        Padding(
-          padding: const EdgeInsets.all(40),
-            child: RichText(
-              textAlign: TextAlign.justify,
-              text: const TextSpan(
-                text: 'The composers page contains biographies about various famous composers who have influenced '
-                    'the development of classical music. Each page covers the upbringing and career of a composer and gives'
-                    ' readers insight on how they developed as a musician.',
-                style:
-                  const TextStyle(fontSize: 20, color: Colors.black),
+            Padding(
+              padding: const EdgeInsets.all(40),
+              child: RichText(
+                textAlign: TextAlign.justify,
+                text: const TextSpan(
+                  text:
+                      'The composers page contains biographies about various famous composers who have influenced '
+                      'the development of classical music. Each page covers the upbringing and career of a composer and gives'
+                      ' readers insight on how they developed as a musician.',
+                  style: const TextStyle(fontSize: 20, color: Colors.black),
                 ),
               ),
             ),

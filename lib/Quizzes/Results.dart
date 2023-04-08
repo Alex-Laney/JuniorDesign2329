@@ -2,7 +2,7 @@ import 'package:artifact/Quizzes/quiz.dart';
 import 'package:artifact/hive_local_data/quiz_result/quiz_result_db.dart';
 import 'package:artifact/hive_local_data/rewards/rewards_points_db.dart';
 import 'package:flutter/material.dart';
-import 'package:artifact/circular_dial_menu.dart';
+import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
 
 class ResultsScreen extends StatelessWidget {
   final List<String> answers;

@@ -1,7 +1,7 @@
 import 'package:circular_menu/circular_menu.dart';
 import 'package:flutter/material.dart';
 
-import '../../circular_dial_menu.dart';
+import '../../bottom_navigation_bar/circular_dial_menu.dart';
 
 class QuizzesHelpScreen extends StatelessWidget {
   const QuizzesHelpScreen({super.key});
@@ -46,10 +46,10 @@ class QuizzesHelpScreen extends StatelessWidget {
                           const TextSpan(
                               text:
                                   ' icon from the menu at the bottom of the screen, or from the main menu, is where you can test what you\'ve learned. Some quizzes might require you to do your own research outside of the app. Have fun, and try to get the highest score!'),
-                            ])))
-              ]),
-            )
-          ])),
+                        ])))
+          ]),
+        )
+      ])),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: CircularDialMenu.build(context),
       bottomNavigationBar: BottomAppBar(

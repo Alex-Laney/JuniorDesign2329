@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:artifact/circular_dial_menu.dart';
+import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
 
 class WorksScreen extends StatelessWidget {
   const WorksScreen({super.key});
