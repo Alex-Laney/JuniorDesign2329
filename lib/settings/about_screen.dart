@@ -5,8 +5,9 @@ class AboutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle style =
-        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+    final ButtonStyle style = ElevatedButton.styleFrom(
+      textStyle: const TextStyle(fontSize: 20),
+    );
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
       body: SafeArea(
@@ -21,7 +22,9 @@ class AboutScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Padding(padding: const EdgeInsets.all(40)),
+                  Padding(
+                    padding: const EdgeInsets.all(40),
+                  ),
                   // Text for developing team
                   RichText(
                     text: const TextSpan(
@@ -31,12 +34,15 @@ class AboutScreen extends StatelessWidget {
                           '\n- Alex Laney\n- Jacob Singer\n- Sanjeev Viswan',
                     ),
                   ),
-                  Padding(padding: const EdgeInsets.all(40)),
+                  Padding(
+                    padding: const EdgeInsets.all(40),
+                  ),
                   // Creates the button for licensing agreements
                   ElevatedButton(
-                      style: style,
-                      onPressed: () => Navigator.pushNamed(context, '/license'),
-                      child: const Text('License'))
+                    style: style,
+                    onPressed: () => Navigator.pushNamed(context, '/license'),
+                    child: const Text('License'),
+                  ),
                 ],
               ),
             ),

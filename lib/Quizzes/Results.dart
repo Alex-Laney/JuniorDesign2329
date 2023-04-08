@@ -1,4 +1,5 @@
 import 'package:artifact/Quizzes/quiz.dart';
+import 'package:artifact/bottom_navigation_bar/bottom_button_bar.dart';
 import 'package:artifact/hive_local_data/quiz_result/quiz_result_db.dart';
 import 'package:artifact/hive_local_data/rewards/rewards_points_db.dart';
 import 'package:flutter/material.dart';
@@ -25,14 +26,20 @@ class ResultsScreen extends StatelessWidget {
     }
     List<Widget> wrongQuestionsDisplay = [];
     for (int i = 0; i < wrongQuestions.length; i++) {
-      wrongQuestionsDisplay
-          .add(Text(quiz.questionList[wrongQuestions[i]].question));
-      wrongQuestionsDisplay.add(SizedBox(height: 20));
+      wrongQuestionsDisplay.add(
+        Text(quiz.questionList[wrongQuestions[i]].question),
+      );
+      wrongQuestionsDisplay.add(
+        SizedBox(height: 20),
+      );
     }
 
     List<Widget> disp = [
       const SizedBox(height: 28),
-      Text(quiz.name, style: const TextStyle(fontSize: 40)),
+      Text(
+        quiz.name,
+        style: const TextStyle(fontSize: 40),
+      ),
       const SizedBox(height: 20),
       Text(
         "Score: " +
@@ -42,7 +49,10 @@ class ResultsScreen extends StatelessWidget {
         style: const TextStyle(fontSize: 30),
       ),
       const SizedBox(height: 20),
-      Text("Questions to review:", style: const TextStyle(fontSize: 20)),
+      Text(
+        "Questions to review:",
+        style: const TextStyle(fontSize: 20),
+      ),
       const SizedBox(height: 20),
     ];
 
@@ -52,29 +62,14 @@ class ResultsScreen extends StatelessWidget {
       backgroundColor: const Color.fromRGBO(225, 255, 195, 1),
       body: SingleChildScrollView(
         child: Container(
-            margin: const EdgeInsets.all(24),
-            alignment: Alignment.topCenter,
-            child: Column(mainAxisSize: MainAxisSize.min, children: disp)),
+          margin: const EdgeInsets.all(24),
+          alignment: Alignment.topCenter,
+          child: Column(mainAxisSize: MainAxisSize.min, children: disp),
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: CircularDialMenu.build(context),
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(
-              onPressed: () => Navigator.pushNamed(context, '/main'),
-              tooltip: 'Home',
-              icon: const Icon(Icons.home, color: Colors.black45),
-            ),
-            IconButton(
-              onPressed: () => Navigator.pushNamed(context, '/settings'),
-              tooltip: 'Settings',
-              icon: const Icon(Icons.settings, color: Colors.black45),
-            ),
-          ],
-        ),
-      ),
+      bottomNavigationBar: BottomButtonBar.build(context),
     );
   }
 }

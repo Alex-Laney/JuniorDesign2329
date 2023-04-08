@@ -1,3 +1,4 @@
+import 'package:artifact/bottom_navigation_bar/bottom_button_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
@@ -83,27 +84,7 @@ class ListenScreenState extends State<ListenScreen> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: CircularDialMenu.build(context),
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(
-              onPressed: () => {
-                Navigator.pushNamed(context, '/main'),
-              },
-              tooltip: 'Home',
-              icon: const Icon(Icons.home, color: Colors.black45),
-            ),
-            IconButton(
-              onPressed: () => {
-                Navigator.pushNamed(context, '/settings'),
-              },
-              tooltip: 'Settings',
-              icon: const Icon(Icons.settings, color: Colors.black45),
-            ),
-          ],
-        ),
-      ),
+      bottomNavigationBar: BottomButtonBar.build(context),
     );
   }
 }
@@ -130,11 +111,14 @@ void showSliderDialog({
           height: 100.0,
           child: Column(
             children: [
-              Text('${snapshot.data?.toStringAsFixed(1)}$valueSuffix',
-                  style: const TextStyle(
-                      fontFamily: 'Fixed',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24.0)),
+              Text(
+                '${snapshot.data?.toStringAsFixed(1)}$valueSuffix',
+                style: const TextStyle(
+                  fontFamily: 'Fixed',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 24.0,
+                ),
+              ),
               Slider(
                 divisions: divisions,
                 min: min,
@@ -160,10 +144,12 @@ class _TextChangerState extends State<TextChanger> {
   // Declare the variable
   String dynamicText = 'Initial Text';
   updateText() {
-    setState(() {
-      dynamicText = 'This is new text value';
-      // Replace with your logic
-    });
+    setState(
+      () {
+        dynamicText = 'This is new text value';
+        // Replace with your logic
+      },
+    );
   }
 
   @override

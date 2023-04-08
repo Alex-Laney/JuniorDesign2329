@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Bar that holds shortcut buttons to different menus
 class BottomButtonBar {
   static Widget build(context) {
     return BottomAppBar(
