@@ -1,4 +1,5 @@
 import 'package:artifact/bottom_navigation_bar/bottom_button_bar.dart';
+import 'package:artifact/main.dart';
 import 'package:flutter/material.dart';
 import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
 
@@ -35,8 +36,9 @@ class QuizzesScreen extends StatelessWidget {
                             onPressed: () {
                               Navigator.pushNamed(context, '/rewardScreen');
                             },
-                            child: const Text(
-                              'Rewards',
+                            child: Text(
+                              'See Rewards\nPoints: ' +
+                                  rewardPointsData.getRewardPoints().toString(),
                               style:
                                   TextStyle(fontSize: 25, color: Colors.black),
                             ),

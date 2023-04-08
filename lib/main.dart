@@ -1,5 +1,6 @@
 import 'package:artifact/Quizzes/Results.dart';
 import 'package:artifact/bottom_navigation_bar/bottom_button_bar.dart';
+import 'package:artifact/hive_local_data/rewards/rewards_points_db.dart';
 import 'package:artifact/rewards/rewards_screen.dart';
 import 'package:artifact/settings/about_screen.dart';
 import 'package:artifact/settings/help_menu.dart';
@@ -21,6 +22,9 @@ import '/Composers/Beethoven.dart';
 import '/Composers/Mozart.dart';
 import '/Composers/Bach.dart';
 import 'music_box.dart';
+
+/// Global variable for the reward points database
+var rewardPointsData = RewardPointsDatabase();
 
 void main() async {
   await Hive.initFlutter();
