@@ -40,9 +40,11 @@ class QuizzesScreen extends StatelessWidget {
                               'See Rewards\nPoints: ' +
                                   rewardPointsData.getRewardPoints().toString(),
                               style: TextStyle(
-                                  fontSize: 25.0 *
-                                      MediaQuery.of(context).textScaleFactor,
-                                  color: Colors.black),
+                                fontSize: 25,
+                                color: Colors.black,
+                              ),
+                              textScaleFactor:
+                                  MediaQuery.of(context).textScaleFactor,
                             ),
                           ),
                         ),
