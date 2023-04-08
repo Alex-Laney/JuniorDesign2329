@@ -7,7 +7,8 @@ class BottomButtonBar {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           IconButton(
-            onPressed: () => Navigator.pushNamed(context, '/main'),
+            onPressed: () => Navigator.pushNamedAndRemoveUntil(
+                context, '/main', (route) => false),
             tooltip: 'Home',
             icon: const Icon(Icons.home, color: Colors.black45),
           ),

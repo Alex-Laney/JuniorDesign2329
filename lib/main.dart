@@ -1,5 +1,5 @@
 import 'package:artifact/Quizzes/Results.dart';
-import 'package:artifact/bottom_button_bar.dart';
+import 'package:artifact/bottom_navigation_bar/bottom_button_bar.dart';
 import 'package:artifact/settings/about_screen.dart';
 import 'package:artifact/settings/help_menu.dart';
 import 'package:artifact/settings/help_menus/composers_help.dart';
@@ -15,7 +15,7 @@ import '/Listen/Listen.dart';
 import '/Musical-Works/Musical-Compositions.dart';
 import '/Quizzes/Quizzes.dart';
 import 'package:artifact/settings/settings_menu.dart';
-import 'circular_dial_menu.dart';
+import 'bottom_navigation_bar/circular_dial_menu.dart';
 import '/Composers/Beethoven.dart';
 import '/Composers/Mozart.dart';
 import '/Composers/Bach.dart';
