@@ -27,7 +27,7 @@ class RewardPointsDatabase {
 
   /// Gets the rewards points.
   int getRewardPoints() {
-    if (_userBox.get(_rewardPointsDataKey) == null) return 0;
+    if (_userBox.get(_rewardPointsDataKey) == null) createInitialData();
     return _userBox.get(_rewardPointsDataKey);
   }
 }
