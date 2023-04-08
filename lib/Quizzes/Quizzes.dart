@@ -29,7 +29,7 @@ class QuizzesScreen extends StatelessWidget {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(30.0),
                         child: Container(
-                          width: 5000,
+                          width: MediaQuery.of(context).size.width,
                           color: Color.fromARGB(255, 255, 255, 255),
                           padding: const EdgeInsets.all(8),
                           child: TextButton(
@@ -39,8 +39,10 @@ class QuizzesScreen extends StatelessWidget {
                             child: Text(
                               'See Rewards\nPoints: ' +
                                   rewardPointsData.getRewardPoints().toString(),
-                              style:
-                                  TextStyle(fontSize: 25, color: Colors.black),
+                              style: TextStyle(
+                                  fontSize: 25.0 *
+                                      MediaQuery.of(context).textScaleFactor,
+                                  color: Colors.black),
                             ),
                           ),
                         ),
