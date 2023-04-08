@@ -25,6 +25,24 @@ class QuizzesScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(40),
                   child: Column(
                     children: <Widget>[
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(30.0),
+                        child: Container(
+                          width: 5000,
+                          color: Color.fromARGB(255, 255, 255, 255),
+                          padding: const EdgeInsets.all(8),
+                          child: TextButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/rewardScreen');
+                            },
+                            child: const Text(
+                              'Rewards',
+                              style:
+                                  TextStyle(fontSize: 25, color: Colors.black),
+                            ),
+                          ),
+                        ),
+                      ),
                       const Text('Quizzes', style: TextStyle(fontSize: 40)),
                       const SizedBox(height: 30),
                       QuizDB.quiz1.menuView(context),

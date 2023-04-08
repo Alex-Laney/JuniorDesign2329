@@ -1,5 +1,6 @@
 import 'package:artifact/Quizzes/Results.dart';
 import 'package:artifact/bottom_navigation_bar/bottom_button_bar.dart';
+import 'package:artifact/rewards/rewards_screen.dart';
 import 'package:artifact/settings/about_screen.dart';
 import 'package:artifact/settings/help_menu.dart';
 import 'package:artifact/settings/help_menus/composers_help.dart';
@@ -87,6 +88,7 @@ class MyApp extends StatelessWidget {
         '/beethoven': (context) => const BeethovenScreen(),
         '/mozart': (context) => const MozartScreen(),
         '/bach': (context) => const BachScreen(),
+        '/rewardScreen': (context) => const RewardsScreen(),
       },
     );
   }
