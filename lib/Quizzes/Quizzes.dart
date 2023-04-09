@@ -22,9 +22,10 @@ class QuizzesScreen extends StatelessWidget {
                       padding: const EdgeInsets.all(40),
                       child: Column(
                         children: <Widget>[
-                          const Text('Quizzes', style: TextStyle(fontSize: 40)),
+                          const Text('Quizzes', style: TextStyle(fontSize: 60)),
                           const SizedBox(height: 30),
                           QuizDB.quiz1.menuView(context),
+                          const SizedBox(height: 30),
                           QuizDB.quiz2.menuView(context),
                           //ADD OTHER QUIZZES HERE LIKE SO
                         ],
