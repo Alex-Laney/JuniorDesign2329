@@ -12,14 +12,19 @@ class MCQuestion extends QuizQuestion {
     required this.correctAnswer,
     required this.otherAnswers});
 
-  static TextButton getButton(String text, Function onPressed) {
-    return TextButton(
+  static OutlinedButton getButton(String text, Function onPressed) {
+    return OutlinedButton(
+      style: OutlinedButton.styleFrom(
+        backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
+        foregroundColor: Color.fromRGBO(0, 0, 0, 1.0),
+        side: BorderSide(width: 5.0, color: Color.fromRGBO(194, 232, 139, 1.0)),
+        elevation: 5,
+        //fixedSize: Size:,
+      ),
       onPressed: () => {
-      onPressed(text)
-    },
-      style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(Colors.blueGrey[100])),
-      child: Text(text, style: const TextStyle(color: Colors.black)),
+        onPressed(text)
+      },
+      child: Text(text, style: TextStyle(fontSize: 30, color: Colors.black), textAlign: TextAlign.center,),
     );
   }
 
