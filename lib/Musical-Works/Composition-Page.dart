@@ -38,7 +38,15 @@ class CompScreen extends StatelessWidget {
                 const SizedBox(height: 20),
                 comp.getExamples(context),
                 const SizedBox(height: 20),
-                ElevatedButton(
+
+                OutlinedButton(
+                  style: OutlinedButton.styleFrom(
+                    backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
+                    foregroundColor: Color.fromRGBO(0, 0, 0, 1.0),
+                    side: BorderSide(width: 5.0, color: Color.fromRGBO(0, 247, 255, 0.45)),
+                    elevation: 5,
+                    //fixedSize: Size:,
+                  ),
                   onPressed: () {
                     switch(comp.name) {
                       case 'Für Elise':
@@ -56,7 +64,7 @@ class CompScreen extends StatelessWidget {
                     }
                     Navigator.pushNamed(context, '/listen');
                   },
-                  child: Text('Listen to ${comp.name}'),
+                  child: Text('Listen to ${comp.name}', style: TextStyle(fontSize: 20, color: Colors.black)),
                 ),
               ]),
             ),
