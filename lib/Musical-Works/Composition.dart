@@ -46,7 +46,7 @@ class Comp implements Linkable {
           Expanded(
               child: Align(
             alignment: Alignment.centerLeft,
-            child: Text(name),
+            child: Text(name,  style: TextStyle(fontSize: 20, color: Colors.black), textAlign: TextAlign.left),
           )),
         ]));
   }
