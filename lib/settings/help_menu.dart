@@ -25,51 +25,75 @@ class HelpScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Padding(padding: const EdgeInsets.all(30),
-              child: ElevatedButton(
-                style: style.copyWith(backgroundColor:
-                    MaterialStateProperty.resolveWith((states) {
-                  return Color.fromRGBO(255, 246, 167, 1);
-                })),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/composersHelp');
-                },
-                child: const Text('Composers'),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(30.0),
+                  child: Container(
+                    color: const Color.fromRGBO(239, 199, 199, 1),
+                    padding: const EdgeInsets.all(8),
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/termsHelp');
+                      },
+                      child: const Text(
+                        'Terms',
+                        style: TextStyle(fontSize: 35, color: Colors.black),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(padding: const EdgeInsets.all(30),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(30.0),
+                  child: Container(
+                    color: const Color.fromRGBO(255, 246, 167, 1),
+                    padding: const EdgeInsets.all(8),
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/composersHelp');
+                      },
+                      child: const Text(
+                        'Composers',
+                        style: TextStyle(fontSize: 35, color: Colors.black),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(padding: const EdgeInsets.all(30),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(30.0),
+                child: Container(
+                  color: const Color.fromRGBO(196, 236, 249, 1),
+                  padding: const EdgeInsets.all(8),
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/worksHelp');
+                    },
+                    child: const Text(
+                      'Works',
+                      style: TextStyle(fontSize: 35, color: Colors.black),
+                    ),
+                  ),
+                ),
               ),
               ),
               Padding(padding: const EdgeInsets.all(30),
-              child: ElevatedButton(
-                style: style.copyWith(backgroundColor:
-                    MaterialStateProperty.resolveWith((states) {
-                  return Color.fromRGBO(239, 199, 199, 1);
-                })),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/termsHelp');
-                },
-                child: const Text('Musical Terms'),
-              ),
-              ),
-              Padding(padding: const EdgeInsets.all(30),
-              child: ElevatedButton(
-                style: style.copyWith(backgroundColor:
-                    MaterialStateProperty.resolveWith((states) {
-                  return Color.fromRGBO(196, 236, 249, 1);
-                })),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/worksHelp');
-                },
-                child: const Text('Works'),
-              ),
-              ),
-              Padding(padding: const EdgeInsets.all(30),
-              child: ElevatedButton(
-                style: style.copyWith(backgroundColor:
-                    MaterialStateProperty.resolveWith((states) {
-                  return Color.fromRGBO(225, 255, 195, 1);
-                })),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/quizzesHelp');
-                },
-                child: const Text('Quizzes'),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(30.0),
+                child: Container(
+                  color: const Color.fromRGBO(225, 255, 195, 1),
+                  padding: const EdgeInsets.all(8),
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/quizzesHelp');
+                    },
+                    child: const Text(
+                      'Quizzes',
+                      style: TextStyle(fontSize: 35, color: Colors.black),
+                    ),
+                  ),
+                ),
               ),
               ),
             ],
