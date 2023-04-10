@@ -6,23 +6,23 @@ class RewardPointsDatabase {
   String _rewardPointsDataKey = "REWARDPOINTS";
 
   /// The amount of rewards points the user has.
-  int _rewardPoints = 0;
+  int rewardPoints = 0;
 
   final _userBox = Hive.box('userBox');
 
   /// Run this method if 1st time running the app.
   void createInitialData() {
-    _userBox.put(_rewardPointsDataKey, _rewardPoints);
+    _userBox.put(_rewardPointsDataKey, rewardPoints);
   }
 
   /// Load data from rewards database.
   void loadData() {
-    _rewardPoints = _userBox.get(_rewardPointsDataKey);
+    rewardPoints = _userBox.get(_rewardPointsDataKey);
   }
 
   /// Update reward points.
   void updateData() {
-    _userBox.put(_rewardPointsDataKey, _rewardPoints);
+    _userBox.put(_rewardPointsDataKey, rewardPoints);
   }
 
   /// Gets the rewards points.
