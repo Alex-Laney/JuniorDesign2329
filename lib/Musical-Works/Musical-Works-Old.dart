@@ -1,5 +1,6 @@
+import 'package:artifact/bottom_navigation_bar/bottom_button_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:artifact/circular_dial_menu.dart';
+import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
 
 class WorksScreen extends StatelessWidget {
   const WorksScreen({super.key});
@@ -108,23 +109,7 @@ class WorksScreen extends StatelessWidget {
       // ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: CircularDialMenu.build(context),
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(
-              onPressed: () => Navigator.pushNamed(context, '/main'),
-              tooltip: 'Home',
-              icon: const Icon(Icons.home, color: Colors.black45),
-            ),
-            IconButton(
-              onPressed: () => Navigator.pushNamed(context, '/settings'),
-              tooltip: 'Settings',
-              icon: const Icon(Icons.settings, color: Colors.black45),
-            ),
-          ],
-        ),
-      ),
+      bottomNavigationBar: BottomButtonBar.build(context),
     );
   }
 }

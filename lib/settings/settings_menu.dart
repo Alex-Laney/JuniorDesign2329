@@ -1,8 +1,8 @@
 import 'package:artifact/Listen/Listen.dart';
+import 'package:artifact/bottom_navigation_bar/bottom_button_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:artifact/circular_dial_menu.dart';
+import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
 import 'package:artifact/music_box.dart';
-
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -16,8 +16,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     openingState c = openingState();
-    final ButtonStyle style =
-        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+    final ButtonStyle style = ElevatedButton.styleFrom(
+      textStyle: const TextStyle(fontSize: 20),
+    );
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
       appBar: AppBar(
@@ -40,9 +41,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
             IconButton(
               onPressed: () => {
                 if (mute) {c.unmute()} else {c.mute()},
-                setState(() {
-                  mute = !mute;
-                })
+                setState(
+                  () {
+                    mute = !mute;
+                  },
+                ),
               },
               tooltip: '',
               icon: mute
@@ -54,24 +57,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: CircularDialMenu.build(context),
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(
-              onPressed: () => Navigator.pushNamedAndRemoveUntil(
-                  context, '/main', (route) => false),
-              tooltip: 'Home',
-              icon: const Icon(Icons.home, color: Colors.black45),
-            ),
-            IconButton(
-              onPressed: () {},
-              tooltip: 'Settings',
-              icon: const Icon(Icons.settings, color: Colors.black45),
-            ),
-          ],
-        ),
-      ),
+      bottomNavigationBar: BottomButtonBar.build(context),
     );
   }
 }

@@ -1,4 +1,7 @@
 import 'package:artifact/Quizzes/Results.dart';
+import 'package:artifact/bottom_navigation_bar/bottom_button_bar.dart';
+import 'package:artifact/hive_local_data/rewards/rewards_points_db.dart';
+import 'package:artifact/rewards/rewards_screen.dart';
 import 'package:artifact/settings/about_screen.dart';
 import 'package:artifact/settings/help_menu.dart';
 import 'package:artifact/settings/help_menus/composers_help.dart';
@@ -14,11 +17,14 @@ import '/Listen/Listen.dart';
 import '/Musical-Works/Musical-Compositions.dart';
 import '/Quizzes/Quizzes.dart';
 import 'package:artifact/settings/settings_menu.dart';
-import 'circular_dial_menu.dart';
+import 'bottom_navigation_bar/circular_dial_menu.dart';
 import '/Composers/Beethoven.dart';
 import '/Composers/Mozart.dart';
 import '/Composers/Bach.dart';
 import 'music_box.dart';
+
+/// Global variable for the reward points database
+var rewardPointsData = RewardPointsDatabase();
 
 void main() async {
   await Hive.initFlutter();
@@ -86,6 +92,7 @@ class MyApp extends StatelessWidget {
         '/beethoven': (context) => const BeethovenScreen(),
         '/mozart': (context) => const MozartScreen(),
         '/bach': (context) => const BachScreen(),
+        '/rewardScreen': (context) => const RewardsScreen(),
       },
     );
   }
@@ -195,23 +202,7 @@ class MainScreen extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: CircularDialMenu.build(context),
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(
-              onPressed: () {},
-              tooltip: 'Home',
-              icon: const Icon(Icons.home, color: Colors.black45),
-            ),
-            IconButton(
-              onPressed: () => Navigator.pushNamed(context, '/settings'),
-              tooltip: 'Settings',
-              icon: const Icon(Icons.settings, color: Colors.black45),
-            ),
-          ],
-        ),
-      ),
+      bottomNavigationBar: BottomButtonBar.build(context),
     );
   }
 }

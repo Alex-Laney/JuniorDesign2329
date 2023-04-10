@@ -1,6 +1,7 @@
 import 'package:artifact/Quizzes/quiz.dart';
+import 'package:artifact/bottom_navigation_bar/bottom_button_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:artifact/circular_dial_menu.dart';
+import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
 import 'package:artifact/Musical-Terms/Term.dart';
 import '../main.dart';
 import 'QuestionSemantics/question_screen.dart';
@@ -25,25 +26,39 @@ class StartScreen extends StatelessWidget {
             Center(
               child: Padding(
                 padding: const EdgeInsets.all(40),
-                child:
-                    Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-                  Text(quiz.name, style: const TextStyle(fontSize: 40)),
-                  const SizedBox(height: 20),
-                  Text(quiz.desc, style: const TextStyle(fontSize: 20)),
-                  const SizedBox(height: 20),
-                  TextButton(
-                    style: ButtonStyle(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Text(
+                      quiz.name,
+                      style: const TextStyle(fontSize: 40),
+                    ),
+                    const SizedBox(height: 20),
+                    Text(
+                      quiz.desc,
+                      style: const TextStyle(fontSize: 20),
+                    ),
+                    const SizedBox(height: 20),
+                    TextButton(
+                      style: ButtonStyle(
                         backgroundColor:
-                            MaterialStateProperty.all(Colors.green[600])),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => QuestionScreen(quiz: quiz)),
-                      );},
-                    child: const Text('Start!',
-                        style: TextStyle(color: Colors.black, fontSize: 30)),
-                  ),
-                ]),
+                            MaterialStateProperty.all(Colors.green[600]),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => QuestionScreen(quiz: quiz),
+                          ),
+                        );
+                      },
+                      child: const Text(
+                        'Start!',
+                        style: TextStyle(color: Colors.black, fontSize: 30),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             )
           ],
@@ -51,24 +66,7 @@ class StartScreen extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: CircularDialMenu.build(context),
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(
-              onPressed: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const MainScreen())),
-              tooltip: 'Home',
-              icon: const Icon(Icons.home, color: Colors.black45),
-            ),
-            IconButton(
-              onPressed: () => Navigator.pushNamed(context, '/settings'),
-              tooltip: 'Settings',
-              icon: const Icon(Icons.settings, color: Colors.black45),
-            ),
-          ],
-        ),
-      ),
+      bottomNavigationBar: BottomButtonBar.build(context),
     );
   }
 }

@@ -1,5 +1,7 @@
+import 'package:artifact/bottom_navigation_bar/bottom_button_bar.dart';
+import 'package:artifact/main.dart';
 import 'package:flutter/material.dart';
-import 'package:artifact/circular_dial_menu.dart';
+import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
 
 import 'Quizzes/quizDB.dart';
 
@@ -11,45 +13,58 @@ class QuizzesScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(225, 255, 195, 1),
       body: SingleChildScrollView(
-          child: SafeArea(
-            child: Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+        child: SafeArea(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
               const Align(
                 alignment: Alignment.topLeft,
                 child: BackButton(),
               ),
               Center(
-                  child: Padding(
-                      padding: const EdgeInsets.all(40),
-                      child: Column(
-                        children: <Widget>[
-                          const Text('Quizzes', style: TextStyle(fontSize: 40)),
-                          const SizedBox(height: 30),
-                          QuizDB.quiz1.menuView(context),
-                          QuizDB.quiz2.menuView(context),
-                          //ADD OTHER QUIZZES HERE LIKE SO
-                        ],
-                      )))
-            ]),
-          )),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: CircularDialMenu.build(context),
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(
-              onPressed: () => Navigator.pushNamed(context, '/main'),
-              tooltip: 'Home',
-              icon: const Icon(Icons.home, color: Colors.black45),
-            ),
-            IconButton(
-              onPressed: () => Navigator.pushNamed(context, '/settings'),
-              tooltip: 'Settings',
-              icon: const Icon(Icons.settings, color: Colors.black45),
-            ),
-          ],
+                child: Padding(
+                  padding: const EdgeInsets.all(40),
+                  child: Column(
+                    children: <Widget>[
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(30.0),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width,
+                          color: Color.fromARGB(255, 255, 255, 255),
+                          padding: const EdgeInsets.all(8),
+                          child: TextButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/rewardScreen');
+                            },
+                            child: Text(
+                              'See Rewards\nPoints: ' +
+                                  rewardPointsData.getRewardPoints().toString(),
+                              style: TextStyle(
+                                fontSize: 25,
+                                color: Colors.black,
+                              ),
+                              textScaleFactor:
+                                  MediaQuery.of(context).textScaleFactor,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const Text('Quizzes', style: TextStyle(fontSize: 40)),
+                      const SizedBox(height: 30),
+                      QuizDB.quiz1.menuView(context),
+                      QuizDB.quiz2.menuView(context),
+                      //ADD OTHER QUIZZES HERE LIKE SO
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: CircularDialMenu.build(context),
+      bottomNavigationBar: BottomButtonBar.build(context),
     );
   }
 }
