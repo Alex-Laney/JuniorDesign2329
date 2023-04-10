@@ -1,5 +1,6 @@
 import 'package:artifact/Quizzes/quiz.dart';
 import 'package:artifact/bottom_navigation_bar/bottom_button_bar.dart';
+import 'package:artifact/main.dart';
 import 'package:flutter/material.dart';
 import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
 
@@ -20,6 +21,10 @@ class ResultsScreen extends StatelessWidget {
         wrongQuestions.add(i);
       }
     }
+
+    /// Update rewards points
+    _updateRewardsPoints(score);
+
     List<Widget> wrongQuestionsDisplay = [];
     for (int i = 0; i < wrongQuestions.length; i++) {
       wrongQuestionsDisplay.add(
@@ -67,5 +72,14 @@ class ResultsScreen extends StatelessWidget {
       floatingActionButton: CircularDialMenu.build(context),
       bottomNavigationBar: BottomButtonBar.build(context),
     );
+  }
+
+  /// Updates rewards points based on quiz score
+  void _updateRewardsPoints(int score) {
+    int previousHighScore = quizResultsData.getQuizResultList(quiz.name)[0][1];
+    if (score > previousHighScore) {
+      rewardPointsData.rewardPoints += score - previousHighScore;
+      rewardPointsData.updateData();
+    }
   }
 }

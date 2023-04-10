@@ -41,6 +41,7 @@ class QuizResultDatabase {
   ///
   /// Uses a [key], which is the quiz name, to look up database
   List getQuizResultList(String key) {
+    if (_userBox.get(key) == null) createInitialData(key);
     return _userBox.get(key);
   }
 
