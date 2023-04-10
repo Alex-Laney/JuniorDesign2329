@@ -76,6 +76,7 @@ class ResultsScreen extends StatelessWidget {
 
   /// Updates rewards points based on quiz score
   void _updateRewardsPoints(int score) {
+    // Get the highest score so far on quiz.
     int previousHighScore = quizResultsData.getQuizResultList(quiz.name)[0][1];
     if (score > previousHighScore) {
       rewardPointsData.rewardPoints += score - previousHighScore;
