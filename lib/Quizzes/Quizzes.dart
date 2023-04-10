@@ -1,4 +1,5 @@
 import 'package:artifact/bottom_navigation_bar/bottom_button_bar.dart';
+import 'package:artifact/main.dart';
 import 'package:flutter/material.dart';
 import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
 
@@ -25,6 +26,29 @@ class QuizzesScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(40),
                   child: Column(
                     children: <Widget>[
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(30.0),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width,
+                          color: Color.fromARGB(255, 255, 255, 255),
+                          padding: const EdgeInsets.all(8),
+                          child: TextButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/rewardScreen');
+                            },
+                            child: Text(
+                              'See Rewards\nPoints: ' +
+                                  rewardPointsData.getRewardPoints().toString(),
+                              style: TextStyle(
+                                fontSize: 25,
+                                color: Colors.black,
+                              ),
+                              textScaleFactor:
+                                  MediaQuery.of(context).textScaleFactor,
+                            ),
+                          ),
+                        ),
+                      ),
                       const Text('Quizzes', style: TextStyle(fontSize: 40)),
                       const SizedBox(height: 30),
                       QuizDB.quiz1.menuView(context),
