@@ -26,7 +26,7 @@ class TermsScreenState extends State<TermsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(239, 199, 199, 1),
-      body: SafeArea(
+      body: SingleChildScrollView(
           child: Column(children: <Widget>[
         const Align(
           alignment: Alignment.topLeft,
