@@ -1,6 +1,7 @@
+import 'package:artifact/bottom_navigation_bar/bottom_button_bar.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:artifact/circular_dial_menu.dart';
+import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
 import 'package:artifact/Musical-Terms/Term.dart';
 import '../Composers/Composers.dart';
 import '../Musical-Works/Musical-Works-Old.dart';
@@ -27,14 +28,19 @@ class DefScreen extends StatelessWidget {
             Center(
               child: Padding(
                 padding: const EdgeInsets.all(40),
-                child:
-                    Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-                  Text(term.name, style: const TextStyle(fontSize: 40)),
-                  const SizedBox(height: 20),
-                  term.getDefinition(context),
-                  const SizedBox(height: 20),
-                  term.getExamples(context)
-                ]),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Text(
+                      term.name,
+                      style: const TextStyle(fontSize: 40),
+                    ),
+                    const SizedBox(height: 20),
+                    term.getDefinition(context),
+                    const SizedBox(height: 20),
+                    term.getExamples(context),
+                  ],
+                ),
               ),
             )
           ],
@@ -42,24 +48,7 @@ class DefScreen extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: CircularDialMenu.build(context),
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(
-              onPressed: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const MainScreen())),
-              tooltip: 'Home',
-              icon: const Icon(Icons.home, color: Colors.black45),
-            ),
-            IconButton(
-              onPressed: () => Navigator.pushNamed(context, '/settings'),
-              tooltip: 'Settings',
-              icon: const Icon(Icons.settings, color: Colors.black45),
-            ),
-          ],
-        ),
-      ),
+      bottomNavigationBar: BottomButtonBar.build(context),
     );
   }
 }

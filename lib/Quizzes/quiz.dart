@@ -1,7 +1,7 @@
 import 'package:artifact/Quizzes/QuestionSemantics/quiz_question.dart';
 import 'package:artifact/Quizzes/start_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:artifact/circular_dial_menu.dart';
+import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
 
 import 'QuestionSemantics/quiz_question.dart';
 

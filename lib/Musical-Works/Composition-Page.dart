@@ -1,6 +1,7 @@
+import 'package:artifact/bottom_navigation_bar/bottom_button_bar.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:artifact/circular_dial_menu.dart';
+import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
 import 'package:artifact/Musical-Works/Composition.dart';
 import '../Composers/Composers.dart';
 import '../Musical-Works/Musical-Works-Old.dart';
@@ -18,7 +19,7 @@ class CompScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(196, 236, 249, 1),
       appBar: AppBar(
-        backgroundColor: Colors.blue.withOpacity(0)
+        backgroundColor: Colors.blue.withOpacity(0),
       ),
       body: SingleChildScrollView(
         child: Column(children: <Widget>[
@@ -66,32 +67,14 @@ class CompScreen extends StatelessWidget {
                   },
                   child: Text('Listen to ${comp.name}', style: TextStyle(fontSize: 20, color: Colors.black)),
                 ),
-              ]),
+              ),
             ),
-          )
           ],
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: CircularDialMenu.build(context),
-      bottomNavigationBar: BottomAppBar(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(
-              onPressed: () => Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const MainScreen())),
-              tooltip: 'Home',
-              icon: const Icon(Icons.home, color: Colors.black45),
-            ),
-            IconButton(
-              onPressed: () => Navigator.pushNamed(context, '/settings'),
-              tooltip: 'Settings',
-              icon: const Icon(Icons.settings, color: Colors.black45),
-            ),
-          ],
-        ),
-      ),
+      bottomNavigationBar: BottomButtonBar.build(context),
     );
   }
 }

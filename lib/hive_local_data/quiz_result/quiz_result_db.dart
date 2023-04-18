@@ -1,6 +1,6 @@
 import 'package:hive_flutter/hive_flutter.dart';
 
-/// Datebase that holds all of the quiz results
+/// Datebase that holds all of the quiz results.
 class QuizResultDatabase {
   /// Each entry is a name with its score
   List resultList = [];
