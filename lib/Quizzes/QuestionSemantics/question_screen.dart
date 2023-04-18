@@ -9,17 +9,20 @@ class QuestionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: const Color.fromRGBO(225, 255, 195, 1),
-        body: SafeArea(
-            child: Padding(
-                padding: EdgeInsets.all(40),
-                child: Column(mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Text(quiz.name, style: const TextStyle(fontSize: 40)),
-                  const SizedBox(height: 20),
-                  QuestionWidget(quiz: quiz),
-        ]))));
+    return WillPopScope(
+        onWillPop: () async => false,
+        child: Scaffold(
+            backgroundColor: const Color.fromRGBO(225, 255, 195, 1),
+            body: SafeArea(
+                child: Padding(
+                    padding: EdgeInsets.all(40),
+                    child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Text(quiz.name, style: const TextStyle(fontSize: 40)),
+                          const SizedBox(height: 20),
+                          QuestionWidget(quiz: quiz),
+                        ])))));
   }
 }
 
@@ -45,17 +48,17 @@ class QuestionState extends State<QuestionWidget> {
       onPressed = results;
     }
     return widget.quiz.questionList[qNum].display(
-        quiz: widget.quiz,
-        qNum: qNum,
-        context: context,
-        onPressed: onPressed);
+        quiz: widget.quiz, qNum: qNum, context: context, onPressed: onPressed);
   }
 
   void results(String answer) {
     answers.add(answer);
     print(answers);
-    Navigator.push(context,
-        MaterialPageRoute(builder: (context) => ResultsScreen(answers: answers, quiz: widget.quiz)));
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) =>
+                ResultsScreen(answers: answers, quiz: widget.quiz)));
     //ADD MOVING TO RESULTS SCREEN HERE, BE SURE TO BRING ANSWERS WITH YOU
   }
 
