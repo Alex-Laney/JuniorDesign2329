@@ -1,7 +1,6 @@
 import 'package:artifact/Quizzes/quiz.dart';
 import 'package:artifact/bottom_navigation_bar/bottom_button_bar.dart';
-import 'package:artifact/hive_local_data/quiz_result/quiz_result_db.dart';
-import 'package:artifact/hive_local_data/rewards/rewards_points_db.dart';
+import 'package:artifact/main.dart';
 import 'package:flutter/material.dart';
 import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
 import 'package:hive/hive.dart';
@@ -9,8 +8,6 @@ import 'package:hive/hive.dart';
 class ResultsScreen extends StatelessWidget {
   final List<String> answers;
   final Quiz quiz;
-  final _resultsDatabase = QuizResultDatabase();
-  final _rewardsDatabase = RewardPointsDatabase();
 
   ResultsScreen({required this.answers, required this.quiz, super.key});
 
@@ -25,6 +22,10 @@ class ResultsScreen extends StatelessWidget {
         wrongQuestions.add(i);
       }
     }
+
+    /// Update rewards points
+    _updateRewardsPoints(score);
+
     List<Widget> wrongQuestionsDisplay = [];
     for (int i = 0; i < wrongQuestions.length; i++) {
       wrongQuestionsDisplay.add(
@@ -127,5 +128,15 @@ class ResultsScreen extends StatelessWidget {
       style: const TextStyle(fontSize: 30),
       textAlign: TextAlign.center,
     );
+  }
+
+  /// Updates rewards points based on quiz score
+  void _updateRewardsPoints(int score) {
+    // Get the highest score so far on quiz.
+    int previousHighScore = quizResultsData.getQuizResultList(quiz.name)[0][1];
+    if (score > previousHighScore) {
+      rewardPointsData.rewardPoints += score - previousHighScore;
+      rewardPointsData.updateData();
+    }
   }
 }
