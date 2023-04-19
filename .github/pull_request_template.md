@@ -5,7 +5,7 @@
 
 #### Screenshots (if appropriate):
 <!-- Feel free to delete this if not used -->
-
+<!-- <img width=25% height=25% src="INSERT_IMAGE_LINK"> -->
 
 #### Types of Changes
 <!-- Feel free to remove the ones you don't use, or remove all of them and explain what type of change it is -->

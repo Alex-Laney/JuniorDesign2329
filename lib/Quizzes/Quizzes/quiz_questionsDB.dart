@@ -17,7 +17,7 @@ class QuestionsDB {
         MCQuestion(question: "What was Bach's position in Leipzig, where he spent the remainder of his life?",
             correctAnswer: 'Director of music at St. Thomas Church and School',
             otherAnswers: ['Court musician','Chamber musician','Court organist']),
-        TFQuestion(question: 'Was Beethoven still able to compose music even after losing his hearing?', correctAnswer: 'True'),
+        TFQuestion(question: 'True or False: Beethoven was still able to compose music even after losing his hearing.', correctAnswer: 'True'),
         MCQuestion(question: 'Which of Beethoven\'s works includes the famous "Ode to Joy" melody?',
             correctAnswer: 'Ninth Symphony',
             otherAnswers: ['Moonlight Sonata','Fifth Symphony','Piano Trios']),
