@@ -41,4 +41,20 @@ class RewardPointsDatabase {
     return _userBox.get(_rewardsDataKey);
 
   }
+
+  void unlock(int i) {
+    List<int> curr = _userBox.get(_rewardsDataKey);
+    curr[i] = 1;
+    print(curr);
+    _userBox.put(_rewardsDataKey, curr);
+  }
+
+  bool spend(int cost) {
+    int points = _userBox.get(_rewardPointsDataKey);
+    if (points < cost) {
+      return false;
+    }
+    _userBox.put(_rewardPointsDataKey, points - cost);
+    return true;
+  }
 }

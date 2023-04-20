@@ -97,7 +97,7 @@ class MyApp extends StatelessWidget {
         '/beethoven': (context) => const BeethovenScreen(),
         '/mozart': (context) => const MozartScreen(),
         '/bach': (context) => const BachScreen(),
-        '/rewardScreen': (context) => const PurchaseScreen(),
+        '/rewardScreen': (context) => PurchaseScreen(),
         '/rewardGallery': (context) => const GalleryScreen(),
       },
     );
