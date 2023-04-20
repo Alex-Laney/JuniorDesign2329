@@ -37,8 +37,7 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
 
   @override
   Widget build(BuildContext context) {
-    RewardPointsDatabase RPD = RewardPointsDatabase();
-    List<int> unlocked = RPD.getRewardsUnlocked();
+    List<int> unlocked = rewardPointsData.getRewardsUnlocked();
     Widget disp;
     if (unlocked[widget._curr] == 0) {
       disp = Column(
@@ -54,30 +53,44 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
           SizedBox(
             height: 30,
           ),
-          SizedBox(
+          const SizedBox(
             height: 250,
             width: 250,
-            child: Image.asset(images[widget._curr]),
+            child: DecoratedBox(
+              decoration: BoxDecoration(color: Colors.grey),
+              child: Icon(
+                Icons.question_mark,
+                color: Colors.black,
+                size: 100,
+              ),
+            ),
           ),
           SizedBox(
             height: 30,
           ),
-          OutlinedButton(
-            style: OutlinedButton.styleFrom(
-              backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
-              foregroundColor: Color.fromRGBO(0, 0, 0, 1.0),
-              side: BorderSide(
-                  width: 5.0, color: Color.fromRGBO(194, 232, 139, 1.0)),
-              elevation: 5,
-              //fixedSize: Size:,
+          SizedBox(
+            height: 50,
+            width: 100,
+            child: OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
+                foregroundColor: Color.fromRGBO(0, 0, 0, 1.0),
+                side: BorderSide(
+                    width: 5.0, color: Color.fromRGBO(194, 232, 139, 1.0)),
+                elevation: 5,
+                //fixedSize: Size:,
+              ),
+              onPressed: () {
+                if (rewardPointsData
+                    .spend(RewardsDatabase.getCosts()[widget._curr])) {
+                  rewardPointsData.unlock(widget._curr);
+                }
+                points = rewardPointsData.getRewardPoints();
+                setState(() {});
+              },
+              child: Text("Cost: " +
+                  RewardsDatabase.getCosts()[widget._curr].toString()),
             ),
-            onPressed: () {
-              if (RPD.spend(RewardsDatabase.getCosts()[widget._curr])) {
-                RPD.unlock(widget._curr);
-              }
-              setState(() {});
-            },
-            child: Text("Cost: " + RewardsDatabase.getCosts()[widget._curr].toString()),
           ),
           SizedBox(
             height: 30,
@@ -121,6 +134,20 @@ class _PurchaseScreenState extends State<PurchaseScreen> {
             height: 250,
             width: 250,
             child: Image.asset(images[widget._curr]),
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          SizedBox(
+            height: 50,
+            child: Text(
+              RewardsDatabase.titles[widget._curr],
+              style: TextStyle(
+                fontSize: 25,
+                color: Colors.black,
+              ),
+              textScaleFactor: MediaQuery.of(context).textScaleFactor,
+            ),
           ),
           SizedBox(
             height: 30,

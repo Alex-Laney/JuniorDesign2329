@@ -9,6 +9,7 @@ class RewardsDatabase {
     1,
     1,
   ];
+  static List<String> titles = ['Reward 1', 'Reward 2', 'Reward 3'];
 
   static getImages() {
     return images;

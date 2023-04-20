@@ -20,10 +20,9 @@ class _GalleryState extends State<GalleryScreen> {
 
   @override
   Widget build(BuildContext context) {
-    List<int> unlocked = RewardPointsDatabase().getRewardsUnlocked();
+    List<int> unlocked = rewardPointsData.getRewardsUnlocked();
     List<Widget> widgetList = [];
     int i;
-    unlocked[1] = 1;
     for (i = 0; i < unlocked.length; i++) {
       if (unlocked[i] == 1) {
         int index = i;
@@ -46,6 +45,7 @@ class _GalleryState extends State<GalleryScreen> {
                     context,
                     MaterialPageRoute(builder: (context) => nextScreen),
                   );
+                  points = rewardPointsData.getRewardPoints();
                   setState(() {});
                 },
                 child: Image.asset(images[i]))));
@@ -70,6 +70,7 @@ class _GalleryState extends State<GalleryScreen> {
                   context,
                   MaterialPageRoute(builder: (context) => nextScreen),
                 );
+                points = rewardPointsData.getRewardPoints();
                 setState(() {});
               },
               child: Icon(Icons.question_mark, color: Colors.black),
@@ -118,7 +119,7 @@ class _GalleryState extends State<GalleryScreen> {
           const Text(
             'Rewards',
             style: TextStyle(
-              fontSize: 25,
+              fontSize: 40,
               color: Colors.black,
             ),
           ),
