@@ -85,7 +85,15 @@ class openingState extends State<opening> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
-      body: SafeArea(
+    body: SafeArea(
+    child: Container(
+        constraints: const BoxConstraints.expand(),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/test.png"),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
@@ -118,7 +126,7 @@ class openingState extends State<opening> {
             ),
           ],
         ),
-      ),
+      )),
     );
   }
 }
