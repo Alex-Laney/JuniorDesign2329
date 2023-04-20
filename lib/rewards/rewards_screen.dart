@@ -1,4 +1,5 @@
 import 'package:artifact/bottom_navigation_bar/bottom_button_bar.dart';
+import 'package:artifact/rewards/rewards_database.dart';
 import 'package:flutter/material.dart';
 import 'package:artifact/main.dart';
 import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
@@ -11,11 +12,7 @@ class PurchaseScreen extends StatefulWidget {
 }
 
 class _PurchaseScreenState extends State<PurchaseScreen> {
-  final List<String> images = [
-    'assets/images/1.png',
-    'assets/images/2.png',
-    'assets/images/3.png',
-  ];
+  final List<String> images = RewardsDatabase.getImages();
   int _curr = 0;
   int points = rewardPointsData.getRewardPoints();
 

@@ -34,7 +34,7 @@ class QuizzesScreen extends StatelessWidget {
                           padding: const EdgeInsets.all(8),
                           child: TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/rewardScreen');
+                              Navigator.pushNamed(context, '/rewardGallery');
                             },
                             child: Text(
                               'See Rewards\nPoints: ' +
