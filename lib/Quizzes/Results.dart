@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
 import 'package:hive/hive.dart';
 
+import '../hive_local_data/quiz_result/quiz_result_db.dart';
+
 class ResultsScreen extends StatelessWidget {
   final List<String> answers;
   final Quiz quiz;
@@ -74,6 +76,7 @@ class ResultsScreen extends StatelessWidget {
 
   Text getScore(int score) {
     Box box = Hive.box('userBox');
+    QuizResultDatabase _resultsDatabase = QuizResultDatabase();
     List results = _resultsDatabase.getQuizResultList(quiz.name);
     int i;
     int max = results[0][1];
@@ -92,13 +95,6 @@ class ResultsScreen extends StatelessWidget {
     box.put(quiz.name, results);
 
     if (max < score) {
-      if (box.get("REWARDPOINTS") == null) {
-        box.put("REWARDPOINTS", score - max);
-      } else {
-        int rpoints = box.get("REWARDPOINTS");
-        rpoints += score - max;
-        box.put("REWARDPOINTS", rpoints);
-      }
       if (score - max == 1) {
         return Text(
           "Score: " +
