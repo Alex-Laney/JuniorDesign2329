@@ -3,10 +3,11 @@ The purpose of this mobile application, Notes on the Note Makers, will be to rai
 # Release Notes Section
 ## Version 0.5.0
 ### Features
- - 
+ - Added ability to purchase rewards
+ - Added 8 reward images to be purchased
 ### Bug Fixes
-- nearly all buttons in the app are reworked visually
-- some background images have been added to fill dead space
+- Nearly all buttons in the app are reworked visually
+- Some background images have been added to fill dead space
 ### Known Issues
 - 
 ## Version 0.4.0
