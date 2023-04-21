@@ -28,15 +28,31 @@ class _SettingsScreenState extends State<SettingsScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            ElevatedButton(
-              style: style,
-              onPressed: () => Navigator.pushNamed(context, '/about'),
-              child: const Text('About'),
+            OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
+                foregroundColor: Color.fromRGBO(0, 0, 0, 1.0),
+                side: BorderSide(width: 5.0, color: Color.fromRGBO(232, 163, 99, 1.0)),
+                elevation: 5,
+                //fixedSize: Size:,
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, '/about');
+              },
+              child: Text('About', style: TextStyle(fontSize: 50, color: Colors.black)),
             ),
-            ElevatedButton(
-              style: style,
-              onPressed: () => Navigator.pushNamed(context, '/help'),
-              child: const Text('Help'),
+            OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
+                foregroundColor: Color.fromRGBO(0, 0, 0, 1.0),
+                side: BorderSide(width: 5.0, color: Color.fromRGBO(232, 163, 99, 1.0)),
+                elevation: 5,
+                //fixedSize: Size:,
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, '/help');
+              },
+              child: Text('Help', style: TextStyle(fontSize: 50, color: Colors.black)),
             ),
             IconButton(
               onPressed: () => {

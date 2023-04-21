@@ -31,7 +31,9 @@ class Comp implements Linkable {
   OutlinedButton menuView(context) {
     return OutlinedButton(
         style: OutlinedButton.styleFrom(
-          shadowColor: Color.fromRGBO(0, 247, 255, 0.45),
+          backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
+          foregroundColor: Color.fromRGBO(0, 0, 0, 1.0),
+          side: BorderSide(width: 5.0, color: Color.fromRGBO(0, 247, 255, 0.45)),
           elevation: 5,
         ),
         onPressed: () {
@@ -44,7 +46,7 @@ class Comp implements Linkable {
           Expanded(
               child: Align(
             alignment: Alignment.centerLeft,
-            child: Text(name),
+            child: Text(name,  style: TextStyle(fontSize: 20, color: Colors.black), textAlign: TextAlign.left),
           )),
         ]));
   }

@@ -34,7 +34,9 @@ class Term implements Linkable {
   OutlinedButton menuView(context) {
     return OutlinedButton(
         style: OutlinedButton.styleFrom(
-          shadowColor: Color.fromRGBO(255, 0, 0, 0.45),
+          backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
+          foregroundColor: Color.fromRGBO(0, 0, 0, 1.0),
+          side: BorderSide(width: 5.0, color: Color.fromRGBO(255, 0, 0, 0.45)),
           elevation: 5,
         ),
         onPressed: () {

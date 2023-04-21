@@ -52,6 +52,7 @@ class QuizzesScreen extends StatelessWidget {
                       const Text('Quizzes', style: TextStyle(fontSize: 40)),
                       const SizedBox(height: 30),
                       QuizDB.quiz1.menuView(context),
+                      const SizedBox(height: 30),
                       QuizDB.quiz2.menuView(context),
                       //ADD OTHER QUIZZES HERE LIKE SO
                     ],
