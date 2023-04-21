@@ -19,6 +19,14 @@ class DefScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(239, 199, 199, 1),
       body: SafeArea(
+      child: Container(
+        constraints: const BoxConstraints.expand(),
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/images/testtwo.png"),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Column(
           children: <Widget>[
             const Align(
@@ -45,7 +53,7 @@ class DefScreen extends StatelessWidget {
             )
           ],
         ),
-      ),
+      )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: CircularDialMenu.build(context),
       bottomNavigationBar: BottomButtonBar.build(context),

@@ -6,6 +6,7 @@ The purpose of this mobile application, Notes on the Note Makers, will be to rai
  - 
 ### Bug Fixes
 - nearly all buttons in the app are reworked visually
+- some background images have been added to fill dead space
 ### Known Issues
 - 
 ## Version 0.4.0
