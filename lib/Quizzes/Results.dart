@@ -76,7 +76,7 @@ class ResultsScreen extends StatelessWidget {
         Navigator.of(context, rootNavigator: true).pushNamed("/quizzes");
       },
       child:
-          Text('Back to Quizzes', style: TextStyle(fontSize: 35, color: Colors.black)),
+          Text('Back to Quizzes', style: TextStyle(fontSize: 35,  color: Colors.black)),
     ));
 
     disp.add(OutlinedButton(
@@ -91,7 +91,7 @@ class ResultsScreen extends StatelessWidget {
         Navigator.of(context, rootNavigator: true).pushNamed("/rewardGallery");
       },
       child:
-          Text('Rewards Shop', style: TextStyle(fontSize: 35, color: Colors.black)),
+          Text('Rewards Shop', style: TextStyle(fontSize: 35,  color: Colors.black)),
     ));
     
 
