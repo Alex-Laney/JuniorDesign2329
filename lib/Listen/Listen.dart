@@ -47,7 +47,12 @@ class ListenScreenState extends State<ListenScreen> {
                   width: 5,
                 ),
               ),
-              child: Image.asset('assets/images/Beethoven.PNG'),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/beethoven');
+                },
+                child: Image.asset('assets/images/Beethoven.PNG'),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(60, 20, 60, 20),
