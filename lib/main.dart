@@ -2,6 +2,7 @@ import 'package:artifact/Quizzes/Results.dart';
 import 'package:artifact/bottom_navigation_bar/bottom_button_bar.dart';
 import 'package:artifact/hive_local_data/quiz_result/quiz_result_db.dart';
 import 'package:artifact/hive_local_data/rewards/rewards_points_db.dart';
+import 'package:artifact/rewards/rewards_gallery.dart';
 import 'package:artifact/rewards/rewards_screen.dart';
 import 'package:artifact/settings/about_screen.dart';
 import 'package:artifact/settings/help_menu.dart';
@@ -96,7 +97,8 @@ class MyApp extends StatelessWidget {
         '/beethoven': (context) => const BeethovenScreen(),
         '/mozart': (context) => const MozartScreen(),
         '/bach': (context) => const BachScreen(),
-        '/rewardScreen': (context) => const PurchaseScreen(),
+        '/rewardScreen': (context) => PurchaseScreen(),
+        '/rewardGallery': (context) => const GalleryScreen(),
       },
     );
   }
