@@ -13,7 +13,11 @@ class MozartScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 246, 167, 1),
       appBar: AppBar(
-        title: const Text('Mozart'),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -21,6 +25,10 @@ class MozartScreen extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
+              const Text(
+                'Mozart',
+                style: TextStyle(fontSize: 60),
+              ),
               Image.asset('assets/images/Mozart.png'),
               const Text(
                 'Early Life',

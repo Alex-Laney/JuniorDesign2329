@@ -38,10 +38,6 @@ class TermsScreenState extends State<TermsScreen> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    const Align(
-                      alignment: Alignment.topLeft,
-                      child: BackButton(),
-                    ),
                     Center(
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
