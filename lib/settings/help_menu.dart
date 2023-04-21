@@ -8,7 +8,7 @@ class HelpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ButtonStyle style = ElevatedButton.styleFrom(
-        textStyle: const TextStyle(fontSize: 20),
+        textStyle: const TextStyle(fontSize : 20),
         foregroundColor: Colors.black);
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
@@ -27,66 +27,78 @@ class HelpScreen extends StatelessWidget {
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.all(30),
-                    child: ElevatedButton(
-                      style: style.copyWith(
-                        backgroundColor: MaterialStateProperty.resolveWith(
-                          (states) {
-                            return Color.fromRGBO(255, 246, 167, 1);
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(30.0),
+                      child: Container(
+                        color: const Color.fromRGBO(239, 199, 199, 1),
+                        padding: const EdgeInsets.all(8),
+                        child: TextButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/termsHelp');
                           },
+                          child: const Text(
+                            'Terms',
+                            style: TextStyle(fontSize: 35, color: Colors.black),
+                          ),
                         ),
                       ),
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/composersHelp');
-                      },
-                      child: const Text('Composers'),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(30),
-                    child: ElevatedButton(
-                      style: style.copyWith(
-                        backgroundColor: MaterialStateProperty.resolveWith(
-                          (states) {
-                            return Color.fromRGBO(239, 199, 199, 1);
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(30.0),
+                      child: Container(
+                        color: const Color.fromRGBO(255, 246, 167, 1),
+                        padding: const EdgeInsets.all(8),
+                        child: TextButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/composersHelp');
                           },
+                          child: const Text(
+                            'Composers',
+                            style: TextStyle(fontSize: 35, color: Colors.black),
+                          ),
                         ),
                       ),
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/termsHelp');
-                      },
-                      child: const Text('Musical Terms'),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(30),
-                    child: ElevatedButton(
-                      style: style.copyWith(
-                        backgroundColor: MaterialStateProperty.resolveWith(
-                          (states) {
-                            return Color.fromRGBO(196, 236, 249, 1);
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(30.0),
+                      child: Container(
+                        color: const Color.fromRGBO(196, 236, 249, 1),
+                        padding: const EdgeInsets.all(8),
+                        child: TextButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/worksHelp');
                           },
+                          child: const Text(
+                            'Works',
+                            style: TextStyle(fontSize: 35, color: Colors.black),
+                          ),
                         ),
                       ),
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/worksHelp');
-                      },
-                      child: const Text('Works'),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(30),
-                    child: ElevatedButton(
-                      style: style.copyWith(
-                        backgroundColor: MaterialStateProperty.resolveWith(
-                          (states) {
-                            return Color.fromRGBO(225, 255, 195, 1);
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(30.0),
+                      child: Container(
+                        color: const Color.fromRGBO(225, 255, 195, 1),
+                        padding: const EdgeInsets.all(8),
+                        child: TextButton(
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/quizzesHelp');
                           },
+                          child: const Text(
+                            'Quizzes',
+                            style: TextStyle(fontSize: 35, color: Colors.black),
+                          ),
                         ),
                       ),
-                      onPressed: () {
-                        Navigator.pushNamed(context, '/quizzesHelp');
-                      },
-                      child: const Text('Quizzes'),
                     ),
                   ),
                 ],
@@ -97,7 +109,23 @@ class HelpScreen extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: CircularDialMenu.build(context),
-      bottomNavigationBar: BottomButtonBar.build(context),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            IconButton(
+              onPressed: () => Navigator.pushNamed(context, '/main'),
+              tooltip: 'Home',
+              icon: const Icon(Icons.home, color: Colors.black45),
+            ),
+            IconButton(
+              onPressed: () => Navigator.pushNamed(context, '/settings'),
+              tooltip: 'Settings',
+              icon: const Icon(Icons.settings, color: Colors.black45),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

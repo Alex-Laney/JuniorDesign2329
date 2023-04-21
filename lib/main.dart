@@ -120,7 +120,6 @@ class MainScreen extends StatelessWidget {
           mainAxisSpacing: 10,
           crossAxisCount: 2,
           children: <Widget>[
-            Image.asset('assets/images/Logo.PNG', scale: 0.1),
             ClipRRect(
               borderRadius: BorderRadius.circular(30.0),
               child: Container(
@@ -132,6 +131,23 @@ class MainScreen extends StatelessWidget {
                   },
                   child: const Text(
                     'Terms',
+                    style: TextStyle(fontSize: 25, color: Colors.black),
+                  ),
+                ),
+              ),
+            ),
+            Image.asset('assets/images/Logo.PNG', scale: 0.1),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(30.0),
+              child: Container(
+                color: const Color.fromRGBO(255, 246, 167, 1),
+                padding: const EdgeInsets.all(8),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/composers');
+                  },
+                  child: const Text(
+                    'Composers',
                     style: TextStyle(fontSize: 25, color: Colors.black),
                   ),
                 ),
@@ -156,14 +172,14 @@ class MainScreen extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(30.0),
               child: Container(
-                color: const Color.fromRGBO(255, 246, 167, 1),
+                color: const Color.fromRGBO(196, 236, 249, 1),
                 padding: const EdgeInsets.all(8),
                 child: TextButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/composers');
+                    Navigator.pushNamed(context, '/works');
                   },
                   child: const Text(
-                    'Composers',
+                    'Works',
                     style: TextStyle(fontSize: 25, color: Colors.black),
                   ),
                 ),
@@ -180,22 +196,6 @@ class MainScreen extends StatelessWidget {
                   },
                   child: const Text(
                     'Listen',
-                    style: TextStyle(fontSize: 25, color: Colors.black),
-                  ),
-                ),
-              ),
-            ),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(30.0),
-              child: Container(
-                color: const Color.fromRGBO(196, 236, 249, 1),
-                padding: const EdgeInsets.all(8),
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/works');
-                  },
-                  child: const Text(
-                    'Works',
                     style: TextStyle(fontSize: 25, color: Colors.black),
                   ),
                 ),

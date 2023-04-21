@@ -26,39 +26,29 @@ class StartScreen extends StatelessWidget {
             Center(
               child: Padding(
                 padding: const EdgeInsets.all(40),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    Text(
-                      quiz.name,
-                      style: const TextStyle(fontSize: 40),
-                    ),
-                    const SizedBox(height: 20),
-                    Text(
-                      quiz.desc,
-                      style: const TextStyle(fontSize: 20),
-                    ),
-                    const SizedBox(height: 20),
-                    TextButton(
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.green[600]),
+                child:
+                    Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
+                  Text(quiz.name, style: const TextStyle(fontSize: 75)),
+                  const SizedBox(height: 20),
+                  Text("Topic: " + quiz.desc, style: const TextStyle(fontSize: 30)),
+                  const SizedBox(height: 20),
+                      OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                          backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
+                          foregroundColor: Color.fromRGBO(0, 0, 0, 1.0),
+                          side: BorderSide(width: 5.0, color: Color.fromRGBO(194, 232, 139, 1.0)),
+                          elevation: 5,
+                          //fixedSize: Size:,
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => QuestionScreen(quiz: quiz)),
+                          );
+                        },
+                        child: Text('Start!', style: TextStyle(fontSize: 100, color: Colors.black)),
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => QuestionScreen(quiz: quiz),
-                          ),
-                        );
-                      },
-                      child: const Text(
-                        'Start!',
-                        style: TextStyle(color: Colors.black, fontSize: 30),
-                      ),
-                    ),
-                  ],
-                ),
+                ]),
               ),
             )
           ],
