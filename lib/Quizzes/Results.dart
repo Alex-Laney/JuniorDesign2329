@@ -30,19 +30,19 @@ class ResultsScreen extends StatelessWidget {
 
     List<Widget> wrongQuestionsDisplay = [];
     for (int i = 0; i < wrongQuestions.length; i++) {
-      wrongQuestionsDisplay.add(
-          OutlinedButton(
-            style: OutlinedButton.styleFrom(
-              backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
-              foregroundColor: Color.fromRGBO(0, 0, 0, 1.0),
-              side: BorderSide(width: 5.0, color: Color.fromRGBO(194, 232, 139, 1.0)),
-              elevation: 5,
-              //fixedSize: Size:,
-            ),
-            onPressed: () => Navigator.pushNamed(context, '/main'),
-            child: Text(quiz.questionList[wrongQuestions[i]].question, style: TextStyle(fontSize: 20, color: Colors.black), textAlign: TextAlign.center)
-          )
-      );
+      wrongQuestionsDisplay.add(OutlinedButton(
+          style: OutlinedButton.styleFrom(
+            backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
+            foregroundColor: Color.fromRGBO(0, 0, 0, 1.0),
+            side: BorderSide(
+                width: 5.0, color: Color.fromRGBO(194, 232, 139, 1.0)),
+            elevation: 5,
+            //fixedSize: Size:,
+          ),
+          onPressed: () => Navigator.pushNamed(context, '/main'),
+          child: Text(quiz.questionList[wrongQuestions[i]].question,
+              style: TextStyle(fontSize: 20, color: Colors.black),
+              textAlign: TextAlign.center)));
       wrongQuestionsDisplay.add(SizedBox(height: 10));
     }
 
@@ -63,6 +63,37 @@ class ResultsScreen extends StatelessWidget {
     ];
 
     disp.addAll(wrongQuestionsDisplay);
+
+    disp.add(OutlinedButton(
+      style: OutlinedButton.styleFrom(
+        backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
+        foregroundColor: Color.fromRGBO(0, 0, 0, 1.0),
+        side: BorderSide(width: 5.0, color: Color.fromRGBO(194, 232, 139, 1.0)),
+        elevation: 5,
+        //fixedSize: Size:,
+      ),
+      onPressed: () {
+        Navigator.of(context, rootNavigator: true).pushNamed("/quizzes");
+      },
+      child:
+          Text('Back to Quizzes', style: TextStyle(fontSize: 35,  color: Colors.black)),
+    ));
+
+    disp.add(OutlinedButton(
+      style: OutlinedButton.styleFrom(
+        backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
+        foregroundColor: Color.fromRGBO(0, 0, 0, 1.0),
+        side: BorderSide(width: 5.0, color: Color.fromRGBO(194, 232, 139, 1.0)),
+        elevation: 5,
+        //fixedSize: Size:,
+      ),
+      onPressed: () {
+        Navigator.of(context, rootNavigator: true).pushNamed("/rewardGallery");
+      },
+      child:
+          Text('Rewards Shop', style: TextStyle(fontSize: 35,  color: Colors.black)),
+    ));
+    
 
     return WillPopScope(
         onWillPop: () async => false,
