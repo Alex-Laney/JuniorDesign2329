@@ -50,7 +50,7 @@ class TermsScreenState extends State<TermsScreen> {
                                   alignment: Alignment.center,
                                   child: Text(
                                     'Terms',
-                                    style: TextStyle(fontSize: 40),
+                                    style: TextStyle(fontSize: 50),
                                   ),
                                 ),
                               ),

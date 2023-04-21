@@ -55,7 +55,7 @@ class WorksHelpScreen extends StatelessWidget {
                                   'you can find the different songs in the '
                                   'app! Tap on any of their names to be '
                                   'taken to their page, where you can read '
-                                  'up about the stories of their creations,'
+                                  'up about the stories of their creations, '
                                   'and learn about how those older musical '
                                   'works compare to modern ones! Also, if '
                                   'you see any'),

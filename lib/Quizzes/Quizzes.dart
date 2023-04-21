@@ -40,7 +40,7 @@ class QuizzesScreen extends StatelessWidget {
                               'See Rewards\nPoints: ' +
                                   rewardPointsData.getRewardPoints().toString(),
                               style: TextStyle(
-                                fontSize: 25,
+                                fontSize: 50,
                                 color: Colors.black,
                               ),
                               textScaleFactor:
@@ -49,7 +49,7 @@ class QuizzesScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const Text('Quizzes', style: TextStyle(fontSize: 40)),
+                      const Padding(padding: const EdgeInsets.fromLTRB(0, 70, 0, 10), child: Text('Quizzes', style: TextStyle(fontSize: 40))),
                       const SizedBox(height: 30),
                       QuizDB.quiz1.menuView(context),
                       const SizedBox(height: 30),

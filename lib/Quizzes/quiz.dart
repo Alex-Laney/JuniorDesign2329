@@ -65,6 +65,6 @@ class Quiz {
     } else {
       color = Colors.green;
     }
-    return Text(HS.toString() + "/" + numQ.toString(), style: TextStyle(color: color));
+    return Text(HS.toString() + "/" + numQ.toString(), style: TextStyle(color: color, fontSize: 50));
   }
 }

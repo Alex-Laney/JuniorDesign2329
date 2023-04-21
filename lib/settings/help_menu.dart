@@ -37,7 +37,7 @@ class HelpScreen extends StatelessWidget {
                             Navigator.pushNamed(context, '/termsHelp');
                           },
                           child: const Text(
-                            'Terms',
+                            'Terms Help',
                             style: TextStyle(fontSize: 35, color: Colors.black),
                           ),
                         ),
@@ -56,7 +56,7 @@ class HelpScreen extends StatelessWidget {
                             Navigator.pushNamed(context, '/composersHelp');
                           },
                           child: const Text(
-                            'Composers',
+                            'Composers Help',
                             style: TextStyle(fontSize: 35, color: Colors.black),
                           ),
                         ),
@@ -75,7 +75,7 @@ class HelpScreen extends StatelessWidget {
                             Navigator.pushNamed(context, '/worksHelp');
                           },
                           child: const Text(
-                            'Works',
+                            'Works Help',
                             style: TextStyle(fontSize: 35, color: Colors.black),
                           ),
                         ),
@@ -94,7 +94,7 @@ class HelpScreen extends StatelessWidget {
                             Navigator.pushNamed(context, '/quizzesHelp');
                           },
                           child: const Text(
-                            'Quizzes',
+                            'Quizzes Help',
                             style: TextStyle(fontSize: 35, color: Colors.black),
                           ),
                         ),
