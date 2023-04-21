@@ -47,29 +47,42 @@ class ListenScreenState extends State<ListenScreen> {
                   width: 5,
                 ),
               ),
-              child: Image.asset('assets/images/Beethoven.PNG'),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/beethoven');
+                },
+                child: Image.asset('assets/images/Beethoven.PNG'),
+              ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(60, 20, 60, 20),
-              child: OutlinedButton(
+                padding: const EdgeInsets.fromLTRB(60, 20, 60, 20),
+                child: OutlinedButton(
                   style: OutlinedButton.styleFrom(
                     backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
                     foregroundColor: Color.fromRGBO(0, 0, 0, 1.0),
-                    side: BorderSide(width: 5.0, color: Color.fromRGBO(142, 148, 219, 1.0)),
+                    side: BorderSide(
+                        width: 5.0, color: Color.fromRGBO(142, 148, 219, 1.0)),
                     elevation: 5,
                     //fixedSize: Size:,
                   ),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/beethoven');
-                },
-                child: const Text('Ludwig van Beethoven', style: TextStyle(fontSize: 30, color: Colors.black)),
-              )
-            ),
-            Text(
-              openingState.getPlayer.sequenceState?.currentSource?.tag,
-              style: TextStyle(fontSize: 30, color: Colors.black),
-              textAlign: TextAlign.center,
-            ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/beethoven');
+                  },
+                  child: const Text('Ludwig van Beethoven',
+                      style: TextStyle(fontSize: 20, color: Colors.black)),
+                )),
+            StreamBuilder<SequenceState?>(
+                stream: openingState.getPlayer.sequenceStateStream,
+                builder: (context, snapshot) {
+                  final state = snapshot.data;
+                  if (state?.sequence.isEmpty ?? true) {
+                    return const Text('');
+                  } else {
+                    return Text(state!.currentSource!.tag.toString(),
+                        style: TextStyle(fontSize: 30, color: Colors.black),
+                        textAlign: TextAlign.center);
+                  }
+                }),
             Padding(
               padding: const EdgeInsets.fromLTRB(60, 30, 60, 0),
               child: StreamBuilder<PositionData>(

@@ -10,7 +10,11 @@ class BeethovenScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 246, 167, 1),
       appBar: AppBar(
-        title: const Text('Beethoven'),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -18,6 +22,10 @@ class BeethovenScreen extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
+              const Text(
+                'Beethoven',
+                style: TextStyle(fontSize: 60),
+              ),
               Image.asset('assets/images/Beethoven.PNG'),
               const Text(
                 'Early Life',
