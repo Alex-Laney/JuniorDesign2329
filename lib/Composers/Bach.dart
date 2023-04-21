@@ -14,7 +14,11 @@ class BachScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 246, 167, 1),
       appBar: AppBar(
-        title: const Text('Bach'),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -22,6 +26,10 @@ class BachScreen extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
+              const Text(
+                'Bach',
+                style: TextStyle(fontSize: 60),
+              ),
               Image.asset('assets/images/Bach.png'),
               const Text(
                 'Early Life',

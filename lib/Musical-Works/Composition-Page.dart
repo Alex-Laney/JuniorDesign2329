@@ -19,7 +19,11 @@ class CompScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(196, 236, 249, 1),
       appBar: AppBar(
-        backgroundColor: Colors.blue.withOpacity(0),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(children: <Widget>[

@@ -22,7 +22,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
       appBar: AppBar(
-        title: const Text('Settings'),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        iconTheme: IconThemeData(
+          color: Colors.black,
+        ),
       ),
       body: Center(
         child: Column(
