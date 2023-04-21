@@ -49,9 +49,9 @@ class Term implements Linkable {
           Expanded(
               child: Align(
             alignment: Alignment.centerLeft,
-            child: Text(name),
+            child: Text(name, style: const TextStyle(fontSize: 25)),
           )),
-          Align(alignment: Alignment.centerRight, child: Text(tags[0].name))
+          Align(alignment: Alignment.centerRight, child: Text(tags[0].name, style: const TextStyle(fontSize: 25)))
         ]));
   }
 

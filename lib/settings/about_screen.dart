@@ -49,7 +49,7 @@ class AboutScreen extends StatelessWidget {
                     onPressed: () {
                       Navigator.pushNamed(context, '/license');
                     },
-                    child: Text('License', style: TextStyle(fontSize: 50, color: Colors.black)),
+                    child: Text('License', style: TextStyle(fontSize: 80, color: Colors.black)),
                   ),
                 ],
               ),

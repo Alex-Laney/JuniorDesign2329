@@ -62,7 +62,7 @@ class ListenScreenState extends State<ListenScreen> {
                 onPressed: () {
                   Navigator.pushNamed(context, '/beethoven');
                 },
-                child: const Text('Ludwig van Beethoven', style: TextStyle(fontSize: 20, color: Colors.black)),
+                child: const Text('Ludwig van Beethoven', style: TextStyle(fontSize: 30, color: Colors.black)),
               )
             ),
             Text(

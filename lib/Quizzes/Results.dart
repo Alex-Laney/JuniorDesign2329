@@ -50,14 +50,14 @@ class ResultsScreen extends StatelessWidget {
       const SizedBox(height: 28),
       Text(
         quiz.name,
-        style: const TextStyle(fontSize: 40),
+        style: const TextStyle(fontSize: 80),
       ),
       const SizedBox(height: 20),
       getScore(score),
       const SizedBox(height: 20),
       Text(
         "Questions to review:",
-        style: const TextStyle(fontSize: 20),
+        style: const TextStyle(fontSize: 40),
       ),
       const SizedBox(height: 20),
     ];
@@ -110,7 +110,7 @@ class ResultsScreen extends StatelessWidget {
               "/" +
               quiz.questionList.length.toString() +
               "\nYou earned a Reward Point!",
-          style: const TextStyle(fontSize: 30),
+          style: const TextStyle(fontSize: 65),
           textAlign: TextAlign.center,
         );
       } else {
@@ -122,14 +122,14 @@ class ResultsScreen extends StatelessWidget {
               "\nYou earned " +
               (score - max).toString() +
               " Reward Points!",
-          style: const TextStyle(fontSize: 30),
+          style: const TextStyle(fontSize: 65),
           textAlign: TextAlign.center,
         );
       }
     }
     return Text(
       "Score: " + score.toString() + "/" + quiz.questionList.length.toString(),
-      style: const TextStyle(fontSize: 30),
+      style: const TextStyle(fontSize: 65),
       textAlign: TextAlign.center,
     );
   }

@@ -28,9 +28,9 @@ class StartScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(40),
                 child:
                     Column(mainAxisSize: MainAxisSize.min, children: <Widget>[
-                  Text(quiz.name, style: const TextStyle(fontSize: 75)),
+                  Text(quiz.name, style: const TextStyle(fontSize: 100)),
                   const SizedBox(height: 20),
-                  Text("Topic: " + quiz.desc, style: const TextStyle(fontSize: 30)),
+                  Text("Topic: " + quiz.desc, style: const TextStyle(fontSize: 50)),
                   const SizedBox(height: 20),
                       OutlinedButton(
                         style: OutlinedButton.styleFrom(

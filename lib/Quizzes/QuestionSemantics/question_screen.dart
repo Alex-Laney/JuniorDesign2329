@@ -19,7 +19,9 @@ class QuestionScreen extends StatelessWidget {
                     child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
-                          Text(quiz.name, style: const TextStyle(fontSize: 40)),
+                          Align(
+                            alignment: Alignment.center,
+                            child: Text(quiz.name, style: const TextStyle(fontSize: 80))),
                           const SizedBox(height: 20),
                           QuestionWidget(quiz: quiz),
                         ])))));

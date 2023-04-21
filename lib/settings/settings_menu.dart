@@ -39,7 +39,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               onPressed: () {
                 Navigator.pushNamed(context, '/about');
               },
-              child: Text('About', style: TextStyle(fontSize: 50, color: Colors.black)),
+              child: Text('About', style: TextStyle(fontSize: 80, color: Colors.black)),
             ),
             OutlinedButton(
               style: OutlinedButton.styleFrom(
@@ -52,7 +52,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               onPressed: () {
                 Navigator.pushNamed(context, '/help');
               },
-              child: Text('Help', style: TextStyle(fontSize: 50, color: Colors.black)),
+              child: Text('Help', style: TextStyle(fontSize: 80, color: Colors.black)),
             ),
             IconButton(
               onPressed: () => {
@@ -67,7 +67,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               icon: mute
                   ? Icon(Icons.volume_up, color: Colors.black45)
                   : Icon(Icons.volume_off, color: Colors.black45),
-            ),
+            ),  
           ],
         ),
       ),

@@ -165,7 +165,8 @@ class MainScreen extends StatelessWidget {
                     Navigator.pushNamed(context, '/quizzes');
                   },
                   child: const Text(
-                    'Quizzes',
+                    'Quizzes\n& Rewards',
+                    textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 25, color: Colors.black),
                   ),
                 ),

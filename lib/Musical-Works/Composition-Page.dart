@@ -65,7 +65,7 @@ class CompScreen extends StatelessWidget {
                     }
                     Navigator.pushNamed(context, '/listen');
                   },
-                  child: Text('Listen to ${comp.name}', style: TextStyle(fontSize: 20, color: Colors.black)),
+                  child: Text('Listen to ${comp.name}', style: TextStyle(fontSize: 30, color: Colors.black)),
                 ),
               ],
               ),

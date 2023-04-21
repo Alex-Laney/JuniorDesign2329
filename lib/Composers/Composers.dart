@@ -27,7 +27,7 @@ class ComposersScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(40),
                   child: Column(
                     children: <Widget>[
-                      const Text('Composers', style: TextStyle(fontSize: 40)),
+                      const Text('Composers', style: TextStyle(fontSize: 80)),
                       const SizedBox(height: 30),
                       MaterialButton(
                         child: ClipRRect(
