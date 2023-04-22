@@ -26,8 +26,6 @@ class QuizResultDatabase {
     resultList = _userBox.get(key);
   }
 
-  /// TODO: finish implementation
-  ///
   /// Update result database.
   ///
   /// Uses a [key], which is the quiz name, to look up database

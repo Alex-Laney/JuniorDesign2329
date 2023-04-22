@@ -1,4 +1,3 @@
-import 'package:artifact/Quizzes/Results.dart';
 import 'package:artifact/bottom_navigation_bar/bottom_button_bar.dart';
 import 'package:artifact/hive_local_data/quiz_result/quiz_result_db.dart';
 import 'package:artifact/hive_local_data/rewards/rewards_points_db.dart';
@@ -43,6 +42,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Artifact',
       // Start the app with the "/" named route. In this case, the app starts
       // on the FirstScreen widget.

@@ -1,8 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'Composition-Page.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
 import '../Linkable Interface/linkable.dart';
 import '../Linkable Interface/none_linkable.dart';
 
@@ -30,25 +28,36 @@ class Comp implements Linkable {
 
   OutlinedButton menuView(context) {
     return OutlinedButton(
-        style: OutlinedButton.styleFrom(
-          backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
-          foregroundColor: Color.fromRGBO(0, 0, 0, 1.0),
-          side: BorderSide(width: 5.0, color: Color.fromRGBO(0, 247, 255, 0.45)),
-          elevation: 5,
+      style: OutlinedButton.styleFrom(
+        backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
+        foregroundColor: Color.fromRGBO(0, 0, 0, 1.0),
+        side: BorderSide(
+          width: 5.0,
+          color: Color.fromRGBO(0, 247, 255, 0.45),
         ),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => CompScreen(comp: this)),
-          );
-        },
-        child: Row(children: <Widget>[
+        elevation: 5,
+      ),
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => CompScreen(comp: this),
+          ),
+        );
+      },
+      child: Row(
+        children: <Widget>[
           Expanded(
-              child: Align(
-            alignment: Alignment.centerLeft,
-            child: Text(name,  style: TextStyle(fontSize: 20, color: Colors.black), textAlign: TextAlign.left),
-          )),
-        ]));
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(name,
+                  style: TextStyle(fontSize: 20, color: Colors.black),
+                  textAlign: TextAlign.left),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   SimpleDialog dialogView(context) {
@@ -62,17 +71,17 @@ class Comp implements Linkable {
             child: Text(name, style: const TextStyle(fontSize: 30))),
         Align(alignment: Alignment.center, child: getComposer(context)),
         Align(
-            alignment: Alignment.bottomRight,
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => CompScreen(comp: this)),
-                );
-              },
-              child: const Text("More"),
-            )),
+          alignment: Alignment.bottomRight,
+          child: ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CompScreen(comp: this)),
+              );
+            },
+            child: const Text("More"),
+          ),
+        ),
       ],
     );
   }
@@ -83,13 +92,16 @@ class Comp implements Linkable {
       if (composerLinks[i].runtimeType == NoneLinkable) {
         children.add(TextSpan(text: " ${composer[i]}"));
       } else {
-        children.add(TextSpan(
+        children.add(
+          TextSpan(
             text: " ${composer[i]}",
             style: const TextStyle(fontSize: 20, color: Colors.lightBlue),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
                 composerLinks[i].link(context);
-              }));
+              },
+          ),
+        );
       }
     }
     return RichText(
@@ -105,20 +117,24 @@ class Comp implements Linkable {
       if (desLinks[i].runtimeType == NoneLinkable) {
         children.add(TextSpan(text: " ${desText[i]}"));
       } else {
-        children.add(TextSpan(
+        children.add(
+          TextSpan(
             text: " ${desText[i]}",
             style: const TextStyle(fontSize: 20, color: Colors.lightBlue),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
                 desLinks[i].link(context);
-              }));
+              },
+          ),
+        );
       }
     }
     return RichText(
-        text: TextSpan(
-            text: "Description: ",
-            style: const TextStyle(fontSize: 20, color: Colors.black),
-            children: children));
+      text: TextSpan(
+          text: "Description: ",
+          style: const TextStyle(fontSize: 20, color: Colors.black),
+          children: children),
+    );
   }
 
   RichText getExamples(BuildContext context) {
@@ -127,28 +143,33 @@ class Comp implements Linkable {
       if (genreLinks[i].runtimeType == NoneLinkable) {
         children.add(TextSpan(text: " ${genreText[i]}"));
       } else {
-        children.add(TextSpan(
+        children.add(
+          TextSpan(
             text: " ${genreText[i]}",
             style: const TextStyle(fontSize: 20, color: Colors.lightBlue),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
                 genreLinks[i].link(context);
-              }));
+              },
+          ),
+        );
       }
     }
     return RichText(
-        text: TextSpan(
-            text: "Genre Comparisons: ",
-            style: const TextStyle(fontSize: 20, color: Colors.black),
-            children: children));
+      text: TextSpan(
+          text: "Genre Comparisons: ",
+          style: const TextStyle(fontSize: 20, color: Colors.black),
+          children: children),
+    );
   }
 
   @override
   void link(BuildContext context) {
     showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return dialogView(context);
-        });
+      context: context,
+      builder: (BuildContext context) {
+        return dialogView(context);
+      },
+    );
   }
 }

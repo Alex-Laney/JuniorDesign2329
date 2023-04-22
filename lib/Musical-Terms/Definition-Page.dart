@@ -1,13 +1,7 @@
 import 'package:artifact/bottom_navigation_bar/bottom_button_bar.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
 import 'package:artifact/Musical-Terms/Term.dart';
-import '../Composers/Composers.dart';
-import '../Musical-Works/Musical-Works-Old.dart';
-import '../Quizzes/Quizzes.dart';
-import '../main.dart';
-import 'Musical-Terms.dart';
 
 class DefScreen extends StatelessWidget {
   const DefScreen({super.key, required this.term});
@@ -19,7 +13,7 @@ class DefScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(239, 199, 199, 1),
       body: SafeArea(
-      child: Container(
+          child: Container(
         constraints: const BoxConstraints.expand(),
         decoration: BoxDecoration(
           image: DecorationImage(

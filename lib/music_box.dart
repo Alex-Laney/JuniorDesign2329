@@ -1,11 +1,9 @@
 import 'dart:async';
 import 'package:animate_do/animate_do.dart';
-import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 import 'Listen/Listen.dart';
 import 'package:just_audio/just_audio.dart';
-
 
 class opening extends StatefulWidget {
   const opening({super.key});
@@ -15,7 +13,6 @@ class opening extends StatefulWidget {
 }
 
 class openingState extends State<opening> {
-
   static AudioPlayer audioPlayer = AudioPlayer();
 
   final beethovenPlaylist = ConcatenatingAudioSource(
@@ -24,16 +21,19 @@ class openingState extends State<opening> {
         Uri.parse('asset:///assets/music/Beethoven/Fur_Elise.mp3'),
         tag: 'Für Elise',
       ),
-      AudioSource.uri(Uri.parse(
-          'asset:///assets/music/Beethoven/Sonata_8_Pathetique_1st_Movement.mp3'),
+      AudioSource.uri(
+        Uri.parse(
+            'asset:///assets/music/Beethoven/Sonata_8_Pathetique_1st_Movement.mp3'),
         tag: 'Sonata 8 Pathetique 1st Movement',
       ),
-      AudioSource.uri(Uri.parse(
-          'asset:///assets/music/Beethoven/Moonlight_Sonata_1st_Movement.mp3'),
+      AudioSource.uri(
+        Uri.parse(
+            'asset:///assets/music/Beethoven/Moonlight_Sonata_1st_Movement.mp3'),
         tag: 'Moonlight Sonata 1st Movement',
       ),
-      AudioSource.uri(Uri.parse(
-          'asset:///assets/music/Beethoven/Sonata_1_in_F_Minor_Allegro.mp3'),
+      AudioSource.uri(
+        Uri.parse(
+            'asset:///assets/music/Beethoven/Sonata_1_in_F_Minor_Allegro.mp3'),
         tag: 'Sonata 1 in F Minor Allegro',
       ),
     ],
@@ -45,7 +45,8 @@ class openingState extends State<opening> {
 
   void mute() {
     audioPlayer.setVolume(0);
-}
+  }
+
   void unmute() {
     audioPlayer.setVolume(1);
   }
@@ -74,7 +75,7 @@ class openingState extends State<opening> {
         openingState.getPlayer.positionStream,
         openingState.getPlayer.bufferedPositionStream,
         openingState.getPlayer.durationStream,
-            (position, bufferedPosition, duration) => PositionData(
+        (position, bufferedPosition, duration) => PositionData(
           position,
           bufferedPosition,
           duration ?? Duration.zero,
@@ -85,48 +86,48 @@ class openingState extends State<opening> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
-    body: SafeArea(
-    child: Container(
-        constraints: const BoxConstraints.expand(),
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/images/test.png"),
-            fit: BoxFit.cover,
+      body: SafeArea(
+        child: Container(
+          constraints: const BoxConstraints.expand(),
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/images/test.png"),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              const SizedBox(height: 150),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: FadeInDown(
+                    duration: Duration(seconds: 4), child: topButton()),
+                // TextButton(
+                //   onPressed: () => Navigator.pushNamed(context, '/main'),
+                //   child: const Text('Go To Home', style: TextStyle(fontSize: 30, color: Colors.orangeAccent)),
+                // )
+              ),
+              const SizedBox(height: 100),
+              Controls(player: audioPlayer),
+              // Padding(
+              //   padding: EdgeInsets.fromLTRB(65, 0, 70, 70),
+              //   child: Image.asset('assets/images/music_box.png', scale: 2.6),
+              // ),
+              const SizedBox(height: 100),
+              Align(
+                alignment: Alignment.center,
+                child: FadeInUp(
+                    duration: Duration(seconds: 4), child: bottomButton()),
+                // TextButton(
+                //   onPressed: () => Navigator.pushNamed(context, '/works'),
+                //   child: const Text('What Am I Listening To?', style: TextStyle(fontSize: 30, color: Colors.orangeAccent)),
+                // )
+              ),
+            ],
           ),
         ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            const SizedBox(height: 150),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: FadeInDown(
-                  duration: Duration(seconds: 4), child: topButton()),
-              // TextButton(
-              //   onPressed: () => Navigator.pushNamed(context, '/main'),
-              //   child: const Text('Go To Home', style: TextStyle(fontSize: 30, color: Colors.orangeAccent)),
-              // )
-            ),
-            const SizedBox(height: 100),
-            Controls(player: audioPlayer)
-            ,
-            // Padding(
-            //   padding: EdgeInsets.fromLTRB(65, 0, 70, 70),
-            //   child: Image.asset('assets/images/music_box.png', scale: 2.6),
-            // ),
-            const SizedBox(height: 100),
-            Align(
-              alignment: Alignment.center,
-              child: FadeInUp(
-                  duration: Duration(seconds: 4), child: bottomButton()),
-              // TextButton(
-              //   onPressed: () => Navigator.pushNamed(context, '/works'),
-              //   child: const Text('What Am I Listening To?', style: TextStyle(fontSize: 30, color: Colors.orangeAccent)),
-              // )
-            ),
-          ],
-        ),
-      )),
+      ),
     );
   }
 }
@@ -134,18 +135,18 @@ class openingState extends State<opening> {
 class topButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
-        borderRadius: BorderRadius.circular(30.0),
-        child: Container(
-          color: const Color.fromRGBO(255, 255, 255, 1.0),
-          padding: const EdgeInsets.all(25),
-          child: TextButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/main');
-            },
-            child: const Text('Go To Home', style: TextStyle(fontSize:
-            25, color: Colors.black)),
-          ),
-        )
+      borderRadius: BorderRadius.circular(30.0),
+      child: Container(
+        color: const Color.fromRGBO(255, 255, 255, 1.0),
+        padding: const EdgeInsets.all(25),
+        child: TextButton(
+          onPressed: () {
+            Navigator.pushNamed(context, '/main');
+          },
+          child: const Text('Go To Home',
+              style: TextStyle(fontSize: 25, color: Colors.black)),
+        ),
+      ),
     );
   }
 }
@@ -153,28 +154,28 @@ class topButton extends StatelessWidget {
 class bottomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRRect(
-        borderRadius: BorderRadius.circular(30.0),
-        child: Container(
-          color: const Color.fromRGBO(255, 255, 255, 1.0),
-          padding: const EdgeInsets.all(25),
-          child: TextButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/listen');
-            },
-            child: const Text('What Am I Listening To?', style: TextStyle(fontSize:
-            25, color: Colors.black)),
-          ),
-        )
+      borderRadius: BorderRadius.circular(30.0),
+      child: Container(
+        color: const Color.fromRGBO(255, 255, 255, 1.0),
+        padding: const EdgeInsets.all(25),
+        child: TextButton(
+          onPressed: () {
+            Navigator.pushNamed(context, '/listen');
+          },
+          child: const Text('What Am I Listening To?',
+              style: TextStyle(fontSize: 25, color: Colors.black)),
+        ),
+      ),
     );
   }
 }
 
 class PositionData {
   const PositionData(
-      this.position,
-      this.bufferedPosition,
-      this.duration,
-      );
+    this.position,
+    this.bufferedPosition,
+    this.duration,
+  );
 
   final Duration position;
   final Duration bufferedPosition;
@@ -193,19 +194,23 @@ class MediaMetadata extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      Text(
-        title,
-        style: TextStyle(fontSize: 25, color: Colors.black),
-        textAlign: TextAlign.center,
-      ),
-      const SizedBox(height: 8,),
-      Text(
-        artist,
-        style: TextStyle(fontSize: 25, color: Colors.black),
-        textAlign: TextAlign.center,
-      )
-    ]);
+    return Column(
+      children: [
+        Text(
+          title,
+          style: TextStyle(fontSize: 25, color: Colors.black),
+          textAlign: TextAlign.center,
+        ),
+        const SizedBox(
+          height: 8,
+        ),
+        Text(
+          artist,
+          style: TextStyle(fontSize: 25, color: Colors.black),
+          textAlign: TextAlign.center,
+        )
+      ],
+    );
   }
 }
 
@@ -223,36 +228,38 @@ class Controls extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         IconButton(
-            icon: const Icon(Icons.skip_previous),
-            iconSize: 60,
-            onPressed: () async {
-              await player.seekToPrevious();
-            }),
+          icon: const Icon(Icons.skip_previous),
+          iconSize: 60,
+          onPressed: () async {
+            await player.seekToPrevious();
+          },
+        ),
         StreamBuilder<PlayerState>(
-            stream: player.playerStateStream,
-            builder: (context, snapshot) {
-              final playerState = snapshot.data;
-              final processingState = playerState?.processingState;
-              final playing = playerState?.playing;
-              if (!(playing ?? false)) {
-                return IconButton(
-                  icon: const Icon(Icons.play_arrow_rounded),
-                  iconSize: 80,
-                  onPressed: player.play,
-                );
-              } else if (processingState != ProcessingState.completed) {
-                return IconButton(
-                  icon: const Icon(Icons.pause),
-                  iconSize: 80,
-                  onPressed: player.pause,
-                );
-              }
+          stream: player.playerStateStream,
+          builder: (context, snapshot) {
+            final playerState = snapshot.data;
+            final processingState = playerState?.processingState;
+            final playing = playerState?.playing;
+            if (!(playing ?? false)) {
+              return IconButton(
+                icon: const Icon(Icons.play_arrow_rounded),
+                iconSize: 80,
+                onPressed: player.play,
+              );
+            } else if (processingState != ProcessingState.completed) {
               return IconButton(
                 icon: const Icon(Icons.pause),
                 iconSize: 80,
                 onPressed: player.pause,
               );
-            }),
+            }
+            return IconButton(
+              icon: const Icon(Icons.pause),
+              iconSize: 80,
+              onPressed: player.pause,
+            );
+          },
+        ),
         IconButton(
           icon: const Icon(Icons.skip_next),
           iconSize: 60,
