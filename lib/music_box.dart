@@ -143,8 +143,10 @@ class topButton extends StatelessWidget {
           onPressed: () {
             Navigator.pushNamed(context, '/main');
           },
-          child: const Text('Go To Home',
-              style: TextStyle(fontSize: 25, color: Colors.black)),
+          child: const Text(
+            'Go To Home',
+            style: TextStyle(fontSize: 25, color: Colors.black),
+          ),
         ),
       ),
     );
@@ -162,8 +164,10 @@ class bottomButton extends StatelessWidget {
           onPressed: () {
             Navigator.pushNamed(context, '/listen');
           },
-          child: const Text('What Am I Listening To?',
-              style: TextStyle(fontSize: 25, color: Colors.black)),
+          child: const Text(
+            'What Am I Listening To?',
+            style: TextStyle(fontSize: 25, color: Colors.black),
+          ),
         ),
       ),
     );
