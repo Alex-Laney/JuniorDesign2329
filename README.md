@@ -3,6 +3,7 @@ The purpose of this mobile application, Notes on the Note Makers, will be to rai
 # Release Notes Section
 ## Version 0.5.0
 ### Features
+ - Added functionality to earn reward points from Quizzes
  - Added ability to purchase rewards
  - Added 8 reward images to be purchased
 ### Bug Fixes
