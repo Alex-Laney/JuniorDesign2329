@@ -53,7 +53,7 @@ class RewardPointsDatabase {
     if (points < cost) {
       return false;
     }
-    _userBox.put(_rewardPointsDataKey, points - cost);
+    _userBox.put(_rewardPointsDataKey, rewardPoints = points - cost);
     return true;
   }
 
