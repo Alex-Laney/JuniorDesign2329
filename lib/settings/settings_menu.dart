@@ -1,4 +1,5 @@
 import 'package:artifact/bottom_navigation_bar/bottom_button_bar.dart';
+import 'package:artifact/common_ui_components/default_app_bar.dart';
 import 'package:artifact/main.dart';
 import 'package:flutter/material.dart';
 import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
@@ -22,13 +23,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        iconTheme: IconThemeData(
-          color: Colors.black,
-        ),
-      ),
+      appBar: DefaultAppBar.build(context),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

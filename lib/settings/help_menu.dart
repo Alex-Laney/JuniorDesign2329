@@ -1,4 +1,5 @@
 import 'package:artifact/bottom_navigation_bar/bottom_button_bar.dart';
+import 'package:artifact/common_ui_components/default_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
 
@@ -12,13 +13,7 @@ class HelpScreen extends StatelessWidget {
         foregroundColor: Colors.black);
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        leading: BackButton(color: Colors.black),
-        backgroundColor: Colors.transparent,
-        surfaceTintColor: Colors.transparent,
-        elevation: 0,
-        scrolledUnderElevation: 0,
-      ),
+      appBar: DefaultAppBar.build(context),
       backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
       body: SafeArea(
         child: ListView(
