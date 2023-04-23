@@ -4,7 +4,7 @@ import '../Linkable Interface/linkable.dart';
 import '../Linkable Interface/none_linkable.dart';
 import 'Definition-Page.dart';
 
-enum Tags { period, musicType, musicTheory, musicGenre }
+enum Tags { Period, Type, Theory, Genre }
 
 class Term implements Linkable {
   String name = "";
@@ -156,7 +156,7 @@ class Term implements Linkable {
     }
     return RichText(
       text: TextSpan(
-        text: "Examples:\n ",
+        text: "Examples:\n",
         style: const TextStyle(fontSize: 20, color: Colors.black),
         children: children,
       ),
