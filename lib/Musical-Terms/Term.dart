@@ -33,26 +33,44 @@ class Term implements Linkable {
 
   OutlinedButton menuView(context) {
     return OutlinedButton(
-        style: OutlinedButton.styleFrom(
-          backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
-          foregroundColor: Color.fromRGBO(0, 0, 0, 1.0),
-          side: BorderSide(width: 5.0, color: Color.fromRGBO(255, 0, 0, 0.45)),
-          elevation: 5,
+      style: OutlinedButton.styleFrom(
+        backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
+        foregroundColor: Color.fromRGBO(0, 0, 0, 1.0),
+        side: BorderSide(
+          width: 5.0,
+          color: Color.fromRGBO(255, 0, 0, 0.45),
         ),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => DefScreen(term: this)),
-          );
-        },
-        child: Row(children: <Widget>[
+        elevation: 5,
+      ),
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DefScreen(term: this),
+          ),
+        );
+      },
+      child: Row(
+        children: <Widget>[
           Expanded(
-              child: Align(
-            alignment: Alignment.centerLeft,
-            child: Text(name, style: const TextStyle(fontSize: 25)),
-          )),
-          Align(alignment: Alignment.centerRight, child: Text(tags[0].name, style: const TextStyle(fontSize: 25)))
-        ]));
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                name,
+                style: const TextStyle(fontSize: 25),
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.centerRight,
+            child: Text(
+              tags[0].name,
+              style: const TextStyle(fontSize: 25),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
   SimpleDialog dialogView(context) {
@@ -62,21 +80,30 @@ class Term implements Linkable {
       insetPadding: const EdgeInsets.only(bottom: 100, left: 50, right: 50),
       children: <Widget>[
         Align(
-            alignment: Alignment.topLeft,
-            child: Text(name, style: const TextStyle(fontSize: 30))),
-        Align(alignment: Alignment.center, child: getDefinition(context)),
+          alignment: Alignment.topLeft,
+          child: Text(
+            name,
+            style: const TextStyle(fontSize: 30),
+          ),
+        ),
         Align(
-            alignment: Alignment.bottomRight,
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => DefScreen(term: this)),
-                );
-              },
-              child: const Text("More"),
-            )),
+          alignment: Alignment.center,
+          child: getDefinition(context),
+        ),
+        Align(
+          alignment: Alignment.bottomRight,
+          child: ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DefScreen(term: this),
+                ),
+              );
+            },
+            child: const Text("More"),
+          ),
+        ),
       ],
     );
   }
@@ -87,50 +114,62 @@ class Term implements Linkable {
       if (defLinks[i].runtimeType == NoneLinkable) {
         children.add(TextSpan(text: " ${defText[i]}"));
       } else {
-        children.add(TextSpan(
+        children.add(
+          TextSpan(
             text: " ${defText[i]}",
             style: const TextStyle(fontSize: 20, color: Colors.lightBlue),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
                 defLinks[i].link(context);
-              }));
+              },
+          ),
+        );
       }
     }
     return RichText(
-        text: TextSpan(
-            text: "Definition: ",
-            style: const TextStyle(fontSize: 20, color: Colors.black),
-            children: children));
+      text: TextSpan(
+          text: "Definition: ",
+          style: const TextStyle(fontSize: 20, color: Colors.black),
+          children: children),
+    );
   }
 
   RichText getExamples(BuildContext context) {
     List<InlineSpan> children = <InlineSpan>[];
     for (int i = 0; i < exText.length; i++) {
       if (exLinks[i].runtimeType == NoneLinkable) {
-        children.add(TextSpan(text: " ${exText[i]}"));
+        children.add(
+          TextSpan(text: " ${exText[i]}"),
+        );
       } else {
-        children.add(TextSpan(
+        children.add(
+          TextSpan(
             text: " ${exText[i]}",
             style: const TextStyle(fontSize: 20, color: Colors.lightBlue),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
                 exLinks[i].link(context);
-              }));
+              },
+          ),
+        );
       }
     }
     return RichText(
-        text: TextSpan(
-            text: "Examples:\n ",
-            style: const TextStyle(fontSize: 20, color: Colors.black),
-            children: children));
+      text: TextSpan(
+        text: "Examples:\n ",
+        style: const TextStyle(fontSize: 20, color: Colors.black),
+        children: children,
+      ),
+    );
   }
 
   @override
   void link(BuildContext context) {
     showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return dialogView(context);
-        });
+      context: context,
+      builder: (BuildContext context) {
+        return dialogView(context);
+      },
+    );
   }
 }

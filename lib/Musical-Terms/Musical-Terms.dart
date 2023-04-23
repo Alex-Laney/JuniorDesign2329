@@ -27,98 +27,101 @@ class TermsScreenState extends State<TermsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: const Color.fromRGBO(239, 199, 199, 1),
-        body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              const Align(
-                alignment: Alignment.topLeft,
-                child: BackButton(),
-              ),
-              Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    Center(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              const SizedBox(width: 125),
-                              const Expanded(
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    'Terms',
-                                    style: TextStyle(fontSize: 50),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                width: 100,
-                                child: Align(
-                                  alignment: Alignment.centerRight,
-                                  child: DropdownButton<String>(
-                                    onChanged: (String? newValue) {
-                                      setState(
-                                        () {
-                                          dropdownVal = newValue!;
-                                          if (newValue == 'A-Z') {
-                                            backingList =
-                                                TermsDB.sortAlphabetically();
-                                          } else if (newValue == 'Z-A') {
-                                            backingList = TermsDB
-                                                .sortReverseAlphabetically();
-                                          } else {
-                                            TermsDB.sortAlphabetically();
-                                            backingList = TermsDB.sortByTag();
-                                          }
-                                        },
-                                      );
-                                    },
-                                    value: dropdownVal,
-                                    icon: const Icon(Icons.arrow_downward),
-                                    items: getDropdownItems(),
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(width: 25),
-                            ],
-                          ),
-                          Row(
-                            children: const <Widget>[
-                              SizedBox(width: 25),
-                              Expanded(
-                                child: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Text("Term"),
-                                ),
-                              ),
-                              Align(
-                                alignment: Alignment.centerRight,
-                                child: Text("Tags"),
-                              ),
-                              SizedBox(width: 25),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 600,
-                            child: ListView.builder(
-                              shrinkWrap: true,
-                              padding: const EdgeInsets.all(20.0),
-                              itemCount: backingList.length,
-                              itemBuilder: (context, position) {
-                                return backingList[position].menuView(context);
-                              },
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: BackButton(),
                 ),
-              ),
-            ],
+                Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Center(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Row(
+                              children: <Widget>[
+                                const SizedBox(width: 125),
+                                const Expanded(
+                                  child: Align(
+                                    alignment: Alignment.center,
+                                    child: Text(
+                                      'Terms',
+                                      style: TextStyle(fontSize: 50),
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  width: 100,
+                                  child: Align(
+                                    alignment: Alignment.centerRight,
+                                    child: DropdownButton<String>(
+                                      onChanged: (String? newValue) {
+                                        setState(
+                                          () {
+                                            dropdownVal = newValue!;
+                                            if (newValue == 'A-Z') {
+                                              backingList =
+                                                  TermsDB.sortAlphabetically();
+                                            } else if (newValue == 'Z-A') {
+                                              backingList = TermsDB
+                                                  .sortReverseAlphabetically();
+                                            } else {
+                                              TermsDB.sortAlphabetically();
+                                              backingList = TermsDB.sortByTag();
+                                            }
+                                          },
+                                        );
+                                      },
+                                      value: dropdownVal,
+                                      icon: const Icon(Icons.arrow_downward),
+                                      items: getDropdownItems(),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(width: 25),
+                              ],
+                            ),
+                            Row(
+                              children: const <Widget>[
+                                SizedBox(width: 25),
+                                Expanded(
+                                  child: Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text("Term"),
+                                  ),
+                                ),
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Text("Tags"),
+                                ),
+                                SizedBox(width: 25),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 600,
+                              child: ListView.builder(
+                                shrinkWrap: true,
+                                padding: const EdgeInsets.all(20.0),
+                                itemCount: backingList.length,
+                                itemBuilder: (context, position) {
+                                  return backingList[position]
+                                      .menuView(context);
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

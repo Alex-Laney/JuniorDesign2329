@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
-import '../music_box.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -52,11 +51,11 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Center(
         child: _controller.value.isInitialized
             ? AspectRatio(
-          aspectRatio: _controller.value.aspectRatio,
-          child: VideoPlayer(
-            _controller,
-          ),
-        )
+                aspectRatio: _controller.value.aspectRatio,
+                child: VideoPlayer(
+                  _controller,
+                ),
+              )
             : Container(),
       ),
     );

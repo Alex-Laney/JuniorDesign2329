@@ -1,8 +1,5 @@
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
 import 'package:artifact/Musical-Terms/Term.dart';
 import 'package:artifact/Musical-Works/CompositionsDB.dart';
-import '../Linkable Interface/linkable.dart';
 import '../Linkable Interface/none_linkable.dart';
 
 class TermsDB {

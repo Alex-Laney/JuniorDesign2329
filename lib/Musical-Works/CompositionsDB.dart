@@ -1,11 +1,6 @@
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
 import 'package:artifact/Musical-Works/Composition.dart';
 import 'package:artifact/Musical-Terms/TermsDB.dart';
-import '../Linkable Interface/linkable.dart';
 import '../Linkable Interface/none_linkable.dart';
-import 'package:artifact/Musical-Terms/Term.dart';
-import 'package:artifact/Musical-Terms/TermsDB.dart';
 
 class CompsDB {
   static List<Comp> backingList = [];
@@ -49,11 +44,11 @@ class CompsDB {
       composer: ["Ludwig van Beethoven"],
       composerLinks: [none],
       desText: ["Sonata 1 in F Minor Allegro is the first", "movement", "of "
-          "Ludwig van Beethoven’s Piano Sonata No. 1. You could say it is the"
+          "Ludwig van Beethoven's Piano Sonata No. 1. You could say it is the"
           " first movement of the first sonata. It was written in the", "key",
           "of F minor. This gives it a strained and distressed feeling."],
       desLinks: [none, TermsDB.movement, none, TermsDB.key, none],
-      genreText: ["This movement’s", "key", "of F minor is commonly utilized "
+      genreText: ["This movement's", "key", "of F minor is commonly utilized "
           "in the electronic genre of music. This genre of music utilizes "
           "peaks and valleys. It requires a key that would be flexible enough "
           "for distressing valleys that lead to satisfying peaks. Beethoven "
@@ -63,14 +58,14 @@ class CompsDB {
       name: "Sonata 8 Pathetique 1st Movement",
       composer: ["Ludwig van Beethoven"],
       composerLinks: [none],
-      desText: ["Ludwig van Beethoven’s eighth piano sonata is commonly "
+      desText: ["Ludwig van Beethoven's eighth piano sonata is commonly "
           "referred to as Sonata Pathétique. The sonata was written in the",
         "key", "of C minor. This first", "movement", "of the sonata is "
             "written", "allegro.", "Note that Pathétique does not mean "
             "“pathetic,” but rather “passionate” or “emotional.”"],
       desLinks: [none, TermsDB.key, none, TermsDB.movement, none,
         TermsDB.allegro, none],
-      genreText: ["Pathétique’s usage of the common C minor", "key", "allows "
+      genreText: ["Pathétique's usage of the common C minor", "key", "allows "
           "it to be connected to various other genres of music. A clear line "
           "that can be drawn is to jazz music. The ease of access that C minor "
           "allows as far as bringing a song some depth and perhaps a sense of "

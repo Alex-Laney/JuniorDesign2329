@@ -2,7 +2,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../rewards/rewards_database.dart';
 
-/// Datebase that holds the user's rewards points.
+/// Database that holds the user's rewards points.
 class RewardPointsDatabase {
   /// Key for the RewardsDatabase
   String _rewardPointsDataKey = "REWARDPOINTS";

@@ -19,17 +19,40 @@ class ComposersHelpScreen extends StatelessWidget {
               alignment: Alignment.topLeft,
               child: BackButton(),
             ),
-            const Text('Composers Help', style: TextStyle(fontSize: 40)),
+            const Text(
+              'Composers Help',
+              style: TextStyle(fontSize: 40),
+            ),
             Padding(
               padding: const EdgeInsets.all(40),
               child: RichText(
                 textAlign: TextAlign.justify,
-                text: const TextSpan(
-                  text:
-                      'The composers page contains biographies about various famous composers who have influenced '
-                      'the development of classical music. Each page covers the upbringing and career of a composer and gives'
-                      ' readers insight on how they developed as a musician.',
+                text: TextSpan(
+                  text: 'The composers page, which you can access with the ',
                   style: const TextStyle(fontSize: 20, color: Colors.black),
+                  children: <InlineSpan>[
+                    WidgetSpan(
+                      child: CircularMenuItem(
+                        padding: 5,
+                        margin: 0,
+                        badgeRadius: 10,
+                        iconSize: 10,
+                        boxShadow: const [],
+                        color: Colors.yellow[300],
+                        icon: Icons.quiz,
+                        iconColor: Colors.black,
+                        onTap: () => Navigator.pushNamed(context, '/composers'),
+                      ),
+                    ),
+                    const TextSpan(
+                      text: ' icon from the menu at the bottom of the screen, '
+                          'or from the main menu, contains biographies about '
+                          'various famous composers who have influenced '
+                          'the development of classical music. Each page '
+                          'covers the upbringing and career of a composer and '
+                          'gives readers insight on how they developed as a musician.',
+                    ),
+                  ],
                 ),
               ),
             ),
