@@ -12,54 +12,64 @@ class QuizzesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(225, 255, 195, 1),
-      body: SingleChildScrollView(
-        child: SafeArea(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              const Align(
-                alignment: Alignment.topLeft,
-                child: BackButton(),
-              ),
-              Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(40),
-                  child: Column(
-                    children: <Widget>[
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(30.0),
-                        child: Container(
-                          width: MediaQuery.of(context).size.width,
-                          color: Color.fromARGB(255, 255, 255, 255),
-                          padding: const EdgeInsets.all(8),
-                          child: TextButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/rewardGallery');
-                            },
-                            child: Text(
-                              'See Rewards\nPoints: ' +
-                                  rewardPointsData.getRewardPoints().toString(),
-                              style: TextStyle(
-                                fontSize: 50,
-                                color: Colors.black,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: SafeArea(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: BackButton(),
+                ),
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(40),
+                    child: Column(
+                      children: <Widget>[
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(30.0),
+                          child: Container(
+                            width: MediaQuery.of(context).size.width,
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            padding: const EdgeInsets.all(8),
+                            child: TextButton(
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/rewardGallery');
+                              },
+                              child: Text(
+                                'See Rewards\nPoints: ' +
+                                    rewardPointsData
+                                        .getRewardPoints()
+                                        .toString(),
+                                style: TextStyle(
+                                  fontSize: 50,
+                                  color: Colors.black,
+                                ),
+                                textScaleFactor:
+                                    MediaQuery.of(context).textScaleFactor,
                               ),
-                              textScaleFactor:
-                                  MediaQuery.of(context).textScaleFactor,
                             ),
                           ),
                         ),
-                      ),
-                      const Padding(padding: const EdgeInsets.fromLTRB(0, 70, 0, 10), child: Text('Quizzes', style: TextStyle(fontSize: 40))),
-                      const SizedBox(height: 30),
-                      QuizDB.quiz1.menuView(context),
-                      const SizedBox(height: 30),
-                      QuizDB.quiz2.menuView(context),
-                      //ADD OTHER QUIZZES HERE LIKE SO
-                    ],
+                        const Padding(
+                          padding: const EdgeInsets.fromLTRB(0, 70, 0, 10),
+                          child: Text(
+                            'Quizzes',
+                            style: TextStyle(fontSize: 40),
+                          ),
+                        ),
+                        const SizedBox(height: 30),
+                        QuizDB.quiz1.menuView(context),
+                        const SizedBox(height: 30),
+                        QuizDB.quiz2.menuView(context),
+                        //ADD OTHER QUIZZES HERE LIKE SO
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

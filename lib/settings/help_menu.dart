@@ -13,7 +13,7 @@ class HelpScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
       body: SafeArea(
-        child: Column(
+        child: ListView(
           children: <Widget>[
             const Align(
               alignment: Alignment.topLeft,

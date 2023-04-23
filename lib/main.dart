@@ -113,98 +113,100 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
-      body: Container(
-        padding: EdgeInsets.fromLTRB(0, 120, 0, 0),
-        child: GridView.count(
-          primary: false,
-          padding: const EdgeInsets.all(20),
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 10,
-          crossAxisCount: 2,
-          children: <Widget>[
-            ClipRRect(
-              borderRadius: BorderRadius.circular(30.0),
-              child: Container(
-                color: const Color.fromRGBO(239, 199, 199, 1),
-                padding: const EdgeInsets.all(8),
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/terms');
-                  },
-                  child: const Text(
-                    'Terms',
-                    style: TextStyle(fontSize: 25, color: Colors.black),
+      body: SafeArea(
+        child: Container(
+          //padding: EdgeInsets.fromLTRB(0, 120, 0, 0),
+          child: GridView.count(
+            primary: false,
+            padding: const EdgeInsets.all(20),
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+            crossAxisCount: 2,
+            children: <Widget>[
+              ClipRRect(
+                borderRadius: BorderRadius.circular(30.0),
+                child: Container(
+                  color: const Color.fromRGBO(239, 199, 199, 1),
+                  padding: const EdgeInsets.all(8),
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/terms');
+                    },
+                    child: const Text(
+                      'Terms',
+                      style: TextStyle(fontSize: 25, color: Colors.black),
+                    ),
                   ),
                 ),
               ),
-            ),
-            Image.asset('assets/images/Logo.PNG', scale: 0.1),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(30.0),
-              child: Container(
-                color: const Color.fromRGBO(255, 246, 167, 1),
-                padding: const EdgeInsets.all(8),
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/composers');
-                  },
-                  child: const Text(
-                    'Composers',
-                    style: TextStyle(fontSize: 25, color: Colors.black),
+              Image.asset('assets/images/Logo.PNG', scale: 0.1),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(30.0),
+                child: Container(
+                  color: const Color.fromRGBO(255, 246, 167, 1),
+                  padding: const EdgeInsets.all(8),
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/composers');
+                    },
+                    child: const Text(
+                      'Composers',
+                      style: TextStyle(fontSize: 25, color: Colors.black),
+                    ),
                   ),
                 ),
               ),
-            ),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(30.0),
-              child: Container(
-                color: const Color.fromRGBO(225, 255, 195, 1),
-                padding: const EdgeInsets.all(8),
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/quizzes');
-                  },
-                  child: const Text(
-                    'Quizzes\n& Rewards',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 25, color: Colors.black),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(30.0),
+                child: Container(
+                  color: const Color.fromRGBO(225, 255, 195, 1),
+                  padding: const EdgeInsets.all(8),
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/quizzes');
+                    },
+                    child: const Text(
+                      'Quizzes\n& Rewards',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 25, color: Colors.black),
+                    ),
                   ),
                 ),
               ),
-            ),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(30.0),
-              child: Container(
-                color: const Color.fromRGBO(196, 236, 249, 1),
-                padding: const EdgeInsets.all(8),
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/works');
-                  },
-                  child: const Text(
-                    'Works',
-                    style: TextStyle(fontSize: 25, color: Colors.black),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(30.0),
+                child: Container(
+                  color: const Color.fromRGBO(196, 236, 249, 1),
+                  padding: const EdgeInsets.all(8),
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/works');
+                    },
+                    child: const Text(
+                      'Works',
+                      style: TextStyle(fontSize: 25, color: Colors.black),
+                    ),
                   ),
                 ),
               ),
-            ),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(30.0),
-              child: Container(
-                color: const Color.fromRGBO(201, 200, 244, 1.0),
-                padding: const EdgeInsets.all(8),
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/listen');
-                  },
-                  child: const Text(
-                    'Listen',
-                    style: TextStyle(fontSize: 25, color: Colors.black),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(30.0),
+                child: Container(
+                  color: const Color.fromRGBO(201, 200, 244, 1.0),
+                  padding: const EdgeInsets.all(8),
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/listen');
+                    },
+                    child: const Text(
+                      'Listen',
+                      style: TextStyle(fontSize: 25, color: Colors.black),
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

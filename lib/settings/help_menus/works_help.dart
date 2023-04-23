@@ -23,8 +23,10 @@ class WorksHelpScreen extends StatelessWidget {
             Center(
               child: Column(
                 children: <Widget>[
-                  const Text('Musical Works Help',
-                      style: TextStyle(fontSize: 40)),
+                  const Text(
+                    'Musical Works Help',
+                    style: TextStyle(fontSize: 40),
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(40),
                     child: RichText(
@@ -60,9 +62,12 @@ class WorksHelpScreen extends StatelessWidget {
                                   'works compare to modern ones! Also, if '
                                   'you see any'),
                           const TextSpan(
-                              text: ' blue ',
-                              style: TextStyle(
-                                  fontSize: 20, color: Colors.lightBlue)),
+                            text: ' blue ',
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.lightBlue,
+                            ),
+                          ),
                           const TextSpan(
                               text: 'words that you don\'t recognize, click on '
                                   'them and you will be brought to a page '
