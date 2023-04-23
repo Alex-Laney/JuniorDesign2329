@@ -22,8 +22,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
       textStyle: const TextStyle(fontSize: 20),
     );
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
+      extendBodyBehindAppBar: true,
       appBar: DefaultAppBar.build(context),
+      backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

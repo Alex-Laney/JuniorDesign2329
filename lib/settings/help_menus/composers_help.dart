@@ -3,6 +3,7 @@ import 'package:circular_menu/circular_menu.dart';
 import 'package:flutter/material.dart';
 
 import '../../bottom_navigation_bar/circular_dial_menu.dart';
+import '../../common_ui_components/default_app_bar.dart';
 
 class ComposersHelpScreen extends StatelessWidget {
   const ComposersHelpScreen({super.key});
@@ -10,15 +11,13 @@ class ComposersHelpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: DefaultAppBar.build(context),
       backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
       body: Center(
         child: Column(
           children: [
             const SizedBox(height: 30),
-            const Align(
-              alignment: Alignment.topLeft,
-              child: BackButton(),
-            ),
             const Text(
               'Composers Help',
               style: TextStyle(fontSize: 40),

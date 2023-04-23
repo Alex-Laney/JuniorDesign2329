@@ -3,6 +3,7 @@ import 'package:circular_menu/circular_menu.dart';
 import 'package:flutter/material.dart';
 
 import '../../bottom_navigation_bar/circular_dial_menu.dart';
+import '../../common_ui_components/default_app_bar.dart';
 
 const int iconColor = 300;
 
@@ -12,14 +13,12 @@ class WorksHelpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: DefaultAppBar.build(context),
       backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
       body: SafeArea(
         child: Column(
           children: <Widget>[
-            const Align(
-              alignment: Alignment.topLeft,
-              child: BackButton(),
-            ),
             Center(
               child: Column(
                 children: <Widget>[
