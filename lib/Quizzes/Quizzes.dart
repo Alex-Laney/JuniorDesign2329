@@ -3,6 +3,7 @@ import 'package:artifact/main.dart';
 import 'package:flutter/material.dart';
 import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
 
+import '../common_ui_components/default_app_bar.dart';
 import 'Quizzes/quizDB.dart';
 
 class QuizzesScreen extends StatelessWidget {
@@ -11,6 +12,8 @@ class QuizzesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: DefaultAppBar.build(context),
       backgroundColor: const Color.fromRGBO(225, 255, 195, 1),
       body: SafeArea(
         child: SingleChildScrollView(
@@ -18,10 +21,6 @@ class QuizzesScreen extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                const Align(
-                  alignment: Alignment.topLeft,
-                  child: BackButton(),
-                ),
                 Center(
                   child: Padding(
                     padding: const EdgeInsets.all(40),
