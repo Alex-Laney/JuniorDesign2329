@@ -59,6 +59,7 @@ class RewardPointsDatabase {
 
   /// Resets the rewards database to default
   void reset() {
+    if (_userBox.get(_rewardsDataKey) == null) createInitialData();
     List<int> curr = _userBox.get(_rewardsDataKey);
     for (int i = 0; i < curr.length; i++) {
       curr[i] = 0;
