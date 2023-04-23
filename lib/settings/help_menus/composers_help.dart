@@ -45,13 +45,13 @@ class ComposersHelpScreen extends StatelessWidget {
                       ),
                     ),
                     const TextSpan(
-                        text:
-                            ' icon from the menu at the bottom of the screen, '
-                            'or from the main menu, contains biographies about '
-                            'various famous composers who have influenced '
-                            'the development of classical music. Each page '
-                            'covers the upbringing and career of a composer and '
-                            'gives readers insight on how they developed as a musician.'),
+                      text: ' icon from the menu at the bottom of the screen, '
+                          'or from the main menu, contains biographies about '
+                          'various famous composers who have influenced '
+                          'the development of classical music. Each page '
+                          'covers the upbringing and career of a composer and '
+                          'gives readers insight on how they developed as a musician.',
+                    ),
                   ],
                 ),
               ),

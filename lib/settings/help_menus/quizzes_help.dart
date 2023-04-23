@@ -21,7 +21,10 @@ class QuizzesHelpScreen extends StatelessWidget {
             Center(
               child: Column(
                 children: <Widget>[
-                  const Text('Quizzes Help', style: TextStyle(fontSize: 40)),
+                  const Text(
+                    'Quizzes Help',
+                    style: TextStyle(fontSize: 40),
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(40),
                     child: RichText(
@@ -47,12 +50,13 @@ class QuizzesHelpScreen extends StatelessWidget {
                             ),
                           ),
                           const TextSpan(
-                              text: ' icon from the menu at the bottom of the '
-                                  'screen, or from the main menu, is where you '
-                                  'can test what you\'ve learned. Some quizzes '
-                                  'might require you to do your own research '
-                                  'outside of the app. Have fun, and try to get '
-                                  'the highest score!'),
+                            text: ' icon from the menu at the bottom of the '
+                                'screen, or from the main menu, is where you '
+                                'can test what you\'ve learned. Some quizzes '
+                                'might require you to do your own research '
+                                'outside of the app. Have fun, and try to get '
+                                'the highest score!',
+                          ),
                         ],
                       ),
                     ),

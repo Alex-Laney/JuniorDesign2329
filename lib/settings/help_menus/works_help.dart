@@ -52,15 +52,16 @@ class WorksHelpScreen extends StatelessWidget {
                             ),
                           ),
                           const TextSpan(
-                              text: ' icon from the menu at the bottom of the '
-                                  'screen, or from the main menu, is where '
-                                  'you can find the different songs in the '
-                                  'app! Tap on any of their names to be '
-                                  'taken to their page, where you can read '
-                                  'up about the stories of their creations, '
-                                  'and learn about how those older musical '
-                                  'works compare to modern ones! Also, if '
-                                  'you see any'),
+                            text: ' icon from the menu at the bottom of the '
+                                'screen, or from the main menu, is where '
+                                'you can find the different songs in the '
+                                'app! Tap on any of their names to be '
+                                'taken to their page, where you can read '
+                                'up about the stories of their creations, '
+                                'and learn about how those older musical '
+                                'works compare to modern ones! Also, if '
+                                'you see any',
+                          ),
                           const TextSpan(
                             text: ' blue ',
                             style: TextStyle(
@@ -69,9 +70,10 @@ class WorksHelpScreen extends StatelessWidget {
                             ),
                           ),
                           const TextSpan(
-                              text: 'words that you don\'t recognize, click on '
-                                  'them and you will be brought to a page '
-                                  'explaining what they mean!'),
+                            text: 'words that you don\'t recognize, click on '
+                                'them and you will be brought to a page '
+                                'explaining what they mean!',
+                          ),
                         ],
                       ),
                     ),

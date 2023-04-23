@@ -50,20 +50,22 @@ class MusicalTermsHelpScreen extends StatelessWidget {
                             ),
                           ),
                           const TextSpan(
-                              text:
-                                  ' icon from the menu at the bottom of the screen, '
-                                  'or from the main menu, is where you can find '
-                                  'musical terms and their definitions. If you see any'),
+                            text:
+                                ' icon from the menu at the bottom of the screen, '
+                                'or from the main menu, is where you can find '
+                                'musical terms and their definitions. If you see any',
+                          ),
                           const TextSpan(
                             text: ' blue ',
                             style: TextStyle(
                                 fontSize: 20, color: Colors.lightBlue),
                           ),
                           const TextSpan(
-                              text:
-                                  'words that you don\'t recognize, click on them '
-                                  'and you will be brought to a page explaining '
-                                  'what they mean!'),
+                            text:
+                                'words that you don\'t recognize, click on them '
+                                'and you will be brought to a page explaining '
+                                'what they mean!',
+                          ),
                         ],
                       ),
                     ),
