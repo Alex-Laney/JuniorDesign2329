@@ -9,14 +9,18 @@ class AboutScreen extends StatelessWidget {
       textStyle: const TextStyle(fontSize: 20),
     );
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        leading: BackButton(color: Colors.black),
+        backgroundColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+      ),
       backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
       body: SafeArea(
         child: ListView(
           children: <Widget>[
-            const Align(
-              alignment: Alignment.topLeft,
-              child: BackButton(),
-            ),
             Center(
               child: Container(
                 margin: const EdgeInsets.all(24),
