@@ -106,15 +106,14 @@ class _GalleryState extends State<GalleryScreen> {
       ]));
       rewardList.add(SizedBox(height: 10));
     }
-    SizedBox rewardsView = SizedBox(
-        height: 200,
-        child: ListView.builder(
-            //shrinkWrap: true,
+    ListView rewardsView = ListView.builder(
+            shrinkWrap: true,
+            scrollDirection: Axis.vertical,
             //padding: const EdgeInsets.all(20.0),
             itemCount: rewardList.length,
             itemBuilder: (context, position) {
               return rewardList[position];
-            }));
+            });
     return Scaffold(
       backgroundColor: const Color.fromRGBO(225, 255, 195, 1),
       body: Column(
