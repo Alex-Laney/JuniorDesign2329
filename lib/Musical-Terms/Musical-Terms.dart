@@ -4,8 +4,6 @@ import 'package:artifact/Musical-Terms/Term.dart';
 import 'package:artifact/Musical-Terms/TermsDB.dart';
 import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
 
-import '../common_ui_components/default_app_bar.dart';
-
 class TermsScreen extends StatefulWidget {
   const TermsScreen({super.key});
 
@@ -28,13 +26,15 @@ class TermsScreenState extends State<TermsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: DefaultAppBar.build(context),
         backgroundColor: const Color.fromRGBO(239, 199, 199, 1),
         body: SafeArea(
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: BackButton(),
+                ),
                 Center(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
