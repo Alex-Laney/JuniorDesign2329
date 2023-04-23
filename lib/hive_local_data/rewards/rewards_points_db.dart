@@ -35,11 +35,10 @@ class RewardPointsDatabase {
     if (_userBox.get(_rewardPointsDataKey) == null) createInitialData();
     return _userBox.get(_rewardPointsDataKey);
   }
-  
+
   List<int> getRewardsUnlocked() {
     if (_userBox.get(_rewardsDataKey) == null) createInitialData();
     return _userBox.get(_rewardsDataKey);
-
   }
 
   void unlock(int i) {
@@ -56,5 +55,16 @@ class RewardPointsDatabase {
     }
     _userBox.put(_rewardPointsDataKey, points - cost);
     return true;
+  }
+
+  /// Resets the rewards database to default
+  void reset() {
+    List<int> curr = _userBox.get(_rewardsDataKey);
+    for (int i = 0; i < curr.length; i++) {
+      curr[i] = 0;
+    }
+    print(curr);
+    _userBox.put(_rewardPointsDataKey, rewardPoints = 0);
+    _userBox.put(_rewardsDataKey, curr);
   }
 }

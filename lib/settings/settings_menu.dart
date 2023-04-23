@@ -1,4 +1,5 @@
 import 'package:artifact/bottom_navigation_bar/bottom_button_bar.dart';
+import 'package:artifact/main.dart';
 import 'package:flutter/material.dart';
 import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
 import 'package:artifact/music_box.dart';
@@ -89,16 +90,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     title: Text('Reset Data'),
                     content: Text(
                       'Are you sure you want to reset your data? You will lose'
-                      ' all of your points and rewards. This is not reversible.',
+                      ' all of your points and rewards. THIS IS NOT REVERSIBLE!',
                     ),
                     actions: [
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.red,
                         ),
-                        onPressed: () {
+                        onPressed: () async {
+                          rewardPointsData.reset();
+                          quizResultsData.reset();
                           Hive.box('userBox').clear();
-                          Navigator.pop(context);
+                          Navigator.pushNamedAndRemoveUntil(
+                              context, '/opening', (route) => false);
                         },
                         child: const Text('Reset'),
                       ),

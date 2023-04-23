@@ -49,4 +49,9 @@ class QuizResultDatabase {
   void printData(String key) {
     print(_userBox.get(key));
   }
+
+  /// Reset quiz result database
+  void reset() {
+    createInitialData('userBox');
+  }
 }
