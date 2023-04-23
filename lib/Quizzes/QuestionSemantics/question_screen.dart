@@ -10,21 +10,30 @@ class QuestionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-        onWillPop: () async => false,
-        child: Scaffold(
-            backgroundColor: const Color.fromRGBO(225, 255, 195, 1),
-            body: SafeArea(
-                child: Padding(
-                    padding: EdgeInsets.all(40),
-                    child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          Align(
-                            alignment: Alignment.center,
-                            child: Text(quiz.name, style: const TextStyle(fontSize: 80))),
-                          const SizedBox(height: 20),
-                          QuestionWidget(quiz: quiz),
-                        ])))));
+      onWillPop: () async => false,
+      child: Scaffold(
+        backgroundColor: const Color.fromRGBO(225, 255, 195, 1),
+        body: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.all(40),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    quiz.name,
+                    style: const TextStyle(fontSize: 80),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                QuestionWidget(quiz: quiz),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
 
@@ -57,17 +66,21 @@ class QuestionState extends State<QuestionWidget> {
     answers.add(answer);
     print(answers);
     Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) =>
-                ResultsScreen(answers: answers, quiz: widget.quiz)));
+      context,
+      MaterialPageRoute(
+        builder: (context) =>
+            ResultsScreen(answers: answers, quiz: widget.quiz),
+      ),
+    );
     //ADD MOVING TO RESULTS SCREEN HERE, BE SURE TO BRING ANSWERS WITH YOU
   }
 
   void nextQ(String answer) {
-    setState(() {
-      qNum += 1;
-      answers.add(answer);
-    });
+    setState(
+      () {
+        qNum += 1;
+        answers.add(answer);
+      },
+    );
   }
 }

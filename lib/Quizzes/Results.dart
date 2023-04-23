@@ -75,42 +75,45 @@ class ResultsScreen extends StatelessWidget {
       onPressed: () {
         Navigator.of(context, rootNavigator: true).pushNamed("/quizzes");
       },
-      child:
-          Text('Back to Quizzes', style: TextStyle(fontSize: 35,  color: Colors.black)),
+      child: Text('Back to Quizzes',
+          style: TextStyle(fontSize: 35, color: Colors.black)),
     ));
 
-    disp.add(OutlinedButton(
-      style: OutlinedButton.styleFrom(
-        backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
-        foregroundColor: Color.fromRGBO(0, 0, 0, 1.0),
-        side: BorderSide(width: 5.0, color: Color.fromRGBO(194, 232, 139, 1.0)),
-        elevation: 5,
-        //fixedSize: Size:,
+    disp.add(
+      OutlinedButton(
+        style: OutlinedButton.styleFrom(
+          backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
+          foregroundColor: Color.fromRGBO(0, 0, 0, 1.0),
+          side:
+              BorderSide(width: 5.0, color: Color.fromRGBO(194, 232, 139, 1.0)),
+          elevation: 5,
+          //fixedSize: Size:,
+        ),
+        onPressed: () {
+          Navigator.of(context, rootNavigator: true)
+              .pushNamed("/rewardGallery");
+        },
+        child: Text('Rewards Shop',
+            style: TextStyle(fontSize: 35, color: Colors.black)),
       ),
-      onPressed: () {
-        Navigator.of(context, rootNavigator: true).pushNamed("/rewardGallery");
-      },
-      child:
-          Text('Rewards Shop', style: TextStyle(fontSize: 35,  color: Colors.black)),
-    ));
-    
+    );
 
     return WillPopScope(
-        onWillPop: () async => false,
-        child: Scaffold(
-          backgroundColor: const Color.fromRGBO(225, 255, 195, 1),
-          body: SingleChildScrollView(
-            child: Container(
-              margin: const EdgeInsets.all(24),
-              alignment: Alignment.topCenter,
-              child: Column(mainAxisSize: MainAxisSize.min, children: disp),
-            ),
+      onWillPop: () async => false,
+      child: Scaffold(
+        backgroundColor: const Color.fromRGBO(225, 255, 195, 1),
+        body: SingleChildScrollView(
+          child: Container(
+            margin: const EdgeInsets.all(24),
+            alignment: Alignment.topCenter,
+            child: Column(mainAxisSize: MainAxisSize.min, children: disp),
           ),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: CircularDialMenu.build(context),
-          bottomNavigationBar: BottomButtonBar.build(context),
-        ));
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: CircularDialMenu.build(context),
+        bottomNavigationBar: BottomButtonBar.build(context),
+      ),
+    );
   }
 
   Text getScore(int score) {

@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:artifact/main.dart';
 import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
 
-import '../hive_local_data/rewards/rewards_points_db.dart';
-
 class GalleryScreen extends StatefulWidget {
   const GalleryScreen({super.key});
 
@@ -26,32 +24,8 @@ class _GalleryState extends State<GalleryScreen> {
     for (i = 0; i < unlocked.length; i++) {
       if (unlocked[i] == 1) {
         int index = i;
-        widgetList.add(SizedBox(
-            height: 100,
-            width: 100,
-            child: OutlinedButton(
-                style: OutlinedButton.styleFrom(
-                  backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
-                  foregroundColor: Color.fromRGBO(0, 0, 0, 1.0),
-                  side: BorderSide(
-                      width: 5.0, color: Color.fromRGBO(194, 232, 139, 1.0)),
-                  elevation: 5,
-                  //fixedSize: Size:,
-                ),
-                onPressed: () async {
-                  PurchaseScreen nextScreen = PurchaseScreen();
-                  nextScreen.setCurr(index);
-                  await Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => nextScreen),
-                  );
-                  points = rewardPointsData.getRewardPoints();
-                  setState(() {});
-                },
-                child: Image.asset(images[i]))));
-      } else {
-        int index = i;
-        widgetList.add(SizedBox(
+        widgetList.add(
+          SizedBox(
             height: 100,
             width: 100,
             child: OutlinedButton(
@@ -59,7 +33,40 @@ class _GalleryState extends State<GalleryScreen> {
                 backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
                 foregroundColor: Color.fromRGBO(0, 0, 0, 1.0),
                 side: BorderSide(
-                    width: 5.0, color: Color.fromRGBO(194, 232, 139, 1.0)),
+                  width: 5.0,
+                  color: Color.fromRGBO(194, 232, 139, 1.0),
+                ),
+                elevation: 5,
+                //fixedSize: Size:,
+              ),
+              onPressed: () async {
+                PurchaseScreen nextScreen = PurchaseScreen();
+                nextScreen.setCurr(index);
+                await Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => nextScreen),
+                );
+                points = rewardPointsData.getRewardPoints();
+                setState(() {});
+              },
+              child: Image.asset(images[i]),
+            ),
+          ),
+        );
+      } else {
+        int index = i;
+        widgetList.add(
+          SizedBox(
+            height: 100,
+            width: 100,
+            child: OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
+                foregroundColor: Color.fromRGBO(0, 0, 0, 1.0),
+                side: BorderSide(
+                  width: 5.0,
+                  color: Color.fromRGBO(194, 232, 139, 1.0),
+                ),
                 elevation: 5,
                 //fixedSize: Size:,
               ),
@@ -74,7 +81,9 @@ class _GalleryState extends State<GalleryScreen> {
                 setState(() {});
               },
               child: Icon(Icons.question_mark, color: Colors.black),
-            )));
+            ),
+          ),
+        );
       }
     }
     for (i--; i % 3 != 0; i++) {
@@ -97,15 +106,14 @@ class _GalleryState extends State<GalleryScreen> {
       ]));
       rewardList.add(SizedBox(height: 10));
     }
-    SizedBox rewardsView = SizedBox(
-        height: 200,
-        child: ListView.builder(
-            //shrinkWrap: true,
+    ListView rewardsView = ListView.builder(
+            shrinkWrap: true,
+            scrollDirection: Axis.vertical,
             //padding: const EdgeInsets.all(20.0),
             itemCount: rewardList.length,
             itemBuilder: (context, position) {
               return rewardList[position];
-            }));
+            });
     return Scaffold(
       backgroundColor: const Color.fromRGBO(225, 255, 195, 1),
       body: Column(

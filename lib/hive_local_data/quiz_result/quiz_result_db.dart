@@ -1,6 +1,6 @@
 import 'package:hive_flutter/hive_flutter.dart';
 
-/// Datebase that holds all of the quiz results.
+/// Database that holds all of the quiz results.
 class QuizResultDatabase {
   /// Each entry is a name with its score
   List resultList = [];
@@ -26,8 +26,6 @@ class QuizResultDatabase {
     resultList = _userBox.get(key);
   }
 
-  /// TODO: finish implementation
-  ///
   /// Update result database.
   ///
   /// Uses a [key], which is the quiz name, to look up database
@@ -45,7 +43,7 @@ class QuizResultDatabase {
     return _userBox.get(key);
   }
 
-  /// Debuging: Prints the contents of a specific quiz list
+  /// Debugging: Prints the contents of a specific quiz list
   ///
   /// Uses a [key], which is the quiz name, to look up database
   void printData(String key) {
