@@ -70,6 +70,53 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 style: TextStyle(fontSize: 80, color: Colors.black),
               ),
             ),
+            OutlinedButton(
+              style: OutlinedButton.styleFrom(
+                backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
+                foregroundColor: Color.fromRGBO(0, 0, 0, 1.0),
+                side: BorderSide(
+                  width: 5.0,
+                  color: Color.fromRGBO(232, 163, 99, 1.0),
+                ),
+                elevation: 5,
+                //fixedSize: Size:,
+              ),
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) => AlertDialog(
+                    scrollable: true,
+                    title: Text('Reset Data'),
+                    content: Text(
+                      'Are you sure you want to reset your data? You will lose'
+                      ' all of your points and rewards. This is not reversible.',
+                    ),
+                    actions: [
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.red,
+                        ),
+                        onPressed: () {
+                          Hive.box('userBox').clear();
+                          Navigator.pop(context);
+                        },
+                        child: const Text('Reset'),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: const Text('Cancel'),
+                      ),
+                    ],
+                  ),
+                );
+              },
+              child: Text(
+                'Reset Data',
+                style: TextStyle(fontSize: 20, color: Colors.black),
+              ),
+            ),
             IconButton(
               onPressed: () => {
                 if (mute) {c.unmute()} else {c.mute()},
