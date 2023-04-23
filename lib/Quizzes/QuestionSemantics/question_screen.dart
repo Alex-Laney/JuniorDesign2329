@@ -14,21 +14,23 @@ class QuestionScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: const Color.fromRGBO(225, 255, 195, 1),
         body: SafeArea(
-          child: Padding(
-            padding: EdgeInsets.all(40),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    quiz.name,
-                    style: const TextStyle(fontSize: 80),
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: EdgeInsets.all(40),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Align(
+                    alignment: Alignment.center,
+                    child: Text(
+                      quiz.name,
+                      style: const TextStyle(fontSize: 80),
+                    ),
                   ),
-                ),
-                const SizedBox(height: 20),
-                QuestionWidget(quiz: quiz),
-              ],
+                  const SizedBox(height: 20),
+                  QuestionWidget(quiz: quiz),
+                ],
+              ),
             ),
           ),
         ),
