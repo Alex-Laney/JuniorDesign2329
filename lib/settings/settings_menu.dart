@@ -97,7 +97,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.red,
                         ),
-                        onPressed: () async {
+                        onPressed: () {
                           rewardPointsData.reset();
                           quizResultsData.reset();
                           Hive.box('userBox').clear();
