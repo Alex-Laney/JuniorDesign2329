@@ -50,9 +50,11 @@ class Comp implements Linkable {
           Expanded(
             child: Align(
               alignment: Alignment.centerLeft,
-              child: Text(name,
-                  style: TextStyle(fontSize: 20, color: Colors.black),
-                  textAlign: TextAlign.left),
+              child: Text(
+                name,
+                style: TextStyle(fontSize: 20, color: Colors.black),
+                textAlign: TextAlign.left,
+              ),
             ),
           ),
         ],
@@ -67,16 +69,22 @@ class Comp implements Linkable {
       insetPadding: const EdgeInsets.only(bottom: 100, left: 50, right: 50),
       children: <Widget>[
         Align(
-            alignment: Alignment.topLeft,
-            child: Text(name, style: const TextStyle(fontSize: 30))),
-        Align(alignment: Alignment.center, child: getComposer(context)),
+          alignment: Alignment.topLeft,
+          child: Text(name, style: const TextStyle(fontSize: 30)),
+        ),
+        Align(
+          alignment: Alignment.center,
+          child: getComposer(context),
+        ),
         Align(
           alignment: Alignment.bottomRight,
           child: ElevatedButton(
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => CompScreen(comp: this)),
+                MaterialPageRoute(
+                  builder: (context) => CompScreen(comp: this),
+                ),
               );
             },
             child: const Text("More"),
@@ -131,9 +139,10 @@ class Comp implements Linkable {
     }
     return RichText(
       text: TextSpan(
-          text: "Description: ",
-          style: const TextStyle(fontSize: 20, color: Colors.black),
-          children: children),
+        text: "Description: ",
+        style: const TextStyle(fontSize: 20, color: Colors.black),
+        children: children,
+      ),
     );
   }
 
@@ -157,9 +166,10 @@ class Comp implements Linkable {
     }
     return RichText(
       text: TextSpan(
-          text: "Genre Comparisons: ",
-          style: const TextStyle(fontSize: 20, color: Colors.black),
-          children: children),
+        text: "Genre Comparisons: ",
+        style: const TextStyle(fontSize: 20, color: Colors.black),
+        children: children,
+      ),
     );
   }
 

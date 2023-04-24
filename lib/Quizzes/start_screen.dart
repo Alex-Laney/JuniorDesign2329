@@ -25,18 +25,24 @@ class StartScreen extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    Text(quiz.name, style: const TextStyle(fontSize: 100)),
+                    Text(
+                      quiz.name,
+                      style: const TextStyle(fontSize: 100),
+                    ),
                     const SizedBox(height: 20),
-                    Text("Topic: " + quiz.desc,
-                        style: const TextStyle(fontSize: 50)),
+                    Text(
+                      "Topic: " + quiz.desc,
+                      style: const TextStyle(fontSize: 50),
+                    ),
                     const SizedBox(height: 20),
                     OutlinedButton(
                       style: OutlinedButton.styleFrom(
                         backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
                         foregroundColor: Color.fromRGBO(0, 0, 0, 1.0),
                         side: BorderSide(
-                            width: 5.0,
-                            color: Color.fromRGBO(194, 232, 139, 1.0)),
+                          width: 5.0,
+                          color: Color.fromRGBO(194, 232, 139, 1.0),
+                        ),
                         elevation: 5,
                         //fixedSize: Size:,
                       ),
@@ -44,11 +50,14 @@ class StartScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => QuestionScreen(quiz: quiz)),
+                            builder: (context) => QuestionScreen(quiz: quiz),
+                          ),
                         );
                       },
-                      child: Text('Start!',
-                          style: TextStyle(fontSize: 100, color: Colors.black)),
+                      child: Text(
+                        'Start!',
+                        style: TextStyle(fontSize: 100, color: Colors.black),
+                      ),
                     ),
                   ],
                 ),
