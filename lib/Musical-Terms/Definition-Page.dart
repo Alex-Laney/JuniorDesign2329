@@ -1,4 +1,5 @@
 import 'package:artifact/bottom_navigation_bar/bottom_button_bar.dart';
+import 'package:artifact/common_ui_components/default_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
 import 'package:artifact/Musical-Terms/Term.dart';
@@ -11,6 +12,8 @@ class DefScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: DefaultAppBar.build(context),
       backgroundColor: const Color.fromRGBO(239, 199, 199, 1),
       body: SafeArea(
         child: Container(
@@ -23,10 +26,6 @@ class DefScreen extends StatelessWidget {
           ),
           child: Column(
             children: <Widget>[
-              const Align(
-                alignment: Alignment.topLeft,
-                child: BackButton(),
-              ),
               Center(
                 child: Padding(
                   padding: const EdgeInsets.all(40),

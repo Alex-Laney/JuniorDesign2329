@@ -1,4 +1,5 @@
 import 'package:artifact/bottom_navigation_bar/bottom_button_bar.dart';
+import 'package:artifact/common_ui_components/default_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
@@ -31,83 +32,91 @@ class ListenScreenState extends State<ListenScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: DefaultAppBar.build(context),
       backgroundColor: const Color.fromRGBO(201, 200, 244, 1.0),
       body: SafeArea(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Align(
-              alignment: Alignment.topLeft,
-              child: BackButton(), //onPressed: ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Color.fromRGBO(142, 148, 219, 1.0),
-                  width: 5,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Color.fromRGBO(142, 148, 219, 1.0),
+                    width: 5,
+                  ),
+                ),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/beethoven');
+                  },
+                  child: Image.asset('assets/images/Beethoven.PNG'),
                 ),
               ),
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, '/beethoven');
-                },
-                child: Image.asset('assets/images/Beethoven.PNG'),
-              ),
-            ),
-            Padding(
+              Padding(
                 padding: const EdgeInsets.fromLTRB(60, 20, 60, 20),
                 child: OutlinedButton(
                   style: OutlinedButton.styleFrom(
                     backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
                     foregroundColor: Color.fromRGBO(0, 0, 0, 1.0),
                     side: BorderSide(
-                        width: 5.0, color: Color.fromRGBO(142, 148, 219, 1.0)),
+                      width: 5.0,
+                      color: Color.fromRGBO(142, 148, 219, 1.0),
+                    ),
                     elevation: 5,
                     //fixedSize: Size:,
                   ),
                   onPressed: () {
                     Navigator.pushNamed(context, '/beethoven');
                   },
-                  child: const Text('Ludwig van Beethoven',
-                      style: TextStyle(fontSize: 20, color: Colors.black)),
-                )),
-            StreamBuilder<SequenceState?>(
+                  child: const Text(
+                    'Ludwig van Beethoven',
+                    style: TextStyle(fontSize: 20, color: Colors.black),
+                  ),
+                ),
+              ),
+              StreamBuilder<SequenceState?>(
                 stream: openingState.getPlayer.sequenceStateStream,
                 builder: (context, snapshot) {
                   final state = snapshot.data;
                   if (state?.sequence.isEmpty ?? true) {
                     return const Text('');
                   } else {
-                    return Text(state!.currentSource!.tag.toString(),
-                        style: TextStyle(fontSize: 30, color: Colors.black),
-                        textAlign: TextAlign.center);
+                    return Text(
+                      state!.currentSource!.tag.toString(),
+                      style: TextStyle(fontSize: 30, color: Colors.black),
+                      textAlign: TextAlign.center,
+                    );
                   }
-                }),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(60, 30, 60, 0),
-              child: StreamBuilder<PositionData>(
-                stream: _positionDataStream,
-                builder: (context, snapshot) {
-                  final positionData = snapshot.data;
-                  return ProgressBar(
-                    barHeight: 8,
-                    baseBarColor: Colors.black,
-                    bufferedBarColor: Colors.grey,
-                    progressBarColor: Colors.red,
-                    thumbColor: Colors.red,
-                    timeLabelTextStyle: const TextStyle(
-                      color: Colors.grey,
-                    ),
-                    progress: positionData?.position ?? Duration.zero,
-                    buffered: positionData?.bufferedPosition ?? Duration.zero,
-                    total: positionData?.duration ?? Duration.zero,
-                    onSeek: openingState.getPlayer.seek,
-                  );
                 },
               ),
-            ),
-            Controls(player: openingState.getPlayer),
-          ],
+              Padding(
+                padding: const EdgeInsets.fromLTRB(60, 30, 60, 0),
+                child: StreamBuilder<PositionData>(
+                  stream: _positionDataStream,
+                  builder: (context, snapshot) {
+                    final positionData = snapshot.data;
+                    return ProgressBar(
+                      barHeight: 8,
+                      baseBarColor: Colors.black,
+                      bufferedBarColor: Colors.grey,
+                      progressBarColor: Colors.red,
+                      thumbColor: Colors.red,
+                      timeLabelTextStyle: const TextStyle(
+                        color: Colors.grey,
+                      ),
+                      progress: positionData?.position ?? Duration.zero,
+                      buffered: positionData?.bufferedPosition ?? Duration.zero,
+                      total: positionData?.duration ?? Duration.zero,
+                      onSeek: openingState.getPlayer.seek,
+                    );
+                  },
+                ),
+              ),
+              Controls(player: openingState.getPlayer),
+            ],
+          ),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

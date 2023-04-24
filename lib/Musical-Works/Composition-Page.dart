@@ -1,4 +1,5 @@
 import 'package:artifact/bottom_navigation_bar/bottom_button_bar.dart';
+import 'package:artifact/common_ui_components/default_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:artifact/bottom_navigation_bar/circular_dial_menu.dart';
 import 'package:artifact/Musical-Works/Composition.dart';
@@ -12,14 +13,9 @@ class CompScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: DefaultAppBar.build(context),
       backgroundColor: const Color.fromRGBO(196, 236, 249, 1),
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        iconTheme: IconThemeData(
-          color: Colors.black,
-        ),
-      ),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[

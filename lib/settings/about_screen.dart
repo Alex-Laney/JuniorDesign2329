@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../common_ui_components/default_app_bar.dart';
+
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
 
@@ -10,13 +12,7 @@ class AboutScreen extends StatelessWidget {
     );
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        leading: BackButton(color: Colors.black),
-        backgroundColor: Colors.transparent,
-        surfaceTintColor: Colors.transparent,
-        elevation: 0,
-        scrolledUnderElevation: 0,
-      ),
+      appBar: DefaultAppBar.build(context),
       backgroundColor: const Color.fromRGBO(255, 214, 153, 1),
       body: SafeArea(
         child: ListView(

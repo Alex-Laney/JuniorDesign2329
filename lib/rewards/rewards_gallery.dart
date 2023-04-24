@@ -97,23 +97,28 @@ class _GalleryState extends State<GalleryScreen> {
     List<Widget> rewardList = [];
     for (i = 0; i < unlocked.length; i += 3) {
       rewardList.add(
-          Row(mainAxisAlignment: MainAxisAlignment.center, children: <Widget>[
-        widgetList[i],
-        SizedBox(width: 10),
-        widgetList[i + 1],
-        SizedBox(width: 10),
-        widgetList[i + 2],
-      ]));
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            widgetList[i],
+            SizedBox(width: 10),
+            widgetList[i + 1],
+            SizedBox(width: 10),
+            widgetList[i + 2],
+          ],
+        ),
+      );
       rewardList.add(SizedBox(height: 10));
     }
     ListView rewardsView = ListView.builder(
-            shrinkWrap: true,
-            scrollDirection: Axis.vertical,
-            //padding: const EdgeInsets.all(20.0),
-            itemCount: rewardList.length,
-            itemBuilder: (context, position) {
-              return rewardList[position];
-            });
+      shrinkWrap: true,
+      scrollDirection: Axis.vertical,
+      //padding: const EdgeInsets.all(20.0),
+      itemCount: rewardList.length,
+      itemBuilder: (context, position) {
+        return rewardList[position];
+      },
+    );
     return Scaffold(
       backgroundColor: const Color.fromRGBO(225, 255, 195, 1),
       body: Column(
@@ -139,8 +144,9 @@ class _GalleryState extends State<GalleryScreen> {
             ),
           ),
           Padding(
-              padding: EdgeInsets.symmetric(horizontal: 25),
-              child: rewardsView),
+            padding: EdgeInsets.symmetric(horizontal: 25),
+            child: rewardsView,
+          ),
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

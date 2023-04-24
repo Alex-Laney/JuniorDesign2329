@@ -17,7 +17,10 @@ class MCQuestion extends QuizQuestion {
       style: OutlinedButton.styleFrom(
         backgroundColor: Color.fromRGBO(255, 255, 255, 1.0),
         foregroundColor: Color.fromRGBO(0, 0, 0, 1.0),
-        side: BorderSide(width: 5.0, color: Color.fromRGBO(194, 232, 139, 1.0)),
+        side: BorderSide(
+          width: 5.0,
+          color: Color.fromRGBO(194, 232, 139, 1.0),
+        ),
         elevation: 5,
         //fixedSize: Size:,
       ),
@@ -63,7 +66,10 @@ class MCQuestion extends QuizQuestion {
                   ),
                 ),
               ),
-              Text(question, style: const TextStyle(fontSize: 20)),
+              Text(
+                question,
+                style: const TextStyle(fontSize: 20),
+              ),
               const SizedBox(height: 20),
               ListView.builder(
                 shrinkWrap: true,
