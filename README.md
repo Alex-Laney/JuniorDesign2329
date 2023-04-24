@@ -5,7 +5,7 @@ The purpose of this mobile application, Notes on the Note Makers, will be to rai
 - [V1.0.0 Release Notes](https://github.com/Alex-Laney/JuniorDesign2329#notes-on-the-note-makers-version-100-release-notes)
   - [New Software Features](https://github.com/Alex-Laney/JuniorDesign2329#new-software-features)
   - [Bug Fixes](https://github.com/Alex-Laney/JuniorDesign2329#bug-fixes)
-  - [Known Bugg/Defects](https://github.com/Alex-Laney/JuniorDesign2329#known-bugsdefects)
+  - [Known Bug/Defects](https://github.com/Alex-Laney/JuniorDesign2329#known-bugsdefects)
 - [Installation Guide](https://github.com/Alex-Laney/JuniorDesign2329#installation-guide-for-notes-on-the-note-makers)
   - [Pre-requisites](https://github.com/Alex-Laney/JuniorDesign2329#pre-requisites)
   - [Dependent Libraries](https://github.com/Alex-Laney/JuniorDesign2329#dependent-libraries)
