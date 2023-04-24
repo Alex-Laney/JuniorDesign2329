@@ -112,7 +112,7 @@ To clone the repository using Git, run the following command in a terminal:
 git clone https://github.com/Alex-Laney/JuniorDesign2329.git
 ```
 
-To download a ZIP file of the latest version, go to the project page on GitHub and click on the “Code” button. Then select “Download ZIP” from the dropdown menu. Save the file to your desired location and extract it.
+To download a ZIP file of the latest version, go to the [project page](https://github.com/Alex-Laney/JuniorDesign2329) on GitHub and click on the “Code” button. Then select “Download ZIP” from the dropdown menu. Save the file to your desired location and extract it.
 
 ## Build Instructions
 
