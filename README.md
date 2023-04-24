@@ -1,6 +1,11 @@
 # Notes on the Note Makers
 The purpose of this mobile application, Notes on the Note Makers, will be to raise awareness and to educate teens and young adults about the classical composers and their important works, as well as introducing them to basic musical terms found in classical pieces and broaden the user’s general knowledge of music. 
 
+# Documentation
+- [V1.0.0 Release Notes](https://github.com/Alex-Laney/JuniorDesign2329#notes-on-the-note-makers-version-100-release-notes)
+- [Installation Guide](https://github.com/Alex-Laney/JuniorDesign2329#installation-guide-for-notes-on-the-note-makers)
+- [Past Release Notes](https://github.com/Alex-Laney/JuniorDesign2329#past-release-notes)
+
 # Notes on the Note Makers Version 1.0.0 Release Notes
 ### New Software Features
 - Added main screen for the Composers module
@@ -120,7 +125,7 @@ For Android, you need to create an app icon, configure an application ID, genera
 
 ## Installation of Actual Application
 
-To install the Flutter mobile application on your device or emulator, you need to transfer the binary file that you built in the previous step ([<ins>Build Instructions</ins>](https://github.com/Alex-Laney/JuniorDesign2329/main/README.md#build-instructions)).
+To install the Flutter mobile application on your device or emulator, you need to transfer the binary file that you built in the previous step ([<ins>Build Instructions</ins>](https://github.com/Alex-Laney/JuniorDesign2329#build-instructions)).
 
 For iOS, you can use Xcode or iTunes to install your app on your device. You can also use TestFlight to distribute your app to testers. Refer [<ins>here</ins>](https://docs.flutter.dev/deployment/ios) for more details.
 
