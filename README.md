@@ -18,7 +18,7 @@ The purpose of this mobile application, Notes on the Note Makers, will be to rai
 - [Past Release Notes](https://github.com/Alex-Laney/JuniorDesign2329#past-release-notes)
 
 # Notes on the Note Makers Version 1.0.0 Release Notes
-### New Software Features
+## New Software Features
 - Added main screen for the Composers module
 - Added main screen for the Musical Terms module
 - Added main screen for the Musical Works module
@@ -57,7 +57,7 @@ The purpose of this mobile application, Notes on the Note Makers, will be to rai
 - Added functionality to earn reward points from Quizzes
 - Added ability to purchase rewards
 - Added 8 reward images to be purchased
-### Bug Fixes
+## Bug Fixes
 - 'Linkable interface' has been implemented as a fix to the problem where terms could not be accessed outside of the 'Terms' module
 - Sliver List functionality has been removed from the 'Works' module viewing list, and has been replaced with a standard 'safe zone' as used in the 'Terms' module
 - The code for the Floating Action Button had been accidentally copied twice into the Musical-Terms.dart file and has been remediated
@@ -69,7 +69,7 @@ The purpose of this mobile application, Notes on the Note Makers, will be to rai
 - Some background images have been added to fill dead space
 - Back buttons are static across the app now, they were all over the place before
 - “bufferoverflow” bugs were prevalent on smaller devices, but those are remediated now
-### Known Bugs/Defects
+## Known Bugs/Defects
 - Text does not scale universally. In that, in theory it is possible for a mobile device to have a screen small enough to cause the text to overwhelm the screen as to where the app is no longer usable. We tested on the smallest modern phones possible such that this should not be a large issue, but it is known.
 - The mute button has two known defects: one is that it does not store your selection between uses of the app, and the other is that the symbol is that of the opposite of what is happening. In that, if the app is muted it shows a “sound on” button, as though to say that pressing the button puts the sound on. We are aware that this may not be clear to the user.
 - A known defect is that the home page will attach itself to the top of your screen, which can look odd on taller screens with a large empty space at the bottom. 
