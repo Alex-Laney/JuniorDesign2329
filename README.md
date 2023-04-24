@@ -73,8 +73,8 @@ The purpose of this mobile application, Notes on the Note Makers, will be to rai
 - Text does not scale universally. In that, in theory it is possible for a mobile device to have a screen small enough to cause the text to overwhelm the screen as to where the app is no longer usable. We tested on the smallest modern phones possible such that this should not be a large issue, but it is known.
 - The mute button has two known defects: one is that it does not store your selection between uses of the app, and the other is that the symbol is that of the opposite of what is happening. In that, if the app is muted it shows a “sound on” button, as though to say that pressing the button puts the sound on. We are aware that this may not be clear to the user.
 - A known defect is that the home page will attach itself to the top of your screen, which can look odd on taller screens with a large empty space at the bottom. 
-# Installation Guide for Notes on the Note Makers
 
+# Installation Guide for Notes on the Note Makers
 ## Pre-requisites
 
 Before you can install and run Notes on the Note Makers, you need to have the following software and hardware:
